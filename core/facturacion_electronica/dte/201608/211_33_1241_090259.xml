@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<EnvioDTE xmlns="http://www.sii.cl/SiiDte" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sii.cl/SiiDte EnvioDTE_v10.xsd" version="1.0">
+  <SetDTE ID="SetDoc">
+    <Caratula version="1.0">
+      <RutEmisor>77748100-2</RutEmisor>
+      <RutEnvia>3615086-6</RutEnvia>
+      <RutReceptor>60803000-K</RutReceptor>
+      <FchResol>2014-08-22</FchResol>
+      <NroResol>80</NroResol>
+      <TmstFirmaEnv>2016-08-17T09:02:59</TmstFirmaEnv>
+      <SubTotDTE>
+        <TpoDTE>33</TpoDTE>
+        <NroDTE>1</NroDTE>
+      </SubTotDTE>
+    </Caratula>
+    <DTE version="1.0">
+  <Documento ID="T33F211">
+    <Encabezado>
+      <IdDoc>
+        <TipoDTE>33</TipoDTE>
+        <Folio>211</Folio>
+        <FchEmis>2016-08-17</FchEmis>
+      </IdDoc>
+      <Emisor>
+        <RUTEmisor>77748100-2</RUTEmisor>
+        <RznSoc>SOC COM DE TRANSP INDUST Y DE INVERS VIBRADOS CHILE LIMITADA</RznSoc>
+        <GiroEmis>Venta al por menor de articulos de Ferreteria  Fono: 732321100   mail: infovibra</GiroEmis>
+        <Acteco>523410</Acteco>
+        <DirOrigen>Cienfuegos 1595  Suc: Ruta 5 Sur Km 277 Cruce Pangal</DirOrigen>
+        <CmnaOrigen>SAN JAVIER</CmnaOrigen>
+      </Emisor>
+      <Receptor>
+        <RUTRecep>16542403-4</RUTRecep>
+        <RznSocRecep>LUIS REVELINO ALARCON NUNEZ</RznSocRecep>
+        <GiroRecep>FABRICACIÓN DE OTROS PRODUCTOS ELABORAD</GiroRecep>
+        <DirRecep>ORILLA DE MAULE KM 13 </DirRecep>
+        <CmnaRecep>YERBAS BUENAS</CmnaRecep>
+      </Receptor>
+      <Totales>
+        <MntNeto>88860</MntNeto>
+        <TasaIVA>19</TasaIVA>
+        <IVA>16883</IVA>
+        <MntTotal>105743</MntTotal>
+      </Totales>
+    </Encabezado>
+    <Detalle>
+      <NroLinDet>1</NroLinDet>
+      <NmbItem>CONDUIT T-III 16mmx3MT TI                    </NmbItem>
+      <QtyItem>15.00</QtyItem>
+      <PrcItem>361</PrcItem>
+      <MontoItem>5420</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>2</NroLinDet>
+      <NmbItem>CURVA 90øCONDUIT 16mm TIG                    </NmbItem>
+      <QtyItem>30.00</QtyItem>
+      <PrcItem>100</PrcItem>
+      <MontoItem>3025</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>3</NroLinDet>
+      <NmbItem>CAJA EMB.16-20 GRIS-NEGRO MEC                </NmbItem>
+      <QtyItem>18.00</QtyItem>
+      <PrcItem>151</PrcItem>
+      <MontoItem>2723</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>4</NroLinDet>
+      <NmbItem>ALAMBRE NYA 2,5mm BLANCO                     </NmbItem>
+      <QtyItem>35.00</QtyItem>
+      <PrcItem>151</PrcItem>
+      <MontoItem>5294</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>5</NroLinDet>
+      <NmbItem>ALAMBRE NYA 2,5mm ROJO                       </NmbItem>
+      <QtyItem>35.00</QtyItem>
+      <PrcItem>151</PrcItem>
+      <MontoItem>5294</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>6</NroLinDet>
+      <NmbItem>ALAMBRE NYA 2,5mm VERDE                      </NmbItem>
+      <QtyItem>35.00</QtyItem>
+      <PrcItem>151</PrcItem>
+      <MontoItem>5294</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>7</NroLinDet>
+      <NmbItem>ALAMBRE NYA 1,5mm ROJO                       </NmbItem>
+      <QtyItem>45.00</QtyItem>
+      <PrcItem>100</PrcItem>
+      <MontoItem>4538</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>8</NroLinDet>
+      <NmbItem>ALAMBRE NYA 1,5mm BLANCO                     </NmbItem>
+      <QtyItem>30.00</QtyItem>
+      <PrcItem>100</PrcItem>
+      <MontoItem>3025</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>9</NroLinDet>
+      <NmbItem>CINTA AISLAD.20M NEGRA 3M                    </NmbItem>
+      <QtyItem>2.00</QtyItem>
+      <PrcItem>1252</PrcItem>
+      <MontoItem>2504</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>10</NroLinDet>
+      <NmbItem>ABRAZADERA MET.5/8" C/OREJA                  </NmbItem>
+      <QtyItem>100.00</QtyItem>
+      <PrcItem>25</PrcItem>
+      <MontoItem>2521</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>11</NroLinDet>
+      <NmbItem>CLAVO CORRIENTE 1 1/2" INCHALAM              </NmbItem>
+      <QtyItem>0.50</QtyItem>
+      <PrcItem>1084</PrcItem>
+      <MontoItem>542</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>12</NroLinDet>
+      <NmbItem>ALAMBRE CALECO 3x2,5mm                       </NmbItem>
+      <QtyItem>8.00</QtyItem>
+      <PrcItem>789</PrcItem>
+      <MontoItem>6319</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>13</NroLinDet>
+      <NmbItem>CALOT.PVC SOBR.C/SOP.DIN BCA                 </NmbItem>
+      <QtyItem>1.00</QtyItem>
+      <PrcItem>773</PrcItem>
+      <MontoItem>773</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>14</NroLinDet>
+      <NmbItem>AUTOMAT.20A C/RIEL BTICINO                   </NmbItem>
+      <QtyItem>1.00</QtyItem>
+      <PrcItem>1672</PrcItem>
+      <MontoItem>1672</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>15</NroLinDet>
+      <NmbItem>DIFEREN.2x25A 6625 SAIME                     </NmbItem>
+      <QtyItem>1.00</QtyItem>
+      <PrcItem>7975</PrcItem>
+      <MontoItem>7975</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>16</NroLinDet>
+      <NmbItem>AUTOMAT.16A C/RIEL BTICINO                   </NmbItem>
+      <QtyItem>2.00</QtyItem>
+      <PrcItem>1672</PrcItem>
+      <MontoItem>3345</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>17</NroLinDet>
+      <NmbItem>PUNTA TALADRO CRUZ TIN.PH2x25mm FEL          </NmbItem>
+      <QtyItem>3.00</QtyItem>
+      <PrcItem>1058</PrcItem>
+      <MontoItem>3176</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>18</NroLinDet>
+      <NmbItem>PL ZINC GAL.LISO 035x3MT                     </NmbItem>
+      <QtyItem>3.00</QtyItem>
+      <PrcItem>5966</PrcItem>
+      <MontoItem>17899</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>19</NroLinDet>
+      <NmbItem>LAPIZ CARPINTERO LYRA/FABER                  </NmbItem>
+      <QtyItem>1.00</QtyItem>
+      <PrcItem>798</PrcItem>
+      <MontoItem>798</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>20</NroLinDet>
+      <NmbItem>TORNILLO VOLC.CRS 6X1 1/4 X CAJA (1000)          </NmbItem>
+      <QtyItem>1.00</QtyItem>
+      <PrcItem>6723</PrcItem>
+      <MontoItem>6723</MontoItem>
+    </Detalle>
+    <TED version="1.0">
+  <DD>
+    <RE>77748100-2</RE>
+    <TD>33</TD>
+    <F>211</F>
+    <FE>2016-08-17</FE>
+    <RR>16542403-4</RR>
+    <RSR>LUIS REVELINO ALARCON NUNEZ</RSR>
+    <MNT>105743</MNT>
+    <IT1>CONDUIT T-III 16mmx3MT TI               </IT1>
+    <CAF version="1.0">
+<DA>
+<RE>77748100-2</RE>
+<RS>SOC COM DE TRANSP INDUST Y DE INVERS VIB</RS>
+<TD>33</TD>
+<RNG><D>1</D><H>1400</H></RNG>
+<FA>2016-08-05</FA>
+<RSAPK><M>vATV3PWobLnIU1vVeHRAv7XhHp0EIfOGntSNsJ8Y4GPqSZvjfktKnR5SqdR8vApojZzxZ2HrUGI7fakff9hybw==</M><E>Aw==</E></RSAPK>
+<IDK>300</IDK>
+</DA>
+<FRMA algoritmo="SHA1withRSA">KAOFDPci4cikJaWgnJ8/K1tgsjoSG0UKewo6M4w53bceABYZ3NUk1miGkbzqrxIZ2JkxTez7iJ4y0eOt14nwwg==</FRMA>
+</CAF>
+    <TSTED>2016-08-17T09:02:59</TSTED>
+  </DD>
+  <FRMT algoritmo="SHA1withRSA">dMoq0fsaFDa/W+kMiapOb7aSosLU9egpfU02biNwUUIR9sw+jpKG/nAV1BcDd4Wbk6Oa6shdI8h1hPfuJ1atKw==</FRMT>
+</TED>
+  <TmstFirma>2016-08-17T09:02:59</TmstFirma></Documento>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#"><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI="#T33F211"><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>B3THQkHHjF/PWRuwEl6YTv+4I88=</DigestValue></Reference></SignedInfo><SignatureValue>WwpHs66qb6rKbc+yeVHKQroCCCUD++e1QfJG2xm4tOFe3UB9/BRK8opyHQ2Tr5M7
+j2BWz3NK4q0jgVpI5I934DA1oX17RPDQg/w07xVq/StZ74hV6B5BYrgAuy/SD2rH
+b3wnJ9xdGACGukG94t/1SPpAlKXVni7MNnvGOQ/H0EgDdbYHkHis9FP/p7pneNqp
+JT8whudcvBW4PiXrP5Pj8pl9GOePlRjYVC2kdTZn1qAASPrApSNea8of7Y6tZY//
+BFiuuQAQFdd+m4Ti02C8O1tUPvFEJDsx/GlAjcaOtnIyStS3Jr0YdDF5CpNrR6Cs
+yStABlJ9qfv2GG1KTtjS8g==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>1E+JkMFO8vGBrEVQAuNy6j1cjrl/zZRoxNE/TFvUoTOowhVCxm7IL0wR3KJ3FuYD
+D+2fJ+/uGaPywU/ydZzlx6Dl+1IkjeVJ7G1FmXMmQZ/XmQV7zTRWeL3+qtbfq5Nn
+x2BpS5scdWZ7zxVL0aYNO0+LnmnwAbn5ese2AxG0+KSbTEcpT2D1bIGsDxWDzhRq
+jlYe2HaR4hP/lWZkeStDscStCJE+ENB0Ko2qioEzohV4zqzH9Mhe4ht1jbSDu/U9
+EsyFM5krU/1wT6UnoWjrExPuHnN5U2xZSNu11gQpp13zGlfCC9rtcFmLxdrPUWay
+N4QPT0qVjMBa+SNQ8Ouxpw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIF1jCCBL6gAwIBAgICZ34wDQYJKoZIhvcNAQEFBQAwgaYxCzAJBgNVBAYTAkNM
+MRgwFgYDVQQKEw9BY2VwdGEuY29tIFMuQS4xSDBGBgNVBAMTP0FjZXB0YS5jb20g
+QXV0b3JpZGFkIENlcnRpZmljYWRvcmEgQ2xhc2UgMiBQZXJzb25hIE5hdHVyYWwg
+LSBHMzEeMBwGCSqGSIb3DQEJARYPaW5mb0BhY2VwdGEuY29tMRMwEQYDVQQFEwo5
+NjkxOTA1MC04MB4XDTE2MDcxODE5MzA1MVoXDTE5MDcxODE5MzA1MVowgYYxCzAJ
+BgNVBAYTAkNMMRgwFgYDVQQMEw9QRVJTT05BIE5BVFVSQUwxIjAgBgNVBAMTGVZJ
+VEVSQk8gQkFSUklFTlRPUyBBWk9DQVIxJTAjBgkqhkiG9w0BCQEWFklORk9WSUJS
+QURPU0BHTUFJTC5DT00xEjAQBgNVBAUTCTM2MTUwODYtNjCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBANRPiZDBTvLxgaxFUALjcuo9XI65f82UaMTRP0xb
+1KEzqMIVQsZuyC9MEdyidxbmAw/tnyfv7hmj8sFP8nWc5ceg5ftSJI3lSextRZlz
+JkGf15kFe800Vni9/qrW36uTZ8dgaUubHHVme88VS9GmDTtPi55p8AG5+XrHtgMR
+tPikm0xHKU9g9WyBrA8Vg84Uao5WHth2keIT/5VmZHkrQ7HErQiRPhDQdCqNqoqB
+M6IVeM6sx/TIXuIbdY20g7v1PRLMhTOZK1P9cE+lJ6Fo6xMT7h5zeVNsWUjbtdYE
+Kadd8xpXwgva7XBZi8Xaz1FmsjeED09KlYzAWvkjUPDrsacCAwEAAaOCAiowggIm
+MB8GA1UdIwQYMBaAFEAkGj2pMXqFd3o9nnKTOYTlQDgZMB0GA1UdDgQWBBR8VdNA
+sAkYc3h1hQJjOw4gG1G67TALBgNVHQ8EBAMCBPAwHQYDVR0lBBYwFAYIKwYBBQUH
+AwIGCCsGAQUFBwMEMBEGCWCGSAGG+EIBAQQEAwIFoDBuBgNVHSAEZzBlMGMGCisG
+AQQBtWuHagowVTAoBggrBgEFBQcCARYcaHR0cDovL3d3dy5hY2VwdGEuY29tL0NQ
+Uy1HMzApBggrBgEFBQcCAjAdMBYWD0FjZXB0YS5jb20gUy5BLjADAgEJGgNUQkQw
+WgYDVR0SBFMwUaAYBggrBgEEAcEBAqAMFgo5NjkxOTA1MC04oCQGCCsGAQUFBwgD
+oBgwFgwKOTY5MTkwNTAtOAYIKwYBBAHBAQKBD2luZm9AYWNlcHRhLmNvbTBfBgNV
+HREEWDBWoBcGCCsGAQQBwQEBoAsWCTM2MTUwODYtNqAjBggrBgEFBQcIA6AXMBUM
+CTM2MTUwODYtNgYIKwYBBAHBAQKBFklORk9WSUJSQURPU0BHTUFJTC5DT00wPwYI
+KwYBBQUHAQEEMzAxMC8GCCsGAQUFBzABhiNodHRwOi8vb2NzcC5hY2VwdGEuY29t
+L0NsYXNlM0Jpby1HMzA3BgNVHR8EMDAuMCygKqAohiZodHRwOi8vY3JsLmFjZXB0
+YS5jb20vQ2xhc2UzQmlvLUczLmNybDANBgkqhkiG9w0BAQUFAAOCAQEA5glFPIYl
+U46mZopX2UZMbpycGXBOOldQvn4mSHaOIadwqoS3MS2zKq6yNYyStzBw8/V7zzOB
+C/PR2xXKLZ0F0RvsorvaYen9UJexIw9jqYeBaoJouzIWxngDmJ88NjIM8i2Nq8Dj
+0dTX5to8y5z3+j2IErIt1PS4/FPU8ijq9vLBRG+QIbPlvvlejksxQss+crENQ6yB
+SrVN5o0wylC+bQ8/d1Tw/DZubHthEZ4ZEx0VpNbh/yO8nfLJ53k/gejAUDXubc5v
+3kepNlruRPiJtwFuxDyorJAHVBlRLqraORuHd/NM5m/9DrSXIox+PHOw7xfCmHI9
+mrPfGW7p6Y6JNQ==</X509Certificate></X509Data></KeyInfo></Signature></DTE>
+  </SetDTE>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI="#SetDoc"><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>vHrXdeP50L5hqnIgZYJN7g6wYLM=</DigestValue></Reference></SignedInfo><SignatureValue>apkcy0niM4aCLtxFAE9rG/YQd+EIgoH4YnkvlnqMPphOQ3fGPWggostjoWUrT61S
+tdvDQa977UuAaeCWQa9U+TJtNXQwEYAPgBjxfQhY7PFJ7qaPmuqPf+vp+ghFElAy
+EZ2ufJ0H9hE7zkiazwYYoAOm0304R2akmnn4ECzFZUNu4g4IJvpevcBh5Oq9ILwO
+FFRcnaAf4AzU2S4rnXGI5Yuj5ee0dwYAXH/rkvTr4U7rFYvYTQZ2S9Mfq9yg6UQT
+ya7ADc4XfQd4HRJiIjvImCt/EfZe7hH2cnI2Cmv/F3gnnqsn7VKYGANMyH0rSsu0
+12JGbYLXR0AOZ7V+GmFOnQ==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>1E+JkMFO8vGBrEVQAuNy6j1cjrl/zZRoxNE/TFvUoTOowhVCxm7IL0wR3KJ3FuYD
+D+2fJ+/uGaPywU/ydZzlx6Dl+1IkjeVJ7G1FmXMmQZ/XmQV7zTRWeL3+qtbfq5Nn
+x2BpS5scdWZ7zxVL0aYNO0+LnmnwAbn5ese2AxG0+KSbTEcpT2D1bIGsDxWDzhRq
+jlYe2HaR4hP/lWZkeStDscStCJE+ENB0Ko2qioEzohV4zqzH9Mhe4ht1jbSDu/U9
+EsyFM5krU/1wT6UnoWjrExPuHnN5U2xZSNu11gQpp13zGlfCC9rtcFmLxdrPUWay
+N4QPT0qVjMBa+SNQ8Ouxpw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIF1jCCBL6gAwIBAgICZ34wDQYJKoZIhvcNAQEFBQAwgaYxCzAJBgNVBAYTAkNM
+MRgwFgYDVQQKEw9BY2VwdGEuY29tIFMuQS4xSDBGBgNVBAMTP0FjZXB0YS5jb20g
+QXV0b3JpZGFkIENlcnRpZmljYWRvcmEgQ2xhc2UgMiBQZXJzb25hIE5hdHVyYWwg
+LSBHMzEeMBwGCSqGSIb3DQEJARYPaW5mb0BhY2VwdGEuY29tMRMwEQYDVQQFEwo5
+NjkxOTA1MC04MB4XDTE2MDcxODE5MzA1MVoXDTE5MDcxODE5MzA1MVowgYYxCzAJ
+BgNVBAYTAkNMMRgwFgYDVQQMEw9QRVJTT05BIE5BVFVSQUwxIjAgBgNVBAMTGVZJ
+VEVSQk8gQkFSUklFTlRPUyBBWk9DQVIxJTAjBgkqhkiG9w0BCQEWFklORk9WSUJS
+QURPU0BHTUFJTC5DT00xEjAQBgNVBAUTCTM2MTUwODYtNjCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBANRPiZDBTvLxgaxFUALjcuo9XI65f82UaMTRP0xb
+1KEzqMIVQsZuyC9MEdyidxbmAw/tnyfv7hmj8sFP8nWc5ceg5ftSJI3lSextRZlz
+JkGf15kFe800Vni9/qrW36uTZ8dgaUubHHVme88VS9GmDTtPi55p8AG5+XrHtgMR
+tPikm0xHKU9g9WyBrA8Vg84Uao5WHth2keIT/5VmZHkrQ7HErQiRPhDQdCqNqoqB
+M6IVeM6sx/TIXuIbdY20g7v1PRLMhTOZK1P9cE+lJ6Fo6xMT7h5zeVNsWUjbtdYE
+Kadd8xpXwgva7XBZi8Xaz1FmsjeED09KlYzAWvkjUPDrsacCAwEAAaOCAiowggIm
+MB8GA1UdIwQYMBaAFEAkGj2pMXqFd3o9nnKTOYTlQDgZMB0GA1UdDgQWBBR8VdNA
+sAkYc3h1hQJjOw4gG1G67TALBgNVHQ8EBAMCBPAwHQYDVR0lBBYwFAYIKwYBBQUH
+AwIGCCsGAQUFBwMEMBEGCWCGSAGG+EIBAQQEAwIFoDBuBgNVHSAEZzBlMGMGCisG
+AQQBtWuHagowVTAoBggrBgEFBQcCARYcaHR0cDovL3d3dy5hY2VwdGEuY29tL0NQ
+Uy1HMzApBggrBgEFBQcCAjAdMBYWD0FjZXB0YS5jb20gUy5BLjADAgEJGgNUQkQw
+WgYDVR0SBFMwUaAYBggrBgEEAcEBAqAMFgo5NjkxOTA1MC04oCQGCCsGAQUFBwgD
+oBgwFgwKOTY5MTkwNTAtOAYIKwYBBAHBAQKBD2luZm9AYWNlcHRhLmNvbTBfBgNV
+HREEWDBWoBcGCCsGAQQBwQEBoAsWCTM2MTUwODYtNqAjBggrBgEFBQcIA6AXMBUM
+CTM2MTUwODYtNgYIKwYBBAHBAQKBFklORk9WSUJSQURPU0BHTUFJTC5DT00wPwYI
+KwYBBQUHAQEEMzAxMC8GCCsGAQUFBzABhiNodHRwOi8vb2NzcC5hY2VwdGEuY29t
+L0NsYXNlM0Jpby1HMzA3BgNVHR8EMDAuMCygKqAohiZodHRwOi8vY3JsLmFjZXB0
+YS5jb20vQ2xhc2UzQmlvLUczLmNybDANBgkqhkiG9w0BAQUFAAOCAQEA5glFPIYl
+U46mZopX2UZMbpycGXBOOldQvn4mSHaOIadwqoS3MS2zKq6yNYyStzBw8/V7zzOB
+C/PR2xXKLZ0F0RvsorvaYen9UJexIw9jqYeBaoJouzIWxngDmJ88NjIM8i2Nq8Dj
+0dTX5to8y5z3+j2IErIt1PS4/FPU8ijq9vLBRG+QIbPlvvlejksxQss+crENQ6yB
+SrVN5o0wylC+bQ8/d1Tw/DZubHthEZ4ZEx0VpNbh/yO8nfLJ53k/gejAUDXubc5v
+3kepNlruRPiJtwFuxDyorJAHVBlRLqraORuHd/NM5m/9DrSXIox+PHOw7xfCmHI9
+mrPfGW7p6Y6JNQ==</X509Certificate></X509Data></KeyInfo></Signature></EnvioDTE>

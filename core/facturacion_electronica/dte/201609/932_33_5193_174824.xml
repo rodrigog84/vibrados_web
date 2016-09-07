@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<EnvioDTE xmlns="http://www.sii.cl/SiiDte" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sii.cl/SiiDte EnvioDTE_v10.xsd" version="1.0">
+  <SetDTE ID="SetDoc">
+    <Caratula version="1.0">
+      <RutEmisor>77748100-2</RutEmisor>
+      <RutEnvia>3615086-6</RutEnvia>
+      <RutReceptor>60803000-K</RutReceptor>
+      <FchResol>2014-08-22</FchResol>
+      <NroResol>80</NroResol>
+      <TmstFirmaEnv>2016-09-05T17:48:24</TmstFirmaEnv>
+      <SubTotDTE>
+        <TpoDTE>33</TpoDTE>
+        <NroDTE>1</NroDTE>
+      </SubTotDTE>
+    </Caratula>
+    <DTE version="1.0">
+  <Documento ID="T33F932">
+    <Encabezado>
+      <IdDoc>
+        <TipoDTE>33</TipoDTE>
+        <Folio>932</Folio>
+        <FchEmis>2016-09-05</FchEmis>
+      </IdDoc>
+      <Emisor>
+        <RUTEmisor>77748100-2</RUTEmisor>
+        <RznSoc>SOC COM DE TRANSP INDUST Y DE INVERS VIBRADOS CHILE LIMITADA</RznSoc>
+        <GiroEmis>Venta al por menor de articulos de Ferreteria  Fono: 732321100   mail: infovibra</GiroEmis>
+        <Acteco>523410</Acteco>
+        <DirOrigen>Cienfuegos 1595  Suc: Ruta 5 Sur Km 277 Cruce Pangal</DirOrigen>
+        <CmnaOrigen>SAN JAVIER</CmnaOrigen>
+      </Emisor>
+      <Receptor>
+        <RUTRecep>76178382-3</RUTRecep>
+        <RznSocRecep>OBRAS CIVILESEDUARDO MAURICIO AREVALO P</RznSocRecep>
+        <GiroRecep>OBRAS MENORES EN CONSTRUCCION (CONTRATIS</GiroRecep>
+        <DirRecep>JOSE MANZO DE VELASCO 366 OF-402</DirRecep>
+        <CmnaRecep>LOS ANGELES</CmnaRecep>
+      </Receptor>
+      <Totales>
+        <MntNeto>66664</MntNeto>
+        <TasaIVA>19</TasaIVA>
+        <IVA>12666</IVA>
+        <MntTotal>79330</MntTotal>
+      </Totales>
+    </Encabezado>
+    <Detalle>
+      <NroLinDet>1</NroLinDet>
+      <NmbItem>TINETA P/MURO EXT.TR-1 IRIS                  </NmbItem>
+      <QtyItem>1.00</QtyItem>
+      <PrcItem>20571</PrcItem>
+      <MontoItem>20571</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>2</NroLinDet>
+      <NmbItem>RODILLO ESPONJA 7" 180mm HELA                </NmbItem>
+      <QtyItem>3.00</QtyItem>
+      <PrcItem>1974</PrcItem>
+      <MontoItem>5924</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>3</NroLinDet>
+      <NmbItem>BROCHA ECOSA 3"                              </NmbItem>
+      <QtyItem>3.00</QtyItem>
+      <PrcItem>1084</PrcItem>
+      <MontoItem>3252</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>4</NroLinDet>
+      <NmbItem>ACIDO MURIATICO 1LT                          </NmbItem>
+      <QtyItem>3.00</QtyItem>
+      <PrcItem>605</PrcItem>
+      <MontoItem>1815</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>5</NroLinDet>
+      <NmbItem>BEKRON 25KG OFERTA                           </NmbItem>
+      <QtyItem>3.00</QtyItem>
+      <PrcItem>1840</PrcItem>
+      <MontoItem>5521</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>6</NroLinDet>
+      <NmbItem>SIKADUR 32 GEL x JUEGO 1kg.                  </NmbItem>
+      <QtyItem>2.00</QtyItem>
+      <PrcItem>9622</PrcItem>
+      <MontoItem>19244</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>7</NroLinDet>
+      <NmbItem>DILUYENTE SINTETI.ENV.1LT                    </NmbItem>
+      <QtyItem>2.00</QtyItem>
+      <PrcItem>1134</PrcItem>
+      <MontoItem>2269</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>8</NroLinDet>
+      <NmbItem>ACEITE LINOLIN ENV.1 LT                      </NmbItem>
+      <QtyItem>4.00</QtyItem>
+      <PrcItem>2016</PrcItem>
+      <MontoItem>8067</MontoItem>
+    </Detalle>
+    <TED version="1.0">
+  <DD>
+    <RE>77748100-2</RE>
+    <TD>33</TD>
+    <F>932</F>
+    <FE>2016-09-05</FE>
+    <RR>76178382-3</RR>
+    <RSR>OBRAS CIVILESEDUARDO MAURICIO AREVALO P</RSR>
+    <MNT>79330</MNT>
+    <IT1>TINETA P/MURO EXT.TR-1 IRIS</IT1>
+    <CAF version="1.0">
+<DA>
+<RE>77748100-2</RE>
+<RS>SOC COM DE TRANSP INDUST Y DE INVERS VIB</RS>
+<TD>33</TD>
+<RNG><D>1</D><H>1400</H></RNG>
+<FA>2016-08-05</FA>
+<RSAPK><M>vATV3PWobLnIU1vVeHRAv7XhHp0EIfOGntSNsJ8Y4GPqSZvjfktKnR5SqdR8vApojZzxZ2HrUGI7fakff9hybw==</M><E>Aw==</E></RSAPK>
+<IDK>300</IDK>
+</DA>
+<FRMA algoritmo="SHA1withRSA">KAOFDPci4cikJaWgnJ8/K1tgsjoSG0UKewo6M4w53bceABYZ3NUk1miGkbzqrxIZ2JkxTez7iJ4y0eOt14nwwg==</FRMA>
+</CAF>
+    <TSTED>2016-09-05T17:48:24</TSTED>
+  </DD>
+  <FRMT algoritmo="SHA1withRSA">Ox1zqhjJx03uQK9FakfhzN+USOITn2Y672FlLwAm2GpXxCWJ8WSgDJJmkyMYLwM9yQ2lKb2iN3RoB3iFsFYo9A==</FRMT>
+</TED>
+  <TmstFirma>2016-09-05T17:48:24</TmstFirma></Documento>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#"><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI="#T33F932"><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>v7Sppiv3cyIdlQB8oD2EZDOsyDQ=</DigestValue></Reference></SignedInfo><SignatureValue>GQ8QWcallSK3cHpXJ0TZVPsik2T1AATp6GLWqvxssuEBXFVX3p6nohKNZ3dOEFoH
+MuFBNjMkrRpApLttFNL8IcW4z5w+digLL8HT+U9zhhK53LXUUIgANv8i6tUgHGgX
+f5Wbog6QAo56NVknBmexNBiBZlIqySU64yPx+z1qQdr5bSfabqNwzQmAlCfZMyau
+SV1P4bDxqV+5SOeRbzvWJFbebKq3a7bDAuE9R5A6Rk+Ho8vZB/Q0F1lx6T9e4lzl
+8IpkoJeEYK7jhOHUead0u+k4sp+ZyH7dVdtZlEdsoIXijXTgxKo92cBr0V+5PDea
+QLyE/80KGbAePwga/xqcSg==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>1E+JkMFO8vGBrEVQAuNy6j1cjrl/zZRoxNE/TFvUoTOowhVCxm7IL0wR3KJ3FuYD
+D+2fJ+/uGaPywU/ydZzlx6Dl+1IkjeVJ7G1FmXMmQZ/XmQV7zTRWeL3+qtbfq5Nn
+x2BpS5scdWZ7zxVL0aYNO0+LnmnwAbn5ese2AxG0+KSbTEcpT2D1bIGsDxWDzhRq
+jlYe2HaR4hP/lWZkeStDscStCJE+ENB0Ko2qioEzohV4zqzH9Mhe4ht1jbSDu/U9
+EsyFM5krU/1wT6UnoWjrExPuHnN5U2xZSNu11gQpp13zGlfCC9rtcFmLxdrPUWay
+N4QPT0qVjMBa+SNQ8Ouxpw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIF1jCCBL6gAwIBAgICZ34wDQYJKoZIhvcNAQEFBQAwgaYxCzAJBgNVBAYTAkNM
+MRgwFgYDVQQKEw9BY2VwdGEuY29tIFMuQS4xSDBGBgNVBAMTP0FjZXB0YS5jb20g
+QXV0b3JpZGFkIENlcnRpZmljYWRvcmEgQ2xhc2UgMiBQZXJzb25hIE5hdHVyYWwg
+LSBHMzEeMBwGCSqGSIb3DQEJARYPaW5mb0BhY2VwdGEuY29tMRMwEQYDVQQFEwo5
+NjkxOTA1MC04MB4XDTE2MDcxODE5MzA1MVoXDTE5MDcxODE5MzA1MVowgYYxCzAJ
+BgNVBAYTAkNMMRgwFgYDVQQMEw9QRVJTT05BIE5BVFVSQUwxIjAgBgNVBAMTGVZJ
+VEVSQk8gQkFSUklFTlRPUyBBWk9DQVIxJTAjBgkqhkiG9w0BCQEWFklORk9WSUJS
+QURPU0BHTUFJTC5DT00xEjAQBgNVBAUTCTM2MTUwODYtNjCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBANRPiZDBTvLxgaxFUALjcuo9XI65f82UaMTRP0xb
+1KEzqMIVQsZuyC9MEdyidxbmAw/tnyfv7hmj8sFP8nWc5ceg5ftSJI3lSextRZlz
+JkGf15kFe800Vni9/qrW36uTZ8dgaUubHHVme88VS9GmDTtPi55p8AG5+XrHtgMR
+tPikm0xHKU9g9WyBrA8Vg84Uao5WHth2keIT/5VmZHkrQ7HErQiRPhDQdCqNqoqB
+M6IVeM6sx/TIXuIbdY20g7v1PRLMhTOZK1P9cE+lJ6Fo6xMT7h5zeVNsWUjbtdYE
+Kadd8xpXwgva7XBZi8Xaz1FmsjeED09KlYzAWvkjUPDrsacCAwEAAaOCAiowggIm
+MB8GA1UdIwQYMBaAFEAkGj2pMXqFd3o9nnKTOYTlQDgZMB0GA1UdDgQWBBR8VdNA
+sAkYc3h1hQJjOw4gG1G67TALBgNVHQ8EBAMCBPAwHQYDVR0lBBYwFAYIKwYBBQUH
+AwIGCCsGAQUFBwMEMBEGCWCGSAGG+EIBAQQEAwIFoDBuBgNVHSAEZzBlMGMGCisG
+AQQBtWuHagowVTAoBggrBgEFBQcCARYcaHR0cDovL3d3dy5hY2VwdGEuY29tL0NQ
+Uy1HMzApBggrBgEFBQcCAjAdMBYWD0FjZXB0YS5jb20gUy5BLjADAgEJGgNUQkQw
+WgYDVR0SBFMwUaAYBggrBgEEAcEBAqAMFgo5NjkxOTA1MC04oCQGCCsGAQUFBwgD
+oBgwFgwKOTY5MTkwNTAtOAYIKwYBBAHBAQKBD2luZm9AYWNlcHRhLmNvbTBfBgNV
+HREEWDBWoBcGCCsGAQQBwQEBoAsWCTM2MTUwODYtNqAjBggrBgEFBQcIA6AXMBUM
+CTM2MTUwODYtNgYIKwYBBAHBAQKBFklORk9WSUJSQURPU0BHTUFJTC5DT00wPwYI
+KwYBBQUHAQEEMzAxMC8GCCsGAQUFBzABhiNodHRwOi8vb2NzcC5hY2VwdGEuY29t
+L0NsYXNlM0Jpby1HMzA3BgNVHR8EMDAuMCygKqAohiZodHRwOi8vY3JsLmFjZXB0
+YS5jb20vQ2xhc2UzQmlvLUczLmNybDANBgkqhkiG9w0BAQUFAAOCAQEA5glFPIYl
+U46mZopX2UZMbpycGXBOOldQvn4mSHaOIadwqoS3MS2zKq6yNYyStzBw8/V7zzOB
+C/PR2xXKLZ0F0RvsorvaYen9UJexIw9jqYeBaoJouzIWxngDmJ88NjIM8i2Nq8Dj
+0dTX5to8y5z3+j2IErIt1PS4/FPU8ijq9vLBRG+QIbPlvvlejksxQss+crENQ6yB
+SrVN5o0wylC+bQ8/d1Tw/DZubHthEZ4ZEx0VpNbh/yO8nfLJ53k/gejAUDXubc5v
+3kepNlruRPiJtwFuxDyorJAHVBlRLqraORuHd/NM5m/9DrSXIox+PHOw7xfCmHI9
+mrPfGW7p6Y6JNQ==</X509Certificate></X509Data></KeyInfo></Signature></DTE>
+  </SetDTE>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI="#SetDoc"><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>CRP2FMFYTiNdARzlel/URZqp5mQ=</DigestValue></Reference></SignedInfo><SignatureValue>HSlPaOhUtxbVUu1CTsTx9W/l311Vk9+US0emsmL9E/EYEOca/LDiCX+hIibsioqV
+wspuXpwPZxnb6wL2dQmyCnO73MHD4moRCrf7flTPzBTlx9ye/jBjK7Fc6e4Gc4Yx
+x90w3lrqk1frgrWyLRPKSX1ST9qLPon6U1XGL0MEmtmSZINujqpGphajoOry5/50
+HlZIL+pjCJV07NUq5y/Sx3VvJMmfs4mqYbNxTNPJspRyq2ZtINeMg6itvLho92zk
+044RVQQxUm1/UevGFoHFXucXYxAIrnZVjKh3QGBTdnBbAvM+dkN0/DupBBYVe6WH
+YQjXteNeHRiIITQDrJGQIQ==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>1E+JkMFO8vGBrEVQAuNy6j1cjrl/zZRoxNE/TFvUoTOowhVCxm7IL0wR3KJ3FuYD
+D+2fJ+/uGaPywU/ydZzlx6Dl+1IkjeVJ7G1FmXMmQZ/XmQV7zTRWeL3+qtbfq5Nn
+x2BpS5scdWZ7zxVL0aYNO0+LnmnwAbn5ese2AxG0+KSbTEcpT2D1bIGsDxWDzhRq
+jlYe2HaR4hP/lWZkeStDscStCJE+ENB0Ko2qioEzohV4zqzH9Mhe4ht1jbSDu/U9
+EsyFM5krU/1wT6UnoWjrExPuHnN5U2xZSNu11gQpp13zGlfCC9rtcFmLxdrPUWay
+N4QPT0qVjMBa+SNQ8Ouxpw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIF1jCCBL6gAwIBAgICZ34wDQYJKoZIhvcNAQEFBQAwgaYxCzAJBgNVBAYTAkNM
+MRgwFgYDVQQKEw9BY2VwdGEuY29tIFMuQS4xSDBGBgNVBAMTP0FjZXB0YS5jb20g
+QXV0b3JpZGFkIENlcnRpZmljYWRvcmEgQ2xhc2UgMiBQZXJzb25hIE5hdHVyYWwg
+LSBHMzEeMBwGCSqGSIb3DQEJARYPaW5mb0BhY2VwdGEuY29tMRMwEQYDVQQFEwo5
+NjkxOTA1MC04MB4XDTE2MDcxODE5MzA1MVoXDTE5MDcxODE5MzA1MVowgYYxCzAJ
+BgNVBAYTAkNMMRgwFgYDVQQMEw9QRVJTT05BIE5BVFVSQUwxIjAgBgNVBAMTGVZJ
+VEVSQk8gQkFSUklFTlRPUyBBWk9DQVIxJTAjBgkqhkiG9w0BCQEWFklORk9WSUJS
+QURPU0BHTUFJTC5DT00xEjAQBgNVBAUTCTM2MTUwODYtNjCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBANRPiZDBTvLxgaxFUALjcuo9XI65f82UaMTRP0xb
+1KEzqMIVQsZuyC9MEdyidxbmAw/tnyfv7hmj8sFP8nWc5ceg5ftSJI3lSextRZlz
+JkGf15kFe800Vni9/qrW36uTZ8dgaUubHHVme88VS9GmDTtPi55p8AG5+XrHtgMR
+tPikm0xHKU9g9WyBrA8Vg84Uao5WHth2keIT/5VmZHkrQ7HErQiRPhDQdCqNqoqB
+M6IVeM6sx/TIXuIbdY20g7v1PRLMhTOZK1P9cE+lJ6Fo6xMT7h5zeVNsWUjbtdYE
+Kadd8xpXwgva7XBZi8Xaz1FmsjeED09KlYzAWvkjUPDrsacCAwEAAaOCAiowggIm
+MB8GA1UdIwQYMBaAFEAkGj2pMXqFd3o9nnKTOYTlQDgZMB0GA1UdDgQWBBR8VdNA
+sAkYc3h1hQJjOw4gG1G67TALBgNVHQ8EBAMCBPAwHQYDVR0lBBYwFAYIKwYBBQUH
+AwIGCCsGAQUFBwMEMBEGCWCGSAGG+EIBAQQEAwIFoDBuBgNVHSAEZzBlMGMGCisG
+AQQBtWuHagowVTAoBggrBgEFBQcCARYcaHR0cDovL3d3dy5hY2VwdGEuY29tL0NQ
+Uy1HMzApBggrBgEFBQcCAjAdMBYWD0FjZXB0YS5jb20gUy5BLjADAgEJGgNUQkQw
+WgYDVR0SBFMwUaAYBggrBgEEAcEBAqAMFgo5NjkxOTA1MC04oCQGCCsGAQUFBwgD
+oBgwFgwKOTY5MTkwNTAtOAYIKwYBBAHBAQKBD2luZm9AYWNlcHRhLmNvbTBfBgNV
+HREEWDBWoBcGCCsGAQQBwQEBoAsWCTM2MTUwODYtNqAjBggrBgEFBQcIA6AXMBUM
+CTM2MTUwODYtNgYIKwYBBAHBAQKBFklORk9WSUJSQURPU0BHTUFJTC5DT00wPwYI
+KwYBBQUHAQEEMzAxMC8GCCsGAQUFBzABhiNodHRwOi8vb2NzcC5hY2VwdGEuY29t
+L0NsYXNlM0Jpby1HMzA3BgNVHR8EMDAuMCygKqAohiZodHRwOi8vY3JsLmFjZXB0
+YS5jb20vQ2xhc2UzQmlvLUczLmNybDANBgkqhkiG9w0BAQUFAAOCAQEA5glFPIYl
+U46mZopX2UZMbpycGXBOOldQvn4mSHaOIadwqoS3MS2zKq6yNYyStzBw8/V7zzOB
+C/PR2xXKLZ0F0RvsorvaYen9UJexIw9jqYeBaoJouzIWxngDmJ88NjIM8i2Nq8Dj
+0dTX5to8y5z3+j2IErIt1PS4/FPU8ijq9vLBRG+QIbPlvvlejksxQss+crENQ6yB
+SrVN5o0wylC+bQ8/d1Tw/DZubHthEZ4ZEx0VpNbh/yO8nfLJ53k/gejAUDXubc5v
+3kepNlruRPiJtwFuxDyorJAHVBlRLqraORuHd/NM5m/9DrSXIox+PHOw7xfCmHI9
+mrPfGW7p6Y6JNQ==</X509Certificate></X509Data></KeyInfo></Signature></EnvioDTE>

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<EnvioDTE xmlns="http://www.sii.cl/SiiDte" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sii.cl/SiiDte EnvioDTE_v10.xsd" version="1.0">
+  <SetDTE ID="SetDoc">
+    <Caratula version="1.0">
+      <RutEmisor>77748100-2</RutEmisor>
+      <RutEnvia>3615086-6</RutEnvia>
+      <RutReceptor>60803000-K</RutReceptor>
+      <FchResol>2014-08-22</FchResol>
+      <NroResol>80</NroResol>
+      <TmstFirmaEnv>2016-08-31T10:29:03</TmstFirmaEnv>
+      <SubTotDTE>
+        <TpoDTE>33</TpoDTE>
+        <NroDTE>1</NroDTE>
+      </SubTotDTE>
+    </Caratula>
+    <DTE version="1.0">
+  <Documento ID="T33F717">
+    <Encabezado>
+      <IdDoc>
+        <TipoDTE>33</TipoDTE>
+        <Folio>717</Folio>
+        <FchEmis>2016-08-31</FchEmis>
+      </IdDoc>
+      <Emisor>
+        <RUTEmisor>77748100-2</RUTEmisor>
+        <RznSoc>SOC COM DE TRANSP INDUST Y DE INVERS VIBRADOS CHILE LIMITADA</RznSoc>
+        <GiroEmis>Venta al por menor de articulos de Ferreteria  Fono: 732321100   mail: infovibra</GiroEmis>
+        <Acteco>523410</Acteco>
+        <DirOrigen>Cienfuegos 1595  Suc: Ruta 5 Sur Km 277 Cruce Pangal</DirOrigen>
+        <CmnaOrigen>SAN JAVIER</CmnaOrigen>
+      </Emisor>
+      <Receptor>
+        <RUTRecep>69130100-1</RUTRecep>
+        <RznSocRecep>ILUSTRE MUNICIPALIDAD DE SAN JAVIER</RznSocRecep>
+        <GiroRecep>MUNICIPALIDADES</GiroRecep>
+        <DirRecep>ARTURO PRAT Nº 2490</DirRecep>
+        <CmnaRecep>SAN JAVIER</CmnaRecep>
+      </Receptor>
+      <Totales>
+        <MntNeto>828387</MntNeto>
+        <TasaIVA>19</TasaIVA>
+        <IVA>157393</IVA>
+        <MntTotal>985780</MntTotal>
+      </Totales>
+    </Encabezado>
+    <Detalle>
+      <NroLinDet>1</NroLinDet>
+      <NmbItem>TUBO PVC HID.90mmC6 TIGRE                    </NmbItem>
+      <QtyItem>33.00</QtyItem>
+      <PrcItem>11487</PrcItem>
+      <MontoItem>379084</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>2</NroLinDet>
+      <NmbItem>TUBO PVC HID.63mmC6 TIGRE                    </NmbItem>
+      <QtyItem>57.00</QtyItem>
+      <PrcItem>5605</PrcItem>
+      <MontoItem>319487</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>3</NroLinDet>
+      <NmbItem>TUBO PVC HID.50mmC6 TIGRE                    </NmbItem>
+      <QtyItem>2.00</QtyItem>
+      <PrcItem>3613</PrcItem>
+      <MontoItem>7227</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>4</NroLinDet>
+      <NmbItem>CODO 90§HID.SO 90mm TIGRE                    </NmbItem>
+      <QtyItem>4.00</QtyItem>
+      <PrcItem>3613</PrcItem>
+      <MontoItem>14454</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>5</NroLinDet>
+      <NmbItem>CURVA 45§HID.SO 63mm TIGR                    </NmbItem>
+      <QtyItem>2.00</QtyItem>
+      <PrcItem>2353</PrcItem>
+      <MontoItem>4706</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>6</NroLinDet>
+      <NmbItem>CODO 90§HID.SO 63mm TIGRE                    </NmbItem>
+      <QtyItem>8.00</QtyItem>
+      <PrcItem>1243</PrcItem>
+      <MontoItem>9950</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>7</NroLinDet>
+      <NmbItem>RED.LARG.M/H SO 90x63mm T                    </NmbItem>
+      <QtyItem>1.00</QtyItem>
+      <PrcItem>3445</PrcItem>
+      <MontoItem>3445</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>8</NroLinDet>
+      <NmbItem>TEE HID.SO 63mm TIGRE                        </NmbItem>
+      <QtyItem>4.00</QtyItem>
+      <PrcItem>2605</PrcItem>
+      <MontoItem>10420</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>9</NroLinDet>
+      <NmbItem>RED.HID.LARGA 63x50mm TIG                    </NmbItem>
+      <QtyItem>4.00</QtyItem>
+      <PrcItem>1386</PrcItem>
+      <MontoItem>5546</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>10</NroLinDet>
+      <NmbItem>BUJE RED.HE HI 1x3/4"TIGR                    </NmbItem>
+      <QtyItem>20.00</QtyItem>
+      <PrcItem>184</PrcItem>
+      <MontoItem>3697</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>11</NroLinDet>
+      <NmbItem>TERM.HID.SO HI 63x2"                         </NmbItem>
+      <QtyItem>1.00</QtyItem>
+      <PrcItem>1235</PrcItem>
+      <MontoItem>1235</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>12</NroLinDet>
+      <NmbItem>TERM.HID.SO HE 63x2"TIGRE                    </NmbItem>
+      <QtyItem>8.00</QtyItem>
+      <PrcItem>1016</PrcItem>
+      <MontoItem>8134</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>13</NroLinDet>
+      <NmbItem>TERM.HID.SO HE 90x3"TIGRE                    </NmbItem>
+      <QtyItem>8.00</QtyItem>
+      <PrcItem>1739</PrcItem>
+      <MontoItem>13916</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>14</NroLinDet>
+      <NmbItem>TAPA GORRO HI 2"TIGRE                        </NmbItem>
+      <QtyItem>6.00</QtyItem>
+      <PrcItem>857</PrcItem>
+      <MontoItem>5143</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>15</NroLinDet>
+      <NmbItem>NIPLE HE 3/4"TIGRE                           </NmbItem>
+      <QtyItem>30.00</QtyItem>
+      <PrcItem>176</PrcItem>
+      <MontoItem>5294</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>16</NroLinDet>
+      <NmbItem>UNION AMER.HID.SO 63mm TI                    </NmbItem>
+      <QtyItem>6.00</QtyItem>
+      <PrcItem>3260</PrcItem>
+      <MontoItem>19563</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>17</NroLinDet>
+      <NmbItem>UNION AMER.HID.SO 32mm TI                    </NmbItem>
+      <QtyItem>2.00</QtyItem>
+      <PrcItem>1134</PrcItem>
+      <MontoItem>2269</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>18</NroLinDet>
+      <NmbItem>MARCO SIERRA MULTIUSO 12" 4en1 UYUS          </NmbItem>
+      <QtyItem>1.00</QtyItem>
+      <PrcItem>7521</PrcItem>
+      <MontoItem>7521</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>19</NroLinDet>
+      <NmbItem>ADHESIVO FRASCO C/PINCEL 250cc               </NmbItem>
+      <QtyItem>4.00</QtyItem>
+      <PrcItem>1823</PrcItem>
+      <MontoItem>7294</MontoItem>
+    </Detalle>
+    <TED version="1.0">
+  <DD>
+    <RE>77748100-2</RE>
+    <TD>33</TD>
+    <F>717</F>
+    <FE>2016-08-31</FE>
+    <RR>69130100-1</RR>
+    <RSR>ILUSTRE MUNICIPALIDAD DE SAN JAVIER</RSR>
+    <MNT>985780</MNT>
+    <IT1>TUBO PVC HID.90mmC6 TIGRE</IT1>
+    <CAF version="1.0">
+<DA>
+<RE>77748100-2</RE>
+<RS>SOC COM DE TRANSP INDUST Y DE INVERS VIB</RS>
+<TD>33</TD>
+<RNG><D>1</D><H>1400</H></RNG>
+<FA>2016-08-05</FA>
+<RSAPK><M>vATV3PWobLnIU1vVeHRAv7XhHp0EIfOGntSNsJ8Y4GPqSZvjfktKnR5SqdR8vApojZzxZ2HrUGI7fakff9hybw==</M><E>Aw==</E></RSAPK>
+<IDK>300</IDK>
+</DA>
+<FRMA algoritmo="SHA1withRSA">KAOFDPci4cikJaWgnJ8/K1tgsjoSG0UKewo6M4w53bceABYZ3NUk1miGkbzqrxIZ2JkxTez7iJ4y0eOt14nwwg==</FRMA>
+</CAF>
+    <TSTED>2016-08-31T10:29:03</TSTED>
+  </DD>
+  <FRMT algoritmo="SHA1withRSA">ub0LWUZBz3gbb+Wbx+C1J46gLAAMLHighA51IheoxiUYMMQyOfP42gNLVFJf8CsbL4+YoyUPK3Qk297Wg30j/A==</FRMT>
+</TED>
+  <TmstFirma>2016-08-31T10:29:03</TmstFirma></Documento>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#"><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI="#T33F717"><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>H3514oI3smZ7/qmicwwXnnm9fqc=</DigestValue></Reference></SignedInfo><SignatureValue>wSzPKIMmQQCP1BktG0nF5MeyI7MYi2qqHkJI3Nlk3mCMCOuG7VH3a81HpN9i4FU2
+lkMdsyJOJYSG8b2wo9HztfxvNv/0nMEs5gzfPlp4QGhINjSx+8/oHTPmPqm5qSKX
+b1DN/6DMA7CT2GhSGGDcIhJiP4pr2mBtiwfgPfNHKbgjRqadaa0Fe77gFZ3Erm4c
+oAr56B9ctymTc4U5IXxBUMTxIxT/dUzRYH93LCU+9h3zLWWByejVKVV7G8I8CYpc
+wSY6h0WWGF+M8g/hAEMHqPOnoZ/tXdfXVxPi6cYKlXaX9ET0BRvFE3x9gByTJ15W
+5wwxDXKAx/LbnSqfiIXTkw==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>1E+JkMFO8vGBrEVQAuNy6j1cjrl/zZRoxNE/TFvUoTOowhVCxm7IL0wR3KJ3FuYD
+D+2fJ+/uGaPywU/ydZzlx6Dl+1IkjeVJ7G1FmXMmQZ/XmQV7zTRWeL3+qtbfq5Nn
+x2BpS5scdWZ7zxVL0aYNO0+LnmnwAbn5ese2AxG0+KSbTEcpT2D1bIGsDxWDzhRq
+jlYe2HaR4hP/lWZkeStDscStCJE+ENB0Ko2qioEzohV4zqzH9Mhe4ht1jbSDu/U9
+EsyFM5krU/1wT6UnoWjrExPuHnN5U2xZSNu11gQpp13zGlfCC9rtcFmLxdrPUWay
+N4QPT0qVjMBa+SNQ8Ouxpw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIF1jCCBL6gAwIBAgICZ34wDQYJKoZIhvcNAQEFBQAwgaYxCzAJBgNVBAYTAkNM
+MRgwFgYDVQQKEw9BY2VwdGEuY29tIFMuQS4xSDBGBgNVBAMTP0FjZXB0YS5jb20g
+QXV0b3JpZGFkIENlcnRpZmljYWRvcmEgQ2xhc2UgMiBQZXJzb25hIE5hdHVyYWwg
+LSBHMzEeMBwGCSqGSIb3DQEJARYPaW5mb0BhY2VwdGEuY29tMRMwEQYDVQQFEwo5
+NjkxOTA1MC04MB4XDTE2MDcxODE5MzA1MVoXDTE5MDcxODE5MzA1MVowgYYxCzAJ
+BgNVBAYTAkNMMRgwFgYDVQQMEw9QRVJTT05BIE5BVFVSQUwxIjAgBgNVBAMTGVZJ
+VEVSQk8gQkFSUklFTlRPUyBBWk9DQVIxJTAjBgkqhkiG9w0BCQEWFklORk9WSUJS
+QURPU0BHTUFJTC5DT00xEjAQBgNVBAUTCTM2MTUwODYtNjCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBANRPiZDBTvLxgaxFUALjcuo9XI65f82UaMTRP0xb
+1KEzqMIVQsZuyC9MEdyidxbmAw/tnyfv7hmj8sFP8nWc5ceg5ftSJI3lSextRZlz
+JkGf15kFe800Vni9/qrW36uTZ8dgaUubHHVme88VS9GmDTtPi55p8AG5+XrHtgMR
+tPikm0xHKU9g9WyBrA8Vg84Uao5WHth2keIT/5VmZHkrQ7HErQiRPhDQdCqNqoqB
+M6IVeM6sx/TIXuIbdY20g7v1PRLMhTOZK1P9cE+lJ6Fo6xMT7h5zeVNsWUjbtdYE
+Kadd8xpXwgva7XBZi8Xaz1FmsjeED09KlYzAWvkjUPDrsacCAwEAAaOCAiowggIm
+MB8GA1UdIwQYMBaAFEAkGj2pMXqFd3o9nnKTOYTlQDgZMB0GA1UdDgQWBBR8VdNA
+sAkYc3h1hQJjOw4gG1G67TALBgNVHQ8EBAMCBPAwHQYDVR0lBBYwFAYIKwYBBQUH
+AwIGCCsGAQUFBwMEMBEGCWCGSAGG+EIBAQQEAwIFoDBuBgNVHSAEZzBlMGMGCisG
+AQQBtWuHagowVTAoBggrBgEFBQcCARYcaHR0cDovL3d3dy5hY2VwdGEuY29tL0NQ
+Uy1HMzApBggrBgEFBQcCAjAdMBYWD0FjZXB0YS5jb20gUy5BLjADAgEJGgNUQkQw
+WgYDVR0SBFMwUaAYBggrBgEEAcEBAqAMFgo5NjkxOTA1MC04oCQGCCsGAQUFBwgD
+oBgwFgwKOTY5MTkwNTAtOAYIKwYBBAHBAQKBD2luZm9AYWNlcHRhLmNvbTBfBgNV
+HREEWDBWoBcGCCsGAQQBwQEBoAsWCTM2MTUwODYtNqAjBggrBgEFBQcIA6AXMBUM
+CTM2MTUwODYtNgYIKwYBBAHBAQKBFklORk9WSUJSQURPU0BHTUFJTC5DT00wPwYI
+KwYBBQUHAQEEMzAxMC8GCCsGAQUFBzABhiNodHRwOi8vb2NzcC5hY2VwdGEuY29t
+L0NsYXNlM0Jpby1HMzA3BgNVHR8EMDAuMCygKqAohiZodHRwOi8vY3JsLmFjZXB0
+YS5jb20vQ2xhc2UzQmlvLUczLmNybDANBgkqhkiG9w0BAQUFAAOCAQEA5glFPIYl
+U46mZopX2UZMbpycGXBOOldQvn4mSHaOIadwqoS3MS2zKq6yNYyStzBw8/V7zzOB
+C/PR2xXKLZ0F0RvsorvaYen9UJexIw9jqYeBaoJouzIWxngDmJ88NjIM8i2Nq8Dj
+0dTX5to8y5z3+j2IErIt1PS4/FPU8ijq9vLBRG+QIbPlvvlejksxQss+crENQ6yB
+SrVN5o0wylC+bQ8/d1Tw/DZubHthEZ4ZEx0VpNbh/yO8nfLJ53k/gejAUDXubc5v
+3kepNlruRPiJtwFuxDyorJAHVBlRLqraORuHd/NM5m/9DrSXIox+PHOw7xfCmHI9
+mrPfGW7p6Y6JNQ==</X509Certificate></X509Data></KeyInfo></Signature></DTE>
+  </SetDTE>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI="#SetDoc"><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>RWirpISc96xvFs+VIljq1zwRbQg=</DigestValue></Reference></SignedInfo><SignatureValue>ltU2Kpdu+Q1jBHZBrqqZu5VLTcBLKMnVevjxHESxCkSYgg6euPWOMnpvTQCr73Kv
+fNUaY3HaP87Vm64sHIxTcCpX1nAqTLt3hTpzT/AkBxGFWMODE4QrNPQRnHaz8NXP
+cwafiCxkK2HcOFDnRIxUz7S37Ue4Wpubjo86IMRxKE0mDACLOz1e0dvf/tRk95eN
+QdURNyuA8tQkcVtawZE9IqEvI17oUz1nPlaNfTRqNgQQSP6IuUoc8IDxlGphktJ9
+uZCP2dNIA/hq+dvzaz4N/XETJgJaImo+O+mY/tHBf0HlZz2x+v95TnwmZEIRcl4E
+Ch++dhhVvOmWINf8ZQa5XQ==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>1E+JkMFO8vGBrEVQAuNy6j1cjrl/zZRoxNE/TFvUoTOowhVCxm7IL0wR3KJ3FuYD
+D+2fJ+/uGaPywU/ydZzlx6Dl+1IkjeVJ7G1FmXMmQZ/XmQV7zTRWeL3+qtbfq5Nn
+x2BpS5scdWZ7zxVL0aYNO0+LnmnwAbn5ese2AxG0+KSbTEcpT2D1bIGsDxWDzhRq
+jlYe2HaR4hP/lWZkeStDscStCJE+ENB0Ko2qioEzohV4zqzH9Mhe4ht1jbSDu/U9
+EsyFM5krU/1wT6UnoWjrExPuHnN5U2xZSNu11gQpp13zGlfCC9rtcFmLxdrPUWay
+N4QPT0qVjMBa+SNQ8Ouxpw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIF1jCCBL6gAwIBAgICZ34wDQYJKoZIhvcNAQEFBQAwgaYxCzAJBgNVBAYTAkNM
+MRgwFgYDVQQKEw9BY2VwdGEuY29tIFMuQS4xSDBGBgNVBAMTP0FjZXB0YS5jb20g
+QXV0b3JpZGFkIENlcnRpZmljYWRvcmEgQ2xhc2UgMiBQZXJzb25hIE5hdHVyYWwg
+LSBHMzEeMBwGCSqGSIb3DQEJARYPaW5mb0BhY2VwdGEuY29tMRMwEQYDVQQFEwo5
+NjkxOTA1MC04MB4XDTE2MDcxODE5MzA1MVoXDTE5MDcxODE5MzA1MVowgYYxCzAJ
+BgNVBAYTAkNMMRgwFgYDVQQMEw9QRVJTT05BIE5BVFVSQUwxIjAgBgNVBAMTGVZJ
+VEVSQk8gQkFSUklFTlRPUyBBWk9DQVIxJTAjBgkqhkiG9w0BCQEWFklORk9WSUJS
+QURPU0BHTUFJTC5DT00xEjAQBgNVBAUTCTM2MTUwODYtNjCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBANRPiZDBTvLxgaxFUALjcuo9XI65f82UaMTRP0xb
+1KEzqMIVQsZuyC9MEdyidxbmAw/tnyfv7hmj8sFP8nWc5ceg5ftSJI3lSextRZlz
+JkGf15kFe800Vni9/qrW36uTZ8dgaUubHHVme88VS9GmDTtPi55p8AG5+XrHtgMR
+tPikm0xHKU9g9WyBrA8Vg84Uao5WHth2keIT/5VmZHkrQ7HErQiRPhDQdCqNqoqB
+M6IVeM6sx/TIXuIbdY20g7v1PRLMhTOZK1P9cE+lJ6Fo6xMT7h5zeVNsWUjbtdYE
+Kadd8xpXwgva7XBZi8Xaz1FmsjeED09KlYzAWvkjUPDrsacCAwEAAaOCAiowggIm
+MB8GA1UdIwQYMBaAFEAkGj2pMXqFd3o9nnKTOYTlQDgZMB0GA1UdDgQWBBR8VdNA
+sAkYc3h1hQJjOw4gG1G67TALBgNVHQ8EBAMCBPAwHQYDVR0lBBYwFAYIKwYBBQUH
+AwIGCCsGAQUFBwMEMBEGCWCGSAGG+EIBAQQEAwIFoDBuBgNVHSAEZzBlMGMGCisG
+AQQBtWuHagowVTAoBggrBgEFBQcCARYcaHR0cDovL3d3dy5hY2VwdGEuY29tL0NQ
+Uy1HMzApBggrBgEFBQcCAjAdMBYWD0FjZXB0YS5jb20gUy5BLjADAgEJGgNUQkQw
+WgYDVR0SBFMwUaAYBggrBgEEAcEBAqAMFgo5NjkxOTA1MC04oCQGCCsGAQUFBwgD
+oBgwFgwKOTY5MTkwNTAtOAYIKwYBBAHBAQKBD2luZm9AYWNlcHRhLmNvbTBfBgNV
+HREEWDBWoBcGCCsGAQQBwQEBoAsWCTM2MTUwODYtNqAjBggrBgEFBQcIA6AXMBUM
+CTM2MTUwODYtNgYIKwYBBAHBAQKBFklORk9WSUJSQURPU0BHTUFJTC5DT00wPwYI
+KwYBBQUHAQEEMzAxMC8GCCsGAQUFBzABhiNodHRwOi8vb2NzcC5hY2VwdGEuY29t
+L0NsYXNlM0Jpby1HMzA3BgNVHR8EMDAuMCygKqAohiZodHRwOi8vY3JsLmFjZXB0
+YS5jb20vQ2xhc2UzQmlvLUczLmNybDANBgkqhkiG9w0BAQUFAAOCAQEA5glFPIYl
+U46mZopX2UZMbpycGXBOOldQvn4mSHaOIadwqoS3MS2zKq6yNYyStzBw8/V7zzOB
+C/PR2xXKLZ0F0RvsorvaYen9UJexIw9jqYeBaoJouzIWxngDmJ88NjIM8i2Nq8Dj
+0dTX5to8y5z3+j2IErIt1PS4/FPU8ijq9vLBRG+QIbPlvvlejksxQss+crENQ6yB
+SrVN5o0wylC+bQ8/d1Tw/DZubHthEZ4ZEx0VpNbh/yO8nfLJ53k/gejAUDXubc5v
+3kepNlruRPiJtwFuxDyorJAHVBlRLqraORuHd/NM5m/9DrSXIox+PHOw7xfCmHI9
+mrPfGW7p6Y6JNQ==</X509Certificate></X509Data></KeyInfo></Signature></EnvioDTE>

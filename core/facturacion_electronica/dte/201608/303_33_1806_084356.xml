@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<EnvioDTE xmlns="http://www.sii.cl/SiiDte" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sii.cl/SiiDte EnvioDTE_v10.xsd" version="1.0">
+  <SetDTE ID="SetDoc">
+    <Caratula version="1.0">
+      <RutEmisor>77748100-2</RutEmisor>
+      <RutEnvia>3615086-6</RutEnvia>
+      <RutReceptor>60803000-K</RutReceptor>
+      <FchResol>2014-08-22</FchResol>
+      <NroResol>80</NroResol>
+      <TmstFirmaEnv>2016-08-20T08:43:56</TmstFirmaEnv>
+      <SubTotDTE>
+        <TpoDTE>33</TpoDTE>
+        <NroDTE>1</NroDTE>
+      </SubTotDTE>
+    </Caratula>
+    <DTE version="1.0">
+  <Documento ID="T33F303">
+    <Encabezado>
+      <IdDoc>
+        <TipoDTE>33</TipoDTE>
+        <Folio>303</Folio>
+        <FchEmis>2016-08-20</FchEmis>
+      </IdDoc>
+      <Emisor>
+        <RUTEmisor>77748100-2</RUTEmisor>
+        <RznSoc>SOC COM DE TRANSP INDUST Y DE INVERS VIBRADOS CHILE LIMITADA</RznSoc>
+        <GiroEmis>Venta al por menor de articulos de Ferreteria  Fono: 732321100   mail: infovibra</GiroEmis>
+        <Acteco>523410</Acteco>
+        <DirOrigen>Cienfuegos 1595  Suc: Ruta 5 Sur Km 277 Cruce Pangal</DirOrigen>
+        <CmnaOrigen>SAN JAVIER</CmnaOrigen>
+      </Emisor>
+      <Receptor>
+        <RUTRecep>4474570-4</RUTRecep>
+        <RznSocRecep>BAEZA FAUNDEZ HERIBERTO</RznSocRecep>
+        <GiroRecep>CULTIVO DE TRIGO</GiroRecep>
+        <DirRecep>BOBADILLA S/N</DirRecep>
+        <CmnaRecep>SAN JAVIER</CmnaRecep>
+      </Receptor>
+      <Totales>
+        <MntNeto>7942</MntNeto>
+        <TasaIVA>19</TasaIVA>
+        <IVA>1509</IVA>
+        <MntTotal>9451</MntTotal>
+      </Totales>
+    </Encabezado>
+    <Detalle>
+      <NroLinDet>1</NroLinDet>
+      <NmbItem>PRESOSTATO 20-60 PSI                         </NmbItem>
+      <QtyItem>1.00</QtyItem>
+      <PrcItem>6471</PrcItem>
+      <MontoItem>6471</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>2</NroLinDet>
+      <NmbItem>GUANTE CABRI.S/F GRIS DELGADO                </NmbItem>
+      <QtyItem>1.00</QtyItem>
+      <PrcItem>1471</PrcItem>
+      <MontoItem>1471</MontoItem>
+    </Detalle>
+    <TED version="1.0">
+  <DD>
+    <RE>77748100-2</RE>
+    <TD>33</TD>
+    <F>303</F>
+    <FE>2016-08-20</FE>
+    <RR>4474570-4</RR>
+    <RSR>BAEZA FAUNDEZ HERIBERTO</RSR>
+    <MNT>9451</MNT>
+    <IT1>PRESOSTATO 20-60 PSI                    </IT1>
+    <CAF version="1.0">
+<DA>
+<RE>77748100-2</RE>
+<RS>SOC COM DE TRANSP INDUST Y DE INVERS VIB</RS>
+<TD>33</TD>
+<RNG><D>1</D><H>1400</H></RNG>
+<FA>2016-08-05</FA>
+<RSAPK><M>vATV3PWobLnIU1vVeHRAv7XhHp0EIfOGntSNsJ8Y4GPqSZvjfktKnR5SqdR8vApojZzxZ2HrUGI7fakff9hybw==</M><E>Aw==</E></RSAPK>
+<IDK>300</IDK>
+</DA>
+<FRMA algoritmo="SHA1withRSA">KAOFDPci4cikJaWgnJ8/K1tgsjoSG0UKewo6M4w53bceABYZ3NUk1miGkbzqrxIZ2JkxTez7iJ4y0eOt14nwwg==</FRMA>
+</CAF>
+    <TSTED>2016-08-20T08:43:56</TSTED>
+  </DD>
+  <FRMT algoritmo="SHA1withRSA">XzdE0rU/s2ET5YTEUYNSJPp6X7VtbJQeBh2avuU1AlUYrQaEsDy3DPgEa4Urrp3XwMmtusp/YKMcZpGEw4oJJg==</FRMT>
+</TED>
+  <TmstFirma>2016-08-20T08:43:56</TmstFirma></Documento>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#"><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI="#T33F303"><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>IYC/oZ4k8ULeWqqjd78m0AyEaF8=</DigestValue></Reference></SignedInfo><SignatureValue>wwq6qW7QwBfZAyoOVoCO4def5x/3zdPKOswXy6XwlDrZGg8ZUErXi3MGBsnaHLST
+qY1UF0OEC7+G+WHjG1btH+7i2AHSDO0m7wHzWwd4ZocFYFzMJBNQxufYA76cIrDV
+9bNZvZnAwcipcfhiMKKZx+XFPQGYHRojnIp0XIm8feEJifa9nZoZ82rgqW/S+Dph
+eR8on7gZZCyvWLmIkUno5cTSShlhqh/rX6zvqIT0ImlVnt82Sy/OD9JtPkoDai11
+zan1YBHD/oGtbqNiLiWivGgq3n4W2Y5K5+MWFqwhsfBj3yqvb1VRpGT6ywUn/dLr
+WPhPjenqZlePMQ3xHv2llw==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>1E+JkMFO8vGBrEVQAuNy6j1cjrl/zZRoxNE/TFvUoTOowhVCxm7IL0wR3KJ3FuYD
+D+2fJ+/uGaPywU/ydZzlx6Dl+1IkjeVJ7G1FmXMmQZ/XmQV7zTRWeL3+qtbfq5Nn
+x2BpS5scdWZ7zxVL0aYNO0+LnmnwAbn5ese2AxG0+KSbTEcpT2D1bIGsDxWDzhRq
+jlYe2HaR4hP/lWZkeStDscStCJE+ENB0Ko2qioEzohV4zqzH9Mhe4ht1jbSDu/U9
+EsyFM5krU/1wT6UnoWjrExPuHnN5U2xZSNu11gQpp13zGlfCC9rtcFmLxdrPUWay
+N4QPT0qVjMBa+SNQ8Ouxpw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIF1jCCBL6gAwIBAgICZ34wDQYJKoZIhvcNAQEFBQAwgaYxCzAJBgNVBAYTAkNM
+MRgwFgYDVQQKEw9BY2VwdGEuY29tIFMuQS4xSDBGBgNVBAMTP0FjZXB0YS5jb20g
+QXV0b3JpZGFkIENlcnRpZmljYWRvcmEgQ2xhc2UgMiBQZXJzb25hIE5hdHVyYWwg
+LSBHMzEeMBwGCSqGSIb3DQEJARYPaW5mb0BhY2VwdGEuY29tMRMwEQYDVQQFEwo5
+NjkxOTA1MC04MB4XDTE2MDcxODE5MzA1MVoXDTE5MDcxODE5MzA1MVowgYYxCzAJ
+BgNVBAYTAkNMMRgwFgYDVQQMEw9QRVJTT05BIE5BVFVSQUwxIjAgBgNVBAMTGVZJ
+VEVSQk8gQkFSUklFTlRPUyBBWk9DQVIxJTAjBgkqhkiG9w0BCQEWFklORk9WSUJS
+QURPU0BHTUFJTC5DT00xEjAQBgNVBAUTCTM2MTUwODYtNjCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBANRPiZDBTvLxgaxFUALjcuo9XI65f82UaMTRP0xb
+1KEzqMIVQsZuyC9MEdyidxbmAw/tnyfv7hmj8sFP8nWc5ceg5ftSJI3lSextRZlz
+JkGf15kFe800Vni9/qrW36uTZ8dgaUubHHVme88VS9GmDTtPi55p8AG5+XrHtgMR
+tPikm0xHKU9g9WyBrA8Vg84Uao5WHth2keIT/5VmZHkrQ7HErQiRPhDQdCqNqoqB
+M6IVeM6sx/TIXuIbdY20g7v1PRLMhTOZK1P9cE+lJ6Fo6xMT7h5zeVNsWUjbtdYE
+Kadd8xpXwgva7XBZi8Xaz1FmsjeED09KlYzAWvkjUPDrsacCAwEAAaOCAiowggIm
+MB8GA1UdIwQYMBaAFEAkGj2pMXqFd3o9nnKTOYTlQDgZMB0GA1UdDgQWBBR8VdNA
+sAkYc3h1hQJjOw4gG1G67TALBgNVHQ8EBAMCBPAwHQYDVR0lBBYwFAYIKwYBBQUH
+AwIGCCsGAQUFBwMEMBEGCWCGSAGG+EIBAQQEAwIFoDBuBgNVHSAEZzBlMGMGCisG
+AQQBtWuHagowVTAoBggrBgEFBQcCARYcaHR0cDovL3d3dy5hY2VwdGEuY29tL0NQ
+Uy1HMzApBggrBgEFBQcCAjAdMBYWD0FjZXB0YS5jb20gUy5BLjADAgEJGgNUQkQw
+WgYDVR0SBFMwUaAYBggrBgEEAcEBAqAMFgo5NjkxOTA1MC04oCQGCCsGAQUFBwgD
+oBgwFgwKOTY5MTkwNTAtOAYIKwYBBAHBAQKBD2luZm9AYWNlcHRhLmNvbTBfBgNV
+HREEWDBWoBcGCCsGAQQBwQEBoAsWCTM2MTUwODYtNqAjBggrBgEFBQcIA6AXMBUM
+CTM2MTUwODYtNgYIKwYBBAHBAQKBFklORk9WSUJSQURPU0BHTUFJTC5DT00wPwYI
+KwYBBQUHAQEEMzAxMC8GCCsGAQUFBzABhiNodHRwOi8vb2NzcC5hY2VwdGEuY29t
+L0NsYXNlM0Jpby1HMzA3BgNVHR8EMDAuMCygKqAohiZodHRwOi8vY3JsLmFjZXB0
+YS5jb20vQ2xhc2UzQmlvLUczLmNybDANBgkqhkiG9w0BAQUFAAOCAQEA5glFPIYl
+U46mZopX2UZMbpycGXBOOldQvn4mSHaOIadwqoS3MS2zKq6yNYyStzBw8/V7zzOB
+C/PR2xXKLZ0F0RvsorvaYen9UJexIw9jqYeBaoJouzIWxngDmJ88NjIM8i2Nq8Dj
+0dTX5to8y5z3+j2IErIt1PS4/FPU8ijq9vLBRG+QIbPlvvlejksxQss+crENQ6yB
+SrVN5o0wylC+bQ8/d1Tw/DZubHthEZ4ZEx0VpNbh/yO8nfLJ53k/gejAUDXubc5v
+3kepNlruRPiJtwFuxDyorJAHVBlRLqraORuHd/NM5m/9DrSXIox+PHOw7xfCmHI9
+mrPfGW7p6Y6JNQ==</X509Certificate></X509Data></KeyInfo></Signature></DTE>
+  </SetDTE>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI="#SetDoc"><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>+SBri0GhUoq2uEvmWITefBH35+k=</DigestValue></Reference></SignedInfo><SignatureValue>NRRgJ/+PdutUcKg9xQNy4/7TOCKIFB2X2xjtIQ/S31KPFMDyEa3PIZ30fmIsYUBf
+ckn6VGgCmNmtoaSzwBSb+acg18k4Qn3KJpeZIo790QMG+V2rzbAxoJ2AqQGfKoKT
+/A7jio9xvXrezCNEe/3zV1jhcoJhuqsJBbTOLbOL0cu9B1+fSDkRIMVVAfkncMe8
+cNYSSG2G55T7TbOGBY8kPSJHj8hVyXBArK4TL1yCmeVF7FbfiDARcugrPH/K2kj9
+tT4wbgobXaerbgpwk9t0YO9FZTEXNoe3JjfYxiEfKoL2oOBYR7DaBrUWpV8/b50M
+2T8oE6KKlv+EEJvlQc6pEA==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>1E+JkMFO8vGBrEVQAuNy6j1cjrl/zZRoxNE/TFvUoTOowhVCxm7IL0wR3KJ3FuYD
+D+2fJ+/uGaPywU/ydZzlx6Dl+1IkjeVJ7G1FmXMmQZ/XmQV7zTRWeL3+qtbfq5Nn
+x2BpS5scdWZ7zxVL0aYNO0+LnmnwAbn5ese2AxG0+KSbTEcpT2D1bIGsDxWDzhRq
+jlYe2HaR4hP/lWZkeStDscStCJE+ENB0Ko2qioEzohV4zqzH9Mhe4ht1jbSDu/U9
+EsyFM5krU/1wT6UnoWjrExPuHnN5U2xZSNu11gQpp13zGlfCC9rtcFmLxdrPUWay
+N4QPT0qVjMBa+SNQ8Ouxpw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIF1jCCBL6gAwIBAgICZ34wDQYJKoZIhvcNAQEFBQAwgaYxCzAJBgNVBAYTAkNM
+MRgwFgYDVQQKEw9BY2VwdGEuY29tIFMuQS4xSDBGBgNVBAMTP0FjZXB0YS5jb20g
+QXV0b3JpZGFkIENlcnRpZmljYWRvcmEgQ2xhc2UgMiBQZXJzb25hIE5hdHVyYWwg
+LSBHMzEeMBwGCSqGSIb3DQEJARYPaW5mb0BhY2VwdGEuY29tMRMwEQYDVQQFEwo5
+NjkxOTA1MC04MB4XDTE2MDcxODE5MzA1MVoXDTE5MDcxODE5MzA1MVowgYYxCzAJ
+BgNVBAYTAkNMMRgwFgYDVQQMEw9QRVJTT05BIE5BVFVSQUwxIjAgBgNVBAMTGVZJ
+VEVSQk8gQkFSUklFTlRPUyBBWk9DQVIxJTAjBgkqhkiG9w0BCQEWFklORk9WSUJS
+QURPU0BHTUFJTC5DT00xEjAQBgNVBAUTCTM2MTUwODYtNjCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBANRPiZDBTvLxgaxFUALjcuo9XI65f82UaMTRP0xb
+1KEzqMIVQsZuyC9MEdyidxbmAw/tnyfv7hmj8sFP8nWc5ceg5ftSJI3lSextRZlz
+JkGf15kFe800Vni9/qrW36uTZ8dgaUubHHVme88VS9GmDTtPi55p8AG5+XrHtgMR
+tPikm0xHKU9g9WyBrA8Vg84Uao5WHth2keIT/5VmZHkrQ7HErQiRPhDQdCqNqoqB
+M6IVeM6sx/TIXuIbdY20g7v1PRLMhTOZK1P9cE+lJ6Fo6xMT7h5zeVNsWUjbtdYE
+Kadd8xpXwgva7XBZi8Xaz1FmsjeED09KlYzAWvkjUPDrsacCAwEAAaOCAiowggIm
+MB8GA1UdIwQYMBaAFEAkGj2pMXqFd3o9nnKTOYTlQDgZMB0GA1UdDgQWBBR8VdNA
+sAkYc3h1hQJjOw4gG1G67TALBgNVHQ8EBAMCBPAwHQYDVR0lBBYwFAYIKwYBBQUH
+AwIGCCsGAQUFBwMEMBEGCWCGSAGG+EIBAQQEAwIFoDBuBgNVHSAEZzBlMGMGCisG
+AQQBtWuHagowVTAoBggrBgEFBQcCARYcaHR0cDovL3d3dy5hY2VwdGEuY29tL0NQ
+Uy1HMzApBggrBgEFBQcCAjAdMBYWD0FjZXB0YS5jb20gUy5BLjADAgEJGgNUQkQw
+WgYDVR0SBFMwUaAYBggrBgEEAcEBAqAMFgo5NjkxOTA1MC04oCQGCCsGAQUFBwgD
+oBgwFgwKOTY5MTkwNTAtOAYIKwYBBAHBAQKBD2luZm9AYWNlcHRhLmNvbTBfBgNV
+HREEWDBWoBcGCCsGAQQBwQEBoAsWCTM2MTUwODYtNqAjBggrBgEFBQcIA6AXMBUM
+CTM2MTUwODYtNgYIKwYBBAHBAQKBFklORk9WSUJSQURPU0BHTUFJTC5DT00wPwYI
+KwYBBQUHAQEEMzAxMC8GCCsGAQUFBzABhiNodHRwOi8vb2NzcC5hY2VwdGEuY29t
+L0NsYXNlM0Jpby1HMzA3BgNVHR8EMDAuMCygKqAohiZodHRwOi8vY3JsLmFjZXB0
+YS5jb20vQ2xhc2UzQmlvLUczLmNybDANBgkqhkiG9w0BAQUFAAOCAQEA5glFPIYl
+U46mZopX2UZMbpycGXBOOldQvn4mSHaOIadwqoS3MS2zKq6yNYyStzBw8/V7zzOB
+C/PR2xXKLZ0F0RvsorvaYen9UJexIw9jqYeBaoJouzIWxngDmJ88NjIM8i2Nq8Dj
+0dTX5to8y5z3+j2IErIt1PS4/FPU8ijq9vLBRG+QIbPlvvlejksxQss+crENQ6yB
+SrVN5o0wylC+bQ8/d1Tw/DZubHthEZ4ZEx0VpNbh/yO8nfLJ53k/gejAUDXubc5v
+3kepNlruRPiJtwFuxDyorJAHVBlRLqraORuHd/NM5m/9DrSXIox+PHOw7xfCmHI9
+mrPfGW7p6Y6JNQ==</X509Certificate></X509Data></KeyInfo></Signature></EnvioDTE>

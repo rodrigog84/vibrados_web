@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<EnvioDTE xmlns="http://www.sii.cl/SiiDte" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sii.cl/SiiDte EnvioDTE_v10.xsd" version="1.0">
+  <SetDTE ID="SetDoc">
+    <Caratula version="1.0">
+      <RutEmisor>77748100-2</RutEmisor>
+      <RutEnvia>3615086-6</RutEnvia>
+      <RutReceptor>60803000-K</RutReceptor>
+      <FchResol>2014-08-22</FchResol>
+      <NroResol>80</NroResol>
+      <TmstFirmaEnv>2016-08-27T10:57:54</TmstFirmaEnv>
+      <SubTotDTE>
+        <TpoDTE>33</TpoDTE>
+        <NroDTE>1</NroDTE>
+      </SubTotDTE>
+    </Caratula>
+    <DTE version="1.0">
+  <Documento ID="T33F581">
+    <Encabezado>
+      <IdDoc>
+        <TipoDTE>33</TipoDTE>
+        <Folio>581</Folio>
+        <FchEmis>2016-08-27</FchEmis>
+      </IdDoc>
+      <Emisor>
+        <RUTEmisor>77748100-2</RUTEmisor>
+        <RznSoc>SOC COM DE TRANSP INDUST Y DE INVERS VIBRADOS CHILE LIMITADA</RznSoc>
+        <GiroEmis>Venta al por menor de articulos de Ferreteria  Fono: 732321100   mail: infovibra</GiroEmis>
+        <Acteco>523410</Acteco>
+        <DirOrigen>Cienfuegos 1595  Suc: Ruta 5 Sur Km 277 Cruce Pangal</DirOrigen>
+        <CmnaOrigen>SAN JAVIER</CmnaOrigen>
+      </Emisor>
+      <Receptor>
+        <RUTRecep>14056162-2</RUTRecep>
+        <RznSocRecep>EMILIO JOSE VALDES GUTIERREZ</RznSocRecep>
+        <GiroRecep>VENTA AL POR MENOR DE BEBIDAS Y LICORES </GiroRecep>
+        <DirRecep>CHORRILLOS 1541 D</DirRecep>
+        <CmnaRecep>SAN JAVIER</CmnaRecep>
+      </Receptor>
+      <Totales>
+        <MntNeto>67361</MntNeto>
+        <TasaIVA>19</TasaIVA>
+        <IVA>12799</IVA>
+        <MntTotal>80160</MntTotal>
+      </Totales>
+    </Encabezado>
+    <Detalle>
+      <NroLinDet>1</NroLinDet>
+      <NmbItem>TEE BR.SSS 1/2"                              </NmbItem>
+      <QtyItem>4.00</QtyItem>
+      <PrcItem>857</PrcItem>
+      <MontoItem>3429</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>2</NroLinDet>
+      <NmbItem>CODO BR.SO HI 1/2"                           </NmbItem>
+      <QtyItem>3.00</QtyItem>
+      <PrcItem>1016</PrcItem>
+      <MontoItem>3050</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>3</NroLinDet>
+      <NmbItem>CODO BR.SO HE 1/2"                           </NmbItem>
+      <QtyItem>4.00</QtyItem>
+      <PrcItem>882</PrcItem>
+      <MontoItem>3529</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>4</NroLinDet>
+      <NmbItem>CODO BR.SO SO 1/2"                           </NmbItem>
+      <QtyItem>10.00</QtyItem>
+      <PrcItem>504</PrcItem>
+      <MontoItem>5042</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>5</NroLinDet>
+      <NmbItem>CAÑERIA COBRE AGUA 1/2" EPC /CONMET             </NmbItem>
+      <QtyItem>2.00</QtyItem>
+      <PrcItem>8958</PrcItem>
+      <MontoItem>17916</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>6</NroLinDet>
+      <NmbItem>GAS BUTANO DESECH.190 grs                    </NmbItem>
+      <QtyItem>3.00</QtyItem>
+      <PrcItem>756</PrcItem>
+      <MontoItem>2269</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>7</NroLinDet>
+      <NmbItem>PASTA SOLDAR 100gr INDEPP                    </NmbItem>
+      <QtyItem>1.00</QtyItem>
+      <PrcItem>664</PrcItem>
+      <MontoItem>664</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>8</NroLinDet>
+      <NmbItem>SOLDADURA ESTAÑO RESORT.1mt Q.DEL C          </NmbItem>
+      <QtyItem>4.00</QtyItem>
+      <PrcItem>882</PrcItem>
+      <MontoItem>3529</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>9</NroLinDet>
+      <NmbItem>LIJA FIERRO Nø120                            </NmbItem>
+      <QtyItem>2.00</QtyItem>
+      <PrcItem>353</PrcItem>
+      <MontoItem>706</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>10</NroLinDet>
+      <NmbItem>LLAVE P/SOLD.1/2" LC-32 FAS M/AZUL           </NmbItem>
+      <QtyItem>2.00</QtyItem>
+      <PrcItem>2487</PrcItem>
+      <MontoItem>4975</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>11</NroLinDet>
+      <NmbItem>CODO 87,5§SAN.GRIS 110mmT                    </NmbItem>
+      <QtyItem>5.00</QtyItem>
+      <PrcItem>1193</PrcItem>
+      <MontoItem>5966</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>12</NroLinDet>
+      <NmbItem>TEE SAN.GRIS 110x110mmTIG                    </NmbItem>
+      <QtyItem>2.00</QtyItem>
+      <PrcItem>1462</PrcItem>
+      <MontoItem>2924</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>13</NroLinDet>
+      <NmbItem>RED.SAN.GRIS 110x75mm TIG                    </NmbItem>
+      <QtyItem>1.00</QtyItem>
+      <PrcItem>639</PrcItem>
+      <MontoItem>639</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>14</NroLinDet>
+      <NmbItem>CODO 87,5§SAN.GRIS 75mmTI                    </NmbItem>
+      <QtyItem>1.00</QtyItem>
+      <PrcItem>538</PrcItem>
+      <MontoItem>538</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>15</NroLinDet>
+      <NmbItem>TUBO SAN.GRIS 110mm TIGRE OFERTA             </NmbItem>
+      <QtyItem>1.00</QtyItem>
+      <PrcItem>7101</PrcItem>
+      <MontoItem>7101</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>16</NroLinDet>
+      <NmbItem>TORN.VOLC.CRS 6 x 1 5/8                      </NmbItem>
+      <QtyItem>100.00</QtyItem>
+      <PrcItem>6</PrcItem>
+      <MontoItem>672</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>17</NroLinDet>
+      <NmbItem>CINTA DOBLE FAS 24 x 5Y ECONOMICA            </NmbItem>
+      <QtyItem>1.00</QtyItem>
+      <PrcItem>739</PrcItem>
+      <MontoItem>739</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>18</NroLinDet>
+      <NmbItem>SILICONA CLAR.TRANS.300ml                    </NmbItem>
+      <QtyItem>1.00</QtyItem>
+      <PrcItem>1555</PrcItem>
+      <MontoItem>1555</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>19</NroLinDet>
+      <NmbItem>INTERR.EMB.9/24 SIMP.ARIS MEC                </NmbItem>
+      <QtyItem>2.00</QtyItem>
+      <PrcItem>1059</PrcItem>
+      <MontoItem>2118</MontoItem>
+    </Detalle>
+    <TED version="1.0">
+  <DD>
+    <RE>77748100-2</RE>
+    <TD>33</TD>
+    <F>581</F>
+    <FE>2016-08-27</FE>
+    <RR>14056162-2</RR>
+    <RSR>EMILIO JOSE VALDES GUTIERREZ</RSR>
+    <MNT>80160</MNT>
+    <IT1>TEE BR.SSS 1/2"</IT1>
+    <CAF version="1.0">
+<DA>
+<RE>77748100-2</RE>
+<RS>SOC COM DE TRANSP INDUST Y DE INVERS VIB</RS>
+<TD>33</TD>
+<RNG><D>1</D><H>1400</H></RNG>
+<FA>2016-08-05</FA>
+<RSAPK><M>vATV3PWobLnIU1vVeHRAv7XhHp0EIfOGntSNsJ8Y4GPqSZvjfktKnR5SqdR8vApojZzxZ2HrUGI7fakff9hybw==</M><E>Aw==</E></RSAPK>
+<IDK>300</IDK>
+</DA>
+<FRMA algoritmo="SHA1withRSA">KAOFDPci4cikJaWgnJ8/K1tgsjoSG0UKewo6M4w53bceABYZ3NUk1miGkbzqrxIZ2JkxTez7iJ4y0eOt14nwwg==</FRMA>
+</CAF>
+    <TSTED>2016-08-27T10:57:54</TSTED>
+  </DD>
+  <FRMT algoritmo="SHA1withRSA">FK1SS/eK56ZbZKkv49ghtPNhR196+2ufo5D+ai61O3Wyg9oXB67r2EpACg/FJD2Ep6rYP90WVwpb8XgRkYug0Q==</FRMT>
+</TED>
+  <TmstFirma>2016-08-27T10:57:54</TmstFirma></Documento>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#"><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI="#T33F581"><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>fu/SYcP9nRjXvVDeE1DP+BoewxM=</DigestValue></Reference></SignedInfo><SignatureValue>MemBYpi8nINM4/O4zithQlgLE3cqUpxJ7km3DVQA5nzsFTPEl9lPZ3wGiY8N4DE6
+5HOAW1WTHRyDRPQFt7eFOrFmbMRdkGasO2yHeXgrqqHzyIKNBYCpJLUaM0I88cAc
+v3KAGRJlE1zWp50CpfgljhiXuilbqjsX7sp2E//4WIzURsecXKDiYLwgJj5nAMx2
+oBf8xfb6sTNt+y7EzFRH4sByHkE0Wh6wi77t3St3chpuh/7S9cPBt8jBeBvp4Pe2
+D/L+VZhcw8R1AxFpk9caBvXs7b1Xu7fWwtnZ09BcaPS4q3xuMh8bDLVdYf6PSwp6
+QCk9iT3HzJJyxBqoUlyo9A==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>1E+JkMFO8vGBrEVQAuNy6j1cjrl/zZRoxNE/TFvUoTOowhVCxm7IL0wR3KJ3FuYD
+D+2fJ+/uGaPywU/ydZzlx6Dl+1IkjeVJ7G1FmXMmQZ/XmQV7zTRWeL3+qtbfq5Nn
+x2BpS5scdWZ7zxVL0aYNO0+LnmnwAbn5ese2AxG0+KSbTEcpT2D1bIGsDxWDzhRq
+jlYe2HaR4hP/lWZkeStDscStCJE+ENB0Ko2qioEzohV4zqzH9Mhe4ht1jbSDu/U9
+EsyFM5krU/1wT6UnoWjrExPuHnN5U2xZSNu11gQpp13zGlfCC9rtcFmLxdrPUWay
+N4QPT0qVjMBa+SNQ8Ouxpw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIF1jCCBL6gAwIBAgICZ34wDQYJKoZIhvcNAQEFBQAwgaYxCzAJBgNVBAYTAkNM
+MRgwFgYDVQQKEw9BY2VwdGEuY29tIFMuQS4xSDBGBgNVBAMTP0FjZXB0YS5jb20g
+QXV0b3JpZGFkIENlcnRpZmljYWRvcmEgQ2xhc2UgMiBQZXJzb25hIE5hdHVyYWwg
+LSBHMzEeMBwGCSqGSIb3DQEJARYPaW5mb0BhY2VwdGEuY29tMRMwEQYDVQQFEwo5
+NjkxOTA1MC04MB4XDTE2MDcxODE5MzA1MVoXDTE5MDcxODE5MzA1MVowgYYxCzAJ
+BgNVBAYTAkNMMRgwFgYDVQQMEw9QRVJTT05BIE5BVFVSQUwxIjAgBgNVBAMTGVZJ
+VEVSQk8gQkFSUklFTlRPUyBBWk9DQVIxJTAjBgkqhkiG9w0BCQEWFklORk9WSUJS
+QURPU0BHTUFJTC5DT00xEjAQBgNVBAUTCTM2MTUwODYtNjCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBANRPiZDBTvLxgaxFUALjcuo9XI65f82UaMTRP0xb
+1KEzqMIVQsZuyC9MEdyidxbmAw/tnyfv7hmj8sFP8nWc5ceg5ftSJI3lSextRZlz
+JkGf15kFe800Vni9/qrW36uTZ8dgaUubHHVme88VS9GmDTtPi55p8AG5+XrHtgMR
+tPikm0xHKU9g9WyBrA8Vg84Uao5WHth2keIT/5VmZHkrQ7HErQiRPhDQdCqNqoqB
+M6IVeM6sx/TIXuIbdY20g7v1PRLMhTOZK1P9cE+lJ6Fo6xMT7h5zeVNsWUjbtdYE
+Kadd8xpXwgva7XBZi8Xaz1FmsjeED09KlYzAWvkjUPDrsacCAwEAAaOCAiowggIm
+MB8GA1UdIwQYMBaAFEAkGj2pMXqFd3o9nnKTOYTlQDgZMB0GA1UdDgQWBBR8VdNA
+sAkYc3h1hQJjOw4gG1G67TALBgNVHQ8EBAMCBPAwHQYDVR0lBBYwFAYIKwYBBQUH
+AwIGCCsGAQUFBwMEMBEGCWCGSAGG+EIBAQQEAwIFoDBuBgNVHSAEZzBlMGMGCisG
+AQQBtWuHagowVTAoBggrBgEFBQcCARYcaHR0cDovL3d3dy5hY2VwdGEuY29tL0NQ
+Uy1HMzApBggrBgEFBQcCAjAdMBYWD0FjZXB0YS5jb20gUy5BLjADAgEJGgNUQkQw
+WgYDVR0SBFMwUaAYBggrBgEEAcEBAqAMFgo5NjkxOTA1MC04oCQGCCsGAQUFBwgD
+oBgwFgwKOTY5MTkwNTAtOAYIKwYBBAHBAQKBD2luZm9AYWNlcHRhLmNvbTBfBgNV
+HREEWDBWoBcGCCsGAQQBwQEBoAsWCTM2MTUwODYtNqAjBggrBgEFBQcIA6AXMBUM
+CTM2MTUwODYtNgYIKwYBBAHBAQKBFklORk9WSUJSQURPU0BHTUFJTC5DT00wPwYI
+KwYBBQUHAQEEMzAxMC8GCCsGAQUFBzABhiNodHRwOi8vb2NzcC5hY2VwdGEuY29t
+L0NsYXNlM0Jpby1HMzA3BgNVHR8EMDAuMCygKqAohiZodHRwOi8vY3JsLmFjZXB0
+YS5jb20vQ2xhc2UzQmlvLUczLmNybDANBgkqhkiG9w0BAQUFAAOCAQEA5glFPIYl
+U46mZopX2UZMbpycGXBOOldQvn4mSHaOIadwqoS3MS2zKq6yNYyStzBw8/V7zzOB
+C/PR2xXKLZ0F0RvsorvaYen9UJexIw9jqYeBaoJouzIWxngDmJ88NjIM8i2Nq8Dj
+0dTX5to8y5z3+j2IErIt1PS4/FPU8ijq9vLBRG+QIbPlvvlejksxQss+crENQ6yB
+SrVN5o0wylC+bQ8/d1Tw/DZubHthEZ4ZEx0VpNbh/yO8nfLJ53k/gejAUDXubc5v
+3kepNlruRPiJtwFuxDyorJAHVBlRLqraORuHd/NM5m/9DrSXIox+PHOw7xfCmHI9
+mrPfGW7p6Y6JNQ==</X509Certificate></X509Data></KeyInfo></Signature></DTE>
+  </SetDTE>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI="#SetDoc"><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>GLltvYhu9tX2xN3z4cucqB/D2rA=</DigestValue></Reference></SignedInfo><SignatureValue>S/ytKQ6lLTaiPveJ5iDZVlw3vKV4V52ndJwfIodK312AU7lZkx30m6m+Pec+RlIe
+t9IMD8v6i3Q1NAMc34v8PokmiseR4Yp6KqWhPElJjDU2Y5sQeWE5BUb7fAYEqFnx
+Z+6Y+/cFaLj5AGeT0kiahIXbt/jCytSIOyipTz00qb21td0eI6JmWBxT+J5yhwDI
+N7PLErc+L2rWB7PHnqtsQgbcSzPghY+8S3qV9nDdbTxvPpi/f+MrAjL4NuCdIUHv
+K8HR8cEvUgCgWcxJgZpFmPdfNUC+63Ya1eWWh/MGTkE0kNzvw2Q2r1fZANR5uNcU
+uz53N/dLFWXjHVhyB5GPeQ==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>1E+JkMFO8vGBrEVQAuNy6j1cjrl/zZRoxNE/TFvUoTOowhVCxm7IL0wR3KJ3FuYD
+D+2fJ+/uGaPywU/ydZzlx6Dl+1IkjeVJ7G1FmXMmQZ/XmQV7zTRWeL3+qtbfq5Nn
+x2BpS5scdWZ7zxVL0aYNO0+LnmnwAbn5ese2AxG0+KSbTEcpT2D1bIGsDxWDzhRq
+jlYe2HaR4hP/lWZkeStDscStCJE+ENB0Ko2qioEzohV4zqzH9Mhe4ht1jbSDu/U9
+EsyFM5krU/1wT6UnoWjrExPuHnN5U2xZSNu11gQpp13zGlfCC9rtcFmLxdrPUWay
+N4QPT0qVjMBa+SNQ8Ouxpw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIF1jCCBL6gAwIBAgICZ34wDQYJKoZIhvcNAQEFBQAwgaYxCzAJBgNVBAYTAkNM
+MRgwFgYDVQQKEw9BY2VwdGEuY29tIFMuQS4xSDBGBgNVBAMTP0FjZXB0YS5jb20g
+QXV0b3JpZGFkIENlcnRpZmljYWRvcmEgQ2xhc2UgMiBQZXJzb25hIE5hdHVyYWwg
+LSBHMzEeMBwGCSqGSIb3DQEJARYPaW5mb0BhY2VwdGEuY29tMRMwEQYDVQQFEwo5
+NjkxOTA1MC04MB4XDTE2MDcxODE5MzA1MVoXDTE5MDcxODE5MzA1MVowgYYxCzAJ
+BgNVBAYTAkNMMRgwFgYDVQQMEw9QRVJTT05BIE5BVFVSQUwxIjAgBgNVBAMTGVZJ
+VEVSQk8gQkFSUklFTlRPUyBBWk9DQVIxJTAjBgkqhkiG9w0BCQEWFklORk9WSUJS
+QURPU0BHTUFJTC5DT00xEjAQBgNVBAUTCTM2MTUwODYtNjCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBANRPiZDBTvLxgaxFUALjcuo9XI65f82UaMTRP0xb
+1KEzqMIVQsZuyC9MEdyidxbmAw/tnyfv7hmj8sFP8nWc5ceg5ftSJI3lSextRZlz
+JkGf15kFe800Vni9/qrW36uTZ8dgaUubHHVme88VS9GmDTtPi55p8AG5+XrHtgMR
+tPikm0xHKU9g9WyBrA8Vg84Uao5WHth2keIT/5VmZHkrQ7HErQiRPhDQdCqNqoqB
+M6IVeM6sx/TIXuIbdY20g7v1PRLMhTOZK1P9cE+lJ6Fo6xMT7h5zeVNsWUjbtdYE
+Kadd8xpXwgva7XBZi8Xaz1FmsjeED09KlYzAWvkjUPDrsacCAwEAAaOCAiowggIm
+MB8GA1UdIwQYMBaAFEAkGj2pMXqFd3o9nnKTOYTlQDgZMB0GA1UdDgQWBBR8VdNA
+sAkYc3h1hQJjOw4gG1G67TALBgNVHQ8EBAMCBPAwHQYDVR0lBBYwFAYIKwYBBQUH
+AwIGCCsGAQUFBwMEMBEGCWCGSAGG+EIBAQQEAwIFoDBuBgNVHSAEZzBlMGMGCisG
+AQQBtWuHagowVTAoBggrBgEFBQcCARYcaHR0cDovL3d3dy5hY2VwdGEuY29tL0NQ
+Uy1HMzApBggrBgEFBQcCAjAdMBYWD0FjZXB0YS5jb20gUy5BLjADAgEJGgNUQkQw
+WgYDVR0SBFMwUaAYBggrBgEEAcEBAqAMFgo5NjkxOTA1MC04oCQGCCsGAQUFBwgD
+oBgwFgwKOTY5MTkwNTAtOAYIKwYBBAHBAQKBD2luZm9AYWNlcHRhLmNvbTBfBgNV
+HREEWDBWoBcGCCsGAQQBwQEBoAsWCTM2MTUwODYtNqAjBggrBgEFBQcIA6AXMBUM
+CTM2MTUwODYtNgYIKwYBBAHBAQKBFklORk9WSUJSQURPU0BHTUFJTC5DT00wPwYI
+KwYBBQUHAQEEMzAxMC8GCCsGAQUFBzABhiNodHRwOi8vb2NzcC5hY2VwdGEuY29t
+L0NsYXNlM0Jpby1HMzA3BgNVHR8EMDAuMCygKqAohiZodHRwOi8vY3JsLmFjZXB0
+YS5jb20vQ2xhc2UzQmlvLUczLmNybDANBgkqhkiG9w0BAQUFAAOCAQEA5glFPIYl
+U46mZopX2UZMbpycGXBOOldQvn4mSHaOIadwqoS3MS2zKq6yNYyStzBw8/V7zzOB
+C/PR2xXKLZ0F0RvsorvaYen9UJexIw9jqYeBaoJouzIWxngDmJ88NjIM8i2Nq8Dj
+0dTX5to8y5z3+j2IErIt1PS4/FPU8ijq9vLBRG+QIbPlvvlejksxQss+crENQ6yB
+SrVN5o0wylC+bQ8/d1Tw/DZubHthEZ4ZEx0VpNbh/yO8nfLJ53k/gejAUDXubc5v
+3kepNlruRPiJtwFuxDyorJAHVBlRLqraORuHd/NM5m/9DrSXIox+PHOw7xfCmHI9
+mrPfGW7p6Y6JNQ==</X509Certificate></X509Data></KeyInfo></Signature></EnvioDTE>

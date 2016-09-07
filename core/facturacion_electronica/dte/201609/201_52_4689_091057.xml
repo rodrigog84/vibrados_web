@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<EnvioDTE xmlns="http://www.sii.cl/SiiDte" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sii.cl/SiiDte EnvioDTE_v10.xsd" version="1.0">
+  <SetDTE ID="SetDoc">
+    <Caratula version="1.0">
+      <RutEmisor>77748100-2</RutEmisor>
+      <RutEnvia>3615086-6</RutEnvia>
+      <RutReceptor>60803000-K</RutReceptor>
+      <FchResol>2014-08-22</FchResol>
+      <NroResol>80</NroResol>
+      <TmstFirmaEnv>2016-09-03T09:10:57</TmstFirmaEnv>
+      <SubTotDTE>
+        <TpoDTE>52</TpoDTE>
+        <NroDTE>1</NroDTE>
+      </SubTotDTE>
+    </Caratula>
+    <DTE version="1.0">
+  <Documento ID="T52F201">
+    <Encabezado>
+      <IdDoc>
+        <TipoDTE>52</TipoDTE>
+        <Folio>201</Folio>
+        <FchEmis>2016-09-03</FchEmis>
+      </IdDoc>
+      <Emisor>
+        <RUTEmisor>77748100-2</RUTEmisor>
+        <RznSoc>SOC COM DE TRANSP INDUST Y DE INVERS VIBRADOS CHILE LIMITADA</RznSoc>
+        <GiroEmis>Venta al por menor de articulos de Ferreteria  Fono: 732321100   mail: infovibra</GiroEmis>
+        <Acteco>523410</Acteco>
+        <DirOrigen>Cienfuegos 1595  Suc: Ruta 5 Sur Km 277 Cruce Pangal</DirOrigen>
+        <CmnaOrigen>SAN JAVIER</CmnaOrigen>
+      </Emisor>
+      <Receptor>
+        <RUTRecep>76509207-8</RUTRecep>
+        <RznSocRecep>CONSTRUCTORA  ALTOS DE LONCOMILLA SPA</RznSocRecep>
+        <GiroRecep>OBRAS MENORES EN CONSTRUCCION (CONTRATIS</GiroRecep>
+        <DirRecep>CALLE DOMINGO PEREZ 6 SOLAR DE LONCOMILLA</DirRecep>
+        <CmnaRecep>SAN JAVIER</CmnaRecep>
+      </Receptor>
+      <Totales>
+        <MntNeto>81336</MntNeto>
+        <TasaIVA>19</TasaIVA>
+        <IVA>15454</IVA>
+        <MntTotal>96790</MntTotal>
+      </Totales>
+    </Encabezado>
+    <Detalle>
+      <NroLinDet>1</NroLinDet>
+      <NmbItem>TUBO SAN.GRIS 110mm TIGRE OFERTA             </NmbItem>
+      <QtyItem>2.00</QtyItem>
+      <PrcItem>7101</PrcItem>
+      <MontoItem>14202</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>2</NroLinDet>
+      <NmbItem>TUBO SAN.GRIS 75mm TIGRE CERTIF.             </NmbItem>
+      <QtyItem>2.00</QtyItem>
+      <PrcItem>4285</PrcItem>
+      <MontoItem>8570</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>3</NroLinDet>
+      <NmbItem>TUBO SAN.GRIS 50mm TIGRE CERTIF.             </NmbItem>
+      <QtyItem>2.00</QtyItem>
+      <PrcItem>2790</PrcItem>
+      <MontoItem>5580</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>4</NroLinDet>
+      <NmbItem>TEE SAN.GRIS 110x75mm TIG                    </NmbItem>
+      <QtyItem>2.00</QtyItem>
+      <PrcItem>1428</PrcItem>
+      <MontoItem>2856</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>5</NroLinDet>
+      <NmbItem>CODO 87,5§SAN.GRIS 110mmT                    </NmbItem>
+      <QtyItem>3.00</QtyItem>
+      <PrcItem>1193</PrcItem>
+      <MontoItem>3579</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>6</NroLinDet>
+      <NmbItem>TEE SAN.GRIS 110x110mmTIG                    </NmbItem>
+      <QtyItem>2.00</QtyItem>
+      <PrcItem>1462</PrcItem>
+      <MontoItem>2924</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>7</NroLinDet>
+      <NmbItem>CURVA 45øSAN.GRIS 110mm TIGRE                </NmbItem>
+      <QtyItem>4.00</QtyItem>
+      <PrcItem>924</PrcItem>
+      <MontoItem>3696</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>8</NroLinDet>
+      <NmbItem>TEE SAN.GRIS 75x75mm TIGR                    </NmbItem>
+      <QtyItem>2.00</QtyItem>
+      <PrcItem>731</PrcItem>
+      <MontoItem>1462</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>9</NroLinDet>
+      <NmbItem>TEE SAN.GRIS 75x50mm TIGR                    </NmbItem>
+      <QtyItem>2.00</QtyItem>
+      <PrcItem>596</PrcItem>
+      <MontoItem>1192</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>10</NroLinDet>
+      <NmbItem>TEE SAN.GRIS 50x50mm TIGR                    </NmbItem>
+      <QtyItem>2.00</QtyItem>
+      <PrcItem>403</PrcItem>
+      <MontoItem>806</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>11</NroLinDet>
+      <NmbItem>CODO 87,5§SAN.GRIS 50mmTI                    </NmbItem>
+      <QtyItem>8.00</QtyItem>
+      <PrcItem>319</PrcItem>
+      <MontoItem>2552</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>12</NroLinDet>
+      <NmbItem>RED.SAN.GRIS 75x50mm TIGR                    </NmbItem>
+      <QtyItem>4.00</QtyItem>
+      <PrcItem>311</PrcItem>
+      <MontoItem>1244</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>13</NroLinDet>
+      <NmbItem>ADHESIVO FRASCO C/PINCEL 250cc               </NmbItem>
+      <QtyItem>3.00</QtyItem>
+      <PrcItem>1697</PrcItem>
+      <MontoItem>5091</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>14</NroLinDet>
+      <NmbItem>LIJA FIERRO Nø100                            </NmbItem>
+      <QtyItem>3.00</QtyItem>
+      <PrcItem>353</PrcItem>
+      <MontoItem>1059</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>15</NroLinDet>
+      <NmbItem>GAS BUTANO DESECH.227 grs COCINA             </NmbItem>
+      <QtyItem>4.00</QtyItem>
+      <PrcItem>966</PrcItem>
+      <MontoItem>3864</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>16</NroLinDet>
+      <NmbItem>DISCO CORTE AC.INOX.4 1/2" 1mm KRON          </NmbItem>
+      <QtyItem>3.00</QtyItem>
+      <PrcItem>554</PrcItem>
+      <MontoItem>1662</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>17</NroLinDet>
+      <NmbItem>SERRUCHO CARP.PROF.BAHCO 24"                 </NmbItem>
+      <QtyItem>1.00</QtyItem>
+      <PrcItem>14689</PrcItem>
+      <MontoItem>14689</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>18</NroLinDet>
+      <NmbItem>BARRA FE LISO 6mmx6mt A-44 OFERTA            </NmbItem>
+      <QtyItem>2.00</QtyItem>
+      <PrcItem>559</PrcItem>
+      <MontoItem>1118</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>19</NroLinDet>
+      <NmbItem>PILETA UN.GR.110x75x50x40                    </NmbItem>
+      <QtyItem>2.00</QtyItem>
+      <PrcItem>2395</PrcItem>
+      <MontoItem>4790</MontoItem>
+    </Detalle>
+    <Detalle>
+      <NroLinDet>20</NroLinDet>
+      <NmbItem>RED.SAN.GRIS 50x40mm TIGR                    </NmbItem>
+      <QtyItem>2.00</QtyItem>
+      <PrcItem>193</PrcItem>
+      <MontoItem>386</MontoItem>
+    </Detalle>
+    <TED version="1.0">
+  <DD>
+    <RE>77748100-2</RE>
+    <TD>52</TD>
+    <F>201</F>
+    <FE>2016-09-03</FE>
+    <RR>76509207-8</RR>
+    <RSR>CONSTRUCTORA  ALTOS DE LONCOMILLA SPA</RSR>
+    <MNT>96790</MNT>
+    <IT1>TUBO SAN.GRIS 110mm TIGRE OFERTA</IT1>
+    <CAF version="1.0">
+<DA>
+<RE>77748100-2</RE>
+<RS>SOC COM DE TRANSP INDUST Y DE INVERS VIB</RS>
+<TD>52</TD>
+<RNG><D>1</D><H>10000</H></RNG>
+<FA>2016-08-05</FA>
+<RSAPK><M>0MESkMkbpR05JGyWvt76jUprXDRXujztkKkVQlD6zTyazMB8mxi5cNyubF3O0C4s61wOH9LKCzFp3eeKpGaznQ==</M><E>Aw==</E></RSAPK>
+<IDK>300</IDK>
+</DA>
+<FRMA algoritmo="SHA1withRSA">BTpF3OyQIJk1pl9RBAXyPjk6jsd8Ql0taSTzAiTDsNGvr98RHhBZkujO1emILJb9qjqvpc2DOc70jxrMRnp8lg==</FRMA>
+</CAF>
+    <TSTED>2016-09-03T09:10:57</TSTED>
+  </DD>
+  <FRMT algoritmo="SHA1withRSA">txKhhgJ1pkIkgcwsiVVg4gOWt0zPG4bZRCenhvjdc05NvSK6svNEld+PS4e3aps9N+gsU83LQeXb1+cwSLVstA==</FRMT>
+</TED>
+  <TmstFirma>2016-09-03T09:10:57</TmstFirma></Documento>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#"><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI="#T52F201"><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>7cg2Iphlfkwp2e8sJQjIsYk6Dxw=</DigestValue></Reference></SignedInfo><SignatureValue>uKqH2KZQaV59ZsamnMn5f8QqwCpYOes1Oi7p+87Jy4LIFdjFS5H70wk2j2K/30yZ
+d31F7c9Qc1ifVgdcrNqta+usyk80plc8RTH6Zbk3tLS1R1d5GVnZy7Phqegvo9ST
+XC8VC69N/lydnQO/AOG9HZ3dl0rHow6Pd2l/cVdVlE9qgkq8nJlYSs2L6kxHIM14
+/63Ww/OhM/XJzEWlAFUD/8+T2pDvmHEuH1Grijp9sx3XqIl85q8olMec6VrlB+/h
+Z4qlUx0KK/Ob/UeLoOu4hIPrVaMdXgCS1QQBV88yhsFsoyhJude4bJONTLjiJgYi
+mzG6Hfa5uKCnU4Ad2JbzLA==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>1E+JkMFO8vGBrEVQAuNy6j1cjrl/zZRoxNE/TFvUoTOowhVCxm7IL0wR3KJ3FuYD
+D+2fJ+/uGaPywU/ydZzlx6Dl+1IkjeVJ7G1FmXMmQZ/XmQV7zTRWeL3+qtbfq5Nn
+x2BpS5scdWZ7zxVL0aYNO0+LnmnwAbn5ese2AxG0+KSbTEcpT2D1bIGsDxWDzhRq
+jlYe2HaR4hP/lWZkeStDscStCJE+ENB0Ko2qioEzohV4zqzH9Mhe4ht1jbSDu/U9
+EsyFM5krU/1wT6UnoWjrExPuHnN5U2xZSNu11gQpp13zGlfCC9rtcFmLxdrPUWay
+N4QPT0qVjMBa+SNQ8Ouxpw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIF1jCCBL6gAwIBAgICZ34wDQYJKoZIhvcNAQEFBQAwgaYxCzAJBgNVBAYTAkNM
+MRgwFgYDVQQKEw9BY2VwdGEuY29tIFMuQS4xSDBGBgNVBAMTP0FjZXB0YS5jb20g
+QXV0b3JpZGFkIENlcnRpZmljYWRvcmEgQ2xhc2UgMiBQZXJzb25hIE5hdHVyYWwg
+LSBHMzEeMBwGCSqGSIb3DQEJARYPaW5mb0BhY2VwdGEuY29tMRMwEQYDVQQFEwo5
+NjkxOTA1MC04MB4XDTE2MDcxODE5MzA1MVoXDTE5MDcxODE5MzA1MVowgYYxCzAJ
+BgNVBAYTAkNMMRgwFgYDVQQMEw9QRVJTT05BIE5BVFVSQUwxIjAgBgNVBAMTGVZJ
+VEVSQk8gQkFSUklFTlRPUyBBWk9DQVIxJTAjBgkqhkiG9w0BCQEWFklORk9WSUJS
+QURPU0BHTUFJTC5DT00xEjAQBgNVBAUTCTM2MTUwODYtNjCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBANRPiZDBTvLxgaxFUALjcuo9XI65f82UaMTRP0xb
+1KEzqMIVQsZuyC9MEdyidxbmAw/tnyfv7hmj8sFP8nWc5ceg5ftSJI3lSextRZlz
+JkGf15kFe800Vni9/qrW36uTZ8dgaUubHHVme88VS9GmDTtPi55p8AG5+XrHtgMR
+tPikm0xHKU9g9WyBrA8Vg84Uao5WHth2keIT/5VmZHkrQ7HErQiRPhDQdCqNqoqB
+M6IVeM6sx/TIXuIbdY20g7v1PRLMhTOZK1P9cE+lJ6Fo6xMT7h5zeVNsWUjbtdYE
+Kadd8xpXwgva7XBZi8Xaz1FmsjeED09KlYzAWvkjUPDrsacCAwEAAaOCAiowggIm
+MB8GA1UdIwQYMBaAFEAkGj2pMXqFd3o9nnKTOYTlQDgZMB0GA1UdDgQWBBR8VdNA
+sAkYc3h1hQJjOw4gG1G67TALBgNVHQ8EBAMCBPAwHQYDVR0lBBYwFAYIKwYBBQUH
+AwIGCCsGAQUFBwMEMBEGCWCGSAGG+EIBAQQEAwIFoDBuBgNVHSAEZzBlMGMGCisG
+AQQBtWuHagowVTAoBggrBgEFBQcCARYcaHR0cDovL3d3dy5hY2VwdGEuY29tL0NQ
+Uy1HMzApBggrBgEFBQcCAjAdMBYWD0FjZXB0YS5jb20gUy5BLjADAgEJGgNUQkQw
+WgYDVR0SBFMwUaAYBggrBgEEAcEBAqAMFgo5NjkxOTA1MC04oCQGCCsGAQUFBwgD
+oBgwFgwKOTY5MTkwNTAtOAYIKwYBBAHBAQKBD2luZm9AYWNlcHRhLmNvbTBfBgNV
+HREEWDBWoBcGCCsGAQQBwQEBoAsWCTM2MTUwODYtNqAjBggrBgEFBQcIA6AXMBUM
+CTM2MTUwODYtNgYIKwYBBAHBAQKBFklORk9WSUJSQURPU0BHTUFJTC5DT00wPwYI
+KwYBBQUHAQEEMzAxMC8GCCsGAQUFBzABhiNodHRwOi8vb2NzcC5hY2VwdGEuY29t
+L0NsYXNlM0Jpby1HMzA3BgNVHR8EMDAuMCygKqAohiZodHRwOi8vY3JsLmFjZXB0
+YS5jb20vQ2xhc2UzQmlvLUczLmNybDANBgkqhkiG9w0BAQUFAAOCAQEA5glFPIYl
+U46mZopX2UZMbpycGXBOOldQvn4mSHaOIadwqoS3MS2zKq6yNYyStzBw8/V7zzOB
+C/PR2xXKLZ0F0RvsorvaYen9UJexIw9jqYeBaoJouzIWxngDmJ88NjIM8i2Nq8Dj
+0dTX5to8y5z3+j2IErIt1PS4/FPU8ijq9vLBRG+QIbPlvvlejksxQss+crENQ6yB
+SrVN5o0wylC+bQ8/d1Tw/DZubHthEZ4ZEx0VpNbh/yO8nfLJ53k/gejAUDXubc5v
+3kepNlruRPiJtwFuxDyorJAHVBlRLqraORuHd/NM5m/9DrSXIox+PHOw7xfCmHI9
+mrPfGW7p6Y6JNQ==</X509Certificate></X509Data></KeyInfo></Signature></DTE>
+  </SetDTE>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI="#SetDoc"><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>akT7ECNg0DBanpoN8E36ykeZ/fw=</DigestValue></Reference></SignedInfo><SignatureValue>Gp0sjDMVKY4X5FP0SidWvebCRKowoSV3WPMxSwHhlZ3CSpu+FaI3EQnGF5tDWo5C
+XdN4CjN3/Sir54/44Sv2DHzZSPdrGgqgfPDYvtVY6M2Fa6O9KV0hgvqkdebt083m
+rqAlv70bdWWDYccrB//jqhvOT+ft534jvIebJRseS+7wH+LmsvEeEinHtJRUTTyt
+ywSG0OJER5RtfZ4i14NzouAgMXQHHNZoxdrbhtubKcErVzVHk4kNQk+lYEUHWDuW
+4BaftZHsot74DXBnxPo/UrOqSZ723Abko/JgTjpNyQz29D0JlNWS/ODO2R4iThQA
+0Xyf6h89nYSOvoywkJP8+A==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>1E+JkMFO8vGBrEVQAuNy6j1cjrl/zZRoxNE/TFvUoTOowhVCxm7IL0wR3KJ3FuYD
+D+2fJ+/uGaPywU/ydZzlx6Dl+1IkjeVJ7G1FmXMmQZ/XmQV7zTRWeL3+qtbfq5Nn
+x2BpS5scdWZ7zxVL0aYNO0+LnmnwAbn5ese2AxG0+KSbTEcpT2D1bIGsDxWDzhRq
+jlYe2HaR4hP/lWZkeStDscStCJE+ENB0Ko2qioEzohV4zqzH9Mhe4ht1jbSDu/U9
+EsyFM5krU/1wT6UnoWjrExPuHnN5U2xZSNu11gQpp13zGlfCC9rtcFmLxdrPUWay
+N4QPT0qVjMBa+SNQ8Ouxpw==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIF1jCCBL6gAwIBAgICZ34wDQYJKoZIhvcNAQEFBQAwgaYxCzAJBgNVBAYTAkNM
+MRgwFgYDVQQKEw9BY2VwdGEuY29tIFMuQS4xSDBGBgNVBAMTP0FjZXB0YS5jb20g
+QXV0b3JpZGFkIENlcnRpZmljYWRvcmEgQ2xhc2UgMiBQZXJzb25hIE5hdHVyYWwg
+LSBHMzEeMBwGCSqGSIb3DQEJARYPaW5mb0BhY2VwdGEuY29tMRMwEQYDVQQFEwo5
+NjkxOTA1MC04MB4XDTE2MDcxODE5MzA1MVoXDTE5MDcxODE5MzA1MVowgYYxCzAJ
+BgNVBAYTAkNMMRgwFgYDVQQMEw9QRVJTT05BIE5BVFVSQUwxIjAgBgNVBAMTGVZJ
+VEVSQk8gQkFSUklFTlRPUyBBWk9DQVIxJTAjBgkqhkiG9w0BCQEWFklORk9WSUJS
+QURPU0BHTUFJTC5DT00xEjAQBgNVBAUTCTM2MTUwODYtNjCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBANRPiZDBTvLxgaxFUALjcuo9XI65f82UaMTRP0xb
+1KEzqMIVQsZuyC9MEdyidxbmAw/tnyfv7hmj8sFP8nWc5ceg5ftSJI3lSextRZlz
+JkGf15kFe800Vni9/qrW36uTZ8dgaUubHHVme88VS9GmDTtPi55p8AG5+XrHtgMR
+tPikm0xHKU9g9WyBrA8Vg84Uao5WHth2keIT/5VmZHkrQ7HErQiRPhDQdCqNqoqB
+M6IVeM6sx/TIXuIbdY20g7v1PRLMhTOZK1P9cE+lJ6Fo6xMT7h5zeVNsWUjbtdYE
+Kadd8xpXwgva7XBZi8Xaz1FmsjeED09KlYzAWvkjUPDrsacCAwEAAaOCAiowggIm
+MB8GA1UdIwQYMBaAFEAkGj2pMXqFd3o9nnKTOYTlQDgZMB0GA1UdDgQWBBR8VdNA
+sAkYc3h1hQJjOw4gG1G67TALBgNVHQ8EBAMCBPAwHQYDVR0lBBYwFAYIKwYBBQUH
+AwIGCCsGAQUFBwMEMBEGCWCGSAGG+EIBAQQEAwIFoDBuBgNVHSAEZzBlMGMGCisG
+AQQBtWuHagowVTAoBggrBgEFBQcCARYcaHR0cDovL3d3dy5hY2VwdGEuY29tL0NQ
+Uy1HMzApBggrBgEFBQcCAjAdMBYWD0FjZXB0YS5jb20gUy5BLjADAgEJGgNUQkQw
+WgYDVR0SBFMwUaAYBggrBgEEAcEBAqAMFgo5NjkxOTA1MC04oCQGCCsGAQUFBwgD
+oBgwFgwKOTY5MTkwNTAtOAYIKwYBBAHBAQKBD2luZm9AYWNlcHRhLmNvbTBfBgNV
+HREEWDBWoBcGCCsGAQQBwQEBoAsWCTM2MTUwODYtNqAjBggrBgEFBQcIA6AXMBUM
+CTM2MTUwODYtNgYIKwYBBAHBAQKBFklORk9WSUJSQURPU0BHTUFJTC5DT00wPwYI
+KwYBBQUHAQEEMzAxMC8GCCsGAQUFBzABhiNodHRwOi8vb2NzcC5hY2VwdGEuY29t
+L0NsYXNlM0Jpby1HMzA3BgNVHR8EMDAuMCygKqAohiZodHRwOi8vY3JsLmFjZXB0
+YS5jb20vQ2xhc2UzQmlvLUczLmNybDANBgkqhkiG9w0BAQUFAAOCAQEA5glFPIYl
+U46mZopX2UZMbpycGXBOOldQvn4mSHaOIadwqoS3MS2zKq6yNYyStzBw8/V7zzOB
+C/PR2xXKLZ0F0RvsorvaYen9UJexIw9jqYeBaoJouzIWxngDmJ88NjIM8i2Nq8Dj
+0dTX5to8y5z3+j2IErIt1PS4/FPU8ijq9vLBRG+QIbPlvvlejksxQss+crENQ6yB
+SrVN5o0wylC+bQ8/d1Tw/DZubHthEZ4ZEx0VpNbh/yO8nfLJ53k/gejAUDXubc5v
+3kepNlruRPiJtwFuxDyorJAHVBlRLqraORuHd/NM5m/9DrSXIox+PHOw7xfCmHI9
+mrPfGW7p6Y6JNQ==</X509Certificate></X509Data></KeyInfo></Signature></EnvioDTE>
