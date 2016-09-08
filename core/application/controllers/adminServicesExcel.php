@@ -621,12 +621,11 @@ class AdminServicesExcel extends CI_Controller {
             $fecha2 = $this->input->get('fecha2');
             list($dia, $mes, $anio) = explode("/",$fecha2);
             $fecha4 = $anio ."-". $mes ."-". $dia;
-            $tipo = 1;
+            $tipo = 102;
             $tipo2 = 19;
             $tipo3 = 101;
             $tipo4 = 103;
-                        
-
+            
             $data = array();
                                    
             $this->load->database();
@@ -1049,8 +1048,7 @@ class AdminServicesExcel extends CI_Controller {
                                    
             $this->load->database();
             
-            if($fecha){
-            
+            if($fecha){            
                           
                 $data = array();
                 $query = $this->db->query('SELECT acc.*, c.nombres as nombre_cliente, c.rut as rut_cliente, v.nombre as nom_vendedor  FROM factura_clientes acc
@@ -1059,8 +1057,7 @@ class AdminServicesExcel extends CI_Controller {
                 WHERE acc.tipo_documento in ( '.$tipo.','.$tipo2.') and acc.fecha_factura between "'.$fecha3.'"  AND "'.$fecha4.'"
                 order by acc.fecha_factura, acc.tipo_documento, acc.num_factura' 
                 
-                );
-            
+                );           
 
               };
               
@@ -1073,6 +1070,7 @@ class AdminServicesExcel extends CI_Controller {
             echo "<td>FACTURAS</td>";
             echo "<tr>";
                 echo "<td>NUMERO</td>";
+                echo "<td>TIPO</td>";
                 echo "<td>FECHA</td>";
                 echo "<td>VENCIMIENTO</td>";
                 echo "<td>RUT</td>";
@@ -1085,13 +1083,11 @@ class AdminServicesExcel extends CI_Controller {
                 echo "<tr>";
               
               foreach($users as $v){
-
                  $total = $v['totalfactura'];
                  $afecto = $v['sub_total'];
                  $neto = $v['neto'];
                  $iva = $v['iva'];
-                 if ($v['tipo_documento']==11){
-
+                 if ($v['tipo_documento']==102){
                   $total = ($v['totalfactura']/-1);
                   $afecto = ($v['sub_total']/-1);
                   $neto = ($v['neto']/-1);
@@ -1101,9 +1097,9 @@ class AdminServicesExcel extends CI_Controller {
                   $totalafnc = $totalafnc + $afecto;
                   $totalnetonc = $totalnetonc + $neto;
                   $totaliva = $totaliva + $iva;
-
+                  $tip="N/C";
                  }else{
-
+                  $tip="FACT";
                   $totalfa = $totalfa + $total;
                   $totalaffa = $totalaffa + $afecto;
                   $totalnetofa = $totalnetofa + $neto;
@@ -1111,9 +1107,9 @@ class AdminServicesExcel extends CI_Controller {
                   $cantfac = $cantfac +1;                   
                  }
 
-
                 echo "<tr>";
                    echo "<td>".$v['num_factura']."</td>";
+                   echo "<td>".$tip."</td>";
                    echo "<td>".$v['fecha_factura']."</td>";
                    echo "<td>".$v['fecha_venc']."</td>";
                    echo "<td>".$v['rut_cliente']."</td>";
@@ -1186,8 +1182,6 @@ class AdminServicesExcel extends CI_Controller {
                    echo "<td>".$otros."</td>";
                    echo "<td>".$totalfinala."</td>";                  
             echo "</tr>";
-
-
             echo '</table>';
         }
 
