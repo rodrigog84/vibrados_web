@@ -264,7 +264,7 @@ class Recaudacion extends CI_Controller {
 
 		$resp = array();
 		$numcomp = json_decode($this->input->post('num_comprobante'));
-		$fechacomp = json_decode($this->input->post('fecha'));
+		$fechacomp = $this->input->get('fecha');
 		$numdocum = json_decode($this->input->post('num_documento'));
         $documento = json_decode($this->input->post('documento'));
 		$tipodocumento = json_decode($this->input->post('documento'));
@@ -276,8 +276,8 @@ class Recaudacion extends CI_Controller {
 		$recitems = json_decode($this->input->post('items'));
 		$contado = json_decode($this->input->post('contado'));
 		$cheques = json_decode($this->input->post('cheques'));
-		$neto = json_decode($this->input->post('cheques'));
-		$ftotal = json_decode($this->input->post('cheques'));
+		$neto = json_decode($this->input->post('neto'));
+		$ftotal = json_decode($this->input->post('total'));
 		$idcondventa = json_decode($this->input->post('idpago'));
 		$idrecauda = json_decode($this->input->post('idrecauda'));
 		$otros = json_decode($this->input->post('otros'));		
@@ -298,7 +298,7 @@ class Recaudacion extends CI_Controller {
 
 		    $preventa = array(
 	        'num_ticket' => $corr,
-	        'fecha_venta' => date('Y-m-d'),
+	        'fecha_venta' => $fechacomp,
 	        'id_cliente' => $idcliente,
 	        'id_vendedor' => $vendedor,
 	        'neto' => $neto,
