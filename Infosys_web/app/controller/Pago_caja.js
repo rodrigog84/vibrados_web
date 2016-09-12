@@ -818,7 +818,7 @@ Ext.define('Infosys_web.controller.Pago_caja', {
             url: preurl + 'recaudacion/save2',
             params: {
                 num_comprobante : comprobante,
-                fecha : Ext.Date.format(fecha,'Y-m-d'),
+                fecha : Ext.Date.format(fechatransac,'Y-m-d'),
                 documento: docum,
                 num_documento : numdoc,
                 idfactura: idfactura,
