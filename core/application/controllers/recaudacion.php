@@ -9,6 +9,31 @@ class Recaudacion extends CI_Controller {
 		$this->load->database();
 	}
 
+	public function validaboleta(){
+
+		$resp = array();
+		$boleta = json_decode($this->input->post('boleta'));
+        $tipo = json_decode($this->input->post('tipo'));
+
+		$query = $this->db->query('SELECT acc.*, c.nombres as nombre_cliente, c.rut as rut_cliente, v.nombre as nom_vendedor, td.descripcion as tipo_doc	FROM factura_clientes acc
+			left join clientes c on (acc.id_cliente = c.id)
+			left join vendedores v on (acc.id_vendedor = v.id)
+			left join tipo_documento td on (acc.tipo_documento = td.id)
+			WHERE  acc.tipo_documento= "'.$tipo.'" and acc.num_factura = "'.$boleta.'"');
+
+		if($query->num_rows()>0){
+
+			$resp['success'] = true;
+        
+
+		};
+
+		echo json_encode($resp);
+
+	
+		
+	}
+
 	public function averigua(){
 
 		$resp = array();
@@ -231,6 +256,563 @@ class Recaudacion extends CI_Controller {
 
 		$resp['success'] = true;
         
+        echo json_encode($resp);
+
+	}
+
+	public function save2(){
+
+		$resp = array();
+		$numcomp = json_decode($this->input->post('num_comprobante'));
+		$fechacomp = json_decode($this->input->post('fecha'));
+		$numdocum = json_decode($this->input->post('num_documento'));
+        $documento = json_decode($this->input->post('documento'));
+		$tipodocumento = json_decode($this->input->post('documento'));
+		$idcliente = json_decode($this->input->post('id_cliente'));
+		$vendedor = json_decode($this->input->post('vendedor'));
+		$idcaja = json_decode($this->input->post('id_caja'));
+		$idcajero = json_decode($this->input->post('id_cajero'));
+		$items = json_decode($this->input->post('items'));
+		$recitems = json_decode($this->input->post('items'));
+		$contado = json_decode($this->input->post('contado'));
+		$cheques = json_decode($this->input->post('cheques'));
+		$neto = json_decode($this->input->post('cheques'));
+		$ftotal = json_decode($this->input->post('cheques'));
+		$idcondventa = json_decode($this->input->post('idpago'));
+		$idrecauda = json_decode($this->input->post('idrecauda'));
+		$otros = json_decode($this->input->post('otros'));		
+		$estado = "SI";
+		$corr = 6;
+
+		$query = $this->db->query('SELECT * FROM correlativos WHERE id like "'.$corr.'"');
+
+		if($query->num_rows()>0){
+
+			$row = $query->first_row();
+			$corr = (($row->correlativo)+1); 
+	   		$id = ($row->id);
+
+	   		$data3 = array(
+	         'correlativo' => $corr
+		    );
+
+		    $preventa = array(
+	        'num_ticket' => $corr,
+	        'fecha_venta' => date('Y-m-d'),
+	        'id_cliente' => $idcliente,
+	        'id_vendedor' => $vendedor,
+	        'neto' => $neto,
+	        'id_tip_docu' => $tipodocumento,
+	        'id_pago' => $idcondventa,
+	        'total' => $ftotal,
+	        'estado' => $estado,
+	        'id_documento'=> $numdocum
+			);
+
+			$this->db->insert('preventa', $preventa);
+			$idticket = $this->db->insert_id();
+
+		    $this->db->where('id', $id);		  
+		    $this->db->update('correlativos', $data3);
+		    $this->Bitacora->logger("M", 'correlativos', $id);
+		};
+
+
+		if($idrecauda){
+			$cajas = array(
+		         'efectivo' => $contado,
+		         'cheques' => $cheques,
+		         'otros' => $otros
+		    );
+		    $this->db->where('id', $idrecauda);		  
+		    $this->db->update('control_caja', $cajas);
+	    }else{
+	    	$cajas2 = array(
+	    	 'id_caja' => $idcaja,
+	    	 'id_cajero' => $idcajero,
+	         'efectivo' => $contado,
+	         'cheques' => $cheques,
+	         'otros' => $otros
+	    	);
+
+	    	$this->db->insert('control_caja', $cajas2);
+	    };
+
+		$data2 = array(
+	         'estado' => $estado
+	    );
+	    $this->db->where('id', $idticket);	  
+	    $this->db->update('preventa', $data2);
+
+
+		$data3 = array(
+	         'correlativo' => $numcomp
+	    );
+
+	    $this->db->where('id', $idcaja);	  
+	    $this->db->update('cajas', $data3);
+
+		$recaudacion = array(
+	        'num_comp' => $numcomp,
+	        'fecha' => date('Y-m-d'),
+	        'id_cliente' => $idcliente,
+			'num_doc' => $numdocum,
+			'id_caja' => $idcaja,
+			'id_ticket' => $idticket,
+		    'id_cajero' => $idcajero
+		);
+
+		$this->db->insert('recaudacion', $recaudacion); 
+		$recauda = $this->db->insert_id();
+        $ftotal = 0;
+		foreach($items as $v){
+					
+			$recaudacion_detalle = array(				
+		        'id_recaudacion' => $recauda,
+		        'id_forma' => $v->id_forma,
+		        'detalle' => $v->detalle,
+		        'num_cheque' => $v->num_cheque,
+		        'id_banco' => $v->id_banco,
+		        'valor_pago' => ($v->valor_cancelado-$v->valor_vuelto),
+		        'valor_cancelado' => $v->valor_cancelado,
+		        'valor_vuelto' => $v->valor_vuelto,
+		        'fecha_transac' => $v->fecha_comp,
+		        'fecha_comp' => date('Y-m-d')
+			);
+
+			$idforma = ($v->id_forma);
+			if ($documento == 2){
+			if($v->id_forma==7 or $v->id_forma==4 ){
+			$numdocum = ($v->num_cheque);			
+			$ftotal = ($ftotal + ($v->valor_cancelado-$v->valor_vuelto));
+
+			};
+		    };
+				
+			$this->db->insert('recaudacion_detalle', $recaudacion_detalle);
+
+			$query5 = $this->db->query('SELECT * FROM recaudacion_general 
+			WHERE id_recaudacion = '.$recauda.'');
+			
+			if($query5->num_rows()>0){
+
+				$row = $query5->first_row();
+	   			$id = $row->id;
+	   			$contado = $row->contado;
+	   			$chequealdia = $row->chequealdia;
+	   			$chequeafecha = $row->chequeafecha;
+	   			$credito = $row->credito;
+	   			$tarjetadebito = $row->tarjetadebito;
+	   			$tarjetacredito = $row->tarjetacredito;
+	   			$credito30dias = $row->credito30dias;
+	   			$credito60dias = $row->credito60dias;
+	   			$transferencia = $row->transferencia;
+				if ($v->id_forma == 1){
+					$update_general = array(				        
+				        'contado' => (($v->valor_cancelado-$v->valor_vuelto)+$contado)			        
+					);
+				};
+				if ($v->id_forma == 2){
+					$update_general = array(				        
+				        'chequealdia' => ($v->valor_cancelado+$chequealdia)			        
+					);
+				};
+				if ($v->id_forma == 8){
+					$update_general = array(				        
+				        'chequeafecha' => ($v->valor_cancelado+$chequeafecha)			        
+					);
+				};
+				if ($v->id_forma == 11){
+					$update_general = array(				        
+				        'credito' => ($v->valor_cancelado+$credito)			        
+					);
+				};
+				if ($v->id_forma == 7){
+					$update_general = array(				        
+				        'tarjetadebito' => ($v->valor_cancelado+$tarjetadebito)			        
+					);
+				};
+				if ($v->id_forma == 4){
+					$update_general = array(				        
+				        'tarjetacredito' => ($v->valor_cancelado+$tarjetacredito)				        
+					);
+				};
+				if ($v->id_forma == 6){
+					$update_general = array(				        
+				        'transferencia' => ($v->valor_cancelado+$transferencia)				        
+					);
+				};
+				if ($v->id_forma == 3){
+					$update_general = array(				        
+				        'credito30dias' => ($v->valor_cancelado+$credito30dias)			        
+					);
+				};
+				if ($v->id_forma == 5){
+					$update_general = array(				        
+				        'credito60dias' => ($v->valor_cancelado+$credito60dias)			        
+					);
+				};
+
+				$this->db->where('id', $id);		  
+	    		$this->db->update('recaudacion_general', $update_general);				
+					
+			}else{
+
+				if ($v->id_forma == 1){
+					$update_general = array(
+					    'id_recaudacion' =>	$recauda,		        
+				        'contado' => ($v->valor_cancelado-$v->valor_vuelto),
+				        'id_caja' => $idcaja,
+						'num_documento' => $numdocum,
+					    'id_cajero' => $idcajero,
+					    'fecha' => date('Y-m-d')			        
+					);
+				};
+				if ($v->id_forma == 2){
+					$update_general = array(
+					    'id_recaudacion' =>	$recauda,		        
+				        'chequealdia' => $v->valor_cancelado,
+				        'id_caja' => $idcaja,
+						'num_documento' => $numdocum,
+					    'id_cajero' => $idcajero,
+					    'fecha' => date('Y-m-d')			        
+					);
+				};
+				if ($v->id_forma == 8){
+					$update_general = array(
+					    'id_recaudacion' =>	$recauda,		        
+				        'chequeafecha' => $v->valor_cancelado,
+				        'id_caja' => $idcaja,
+						'num_documento' => $numdocum,
+					    'id_cajero' => $idcajero,
+					    'fecha' => date('Y-m-d')			        
+					);
+				};
+				if ($v->id_forma == 11){
+					$update_general = array(
+					    'id_recaudacion' =>	$recauda,		        
+				        'credito' => $v->valor_cancelado,
+				        'id_caja' => $idcaja,
+						'num_documento' => $numdocum,
+					    'id_cajero' => $idcajero,
+					    'fecha' => date('Y-m-d')			        
+					);
+				};
+				if ($v->id_forma == 7){
+					$update_general = array(
+					    'id_recaudacion' =>	$recauda,		        
+				        'tarjetadebito' => $v->valor_cancelado,
+				        'id_caja' => $idcaja,
+						'num_documento' => $numdocum,
+					    'id_cajero' => $idcajero,
+					    'fecha' => date('Y-m-d')			        
+					);
+				};
+				if ($v->id_forma == 4){
+					$update_general = array(
+					    'id_recaudacion' =>	$recauda,		        
+				        'tarjetacredito' => $v->valor_cancelado,
+				        'id_caja' => $idcaja,
+						'num_documento' => $numdocum,
+					    'id_cajero' => $idcajero,
+					    'fecha' => date('Y-m-d')			        
+					);
+				};
+				if ($v->id_forma == 6){
+					$update_general = array(
+					    'id_recaudacion' =>	$recauda,		        
+				        'transferencia' => $v->valor_cancelado,
+				        'id_caja' => $idcaja,
+						'num_documento' => $numdocum,
+					    'id_cajero' => $idcajero,
+					    'fecha' => date('Y-m-d')			        
+					);
+				};
+				if ($v->id_forma == 3){
+					$update_general = array(
+					    'id_recaudacion' =>	$recauda,		        
+				        'credito30dias' => $v->valor_cancelado,
+				        'id_caja' => $idcaja,
+						'num_documento' => $numdocum,
+					    'id_cajero' => $idcajero,
+					    'fecha' => date('Y-m-d')			        
+					);
+				};
+				if ($v->id_forma == 5){
+					$update_general = array(
+					    'id_recaudacion' =>	$recauda,		        
+				        'credito60dias' => $v->valor_cancelado,
+				        'id_caja' => $idcaja,
+						'num_documento' => $numdocum,
+					    'id_cajero' => $idcajero,
+					    'fecha' => date('Y-m-d')			        
+					);
+				};
+				
+				$this->db->insert('recaudacion_general', $update_general);
+
+		    };
+		}
+
+		if ($documento == 2){
+
+			if ($idforma == 4){
+
+			$docu = array(
+		         'num_comp' => $numdocum
+		    );
+
+		    $docu2 = array(
+		         'num_factura' => $numdocum
+		    );
+
+		    $docu3 = array(
+		         'num_movimiento' => $numdocum
+		    );
+
+			$this->db->where('id', $recauda);
+		  
+		    $this->db->update('recaudacion', $docu);
+
+		    $doc = 20;
+
+			$docu = array(
+		         'correlativo' => $numdocum
+		    );
+
+		    $this->db->where('id', $doc);
+		  
+		    $this->db->update('correlativos', $docu);
+		    
+			$query = $this->db->query('SELECT * FROM factura_clientes 
+			WHERE tipo_documento = 2 and num_factura = '.$numdocum.'');
+			
+			if($query->num_rows()>0){
+	   			$row = $query->first_row();
+	   			$factura = $row->id;
+			    $this->db->where('id', $factura);			  
+			    $this->db->update('factura_clientes', $docu2);
+	        };	        
+	        
+	        $query = $this->db->query('SELECT * FROM existencia_detalle 
+		    WHERE id_tipo_movimiento = 2 and num_movimiento = '.$numdocum.'');
+
+		    if($query->num_rows()>0){
+	   			
+	   			foreach($query->result() as $item){
+	   			$factura = $item->id;
+	   			$this->db->where('id', $factura);		  
+		    	$this->db->update('existencia_detalle', $docu3);
+
+			};
+
+	        };
+			};
+		    if ($idforma == 7){
+			$docu = array(
+		         'num_comp' => $numdocum
+		    );
+
+ 			$docu2 = array(
+		         'num_factura' => $numdocum
+		    );
+		    $docu3 = array(
+		         'num_movimiento' => $numdocum
+		    );
+			$this->db->where('id', $recauda);		  
+		    $this->db->update('recaudacion', $docu);
+
+		    $doc = 20;
+
+			$docu = array(
+		         'correlativo' => $numdocum
+		    );
+
+		    $this->db->where('id', $doc);
+		  
+		    $this->db->update('correlativos', $docu);
+
+		    
+		    $query = $this->db->query('SELECT * FROM factura_clientes 
+		    WHERE tipo_documento = 2 and num_factura = '.$numdocum.'');
+			
+			if($query->num_rows()>0){
+	   			$row = $query->first_row();
+	   			$factura = $row->id;
+	   			$this->db->where('id', $factura);		  
+		    	$this->db->update('factura_clientes', $docu2);
+	        };
+
+	        $query = $this->db->query('SELECT * FROM existencia_detalle 
+		    WHERE id_tipo_movimiento = 2 and num_movimiento = '.$numdocum.'');
+
+		    if($query->num_rows()>0){
+	   			
+	   			foreach($query->result() as $item){
+	   			$factura = $item->id;
+	   			$this->db->where('id', $factura);
+		  
+		    	$this->db->update('existencia_detalle', $docu3);
+
+			    };
+
+	        };
+			};
+
+		};
+
+		if ($tipodocumento != 3 && $tipodocumento != 105){
+		/******* CUENTAS CORRIENTES ****/
+
+		## DESDE
+
+		$total_cancelacion = 0;
+		$total_factura_cta_cte = 0;
+		foreach($recitems as $ri){ // SUMAR MONTOS PARA VER TOTAL CANCELACION
+			$total_factura_cta_cte += $ri->valor_pago;
+			if($ri->id_forma != 3 && $ri->id_forma != 5 ){ // NO CONSIDERA PAGOS A CREDITO
+				$total_cancelacion += $ri->valor_pago;
+			}
+		}
+
+		if($tipodocumento == 1 || $tipodocumento == 2 || $tipodocumento == 19 || $tipodocumento == 101 || $tipodocumento == 103){
+		 	 $nombre_cuenta = $tipodocumento == 2 ? "BOLETAS POR COBRAR" : "FACTURAS POR COBRAR";
+		 	 //$nombre_cuenta = "FACTURAS POR COBRAR";
+			 $query = $this->db->query("SELECT cc.id as idcuentacontable FROM cuenta_contable cc WHERE cc.nombre = '$nombre_cuenta'");
+			 $row = $query->result();
+			 $row = $row[0];
+			 $idcuentacontable = $row->idcuentacontable;
+			 
+			 $query = $this->db->query("SELECT co.idcliente, co.id as idcuentacorriente  FROM cuenta_corriente co
+			 							WHERE co.idcuentacontable = '$idcuentacontable' and co.idcliente = '" . $idcliente . "'");
+	    	 $row = $query->row();	
+	    	 $idcuentacorriente =  $row->idcuentacorriente;			
+
+			$correlativo_cta_cte = null;
+			$array_cuentas = array();
+
+			foreach($recitems as $ri){
+				$formapago = $ri->id_forma;
+				if($formapago == 1 || $formapago == 6 || $formapago == 7){
+					$cuenta_cuadratura = 3;
+				}else if($formapago == 2){	
+					$cuenta_cuadratura = 18;
+				}else if($formapago == 4){
+					$cuenta_cuadratura = 19;
+				}elseif($formapago == 8){
+					$cuenta_cuadratura = 3;
+				}
+
+				
+				if($formapago != 3 && $formapago != 5 ){ 
+					if(is_null($correlativo_cta_cte)){ // si son varias formas de pago, entonces sólo en la primera genera el movimiento
+						 $query = $this->db->query("SELECT correlativo FROM correlativos WHERE nombre = 'CANCELACIONES CTA CTE'");
+						 $row = $query->row();
+						 $correlativo_cta_cte = $row->correlativo;
+						// guarda movimiento cuenta corriente (comprobante de ingreso ??? )
+						$data = array(
+					      	'numcomprobante' => $correlativo_cta_cte,
+					        'tipo' => 'INGRESO',
+					        'proceso' => 'CANCELACION',
+					        'glosa' => 'Cancelación de Documento por Caja',
+					        'fecha' => date("Y-m-d H:i:s")
+						);
+
+						$this->db->insert('movimiento_cuenta_corriente', $data); 
+						$idMovimiento = $this->db->insert_id();
+
+						// actualiza correlativo
+						$query = $this->db->query("UPDATE correlativos SET correlativo = correlativo + 1 where nombre = 'CANCELACIONES CTA CTE'");
+
+						//Detalle movimiento CARGO
+
+						$data = array(
+					      	'idmovimiento' => $idMovimiento,
+					        'tipo' => 'CTACTE',
+					        'idctacte' => $idcuentacorriente,
+					        'idcuenta' => $idcuentacontable,
+					        'tipodocumento' => $tipodocumento,
+					        'numdocumento' => $numdocum,		
+					        'glosa' => 'Cancelación de Documento por Caja',		        
+					        'fecvencimiento' => null,		        
+					        'debe' => 0,
+					        'haber' => $total_cancelacion
+						);
+
+						$this->db->insert('detalle_mov_cuenta_corriente', $data); 								
+					}
+					// DETALLE MOVIMIENTO CUADRATURA
+					$docpago = $formapago == 2 ? $ri->num_cheque : 0;
+					if(!in_array($cuenta_cuadratura, $array_cuentas)){ 
+						$data = array(
+					      	'idmovimiento' => $idMovimiento,
+					        'tipo' => 'CUADRATURA',
+					        'idctacte' => null,
+					        'idcuenta' => $cuenta_cuadratura,
+					        'docpago' => $docpago,
+					        'tipodocumento' => null,
+					        'numdocumento' => null,		
+					        'glosa' => 'Cancelación de Documento por Caja',		        
+					        'fecvencimiento' => null,		        
+					        'debe' => $ri->valor_pago,
+					        'haber' => 0
+						);			
+						$this->db->insert('detalle_mov_cuenta_corriente', $data); 	
+						array_push($array_cuentas,$cuenta_cuadratura);
+					}else{ // se actualiza la cuenta cuadratura (debería suceder sólo con caja)
+						$query = $this->db->query("UPDATE detalle_mov_cuenta_corriente SET debe = debe + " . $ri->valor_pago . " where idmovimiento = " .  $idMovimiento . " and idcuenta  = " . $cuenta_cuadratura );
+
+					}							
+
+					// genera cartola de cancelacion
+					$data = array(
+				      	'idctacte' => $idcuentacorriente,
+				        'idcuenta' => $idcuentacontable,
+				        'idmovimiento' => $idMovimiento,
+				        'tipodocumento' => $tipodocumento,
+				        'numdocumento' => $numdocum,
+				        'fecvencimiento' => $fechacomp,
+				        'glosa' => 'Cancelación de Documento por Caja',		        
+				        'valor' => $ri->valor_pago,
+				        'origen' => 'CTACTE',
+				        'fecha' => date("Y-m-d")
+					);
+
+					$this->db->insert('cartola_cuenta_corriente', $data);
+										
+					// REBAJA SALDO
+					
+					$query = $this->db->query("UPDATE cuenta_corriente SET saldo = saldo - " . $ri->valor_pago . " where id = " .  $idcuentacorriente );
+					$query = $this->db->query("UPDATE detalle_cuenta_corriente SET saldo = saldo - " . $ri->valor_pago . " where idctacte = " .  $idcuentacorriente . " and tipodocumento = " . $tipodocumento . " and numdocumento = " . $numdocum);
+
+					$resp['ctacte'] = $idcuentacorriente; 
+				}
+
+
+			} // end foreach		
+			
+		}
+
+	}
+
+
+	
+		## HASTA
+
+		/*****************************************/
+      
+				
+        $resp['success'] = true;
+        $resp['idrecauda'] = $recauda;
+		$resp['documento'] = $tipodocumento;
+		$resp['numrecauda'] = $numcomp;
+		
+		//$resp['ctacte'] = $idcuentacorriente;       
+        
+		
+        $this->Bitacora->logger("I", 'recaudacion', $numcomp);
+
+
         echo json_encode($resp);
 
 	}
