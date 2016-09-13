@@ -810,6 +810,8 @@ Ext.define('Infosys_web.view.Pago_caja.Genera_pago', {
                             //labelWidth: 30,
                             maxHeight: 40,
                             action: 'visualizar',
+                            itemId: 'generadocumento',
+                            disabled : false,
                             text: 'Genera Documento'
                         },{
                             xtype: 'tbseparator'
@@ -818,6 +820,8 @@ Ext.define('Infosys_web.view.Pago_caja.Genera_pago', {
                             iconCls: 'icon-save',
                             scale: 'large',
                             //labelWidth: 30,
+                            itemId: 'grabarecaudacion',
+                            disabled : false,
                             maxHeight: 40,
                             action: 'grabarecaudacion',
                             text: 'Grabar'

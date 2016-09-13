@@ -714,7 +714,8 @@ Ext.define('Infosys_web.view.Pago_caja.Genera_pago2', {
                             xtype: 'button',
                             iconCls: 'icon-save',
                             scale: 'large',
-                            //labelWidth: 30,
+                            itemId: 'grabarrecaudacionmanual',
+                            disabled : false,
                             maxHeight: 40,
                             action: 'grabarecaudacion',
                             text: 'Grabar'
