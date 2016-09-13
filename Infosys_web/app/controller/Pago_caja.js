@@ -173,7 +173,7 @@ Ext.define('Infosys_web.controller.Pago_caja', {
             'buscarclientespagocaja button[action=buscar]': {
                 click: this.buscar
             },
-            'generapagoingresar2 #netoId': {
+            'generapagoingresar2 #totalId': {
                 specialkey: this.specialc
             },
             'generapagoingresar2 #descuentoId': {
@@ -226,9 +226,9 @@ Ext.define('Infosys_web.controller.Pago_caja', {
 
         if(desc>0){
 
-        var neto = viewIngresa.down('#netoId').getValue();
-        var afecto = (neto-desc);
-        var total = Math.round(afecto * 1.19);        
+        var total = viewIngresa.down('#totalId').getValue();
+        var neto = Math.round(total / 1.19);  
+        var afecto = (neto-desc);     
         var iva = (total - afecto);
 
         viewIngresa.down("#ivaId").setValue(iva);
@@ -244,18 +244,18 @@ Ext.define('Infosys_web.controller.Pago_caja', {
     calcular: function(){
 
         var viewIngresa = this.getGenerapagoingresar2();
-        var neto = viewIngresa.down('#netoId').getValue();
-        var total = Math.round(neto * 1.19);
+        var total = viewIngresa.down('#totalId').getValue();
+        var neto = (Math.round(total/1.19));
         var iva = (total - neto);
         var afecto = neto;
 
-        console.log(iva)
-
         viewIngresa.down("#ivaId").setValue(iva);
         viewIngresa.down("#afectoId").setValue(afecto);
+        viewIngresa.down("#netoId").setValue(neto);
         viewIngresa.down("#totalId").setValue(total);  
         viewIngresa.down("#finaltotalpostId").setValue(total); 
         viewIngresa.down("#finaltotalUnformat").setValue(total);
+        viewIngresa.down("#condpagoId2").focus();      
         
     },
 
@@ -456,6 +456,7 @@ Ext.define('Infosys_web.controller.Pago_caja', {
 
         });       
         }
+        view.down("#totalId").focus();
     },
 
 
@@ -816,6 +817,14 @@ Ext.define('Infosys_web.controller.Pago_caja', {
         viewedit.down('#totchequesnId').setValue(cheques);
         viewedit.down('#otrosmontosnId').setValue(otros);
         viewedit.down('#otrosmontosId').setValue(Ext.util.Format.number(otros, '0,00'));
+
+        if (!idvendedor){
+              var bolEnable = false;
+              view.down('#grabarrecaudacionmanual').setDisabled(bolEnable);
+              Ext.Msg.alert('Alerta', 'Ingrese Vendedor');
+              return;
+              
+        };
         
         if (valor1 != valor2){
               Ext.Msg.alert('Alerta', 'Comprobante no cuadra ');

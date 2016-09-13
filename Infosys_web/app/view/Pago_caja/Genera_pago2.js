@@ -508,7 +508,6 @@ Ext.define('Infosys_web.view.Pago_caja.Genera_pago2', {
                             width: 300,
                             name : 'total',
                             itemId: 'totalId',
-                            //readOnly: true,
                             fieldLabel: '<b>TOTAL DOCUMENTO</b>',
                             labelAlign: 'top'
                         },{
