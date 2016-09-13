@@ -780,7 +780,6 @@ Ext.define('Infosys_web.controller.Notacredito', {
           
           i++;
         })
-
         var view =this.getFormularioexportarnotacredito()
         var viewnew =this.getNotacreditoprincipal()
         var fecha = view.down('#fechaId').getSubmitValue();
