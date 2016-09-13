@@ -161,6 +161,9 @@ Ext.define('Infosys_web.controller.Pago_caja', {
             'observacionesfacturas #rutId': {
                 specialkey: this.special6
             },
+            'generapagoingresar2 #rutId': {
+                specialkey: this.special9
+            },
             'generapagoingresar2 button[action=validarut]': {
                 click: this.validarut2
             },
@@ -259,6 +262,12 @@ Ext.define('Infosys_web.controller.Pago_caja', {
     special6: function(f,e){
         if (e.getKey() == e.ENTER) {
             this.validarut()
+        }
+    },
+
+     special9: function(f,e){
+        if (e.getKey() == e.ENTER) {
+            this.validarut2()
         }
     },
 
@@ -603,6 +612,8 @@ Ext.define('Infosys_web.controller.Pago_caja', {
 
         //var viewIngresa = this.getFacturasvizualizar();
         var view = this.getGenerapagoingresar();
+        var bolEnable = true;
+        view.down('#generadocumento').setDisabled(bolEnable);
         var fpago = view.down('#fpagoId').getValue();
         var ticketid =  view.down('#idticketId').getValue();
         var idcliente = view.down('#id_cliente').getValue();
@@ -769,8 +780,9 @@ Ext.define('Infosys_web.controller.Pago_caja', {
     },
 
     grabarecaudacion2: function() {
-
         var view = this.getGenerapagoingresar2();
+        var bolEnable = true;
+        view.down('#grabarrecaudacionmanual').setDisabled(bolEnable);
         var idcajero = view.down('#cajeroId').getValue();
         var idcaja = view.down('#cajaId').getValue();
         var idvendedor = view.down('#tipoVendedorId').getValue();
@@ -843,17 +855,16 @@ Ext.define('Infosys_web.controller.Pago_caja', {
                 var numrecauda= resp.numrecauda;
                 viewedit.down('#comprobanteId').setValue(numrecauda);
                 Ext.Msg.alert('Informacion', 'Creada Exitosamente.');
-                preventa.load();
-                view.close();
-                
+                view.close();               
             }
         });  
     },
 
-
     grabarecaudacion: function() {
 
         var view = this.getGenerapagoingresar();
+        var bolEnable = true;
+        view.down('#grabarecaudacion').setDisabled(bolEnable);
         var idcajero = view.down('#cajeroId').getValue();
         var idcaja = view.down('#cajaId').getValue();
         var fechatransac =  view.down("#fechafacturaId").getValue();

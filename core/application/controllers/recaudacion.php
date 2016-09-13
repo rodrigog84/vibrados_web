@@ -264,7 +264,7 @@ class Recaudacion extends CI_Controller {
 
 		$resp = array();
 		$numcomp = json_decode($this->input->post('num_comprobante'));
-		$fechacomp = $this->input->get('fecha');
+		$fechacomp = $this->input->post('fecha');
 		$numdocum = json_decode($this->input->post('num_documento'));
         $documento = json_decode($this->input->post('documento'));
 		$tipodocumento = json_decode($this->input->post('documento'));
@@ -283,6 +283,7 @@ class Recaudacion extends CI_Controller {
 		$otros = json_decode($this->input->post('otros'));		
 		$estado = "SI";
 		$corr = 6;
+		$glosa= "Boleta Manual";
 
 		$query = $this->db->query('SELECT * FROM correlativos WHERE id like "'.$corr.'"');
 
@@ -317,6 +318,35 @@ class Recaudacion extends CI_Controller {
 		    $this->Bitacora->logger("M", 'correlativos', $id);
 		};
 
+		$fiva = ($ftotal- $neto);
+
+		$factura_cliente = array(
+			'tipo_documento' => $tipodocumento,
+	        'id_cliente' => $idcliente,
+	        'num_factura' => $numdocum,
+	        'id_vendedor' => $vendedor,
+	        'id_cond_venta' => $idcondventa,
+	        'sub_total' => $neto,
+	        'neto' => $neto,
+	        'iva' => $fiva,
+	        'totalfactura' => $ftotal,
+	        'fecha_factura' => $fechacomp,
+	        'fecha_venc' => $fechacomp,
+	        'forma' => 1	          
+		);
+
+		$this->db->insert('factura_clientes', $factura_cliente); 
+		$idfactura = $this->db->insert_id();
+
+		$factura_clientes_item = array(
+		        'id_factura' => $idfactura,
+		        'glosa' => $glosa,
+		        'neto' => $neto,
+		        'iva' => $fiva,
+		        'total' => $ftotal
+		);
+
+		$this->db->insert('detalle_factura_glosa', $factura_clientes_item);
 
 		if($idrecauda){
 			$cajas = array(
@@ -661,11 +691,68 @@ class Recaudacion extends CI_Controller {
 
 		};
 
+		//********************* GRABA BOLETA EN CTA CTE ***********************
+
+		$query = $this->db->query("SELECT cc.id as idcuentacontable FROM cuenta_contable cc WHERE cc.nombre = 'FACTURAS POR COBRAR'");
+		 $row = $query->result();
+		 $row = $row[0];
+		 $idcuentacontable = $row->idcuentacontable;	
+
+
+			// VERIFICAR SI CLIENTE YA TIENE CUENTA CORRIENTE
+		 $query = $this->db->query("SELECT co.idcliente, co.id as idcuentacorriente  FROM cuenta_corriente co
+		 							WHERE co.idcuentacontable = '$idcuentacontable' and co.idcliente = '" . $idcliente . "'");
+    	 $row = $query->result();
+	
+		if ($query->num_rows()==0){	
+			$cuenta_corriente = array(
+		        'idcliente' => $idcliente,
+		        'idcuentacontable' => $idcuentacontable,
+		        'saldo' => $ftotal,
+		        'fechaactualiza' => date('Y-m-d H:i:s')
+			);
+			$this->db->insert('cuenta_corriente', $cuenta_corriente); 
+			$idcuentacorriente = $this->db->insert_id();
+
+
+		}else{
+			$row = $row[0];
+			$query = $this->db->query("UPDATE cuenta_corriente SET saldo = saldo + " . $ftotal . " where id = " .  $row->idcuentacorriente );
+			$idcuentacorriente =  $row->idcuentacorriente;
+		}
+
+		$detalle_cuenta_corriente = array(
+	        'idctacte' => $idcuentacorriente,
+	        'tipodocumento' => $tipodocumento,
+	        'numdocumento' => $numdocum,
+	        'saldoinicial' => $ftotal,
+	        'saldo' => $ftotal,
+	        'fechavencimiento' => $fechacomp,
+	        'fecha' => date('Y-m-d H:i:s')
+		);
+
+		$this->db->insert('detalle_cuenta_corriente', $detalle_cuenta_corriente); 	
+
+
+		$cartola_cuenta_corriente = array(
+	        'idctacte' => $idcuentacorriente,
+	        'idcuenta' => $idcuentacontable,
+	        'tipodocumento' => $tipodocumento,
+	        'numdocumento' => $numdocum,
+	        'glosa' => 'Registro de Factura en Cuenta Corriente',
+	        'fecvencimiento' => $fechacomp,
+	        'valor' => $ftotal,
+	        'origen' => 'VENTA',
+	        'fecha' => date('Y-m-d H:i:s')
+		);
+
+		$this->db->insert('cartola_cuenta_corriente', $cartola_cuenta_corriente); 			
+
+		/*****************************************/
+
+        //********************* CANCELA BOLETA EN CTA CTE ***********************
 		if ($tipodocumento != 3 && $tipodocumento != 105){
-		/******* CUENTAS CORRIENTES ****/
-
-		## DESDE
-
+		
 		$total_cancelacion = 0;
 		$total_factura_cta_cte = 0;
 		foreach($recitems as $ri){ // SUMAR MONTOS PARA VER TOTAL CANCELACION

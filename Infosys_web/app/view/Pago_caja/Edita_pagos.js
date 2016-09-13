@@ -771,6 +771,8 @@ Ext.define('Infosys_web.view.Pago_caja.Edita_pagos', {
                             scale: 'large',
                             //labelWidth: 30,
                             maxHeight: 40,
+                            itemId: 'grabarrecaudacionmanual',
+                            disabled : false,
                             action: 'grabarecaudacion',
                             text: 'Grabar'
                         }
