@@ -423,7 +423,7 @@ Ext.define('Infosys_web.view.notacredito.Notacredito', {
                                                             for(i=0;i<cantidad;i++){
                                                                 stItms.add(new Infosys_web.model.Productos.Item({
                                                                     id: detalle_factura[i].id_producto,
-                                                                    idproducto: detalle_factura[i].id_producto,
+                                                                    id_producto: detalle_factura[i].id_producto,
                                                                     nombre: detalle_factura[i].nombre,
                                                                     precio: detalle_factura[i].precio,
                                                                     cantidad: detalle_factura[i].cantidad,

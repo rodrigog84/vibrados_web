@@ -331,20 +331,24 @@ class Notacredito extends CI_Controller {
 		);
 		$this->db->insert('factura_clientes', $factura_cliente); 
 		$idfactura = $this->db->insert_id();
+		$neto_total = 0;
 		foreach($items as $v){
+
+			$neto_producto = ($v->totaliva - $v->iva);
 			$factura_clientes_item = array(
 		        'id_producto' => $v->id_producto,
 		        'id_factura' => $idfactura,
 		        'num_factura' => $numdocuemnto,
 		        'precio' => $v->precio,
 		        'cantidad' => $v->cantidad,
-		        'neto' => ($v->totaliva-$v->iva),
+		        'neto' => $neto_producto,
 		        'descuento' => $v->dcto,
 		        'iva' => $v->iva,
 		        'totalproducto' => $v->totaliva,
 		        'fecha' => $fechafactura
 			);
 
+		$neto_total += $neto_producto;
 		$producto = $v->id;
 
 		$this->db->insert('detalle_factura_cliente', $factura_clientes_item);
@@ -429,6 +433,18 @@ class Notacredito extends CI_Controller {
     	
 		}
 
+
+		$iva_total = $neto_total*(0.19);
+		$total_factura = $neto_total + $iva_total;
+
+		$data_factura = array(
+						'neto' => $neto_total,
+						'iva' => $iva_total,
+						'totalfactura' => $total_factura
+						);
+
+    	$this->db->where('id', $idfactura);
+    	$this->db->update('factura_clientes', $data_factura);    
 
 		/******* CUENTAS CORRIENTES ****/
 
