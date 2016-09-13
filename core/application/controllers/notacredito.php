@@ -434,7 +434,7 @@ class Notacredito extends CI_Controller {
 		}
 
 
-		$iva_total = $neto_total*(0.19);
+		/*$iva_total = $neto_total*(0.19);
 		$total_factura = $neto_total + $iva_total;
 
 		$data_factura = array(
@@ -444,7 +444,7 @@ class Notacredito extends CI_Controller {
 						);
 
     	$this->db->where('id', $idfactura);
-    	$this->db->update('factura_clientes', $data_factura);    
+    	$this->db->update('factura_clientes', $data_factura);   */ 
 
 		/******* CUENTAS CORRIENTES ****/
 
