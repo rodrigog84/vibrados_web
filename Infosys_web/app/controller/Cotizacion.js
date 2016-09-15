@@ -359,10 +359,10 @@ Ext.define('Infosys_web.controller.Cotizacion', {
         var record = stCombo.findRecord('id', descuento.getValue()).data;
         var dcto = (record.porcentaje);
        
-        afecto = (total / 1.19);
-        descuentopesos = ((neto * dcto) / 100);
+        afecto = (Math.round(total / 1.19));
+        descuentopesos = (Math.round(neto * dcto) / 100);
         afecto = neto - descuentopesos;
-        pretotal = (((afecto * 19) / 100) + afecto);
+        pretotal = (Math.round((afecto * 19) / 100) + afecto);
         iva = (pretotal - afecto);
         afecto = afecto;
         neto = neto;
@@ -1275,7 +1275,7 @@ Ext.define('Infosys_web.controller.Cotizacion', {
         var codigo = view.down('#codigoId').getValue();
         var cantidadori = view.down('#cantidadOriginalId').getValue();
         var precio = ((view.down('#precioId').getValue()));
-        var precioun = ((view.down('#precioId').getValue())/ 1.19);
+        var precioun = (Math.round(view.down('#precioId').getValue())/ 1.19);
         var descuento = view.down('#totdescuentoId').getValue(); 
         var iddescuento = view.down('#DescuentoproId').getValue();
         var bolEnable = true;
@@ -1290,7 +1290,7 @@ Ext.define('Infosys_web.controller.Cotizacion', {
             view.down('#descuentovalorId').setDisabled(bolEnable);
         };
         var tot = ((cantidad * precio) - descuento);
-        var neto = ((tot / 1.19));
+        var neto = (Math.round(tot / 1.19));
         var exists = 0;
         var iva = (tot - neto);
         var neto = (tot - iva);
@@ -1396,7 +1396,7 @@ Ext.define('Infosys_web.controller.Cotizacion', {
         var cantidadori = view.down('#cantidadOriginalId').getValue();
         var codigo = view.down('#codigoId').getValue();
         var precio = ((view.down('#precioId').getValue()));
-        var precioun = ((view.down('#precioId').getValue())/ 1.19);
+        var precioun = (Math.round(view.down('#precioId').getValue())/ 1.19);
         var descuento = view.down('#totdescuentoId').getValue(); 
         var iddescuento = view.down('#DescuentoproId').getValue();
         var nueneto = view.down('#finaltotalnetoId').getValue();
@@ -1419,7 +1419,7 @@ Ext.define('Infosys_web.controller.Cotizacion', {
         var cero2= 1;
 
         var tot = ((cantidad * precio) - descuento);
-        var neto = ((tot / 1.19));
+        var neto = (Math.round(tot / 1.19));
         var exists = 0;
         var iva = (tot - neto);
         var neto = (tot - iva);
@@ -1725,7 +1725,7 @@ Ext.define('Infosys_web.controller.Cotizacion', {
             pretotal = (pretotal + r.data.total)
         });
 
-        neto = ((pretotal /1.19));
+        neto = (Math.round(pretotal /1.19));
         iva = ((pretotal - neto));
         afecto = neto;
         neto = neto;
@@ -1753,7 +1753,7 @@ Ext.define('Infosys_web.controller.Cotizacion', {
             pretotal = pretotal + r.data.total
         });
         
-        neto = ((pretotal /1.19));
+        neto = (Math.round(pretotal /1.19));
         iva = ((pretotal - neto));
         afecto = neto;
         neto = neto;
@@ -1826,7 +1826,7 @@ Ext.define('Infosys_web.controller.Cotizacion', {
         var cantidad = view.down('#cantidadId').getValue();
         var codigo = view.down('#codigoId').getValue();
         var precio = ((view.down('#precioId').getValue()));
-        var precioun = ((view.down('#precioId').getValue())/ 1.19);
+        var precioun = (Math.round(view.down('#precioId').getValue())/ 1.19);
         var descuento = view.down('#totdescuentoId').getValue(); 
         var iddescuento = view.down('#DescuentoproId').getValue();
         var bolEnable = true;
@@ -1858,7 +1858,7 @@ Ext.define('Infosys_web.controller.Cotizacion', {
         var cero2= 1;
 
         var tot = ((cantidad * precio) - descuento);
-        var neto = ((tot / 1.19));
+        var neto = (Math.round(tot / 1.19));
         var exists = 0;
         var iva = (tot - neto);
         var neto = (tot - iva);
