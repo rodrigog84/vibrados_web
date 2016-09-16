@@ -818,6 +818,34 @@ class Facturaelectronica extends CI_Model
 		return $query->row();
 	 }	 
 
+
+
+	public function crea_archivo_dte($xml,$idfactura,$tipo_caf,$tipo_dte){
+
+				$datos_factura = $this->get_factura($idfactura);
+				$datos_empresa_factura = $this->get_empresa_factura($idfactura);
+				$rutCliente = substr($datos_empresa_factura->rut_cliente,0,strlen($datos_empresa_factura->rut_cliente) - 1)."-".substr($datos_empresa_factura->rut_cliente,-1);
+
+			    $xml_dte = $tipo_dte == 'sii' ? $xml : str_replace("60803000-K",$rutCliente,$xml);
+
+				$file_name = $tipo_dte == 'sii' ? "SII_" : "CLI_";
+				$nombre_dte = $datos_factura->num_factura."_". $tipo_caf ."_".$idfactura."_".$file_name.date("His").".xml"; // nombre archivo
+				$ruta = $tipo_dte == 'sii' ? 'dte' : 'dte_cliente';
+				$path = date('Ym').'/'; // ruta guardado
+				if(!file_exists('./facturacion_electronica/' . $ruta . '/'.$path)){
+					mkdir('./facturacion_electronica/' . $ruta . '/'.$path,0777,true);
+				}				
+				$f_archivo = fopen('./facturacion_electronica/' . $ruta .'/'.$path.$nombre_dte,'w');
+				fwrite($f_archivo,$xml_dte);
+				fclose($f_archivo);
+
+				return array('xml_dte' => $xml_dte,
+							 'nombre_dte' => $nombre_dte,
+							 'path' => $path);
+
+	 }	 
+
+	 
 	public function crea_dte($idfactura){
 
 		$data_factura = $this->get_factura($idfactura);
