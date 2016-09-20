@@ -229,7 +229,7 @@ class Facturaelectronica extends CI_Model
 
 	public function datos_dte($idfactura){
 
-		$this->db->select('f.id, f.folio, f.path_dte, f.archivo_dte, f.dte, f.pdf, f.pdf_cedible, f.trackid, c.tipo_caf, tc.nombre as tipo_doc, cae.nombre as giro, cp.nombre as cond_pago, v.nombre as vendedor ')
+		$this->db->select('f.id, f.folio, f.path_dte, f.archivo_dte, f.archivo_dte_cliente, f.dte, f.pdf, f.pdf_cedible, f.trackid, c.tipo_caf, tc.nombre as tipo_doc, cae.nombre as giro, cp.nombre as cond_pago, v.nombre as vendedor ')
 		  ->from('folios_caf f')
 		  ->join('caf c','f.idcaf = c.id')
 		  ->join('tipo_caf tc','c.tipo_caf = tc.id')
@@ -472,7 +472,8 @@ class Facturaelectronica extends CI_Model
 			$factura = $this->datos_dte($idfactura);
 			$track_id = $factura->trackid;
 			$path = $factura->path_dte;
-			$nombre_dte = $factura->archivo_dte;
+			//$nombre_dte = $factura->archivo_dte;
+			$nombre_dte = $factura->archivo_dte_cliente != '' ? $factura->archivo_dte_cliente : $factura->archivo_dte;
 
 			$empresa = $this->get_empresa();
 			$datos_empresa_factura = $this->get_empresa_factura($idfactura);
@@ -486,7 +487,7 @@ class Facturaelectronica extends CI_Model
 	        $messageBody .= $datos_empresa_factura->nombre_cliente.'<br>';
 	        $messageBody .= 'RUT:'.substr($datos_empresa_factura->rut_cliente,0,strlen($datos_empresa_factura->rut_cliente) - 1)."-".substr($datos_empresa_factura->rut_cliente,-1) .'<br><br>';			        
 
-	        $messageBody .= '<a href="'. base_url() .'facturas/exportFePDF_mail/'.$track_id.'" >Ver Factura</a><br><br>';
+	        //$messageBody .= '<a href="'. base_url() .'facturas/exportFePDF_mail/'.$track_id.'" >Ver Factura</a><br><br>';
 
 	        $messageBody .= 'Este correo adjunta Documentos Tributarios Electrónicos (DTE) para el receptor electrónico indicado. Por favor responda con un acuse de recibo (RespuestaDTE) conforme al modelo de intercambio de Factura Electrónica del SII.<br><br>';
 	        $messageBody .= 'Facturación Electrónica Infosys SPA.';
@@ -516,7 +517,8 @@ class Facturaelectronica extends CI_Model
 			    $this->email->subject('Envio de DTE ' .$track_id . '_'.$empresa->rut.'-'.$empresa->dv."_".substr($datos_empresa_factura->rut_cliente,0,strlen($datos_empresa_factura->rut_cliente) - 1)."-".substr($datos_empresa_factura->rut_cliente,-1));
 			    $this->email->message($messageBody);
 
-			    $this->email->attach('./facturacion_electronica/dte/'.$path.$nombre_dte);
+				$ruta =  $factura->archivo_dte_cliente != '' ? 'dte_cliente' : 'dte';
+ 			    $this->email->attach('./facturacion_electronica/' . $ruta .'/'.$path.$nombre_dte);			    
 
 			    try {
 			      $this->email->send();
