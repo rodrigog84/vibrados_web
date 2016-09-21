@@ -21,7 +21,7 @@ class Notacredito extends CI_Controller {
 		$idfactura = $this->input->post('idfactura');
 		$fechafactura = $this->input->post('fechafactura');
 		$fechavenc = $this->input->post('fechavenc');
-		$vendedor = $this->input->post('idvendedor');
+		$vendedor = $this->input->post('vendedor');
 		$datacliente = json_decode($this->input->post('datacliente'));
 		$items = json_decode($this->input->post('items'));
 		$neto = $this->input->post('netofactura');
@@ -32,6 +32,104 @@ class Notacredito extends CI_Controller {
 		$ftotal = $this->input->post('totalfacturas');
 		$tipodocumento = $this->input->post('tipodocumento');
 		//$tipodocumento = 11;
+		$idpago = 11;
+		$corr = 6;
+		$idcondventa = 1;
+		$detalle="N/C DIRECTA";
+		$idCaja = 1;
+		$idCajero = 1;
+		$estado = "SI";
+
+		$query = $this->db->query('SELECT * FROM cajas WHERE id like "'.$idCaja.'"');
+
+		if($query->num_rows()>0){
+
+			$row = $query->first_row();
+			$corrcom = (($row->correlativo)+1); 
+	   		$id = ($row->id);
+
+	   		$data3 = array(
+	         'correlativo' => $corrcom
+		    );
+
+		    $this->db->where('id', $id);	  
+		    $this->db->update('cajas', $data3);
+
+		}
+
+		$query = $this->db->query('SELECT * FROM correlativos WHERE id like "'.$corr.'"');
+
+		if($query->num_rows()>0){
+
+			$row = $query->first_row();
+			$corr = (($row->correlativo)+1); 
+	   		$id = ($row->id);
+
+	   		$data3 = array(
+	         'correlativo' => $corr
+		    );
+
+		    $preventa = array(
+	        'num_ticket' => $corr,
+	        'fecha_venta' => $fechafactura,
+	        'id_cliente' => $idcliente,
+	        'id_vendedor' => $vendedor,
+	        'neto' => $neto,
+	        'id_tip_docu' => $tipodocumento,
+	        'id_pago' => $idcondventa,
+	        'total' => $ftotal,
+	        'estado' => $estado,
+	        'id_documento'=> $numdocuemnto
+			);
+
+			$this->db->insert('preventa', $preventa);
+			$idpreventa = $this->db->insert_id();
+
+		    $this->db->where('id', $id);		  
+		    $this->db->update('correlativos', $data3);
+		    $this->Bitacora->logger("M", 'correlativos', $id);
+		}
+
+		$recaudacion = array(
+	        'num_comp' => $corrcom,
+	        'fecha' => date('Y-m-d'),
+	        'id_cliente' => $idcliente,
+			'num_doc' => $numdocuemnto,
+			'id_caja' => $idCaja,
+			'id_ticket' => $idpreventa,
+		    'id_cajero' => $idCajero
+		);
+
+		$this->db->insert('recaudacion', $recaudacion); 
+		$recauda = $this->db->insert_id();
+
+
+		$recaudacion_detalle = array(				
+	        'id_recaudacion' => $recauda,
+	        'id_forma' => $idpago,
+	        'detalle' => $detalle,
+	        'valor_pago' => $ftotal,
+	        'valor_cancelado' => $ftotal,
+	        'fecha_transac' => $fechafactura,
+	        'fecha_comp' => date('Y-m-d')
+		);
+		
+		$this->db->insert('recaudacion_detalle', $recaudacion_detalle);    
+		
+		$recaudacion_general = array(				
+	        'id_recaudacion' => $recauda,
+	        'id_forma' => $idpago,
+	        'credito' => $ftotal,
+	        'id_caja' => $idCaja,
+	        'id_cajero' => $idCajero,
+	        'num_documento' => $numdocuemnto,
+	        'fecha' => $fechafactura,
+	        
+		);
+		
+		//$this->db->insert('recaudacion_general', $recaudacion_detalle);    	
+		$this->db->insert('recaudacion_general', $recaudacion_general);    	
+		
 
 		$data3 = array(
 	         'correlativo' => $numdocuemnto
@@ -311,7 +409,7 @@ class Notacredito extends CI_Controller {
 		$idfactura = $this->input->post('idfactura');
 		$fechafactura = $this->input->post('fechafactura');
 		$fechavenc = $this->input->post('fechavenc');
-		$vendedor = $this->input->post('idvendedor');
+		$vendedor = $this->input->post('vendedor');
 		$datacliente = json_decode($this->input->post('datacliente'));
 		$items = json_decode($this->input->post('items'));
 		$neto = $this->input->post('netofactura');
@@ -319,6 +417,104 @@ class Notacredito extends CI_Controller {
 		$fafecto = $this->input->post('afectofactura');
 		$ftotal = $this->input->post('totalfacturas');
 		$tipodocumento = $this->input->post('tipodocumento');
+		$idpago = 11;
+		$corr = 6;
+		$idcondventa = 1;
+		$detalle="N/C DIRECTA";
+		$idCaja = 1;
+		$idCajero = 1;
+		$estado = "SI";
+
+		$query = $this->db->query('SELECT * FROM cajas WHERE id like "'.$idCaja.'"');
+
+		if($query->num_rows()>0){
+
+			$row = $query->first_row();
+			$corrcom = (($row->correlativo)+1); 
+	   		$id = ($row->id);
+
+	   		$data3 = array(
+	         'correlativo' => $corrcom
+		    );
+
+		    $this->db->where('id', $id);	  
+		    $this->db->update('cajas', $data3);
+
+		}	
+
+		$query = $this->db->query('SELECT * FROM correlativos WHERE id like "'.$corr.'"');
+
+		if($query->num_rows()>0){
+
+			$row = $query->first_row();
+			$corr = (($row->correlativo)+1); 
+	   		$id = ($row->id);
+
+	   		$data3 = array(
+	         'correlativo' => $corr
+		    );
+
+		    $preventa = array(
+	        'num_ticket' => $corr,
+	        'fecha_venta' => $fechafactura,
+	        'id_cliente' => $idcliente,
+	        'id_vendedor' => $vendedor,
+	        'neto' => $neto,
+	        'id_tip_docu' => $tipodocumento,
+	        'id_pago' => $idcondventa,
+	        'total' => $ftotal,
+	        'estado' => $estado,
+	        'id_documento'=> $numdocuemnto
+			);
+
+			$this->db->insert('preventa', $preventa);
+			$idpreventa = $this->db->insert_id();
+
+		    $this->db->where('id', $id);		  
+		    $this->db->update('correlativos', $data3);
+		    $this->Bitacora->logger("M", 'correlativos', $id);
+		}
+
+		$recaudacion = array(
+	        'num_comp' => $corrcom,
+	        'fecha' => date('Y-m-d'),
+	        'id_cliente' => $idcliente,
+			'num_doc' => $numdocuemnto,
+			'id_caja' => $idCaja,
+			'id_ticket' => $idpreventa,
+		    'id_cajero' => $idCajero
+		);
+
+		$this->db->insert('recaudacion', $recaudacion); 
+		$recauda = $this->db->insert_id();
+
+
+		$recaudacion_detalle = array(				
+	        'id_recaudacion' => $recauda,
+	        'id_forma' => $idpago,
+	        'detalle' => $detalle,
+	        'valor_pago' => $ftotal,
+	        'valor_cancelado' => $ftotal,
+	        'fecha_transac' => $fechafactura,
+	        'fecha_comp' => date('Y-m-d')
+		);
+		
+		$this->db->insert('recaudacion_detalle', $recaudacion_detalle);    
+		
+		$recaudacion_general = array(				
+	        'id_recaudacion' => $recauda,
+	        'id_forma' => $idpago,
+	        'credito' => $ftotal,
+	        'id_caja' => $idCaja,
+	        'id_cajero' => $idCajero,
+	        'num_documento' => $numdocuemnto,
+	        'fecha' => $fechafactura,
+	        
+		);
+		
+		//$this->db->insert('recaudacion_general', $recaudacion_detalle);    	
+		$this->db->insert('recaudacion_general', $recaudacion_general);    	
+		
 
 		$data3 = array(
 	         'correlativo' => $numdocuemnto

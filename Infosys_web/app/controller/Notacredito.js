@@ -227,12 +227,16 @@ Ext.define('Infosys_web.controller.Notacredito', {
         var docurelacionado = viewIngresa.down('#factId').getValue();
         var valorneto = viewIngresa.down('#finaltotalnetoId').getValue();
         var valoriva = viewIngresa.down('#finaltotalivaId').getValue();
-        var totalfactura= valorneto + valoriva;
-     
+        var totalfactura= valorneto + valoriva;     
         
         var fechavenc = viewIngresa.down('#fechavencId').getValue();
         var stItem = this.getNotacreditoItemsStore();
         var stnotacredito = this.getNotacreditoStore();
+
+        if(!vendedor){
+            Ext.Msg.alert('Ingrese Vendedor');
+            return;   
+        } 
 
         if(numdocumento==0){
             Ext.Msg.alert('Ingrese Datos a La Factura');
@@ -1350,7 +1354,12 @@ Ext.define('Infosys_web.controller.Notacredito', {
         var netofactura = viewIngresa.down('#finaltotalnetoId').getValue();
         var ivafactura =  viewIngresa.down('#finaltotalivaId').getValue();
         var afectofactura = viewIngresa.down('#finalafectoId').getValue();
-        var totalfactura = ( netofactura + ivafactura );       
+        var totalfactura = ( netofactura + ivafactura );
+        
+        if(!vendedor){
+            Ext.Msg.alert('Ingrese Vendedor');
+            return;   
+        }   
 
 
         if(numdocumento==0){
