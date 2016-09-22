@@ -451,7 +451,7 @@ Ext.define('Infosys_web.controller.Productos', {
         var cantidad = view.down('#cantidadId').getValue();
         var cantidadori = view.down('#cantidadOriginalId').getValue();
         var precio = ((view.down('#precioId').getValue()));
-        var precioun = ((view.down('#precioId').getValue())/ 1.19);
+        var precioun = (Math.round(view.down('#precioId').getValue())/ 1.19);
         var descuento = view.down('#totdescuentoId').getValue(); 
         var iddescuento = view.down('#DescuentoproId').getValue();
         var bolEnable = true;
@@ -468,7 +468,7 @@ Ext.define('Infosys_web.controller.Productos', {
         
         var neto = ((cantidad * precio) - descuento);
         var tot = ((cantidad * precio) - descuento);
-        var neto = ((neto / 1.19));
+        var neto = (Math.round(neto / 1.19));
         var exists = 0;
         var iva = (tot - neto );
         var total = ((neto + iva ));

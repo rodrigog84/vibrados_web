@@ -708,9 +708,9 @@ Ext.define('Infosys_web.controller.Facturacion', {
         var record = stCombo.findRecord('id', descuento.getValue()).data;
         var dcto = (record.porcentaje);
        
-        pretotalfinal = ((total * dcto)  / 100);
+        pretotalfinal = (Math.round(total * dcto)  / 100);
         total = ((total) - (pretotalfinal));
-        afecto = ((total / 1.19));
+        afecto = (Math.round(total / 1.19));
         iva = (total - afecto);
 
         view.down('#finaltotalId').setValue(Ext.util.Format.number(total, '0,000'));
