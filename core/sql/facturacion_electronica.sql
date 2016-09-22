@@ -328,3 +328,8 @@ ALTER TABLE `folios_caf`
 	ADD COLUMN `dte_cliente` TEXT NOT NULL AFTER `dte`;
 ALTER TABLE `folios_caf`
 	ADD COLUMN `archivo_dte_cliente` VARCHAR(50) NOT NULL AFTER `archivo_dte`;	
+
+/*********************************************************************************************************/
+
+ALTER TABLE `detalle_factura_cliente`
+	CHANGE COLUMN `precio` `precio` DECIMAL(10,2) NOT NULL AFTER `id_producto`;	

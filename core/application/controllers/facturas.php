@@ -2838,7 +2838,7 @@ public function cargacontribuyentes(){
 				//$neto = round($total/1.19,2);
 
 				//$lista_detalle[$i]['PrcItem'] = round($neto/$detalle->cantidad,2);
-				$lista_detalle[$i]['PrcItem'] = $tipo_caf == 33 || $tipo_caf == 52 ? floor(($detalle->totalproducto - $detalle->iva)/$detalle->cantidad) : floor($detalle->precio);
+				$lista_detalle[$i]['PrcItem'] = $tipo_caf == 33 || $tipo_caf == 52 ? round(($detalle->totalproducto - $detalle->iva)/$detalle->cantidad,2) : round($detalle->precio,2);
 				if($tipo_caf == 33){
 					$lista_detalle[$i]['MontoItem'] = ($detalle->totalproducto - $detalle->iva);
 				}
