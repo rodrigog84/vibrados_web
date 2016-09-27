@@ -822,8 +822,7 @@ Ext.define('Infosys_web.controller.Pago_caja', {
               var bolEnable = false;
               view.down('#grabarrecaudacionmanual').setDisabled(bolEnable);
               Ext.Msg.alert('Alerta', 'Ingrese Vendedor');
-              return;
-              
+              return;              
         };
         
         if (valor1 != valor2){
@@ -2461,6 +2460,7 @@ Ext.define('Infosys_web.controller.Pago_caja', {
             view.down("#recaudaId").setValue(recauda);
             view.down("#tipoDocumentoId").setValue(dos);
             view.down("#fechafacturaId").setValue(fecha);
+            view.down("#fechacheqId").setValue(fecha);
             
         }else{
 
