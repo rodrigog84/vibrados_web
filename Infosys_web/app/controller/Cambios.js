@@ -116,8 +116,20 @@ Ext.define('Infosys_web.controller.Cambios', {
             'cambiosinventario button[action=grabarCambios]': {
                 click: this.grabarCambios
             },
+            'cambiosinventario #cantidadId': {
+                specialkey: this.calculacambio
+            },
            
         });
+    },
+
+    calculacambio: function(){
+        var view = this.getCambiosinventario();
+        var cantidad = view.down('#cantidadId').getValue();
+        var precio = view.down('#precioId').getValue();
+        var total = (cantidad * precio);
+        view.down('#totdevId').setValue(total);
+        
     },
 
     grabarCambios: function(){
@@ -175,6 +187,8 @@ Ext.define('Infosys_web.controller.Cambios', {
         var cantidadori = view.down('#cantidadOriginalId').getValue();
         var cantidadoridev = view.down('#cantidadOriginaldevId').getValue();
 
+        var totalorig = view.down('#totdevId').getValue();
+
         var cantidad = view.down('#cantidadId').getValue();
         var cantidaddev = view.down('#cantidaddevId').getValue();
 
@@ -187,7 +201,20 @@ Ext.define('Infosys_web.controller.Cambios', {
         var precio = view.down('#precioId').getValue();
         var preciodev = view.down('#preciodevId').getValue();
 
+        var totaldevul= (preciodev * cantidaddev);
 
+        var tipocambio = view.down('#tipoCambioId').getValue();
+
+        if (tipocambio==1){
+            
+            if (totaldevul != totalorig ){
+
+                Ext.Msg.alert('Alerta', 'Valores No Coinciden Con devolucion');
+                return; 
+                
+
+            }
+        };
 
         if (secuencia > 21){
 
@@ -557,6 +584,7 @@ Ext.define('Infosys_web.controller.Cambios', {
 
         var nombre = "23";
         var tipo = "1";
+        var cambio = 1;
 
          Ext.Ajax.request({
 
@@ -575,6 +603,7 @@ Ext.define('Infosys_web.controller.Cambios', {
                     var correlanue = correlanue;
                     view.down("#numero_id").setValue(correlanue);
                     view.down("#tipobodegaId").setValue(tipo);
+                    view.down("#tipoCambioId").setValue(cambio);
                     view.down("#rutId").focus();
                 }else{
                     Ext.Msg.alert('Correlativo YA Existe');

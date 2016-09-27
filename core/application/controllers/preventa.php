@@ -927,7 +927,6 @@ class Preventa extends CI_Controller {
 		 if($query->num_rows()>0){
 
 		 	$row = $query->first_row();
-
 		 	$saldo = ($row->stock)-($v->cantidad); 
 
 		 };
@@ -1003,7 +1002,6 @@ class Preventa extends CI_Controller {
 		if($query->num_rows()>0){
 
 		 	$row = $query->first_row();
-
 		 	$saldo = ($row->stock)-($v->cantidad); 
 
 		};
@@ -1047,7 +1045,6 @@ class Preventa extends CI_Controller {
 			if($query->num_rows()>0){
 
 			 	$row = $query->first_row();
-
 			 	$saldo = ($row->stock)+($row1->cantidad); 
 
 			};
@@ -1057,7 +1054,6 @@ class Preventa extends CI_Controller {
 	    	);
 
 	    	$this->db->where('id', $producto2);
-
 	    	$this->db->update('productos', $datos);
 
 		}
@@ -1083,8 +1079,7 @@ class Preventa extends CI_Controller {
 		$resp['idpreventa'] = $idpreventa;
 
 		$this->Bitacora->logger("I", 'preventa', $idpreventa);
-		$this->Bitacora->logger("I", 'preventa_detalle', $idpreventa);
-        
+		$this->Bitacora->logger("I", 'preventa_detalle', $idpreventa);        
 
         echo json_encode($resp);
 	}
@@ -1140,9 +1135,18 @@ class Preventa extends CI_Controller {
 
 	    };
 
+
+
 		$countAll = $this->db->count_all_results("preventa");
 
 		if($opcion == "Rut"){
+
+			$tipo = 1;
+	        $tipo5 = 2;
+	        $tipo2 = 101; // FACTURA ELECTRONICA
+	        $tipo3 = 103; // FACTURA EXENTA ELECTRONICA        
+	        $tipo4 = 105; // GUIA DE DESPACHO ELECTRONICA
+
 
 			$data = array();		
 			$query = $this->db->query('SELECT acc.*, c.nombres as nom_cliente, c.rut as rut_cliente, co.nombre as nom_documento, v.nombre as nom_vendedor, co.id as id_tip_docu	FROM preventa acc
@@ -1166,6 +1170,11 @@ class Preventa extends CI_Controller {
 
 	    }else if($opcion == "Nombre"){
 
+	    	$tipo = 1;
+	        $tipo5 = 2;
+	        $tipo2 = 101; // FACTURA ELECTRONICA
+	        $tipo3 = 103; // FACTURA EXENTA ELECTRONICA        
+	        $tipo4 = 105; // GUIA DE DESPACHO ELECTRONICA
 	    	
 			$sql_nombre = "";
 	        $arrayNombre =  explode(" ",$nombres);
@@ -1196,6 +1205,11 @@ class Preventa extends CI_Controller {
 	 
 		}else if($opcion == "Todos"){
 
+			$tipo = 1;
+	        $tipo5 = 2;
+	        $tipo2 = 101; // FACTURA ELECTRONICA
+	        $tipo3 = 103; // FACTURA EXENTA ELECTRONICA        
+	        $tipo4 = 105; // GUIA DE DESPACHO ELECTRONICA
 			
 			$data = array();
 			$query = $this->db->query('SELECT acc.*, c.nombres as nom_cliente, c.rut as rut_cliente, co.nombre as nom_documento, v.nombre as nom_vendedor, co.id as id_tip_docu	FROM preventa acc
@@ -1222,6 +1236,13 @@ class Preventa extends CI_Controller {
 
 		}else if($opcion == "Numero"){
 
+			$tipo = 1;
+	        $tipo5 = 2;
+	        $tipo2 = 101; // FACTURA ELECTRONICA
+	        $tipo3 = 103; // FACTURA EXENTA ELECTRONICA        
+	        $tipo4 = 105; // GUIA DE DESPACHO ELECTRONICA
+
+
 			
 			$data = array();
 			$query = $this->db->query('SELECT acc.*, c.nombres as nom_cliente, c.rut as rut_cliente, co.nombre as nom_documento, v.nombre as nom_vendedor, co.id as id_tip_docu	FROM preventa acc
@@ -1234,10 +1255,9 @@ class Preventa extends CI_Controller {
 			
 			);
 
-
 			$total = 0;
 
-		  foreach ($query->result() as $row)
+		 foreach ($query->result() as $row)
 			{
 				$total = $total +1;
 			
@@ -1247,7 +1267,6 @@ class Preventa extends CI_Controller {
 	
 
 		}else{
-
 			
 		$data = array();
 		$query = $this->db->query('SELECT acc.*, c.nombres as nom_cliente, c.rut as rut_cliente, co.nombre as nom_documento, v.nombre as nom_vendedor, co.id as id_tip_docu	FROM preventa acc

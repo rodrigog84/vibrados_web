@@ -18,7 +18,6 @@ Ext.define('Infosys_web.view.Cambios.Ingresar', {
         'Ext.toolbar.Separator'
     ],
 
-
     autoShow: true,
     height: 540,
     width: 1200,
@@ -28,6 +27,14 @@ Ext.define('Infosys_web.view.Cambios.Ingresar', {
     initComponent: function() {
 
         var me = this;
+        var tipoCambio = Ext.create('Ext.data.Store', {
+            fields: ['value', 'nombre'],
+            data : [
+                {"value":1, "nombre":"CAMBIO"},
+                {"value":2, "nombre":"DIFERENCIA"}
+            ]
+        });  
+
         var stItms = Ext.getStore('Cambios.Items');
         stItms.removeAll();
         this.items = [
@@ -60,6 +67,20 @@ Ext.define('Infosys_web.view.Cambios.Ingresar', {
                     labelWidth: 50,
                     fieldLabel: 'Numero'
 
+                    },{xtype: 'splitter'},
+                    {
+                        xtype: 'combobox',
+                        width: 300,
+                        store : tipoCambio,
+                        fieldLabel: 'TIPO CAMBIO',
+                        labelStyle: ' font-weight:bold',
+                        labelWidth: 100,
+                        emptyText : 'Seleccionar',
+                        editable: false,
+                        itemId : 'tipoCambioId' ,
+                        name : 'tipoCambio' ,
+                        displayField : 'nombre',
+                        valueField : 'value'
                     },{
                         xtype: 'displayfield',
                         width: 497
@@ -260,7 +281,7 @@ Ext.define('Infosys_web.view.Cambios.Ingresar', {
                             {xtype: 'splitter'},
                             {
                                 xtype: 'numberfield',
-                                width: 180,
+                                width: 160,
                                 labelWidth: 40,
                                 fieldLabel: 'Precio',
                                 itemId: 'precioId',
@@ -269,7 +290,7 @@ Ext.define('Infosys_web.view.Cambios.Ingresar', {
                             },{xtype: 'splitter'},
                             {
                                 xtype: 'textfield',
-                                width: 180,
+                                width: 160,
                                 labelWidth: 70,
                                 minValue: 0,
                                 fieldLabel: 'Vendida',
@@ -281,12 +302,22 @@ Ext.define('Infosys_web.view.Cambios.Ingresar', {
                             {xtype: 'splitter'},
                             {
                                 xtype: 'numberfield',
-                                width: 180,
+                                width: 160,
                                 labelWidth: 70,
                                 minValue: 0,
                                 value: 1,
                                 fieldLabel: 'Devolucion',
                                 itemId: 'cantidadId'
+                            },
+                            {xtype: 'splitter'},
+                            {
+                                xtype: 'numberfield',
+                                width: 160,
+                                labelWidth: 70,
+                                minValue: 0,
+                                fieldLabel: 'Total',
+                                itemId: 'totdevId',
+                                readOnly: true
                             }]
                             }],
                         },{

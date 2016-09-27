@@ -35,6 +35,8 @@ class Cotizaciones extends CI_Controller {
 		$observacion = $row->observaciones;
 		$vendedor = $row->nom_vendedor;
 		$condpago = $row->conpago;
+
+		
 						
 
 		$html = '
@@ -128,7 +130,7 @@ class Cotizaciones extends CI_Controller {
 			<td style="text-align:right">&nbsp;&nbsp;</td>			
 			<td style="text-align:left">'.$producto->nombre.'</td>
 			<td style="text-align:right">'.number_format($v->cantidad,0,',','.').'&nbsp;&nbsp;</td>			
-			<td align="right">$ '.number_format($subtotal, 0, ',', '.').'</td>
+			<td align="right">$ '.number_format($subtotal, 2, ',', '.').'</td>
 			<td align="right">$ '.number_format($v->neto, 0, ',', '.').'</td>
 			</tr>';
 			
@@ -161,7 +163,7 @@ class Cotizaciones extends CI_Controller {
 				<table width="296px" border="0">
 					<tr>
 						<td width="150px" style="font-size: 20px;text-align:left;">IVA</td>
-						<td width="146px" style="text-align:right;">$ '. number_format($iva, 0, ',', '.') .'</td>
+						<td width="146px" style="text-align:right;">$ '. number_format($row->iva, 0, '.', ',') .'</td>
 					</tr>
 				</table>
 		  	</td>		  
@@ -181,7 +183,7 @@ class Cotizaciones extends CI_Controller {
 				<table width="296px" border="1">
 					<tr>
 						<td width="150px" style="font-size: 20px;text-align:left;">Total</td>
-						<td width="146px" style="text-align:right;">$ '. number_format($neto + $iva, 0, ',', '.') .'</td>
+						<td width="146px" style="text-align:right;">$ '. number_format($row->total, 0, '.', ',') .'</td>
 					</tr>
 				</table>
 		  	</td>		  
