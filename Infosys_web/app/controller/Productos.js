@@ -163,8 +163,6 @@ Ext.define('Infosys_web.controller.Productos', {
            
         });
 
-
-
     },
 
     agregarprecios: function(){
@@ -332,8 +330,7 @@ Ext.define('Infosys_web.controller.Productos', {
                     view.close();
                     st.load(); 
                     Ext.Msg.alert('Datos Eliminados Exitosamente');
-                    return; 
-                                   
+                    return;                                  
 
                  }else{
 

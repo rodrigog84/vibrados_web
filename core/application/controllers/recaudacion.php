@@ -1686,8 +1686,7 @@ class Recaudacion extends CI_Controller {
 			left join clientes c on (acc.id_cliente = c.id)
 			left join cajas n on (acc.id_caja = n.id)
 			left join cajeros e on (acc.id_cajero = e.id)
-			left join vendedores v on (p.id_vendedor = v.id) order by acc.id desc
-			
+			left join vendedores v on (p.id_vendedor = v.id) order by acc.id desc			
 			limit '.$start.', '.$limit.' ' 
 
 		);
@@ -1733,16 +1732,16 @@ class Recaudacion extends CI_Controller {
 	public function editarecauda(){
 
 		$resp = array();
-
-        $nombre = $this->input->get('ticketid');
+        $nombre = $this->input->get('idrecauda');
         
 		if($nombre){
 			$query = $this->db->query('SELECT acc.*, c.nombres as nom_cliente, c.rut as rut_cliente, c.rut as rut, v.nombre as nom_vendedor, v.id as id_vendedor, p.num_ticket as num_ticket, p.total as total, n.nombre as nom_caja, e.nombre as nom_cajero FROM recaudacion acc
 			left join preventa p on (acc.id_ticket = p.id)
 			left join clientes c on (acc.id_cliente = c.id)
+			left join vendedores v on (p.id_vendedor = v.id)
 			left join cajas n on (acc.id_caja = n.id)
 			left join cajeros e on (acc.id_cajero = e.id)
-			WHERE id like "'.$nombre.'"');
+			WHERE acc.id like "'.$nombre.'"');
 		}
 		
 		$data = array();
@@ -1764,8 +1763,7 @@ class Recaudacion extends CI_Controller {
 		      $row->rut_cliente = ($ruta4.".".$ruta3.".".$ruta2."-".$ruta1);
 		   
 		    };
-
-		     if (strlen($rutautoriza) == 2){
+		    if (strlen($rutautoriza) == 2){
 		      $ruta1 = substr($rutautoriza, -1);
 		      $ruta2 = substr($rutautoriza, -4, 1);
 		      $row->rut_cliente = ($ruta2."-".$ruta1);
@@ -1776,7 +1774,6 @@ class Recaudacion extends CI_Controller {
 			$data[] = $row;
 		}
         $resp['success'] = true;
-        $resp['total'] = $countAll;
         $resp['cliente'] = $data;
 
         echo json_encode($resp);	

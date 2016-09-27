@@ -2440,8 +2440,7 @@ Ext.define('Infosys_web.controller.Preventa', {
        
     },
 
-    mpreventa: function(){
-       
+    mpreventa: function(){       
         var viewport = this.getPanelprincipal();
         viewport.removeAll();
         viewport.add({xtype: 'preventaprincipal'});

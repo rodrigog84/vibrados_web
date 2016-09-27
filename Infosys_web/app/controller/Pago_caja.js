@@ -2252,8 +2252,10 @@ Ext.define('Infosys_web.controller.Pago_caja', {
         viewedit.down('#otrosmontosnId').setValue(otros);
         viewedit.down('#otrosmontosId').setValue(Ext.util.Format.number(otros, '0,00'));
         viewedit.down('#fechaaperturaId').setValue(fecha);
-        //var myMask = new Ext.LoadMask(Ext.getBody(), {msg:"Grabando..."});
-        //myMask.show();        
+        var stPreventa = this.getPreventaStore();
+        stPreventa.proxy.extraParams = {fecha : fecha}
+        stPreventa.load();
+        
         Ext.Ajax.request({
             
             url: preurl + 'genera_pagos/grabar',
@@ -2388,7 +2390,6 @@ Ext.define('Infosys_web.controller.Pago_caja', {
                             }            
                         });
                     }
-
                         view.down("#ticketId").setValue(ticket);
                         view.down("#idticketId").setValue(idticket);
                         view.down("#netoId").setValue(neto);
@@ -2431,8 +2432,6 @@ Ext.define('Infosys_web.controller.Pago_caja', {
 
         });   
        
-              
-       
     },
 
     generarpago: function(){
@@ -2448,6 +2447,8 @@ Ext.define('Infosys_web.controller.Pago_caja', {
         var idcajero = view.down('#cajeroId').getValue();
         var nomcajero = view.down('#nomcajeroId').getValue();
         var recauda = view.down('#recaudaId').getValue();
+        var fecha = view.down('#fechaaperturaId').getValue();
+
         var dos="2";
 
         if (idcaja==2){
@@ -2459,6 +2460,8 @@ Ext.define('Infosys_web.controller.Pago_caja', {
             view.down("#nomcajeroId").setValue(nomcajero);
             view.down("#recaudaId").setValue(recauda);
             view.down("#tipoDocumentoId").setValue(dos);
+            view.down("#fechafacturaId").setValue(fecha);
+            
         }else{
 
         var comprobante = (comprobante +1);

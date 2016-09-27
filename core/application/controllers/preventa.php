@@ -1125,6 +1125,10 @@ class Preventa extends CI_Controller {
         $opcion = $this->input->post('opcion');
         $nombres = $this->input->post('nombre');
         $tipo = $this->input->post('documento');
+        $fecha = $this->input->post('fecha');
+        if(!$fecha){
+         $fecha = date('Y-m-d');
+        };
         $estado = "";
 
         if (!$tipo){
@@ -1135,7 +1139,6 @@ class Preventa extends CI_Controller {
 	        $tipo4 = 105; // GUIA DE DESPACHO ELECTRONICA
 
 	    };
-
 
 		$countAll = $this->db->count_all_results("preventa");
 
@@ -1251,11 +1254,10 @@ class Preventa extends CI_Controller {
 			left join clientes c on (acc.id_cliente = c.id)
 			left join vendedores v on (acc.id_vendedor = v.id)
 			left join correlativos co on (acc.id_tip_docu = co.id)
-			WHERE acc.id_tip_docu in ('.$tipo5.','.$tipo.',' .$tipo2.',' .$tipo3.',' .$tipo4.') and acc.estado = "'.$estado.'" 
+			WHERE acc.id_tip_docu in ('.$tipo5.','.$tipo.',' .$tipo2.',' .$tipo3.',' .$tipo4.') and acc.fecha_venta = "'.$fecha.'" and acc.estado = "'.$estado.'" 
 			order by acc.id desc'	
 
 			);
-
 
 		}
 
@@ -1316,6 +1318,7 @@ class Preventa extends CI_Controller {
         $resp['success'] = true;
         $resp['total'] = $countAll;
         $resp['data'] = $data;
+        $resp['fecha'] = $fecha;
 
         echo json_encode($resp);
 	}

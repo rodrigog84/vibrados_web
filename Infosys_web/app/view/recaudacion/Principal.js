@@ -133,10 +133,9 @@ Ext.define('Infosys_web.view.recaudacion.Principal' ,{
                 action:'exportarlibrorecaudacion'
             },{
                 xtype: 'button',
-                iconCls : 'icon-pdf',
-                text: 'Actualizar',
-                action:'actualizar',
-                hidden: true
+                iconCls : 'icon-delete',
+                text: 'Anular',
+                action:'anular'
             },'->',{
                 width: 250,
                 xtype: 'textfield',
