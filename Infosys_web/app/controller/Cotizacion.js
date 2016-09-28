@@ -1290,11 +1290,10 @@ Ext.define('Infosys_web.controller.Cotizacion', {
             view.down('#descuentovalorId').setDisabled(bolEnable);
         };
         var tot = ((cantidad * precio) - descuento);
-        var neto = (Math.round(tot / 1.19));
+        var neto = (tot / 1.19);
         var exists = 0;
         var iva = (tot - neto);
-        var neto = (tot - iva);
-        var total = ((neto + iva ));
+        var total = (Math.round(neto + iva ));
                      
         if(!producto){
            Ext.Msg.alert('Alerta', 'Debe Seleccionar un Producto');
@@ -1419,11 +1418,10 @@ Ext.define('Infosys_web.controller.Cotizacion', {
         var cero2= 1;
 
         var tot = ((cantidad * precio) - descuento);
-        var neto = (Math.round(tot / 1.19));
+        var neto = (tot / 1.19);
         var exists = 0;
         var iva = (tot - neto);
-        var neto = (tot - iva);
-        var total = ((neto + iva ));
+        var total = (Math.round(neto + iva ));
         
         stItem.each(function(r){
             if(r.data.id_producto == producto){
@@ -1858,11 +1856,10 @@ Ext.define('Infosys_web.controller.Cotizacion', {
         var cero2= 1;
 
         var tot = ((cantidad * precio) - descuento);
-        var neto = (Math.round(tot / 1.19));
+        var neto = (tot / 1.19);
         var exists = 0;
         var iva = (tot - neto);
-        var neto = (tot - iva);
-        var total = ((neto + iva ));
+        var total = (Math.round(neto + iva ));
                 
         stItem.each(function(r){
             if(r.data.id_producto == producto){
