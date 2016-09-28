@@ -368,7 +368,8 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                                 width: 120,
                                 allowBlank: true,
                                 action: 'buscarprecios',
-                                itemId: 'buscarprec'
+                                itemId: 'buscarprec',
+                                disabled : true
                             },{xtype: 'splitter'},
                             {
                                 xtype: 'textfield',

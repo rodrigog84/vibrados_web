@@ -280,9 +280,9 @@ Ext.define('Infosys_web.controller.Preventa', {
             'autorizacion3 button[action=autoriza3]': {
                 click: this.autorizaprecios2
             },
-            'preventaingresar #tipoVendedorId': {
-                select: this.autorizavendedor
-            },
+            //'preventaingresar #tipoVendedorId': {
+            //    select: this.autorizavendedor
+            //},
             'autorizacion2 button[action=autoriza1]': {
                 click: this.autorizaprecios2
             },
@@ -319,8 +319,6 @@ Ext.define('Infosys_web.controller.Preventa', {
         var view = this.getEliminarpreventa()
         var idcliente = view.down('#idclienteID').getValue()
         var st = this.getPreventaStore();
-
-
         Ext.Ajax.request({
             url: preurl + 'preventa/elimina2',
             params: {
@@ -334,8 +332,7 @@ Ext.define('Infosys_web.controller.Preventa', {
                     view.close();
                     st.load(); 
                     Ext.Msg.alert('Datos Eliminados Exitosamente');
-                    return; 
-                                   
+                    return;                                   
 
                  }else{
 
@@ -707,7 +704,6 @@ Ext.define('Infosys_web.controller.Preventa', {
             }
            
         });
-
               
     },
 
@@ -727,13 +723,17 @@ Ext.define('Infosys_web.controller.Preventa', {
                      var cliente= resp.cliente;
                      var estado = resp.estado;
                      var clave = (cliente);
-                     console.log(clave)
-
+                     
                     if (clave){                        
-                           var view = Ext.create('Infosys_web.view.Preventa.Autoriza2').show();
-                           var view = this.getAutorizacion2();
-                           view.down('#enter1Id').focus(); 
-                    }                    
+                           var view = Ext.create('Infosys_web.view.Preventa.Autoriza').show();
+                           //var view = this.getAutorizacion2();
+                           view.down('#enterId').focus(); 
+                    }else{
+                        var bolEnable = true;
+                        busca.down('#buscarprec').setDisabled(bolEnable);
+                        
+
+                    }                   
                  }                                   
             }                              
                      
@@ -2070,6 +2070,9 @@ Ext.define('Infosys_web.controller.Preventa', {
             Ext.Msg.alert('Alerta', 'Selecciona un registro.');
             return;
         }
+        var bolEnable = false;
+        viewIngresa.down('#buscarprec').setDisabled(bolEnable);
+                        
        
     },
 
@@ -2132,6 +2135,21 @@ Ext.define('Infosys_web.controller.Preventa', {
 
        var busca = this.getPreventaingresar()
        var id = busca.down('#productoId').getValue();
+       if (id){
+       var edit = Ext.create('Infosys_web.view.Preventa.Autoriza').show();
+       var view = this.getAutorizacion();
+       //view.down("#enterId").focus();
+       }else{
+        Ext.Msg.alert('Alerta', 'Debe seleccionar Producto.');
+        return;
+           
+       }
+
+    },
+
+    buscarprecios5: function(){
+
+       var id = busca.down('#productoId').getValue();
        var nombre = busca.down('#nombreproductoId').getValue();
 
        if (id){
@@ -2168,21 +2186,31 @@ Ext.define('Infosys_web.controller.Preventa', {
     autorizaprecios: function(){
 
        var busca = this.getPreventaingresar()
+       var clave = this.getAutorizacion()
+       var usua = clave.down('#enterId').getValue();
        var id = busca.down('#productoId').getValue();
        var nombre = busca.down('#nombreproductoId').getValue();
 
-       if (id){
+       if (usua == "12345"){
+           clave.close();    
+           if (id){
               var edit =  Ext.create('Infosys_web.view.Preventa.BuscarPrecios').show();
               var st = this.getPreciosdescuentosStore();
               st.proxy.extraParams = {nombre : id};
               st.load();
               edit.down('#nombreId').setValue(nombre);
-              clave.close();
-           }else {
+            }else {
               Ext.Msg.alert('Alerta', 'Debe seleccionar Producto.');
               return;
               clave.close();
-        };  
+           };
+           
+        }else{
+            Ext.Msg.alert('Alerta', 'Clave no Autorizada');
+            return;
+            
+        }; 
+        clave.close();
     },
 
     autorizaprecios2: function(){
