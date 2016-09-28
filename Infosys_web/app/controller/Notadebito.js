@@ -150,6 +150,9 @@ Ext.define('Infosys_web.controller.Notadebito', {
             'buscarfacturasdebito button[action=seleccionarfactura]': {
                 click: this.seleccionarfactura
             },
+            'buscarfacturasdebito button[action=buscarnumero]': {
+                click: this.buscarnumero
+            },
             'notadebitoprincipal button[action=exportarexcelnotadebito]': {
                 click: this.exportarexcelnotadebito
             },
@@ -576,6 +579,16 @@ Ext.define('Infosys_web.controller.Notadebito', {
         var nombre = view.down('#nombreId').getValue()
         st.proxy.extraParams = {nombre : nombre,
                                 opcion : "Nombre"}
+        st.load();
+    },
+
+    buscarnumero: function(){
+        
+        var view = this.getBuscarfacturasdebito();
+        var st = this.getFactura2Store()
+        var nombre = view.down('#nombreId').getValue()
+        st.proxy.extraParams = {nombre : nombre,
+                                opcion : "Numero"}
         st.load();
     },
 
