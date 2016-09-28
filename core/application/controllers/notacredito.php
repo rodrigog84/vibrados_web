@@ -31,6 +31,8 @@ class Notacredito extends CI_Controller {
 		$fafecto = $this->input->post('afectofactura');
 		$ftotal = $this->input->post('totalfacturas');
 		$tipodocumento = $this->input->post('tipodocumento');
+		$id_cond_venta = $this->input->post('idcondventa');
+
 		//$tipodocumento = 11;
 		$idpago = 11;
 		$corr = 6;
@@ -143,8 +145,9 @@ class Notacredito extends CI_Controller {
 	        'id_cliente' => $idcliente,
 	        'num_factura' => $numdocuemnto,
 	        'id_vendedor' => $vendedor,
+	        'id_cond_venta' => $id_cond_venta,
 	        'sub_total' => $neto,
-	        'id_cond_venta' => $idtipo,
+	        //'id_cond_venta' => $idtipo,
 	        'neto' => $neto,
 	        'iva' => $fiva,
 	        'totalfactura' => $ftotal,
@@ -417,6 +420,7 @@ class Notacredito extends CI_Controller {
 		$fafecto = $this->input->post('afectofactura');
 		$ftotal = $this->input->post('totalfacturas');
 		$tipodocumento = $this->input->post('tipodocumento');
+		$id_cond_venta = $this->input->post('idcondventa');
 		$idpago = 11;
 		$corr = 6;
 		$idcondventa = 1;
@@ -528,6 +532,7 @@ class Notacredito extends CI_Controller {
 	        'id_cliente' => $idcliente,
 	        'num_factura' => $numdocuemnto,
 	        'id_vendedor' => $vendedor,
+	        'id_cond_venta' => $id_cond_venta,
 	        'sub_total' => $neto,
 	        'descuento' => ($neto - $fafecto),
 	        'neto' => $neto,
