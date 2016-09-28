@@ -36,6 +36,9 @@ class Dte extends \sasco\LibreDTE\PDF
 
     private $giroCliente; //Giro de cliente completo
     private $giroEmisor; //Giro de emisor completo
+    private $fonoEmisor; //Giro de emisor completo
+    private $mailEmisor; //Giro de emisor completo
+
     private $condpago;
     private $vendedor;
 
@@ -125,6 +128,19 @@ class Dte extends \sasco\LibreDTE\PDF
     public function setGiroEmisor($giro)
     {
         $this->giroEmisor = $giro;
+    }    
+
+
+
+    public function setFonoEmisor($fono)
+    {
+        $this->fonoEmisor = $fono;
+    }    
+
+
+    public function setMailEmisor($mail)
+    {
+        $this->mailEmisor = $mail;
     }    
 
 
@@ -336,7 +352,7 @@ class Dte extends \sasco\LibreDTE\PDF
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
      * @version 2016-03-10
      */
-    private function agregarEmisor(array $emisor, $x = 10, $y = 15, $w = 75, $w_img = 30, $font_size = null)
+    private function agregarEmisor(array $emisor, $x = 10, $y = 15, $w = 85, $w_img = 30, $font_size = null)
     {
         // logo máximo 1/5 del tamaño del documento
         if (isset($this->logo)) {
@@ -355,6 +371,8 @@ class Dte extends \sasco\LibreDTE\PDF
         $this->SetTextColorArray([0,0,0]);
         $this->MultiTexto(isset($emisor['GiroEmis']) ? "Giro: " . $emisor['GiroEmis'] : $emisor['GiroEmisor'], $x, $this->y, 'L', $w);
         $this->MultiTexto('Dirección : ' .$emisor['DirOrigen'].', '.$emisor['CmnaOrigen'], $x, $this->y, 'L', $w);
+        $this->MultiTexto('Fono : ' . $this->fonoEmisor, $x, $this->y, 'L', $w);
+        $this->MultiTexto('Mail : ' . $this->mailEmisor, $x, $this->y, 'L', $w);
         $contacto = [];
         if (!empty($emisor['Telefono'])) {
             if (!is_array($emisor['Telefono']))

@@ -119,7 +119,7 @@ class Facturaelectronica extends CI_Model
 	 }
 
 	public function get_empresa(){
-		$this->db->select('rut, dv, razon_social, giro, cod_actividad, dir_origen, comuna_origen, fec_resolucion, nro_resolucion, logo ')
+		$this->db->select('rut, dv, razon_social, giro, cod_actividad, dir_origen, comuna_origen, fec_resolucion, nro_resolucion, logo, fono, mail ')
 		  ->from('empresa')
 		  ->limit(1);
 		$query = $this->db->get();
@@ -346,6 +346,10 @@ class Facturaelectronica extends CI_Model
 			    $pdf->setVendedor($factura->vendedor); 
 
 			    $pdf->setGiroEmisor($empresa->giro); 
+
+			    $pdf->setFonoEmisor($empresa->fono); 
+
+			    $pdf->setMailEmisor($empresa->mail); 
 
 
 			    $pdf->setResolucion(['FchResol'=>$Caratula['FchResol'], 'NroResol'=>$Caratula['NroResol']]);

@@ -921,8 +921,11 @@ class Facturas extends CI_Controller {
     					'cod_actividad' => $this->input->post('cod_actividad'),
     					'dir_origen' => $this->input->post('direccion'),
     					'comuna_origen' => $this->input->post('comuna'),
+    					'fono' => $this->input->post('fono'),
+    					'mail' => $this->input->post('mail'),
     					'fec_resolucion' => $fec_resolucion,
     					'nro_resolucion' => $this->input->post('nro_resolucion'),
+
     					'logo' => 'logo_empresa.png'
     			);
         	if(count($empresa) > 0){ //actualizar

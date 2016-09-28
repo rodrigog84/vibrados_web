@@ -333,3 +333,9 @@ ALTER TABLE `folios_caf`
 
 ALTER TABLE `detalle_factura_cliente`
 	CHANGE COLUMN `precio` `precio` DECIMAL(10,2) NOT NULL AFTER `id_producto`;	
+
+/*************************************************************************************************************/
+
+ALTER TABLE `empresa`
+	ADD COLUMN `fono` VARCHAR(20) NULL DEFAULT '' AFTER `comuna_origen`,
+	ADD COLUMN `mail` VARCHAR(50) NULL DEFAULT '' AFTER `fono`;

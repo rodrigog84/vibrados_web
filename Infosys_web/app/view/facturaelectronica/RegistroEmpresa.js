@@ -34,6 +34,8 @@ Ext.define('Infosys_web.view.facturaelectronica.RegistroEmpresa' ,{
             var comuna = obj_empresa.comuna_origen;
             var fec_resolucion = obj_empresa.fec_resolucion;
             var nro_resolucion = obj_empresa.nro_resolucion;
+            var fono = obj_empresa.fono;
+            var mail = obj_empresa.mail;
             var logo = gbl_site + 'core/facturacion_electronica/images/' + obj_empresa.logo;
 
         }else{
@@ -45,6 +47,8 @@ Ext.define('Infosys_web.view.facturaelectronica.RegistroEmpresa' ,{
             var comuna = "";
             var fec_resolucion = "";
             var nro_resolucion = 0;
+            var fono = "";
+            var mail = "";
             var logo = gbl_site + 'core/facturacion_electronica/images/sinimagen.jpg';
 
         }
@@ -159,6 +163,39 @@ Ext.define('Infosys_web.view.facturaelectronica.RegistroEmpresa' ,{
                             fieldLabel : '&nbsp;&nbsp;Comuna',
                             labelStyle: ' font-weight:bold',
                             value : comuna,
+                            allowBlank : false
+                   
+                            }
+                        ]
+                    },{
+                        xtype: 'fieldcontainer',
+                        fieldLabel: '',
+                        layout: {
+                            type: 'hbox',
+                            align: 'stretch'
+                        },
+                        items: [ 
+                            {
+                            xtype: 'textfield',
+                            name: 'fono',
+                            itemId : 'fono',
+                            fieldLabel : 'Fono',
+                            labelStyle: ' font-weight:bold',
+                            value : fono,
+                            labelWidth: 150,
+                            allowBlank : false
+                   
+                            },                        
+                            {
+                            xtype: 'textfield',
+                            width: 400,
+                            labelWidth: 150,
+                            name: 'mail',
+                            itemId : 'mail',
+                            inputType: 'email',
+                            fieldLabel : '&nbsp;&nbsp;Mail',
+                            labelStyle: ' font-weight:bold',
+                            value : mail,
                             allowBlank : false
                    
                             }
