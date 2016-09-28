@@ -317,7 +317,7 @@ Ext.define('Infosys_web.controller.Notadebito', {
 
     recalcularFinal: function(){
         var view = this.getNotadebitoingresar();
-        var stItem = this.getProductosItemsStore();
+        var stItem = this.getNotadebitoItemsStore();
         var pretotal = 0;
         var total = 0;
         
@@ -326,7 +326,7 @@ Ext.define('Infosys_web.controller.Notadebito', {
           
         });
         total = pretotal;
-        neto = (total / 1.19);
+        neto = Math.round(total / 1.19);  
         afecto = neto;
         iva = total - neto;
         
@@ -504,7 +504,8 @@ Ext.define('Infosys_web.controller.Notadebito', {
        if (nombre){
           var edit =  Ext.create('Infosys_web.view.notadebito.BuscarFacturas').show();
           var st = this.getFactura2Store();
-          st.proxy.extraParams = {nombre : nombre};
+          st.proxy.extraParams = {nombre : nombre,
+                                  opcion: "Cliente"};
           st.load();
        }else {
           Ext.Msg.alert('Alerta', 'Debe seleccionar Cliente.');
