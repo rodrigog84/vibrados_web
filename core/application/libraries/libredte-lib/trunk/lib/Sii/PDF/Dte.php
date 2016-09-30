@@ -426,7 +426,8 @@ class Dte extends \sasco\LibreDTE\PDF
         $this->Rect($x, $y, $w, round($this->getY()-$y+3), 'D', ['all' => ['width' => 0.5, 'color' => $color]]);
         // colocar unidad del SII
         $this->setFont('', 'B', $font_size ? $font_size : 10);
-        $this->Texto('S.I.I. - '.$this->getSucursalSII($sucursal_sii), $x, $this->getY()+4, 'C', $w);
+        //$this->Texto('S.I.I. - '.$this->getSucursalSII($sucursal_sii), $x, $this->getY()+4, 'C', $w);
+        $this->Texto('S.I.I. - TALCA', $x, $this->getY()+4, 'C', $w);
         $this->SetTextColorArray([0,0,0]);
         $this->Ln();
         return $this->y;
