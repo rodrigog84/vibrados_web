@@ -32,8 +32,13 @@ class Notacredito extends CI_Controller {
 		$ftotal = $this->input->post('totalfacturas');
 		$tipodocumento = $this->input->post('tipodocumento');
 		$id_cond_venta = $this->input->post('idcondventa');
+		$tiponc = $this->input->post('tiponc');
 
 		//$tipodocumento = 11;
+
+
+
+
 		$idpago = 11;
 		$corr = 6;
 		$idcondventa = 1;
@@ -140,6 +145,13 @@ class Notacredito extends CI_Controller {
 	  
 	    $this->db->update('correlativos', $data3);
 			
+		if ($tiponc==3){
+			$neto=0;
+			$fiva=0;
+			$ftotal=0;
+			$fafecto=0;
+		};
+
 		$factura_cliente = array(
 			'tipo_documento' => $tipodocumento,
 	        'id_cliente' => $idcliente,
@@ -162,6 +174,12 @@ class Notacredito extends CI_Controller {
 		$idfactura = $this->db->insert_id();
 
 		foreach($items as $v){
+			if ($tiponc==3){
+				$v->neto=0;
+				$v->iva=0;
+				$v->total=0;
+			};
+
 			$factura_clientes_item = array(
 		        'id_factura' => $idfactura,
 		        'glosa' => $v->glosa,
@@ -257,8 +275,13 @@ class Notacredito extends CI_Controller {
             foreach ($detalle_factura as $detalle) {
 
 				$lista_detalle[$i]['NmbItem'] = $detalle->glosa;
-				$lista_detalle[$i]['QtyItem'] = 1;
-                $lista_detalle[$i]['PrcItem'] = floor($detalle->neto);
+				$glosa = $tiponc == 3 ? $glosa . " . " . $detalle->glosa : $glosa;
+				if($tiponc!=3){
+					$lista_detalle[$i]['QtyItem'] = 1;
+	                $lista_detalle[$i]['PrcItem'] = floor($detalle->neto);
+            	}				
+				/*$lista_detalle[$i]['QtyItem'] = 1;
+                $lista_detalle[$i]['PrcItem'] = floor($detalle->neto);*/
             
                 $i++;
             }
@@ -292,7 +315,8 @@ class Notacredito extends CI_Controller {
 					'Totales' => [
 		                // estos valores serán calculados automáticamente
 		                'MntNeto' => isset($datos_factura->neto) ? $datos_factura->neto : 0,
-		                'TasaIVA' => \sasco\LibreDTE\Sii::getIVA(),
+		                //'TasaIVA' => \sasco\LibreDTE\Sii::getIVA(),
+		                'TasaIVA' => $tiponc == 3 ? 0 : \sasco\LibreDTE\Sii::getIVA(),
 		                'IVA' => isset($datos_factura->iva) ? $datos_factura->iva : 0,
 		                'MntTotal' => isset($datos_factura->totalfactura) ? $datos_factura->totalfactura : 0,
 		            ],                
