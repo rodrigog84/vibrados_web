@@ -2133,7 +2133,16 @@ Ext.define('Infosys_web.controller.Preventa', {
 
     buscarprecios: function(){
 
-       var busca = this.getPreventaingresar()
+        var busca = this.getPreventaingresar()
+        var id = busca.down('#productoId').getValue();
+        var edit =  Ext.create('Infosys_web.view.Preventa.BuscarPrecios').show();
+        var st = this.getPreciosdescuentosStore();
+        var nombre = busca.down('#nombreproductoId').getValue();
+        st.proxy.extraParams = {nombre : id};
+        st.load();
+        edit.down('#nombreId').setValue(nombre);
+
+       /*var busca = this.getPreventaingresar()
        var id = busca.down('#productoId').getValue();
        if (id){
        var edit = Ext.create('Infosys_web.view.Preventa.Autoriza').show();
@@ -2143,7 +2152,7 @@ Ext.define('Infosys_web.controller.Preventa', {
         Ext.Msg.alert('Alerta', 'Debe seleccionar Producto.');
         return;
            
-       }
+       }*/
 
     },
 
