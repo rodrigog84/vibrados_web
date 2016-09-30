@@ -33,6 +33,17 @@ class Notacredito extends CI_Controller {
 		$tipodocumento = $this->input->post('tipodocumento');
 		$id_cond_venta = $this->input->post('idcondventa');
 
+		$tiponc = $this->input->post('tiponc');
+		//$tipodocumento = 11;
+
+		if ($tiponc==3){
+			$neto=0;
+			$fiva=0;
+			$ftotal=0;
+			$fafecto=0;
+		};
+
+
 		//$tipodocumento = 11;
 		$idpago = 11;
 		$corr = 6;
