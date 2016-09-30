@@ -9,6 +9,7 @@ Ext.define('Infosys_web.controller.Notacredito', {
              'Notacreditop',
              'Clientes',
              'Factura2',
+             'Factura4',
              'Productosf',
              'Productos',
              'Tipo_documento',
@@ -227,17 +228,12 @@ Ext.define('Infosys_web.controller.Notacredito', {
         var docurelacionado = viewIngresa.down('#factId').getValue();
         var valorneto = viewIngresa.down('#finaltotalnetoId').getValue();
         var valoriva = viewIngresa.down('#finaltotalivaId').getValue();
-        var totalfactura= valorneto + valoriva;     
-        
+        var totalfactura= valorneto + valoriva;
+        var tiponc = viewIngresa.down('#tipoNotaCredito').getValue();        
         var fechavenc = viewIngresa.down('#fechavencId').getValue();
         var stItem = this.getNotacreditoItemsStore();
         var stnotacredito = this.getNotacreditoStore();
-
-        if(!vendedor){
-            Ext.Msg.alert('Ingrese Vendedor');
-            return;   
-        } 
-
+        var glosa= "";
         if(numdocumento==0){
             Ext.Msg.alert('Ingrese Datos a La Factura');
             return;   
@@ -245,8 +241,14 @@ Ext.define('Infosys_web.controller.Notacredito', {
 
         var dataItems = new Array();
         stItem.each(function(r){
-            dataItems.push(r.data)
+            dataItems.push(r.data),
+            glosa = r.data.glosa
         });
+
+        if (glosa==""){
+            Ext.Msg.alert('Alerta','Debe Ingresar Descripcion a Nota de Credito');
+            return;  
+        };
 
         Ext.Ajax.request({
             url: preurl + 'notacredito/save2',
@@ -258,6 +260,7 @@ Ext.define('Infosys_web.controller.Notacredito', {
                 idsucursal: idsucursal,
                 idcondventa: idcondventa,
                 idtipo: idtipo,
+                tiponc: tiponc,
                 items: Ext.JSON.encode(dataItems),
                 vendedor : vendedor,
                 numfactura_asoc : numfactura_asoc,
@@ -312,28 +315,20 @@ Ext.define('Infosys_web.controller.Notacredito', {
         var totalfin = view.down('#finaltotalpostId').getValue();
         var netofin = view.down('#finalafectoId').getValue();
         var ivafin = view.down('#finaltotalivaId').getValue();
+        var tiponc = view.down('#tipoNotaCredito').getValue();
+
+        if(tiponc==1){
+           if (!neto){// se validan los datos sólo si es factura
+            Ext.Msg.alert('Alerta', 'Debe Ingresar Valores.');
+            return false;
+           }
+        };
 
         if(!glosa){  // se validan los datos sólo si es factura
             Ext.Msg.alert('Alerta', 'Debe Ingresar Glosa.');
             return false;
-        }; 
-        
-        if(neto==0 ){  // se validan los datos sólo si es factura
-            Ext.Msg.alert('Alerta', 'Debe Ingresar Valores.');
-            return false;
-        }; 
-        
-        if(iva==0 ){  // se validan los datos sólo si es factura
-            Ext.Msg.alert('Alerta', 'Debe Ingresar Valores.');
-            return false;
-        }; 
+        };
 
-        if(total==0 ){  // se validan los datos sólo si es factura
-            Ext.Msg.alert('Alerta', 'Debe Ingresar Valores.');
-            return false;
-        };        
-        
-                   
         if(rut.length==0 ){  // se validan los datos sólo si es factura
             Ext.Msg.alert('Alerta', 'Debe Ingresar Datos a la Factura.');
             return false;
@@ -344,7 +339,6 @@ Ext.define('Infosys_web.controller.Notacredito', {
             totalfin = totalfin + total;
             ivafin = ivafin + iva;
             netofin = netofin + neto;
-      
 
         
             stItem.add(new Infosys_web.model.Nota.Item2({
@@ -784,6 +778,7 @@ Ext.define('Infosys_web.controller.Notacredito', {
           
           i++;
         })
+
         var view =this.getFormularioexportarnotacredito()
         var viewnew =this.getNotacreditoprincipal()
         var fecha = view.down('#fechaId').getSubmitValue();
@@ -793,7 +788,7 @@ Ext.define('Infosys_web.controller.Notacredito', {
 
         if (fecha > fecha2) {
         
-               Ext.Msg.alert('Alerta', 'Fechas Incorrectas');
+            Ext.Msg.alert('Alerta', 'Fechas Incorrectas');
             return;          
 
         };
@@ -815,7 +810,7 @@ Ext.define('Infosys_web.controller.Notacredito', {
           
         });
         total = pretotal;
-        neto = (total / 1.19);
+        neto = (Math.round(total / 1.19));
         afecto = neto;
         iva = total - neto;
         
@@ -840,7 +835,7 @@ Ext.define('Infosys_web.controller.Notacredito', {
           
         });
         total = pretotal;
-        neto = (total / 1.19);
+        neto = (Math.round(total / 1.19));
         afecto = neto;
         iva = total - neto;
         
@@ -857,7 +852,6 @@ Ext.define('Infosys_web.controller.Notacredito', {
         this.recalcularFinal();
     },
 
-
     agregarItem: function() {
 
         var view = this.getNotacreditoingresar();
@@ -872,9 +866,9 @@ Ext.define('Infosys_web.controller.Notacredito', {
         var idfacturaval = view.down('#factactId').getValue();
         var numfactura = view.down('#numfactId').getValue();
         var precio = ((view.down('#precioId').getValue()));
-        var precioun = ((view.down('#precioId').getValue())/1.19);
+        var precioun = (Math.round((view.down('#precioId').getValue())/1.19));
         var total = ((cantidad * precio));
-        var neto = ((total / 1.19));
+        var neto = (Math.round(total / 1.19));
         var exists = 0;
         var iva = (total - neto );
         var totaliva = (total);
@@ -1152,7 +1146,8 @@ Ext.define('Infosys_web.controller.Notacredito', {
 
     },
 
-    meNotacredito: function() {    
+    meNotacredito: function() { 
+    
         var viewport = this.getPanelprincipal();
         viewport.removeAll();
         viewport.add({xtype: 'notacreditoprincipal'});
@@ -1354,12 +1349,7 @@ Ext.define('Infosys_web.controller.Notacredito', {
         var netofactura = viewIngresa.down('#finaltotalnetoId').getValue();
         var ivafactura =  viewIngresa.down('#finaltotalivaId').getValue();
         var afectofactura = viewIngresa.down('#finalafectoId').getValue();
-        var totalfactura = ( netofactura + ivafactura );
-        
-        if(!vendedor){
-            Ext.Msg.alert('Ingrese Vendedor');
-            return;   
-        }   
+        var totalfactura = ( netofactura + ivafactura );       
 
 
         if(numdocumento==0){

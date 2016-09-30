@@ -420,6 +420,7 @@ Ext.define('Infosys_web.view.notacredito.Notacredito', {
                                                             var cantidad = obj.total
                                                             var detalle_factura = obj.data;
                                                             var total = 0;
+                                                            var neto = 0;
                                                             for(i=0;i<cantidad;i++){
                                                                 stItms.add(new Infosys_web.model.Productos.Item({
                                                                     id: detalle_factura[i].id_producto,
@@ -427,17 +428,21 @@ Ext.define('Infosys_web.view.notacredito.Notacredito', {
                                                                     nombre: detalle_factura[i].nombre,
                                                                     precio: detalle_factura[i].precio,
                                                                     cantidad: detalle_factura[i].cantidad,
-                                                                    neto: (parseInt(detalle_factura[i].neto/ 1.19)),
+                                                                    //neto: (parseInt(detalle_factura[i].neto/ 1.19)),
+                                                                    neto: (parseInt(detalle_factura[i].totalproducto/ 1.19)),
                                                                     dcto: detalle_factura[i].descuento,
-                                                                    totaliva: detalle_factura[i].neto,
+                                                                    totaliva: detalle_factura[i].totalproducto,
                                                                     iva: detalle_factura[i].iva          
                                                                 }));
 
-                                                                total += parseInt(detalle_factura[i].neto);
+                                                                //total += parseInt(detalle_factura[i].neto);
+                                                                total += parseInt(detalle_factura[i].totalproducto);
+                                                                neto += parseInt(detalle_factura[i].totalproducto/ 1.19);
+
 
                                                             }
 
-                                                            var neto = parseInt(total/1.19);
+                                                            //var neto = parseInt(total/1.19);
                                                             var iva = total - neto;
                                                             me.down('#finaltotalId').setValue(total);
                                                             me.down('#finaltotalnetoId').setValue(neto);
