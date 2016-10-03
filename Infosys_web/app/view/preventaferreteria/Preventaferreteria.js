@@ -1,6 +1,6 @@
-Ext.define('Infosys_web.view.Preventa.Preventa', {
+Ext.define('Infosys_web.view.preventaferreteria.Preventaferreteria', {
     extend: 'Ext.window.Window',
-    alias : 'widget.preventaingresar',
+    alias : 'widget.preventaferreteriaingresar',
 
     requires: [
         'Ext.form.FieldContainer',
@@ -22,11 +22,11 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
     height: 660,
     width: 1350,
     layout: 'fit',
-    title: 'Ticket Preventa',
+    title: 'Ticket preventaferreteria',
 
     initComponent: function() {
         var me = this;
-        var stItms = Ext.getStore('preventa.Items');
+        var stItms = Ext.getStore('preventaferreteria.Items');
         stItms.removeAll();
         Ext.applyIf(me, {
             items: [
@@ -195,7 +195,7 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                                             maxHeight: 25,
                                             width: 70,
                                             allowBlank: true,
-                                            action: 'buscarsucursalpreventa'
+                                            action: 'buscarsucursalpreventaferreteria'
                                             //disabled : true  
                                         },{xtype: 'splitter'},{
                                             xtype: 'combo',
@@ -369,8 +369,7 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                                 allowBlank: true,
                                 action: 'buscarprecios',
                                 itemId: 'buscarprec',
-                                disabled : true,
-                                hidden: true
+                                disabled : true
                             },{xtype: 'splitter'},
                             {
                                 xtype: 'textfield',
@@ -433,7 +432,7 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                             itemId: 'itemsgridId',
                             title: 'Detalle',
                             labelWidth: 50,
-                            store: 'preventa.Items',
+                            store: 'preventaferreteria.Items',
                             tbar: [{
                                 iconCls: 'icon-delete',
                                 text: 'Eliminar',
@@ -574,7 +573,7 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                             xtype: 'button',
                             iconCls: 'icon-save',
                             scale: 'large',
-                            action: 'grabarpreventa',
+                            action: 'grabarpreventaferreteria',
                             text: 'Grabar / Emitir'
                         }
                     ]

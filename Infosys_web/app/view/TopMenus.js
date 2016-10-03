@@ -771,6 +771,12 @@ Ext.define('Infosys_web.view.TopMenus' ,{
                     disabled: true,
                     action: 'mpreventa'                
                 },{
+                    text: 'Venta Ferreteria',
+                    iconCls: '',
+                    itemId: 'vv_acc_preventaferreteria',
+                    disabled: true,
+                    action: 'mpreventaferreteria'                
+                },{
                     text: 'Cotizaciones',
                     iconCls: '',
                     itemId: 'vv_acc_cotiza',

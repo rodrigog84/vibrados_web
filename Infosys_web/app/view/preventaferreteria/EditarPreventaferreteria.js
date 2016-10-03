@@ -1,6 +1,6 @@
-Ext.define('Infosys_web.view.Preventa.Preventa', {
+Ext.define('Infosys_web.view.preventaferreteria.EditarPreventaferreteria', {
     extend: 'Ext.window.Window',
-    alias : 'widget.preventaingresar',
+    alias : 'widget.preventaferreteriaeditar',
 
     requires: [
         'Ext.form.FieldContainer',
@@ -22,12 +22,10 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
     height: 660,
     width: 1350,
     layout: 'fit',
-    title: 'Ticket Preventa',
+    title: 'Editar preventaferreteria',
 
     initComponent: function() {
-        var me = this;
-        var stItms = Ext.getStore('preventa.Items');
-        stItms.removeAll();
+        var me = this;        
         Ext.applyIf(me, {
             items: [
                 {
@@ -40,7 +38,7 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                     items: [
                         {
                             xtype: 'container',
-                            height: 220,
+                            height: 200,
                             layout: {
                                 type: 'vbox',
                                 align: 'stretch'
@@ -48,7 +46,7 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                             items: [
                                 {
                                     xtype: 'fieldcontainer',
-                                    height: 39,
+                                    height: 37,
                                     labelWidth: 120,
                                     width: 462,
                                     fieldLabel: '',
@@ -62,17 +60,22 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                                             maxHeight: 25,
                                             width: 200,
                                             allowBlank: false,
+                                            name: 'id',
+                                            itemId: 'idId',
+                                            fieldLabel: '<b>ID</b>',
+                                            hidden: true
+
+                                        },{
+                                            xtype: 'numberfield',
+                                            fieldCls: 'required',
+                                            maxHeight: 25,
+                                            width: 200,
+                                            allowBlank: false,
                                             name: 'num_ticket',
                                             itemId: 'ticketId',
                                             fieldLabel: '<b>TICKET VENTA</b>',
                                             readOnly: true
 
-                                        },{
-                                            xtype: 'textfield',
-                                            itemId: 'observaId',
-                                            name : 'observacion',
-                                            fieldLabel: 'Observacion',
-                                            hidden: true
                                         },{
                                             xtype: 'displayfield',
                                             width: 10
@@ -80,8 +83,7 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                                         },{
                                             xtype: 'combo',
                                             align: 'center',
-                                            editable: false,
-                                            width: 350,
+                                            width: 450,
                                             maxHeight: 25,
                                             matchFieldWidth: false,
                                             listConfig: {
@@ -105,7 +107,8 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                                             fieldLabel: '<b>FECHA</b>',
                                             itemId: 'fechaventaId',
                                             name: 'fecha_venta',
-                                            value: new Date()
+                                            value: new Date(),
+                                            readOnly: true
                                         }
                                     ]
                                 },
@@ -142,7 +145,7 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                                             width: 80,
                                             allowBlank: true,
                                             //disabled : true,                                            
-                                            action: 'validarut',
+                                            action: 'validarutedita',
                                             itemId: 'buscarBtn'
                                         },{xtype: 'splitter'},{
                                             xtype: 'textfield',
@@ -158,11 +161,10 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                                             
                                         }
                                     ]
-                                },
-                                {
+                                },{
                                     xtype: 'fieldcontainer',
                                     height: 35,
-                                    width: 382,
+                                    width: 462,
                                     fieldLabel: '',
                                     layout: {
                                         type: 'hbox',
@@ -186,7 +188,6 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                                             width: 580,
                                             itemId: 'direccionId',
                                             name : 'direccion',
-                                            //disabled : true,                                            
                                             readOnly: true
                                         },{xtype: 'splitter'},{
                                             xtype: 'button',
@@ -195,39 +196,23 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                                             maxHeight: 25,
                                             width: 70,
                                             allowBlank: true,
-                                            action: 'buscarsucursalpreventa'
-                                            //disabled : true  
+                                            action: 'buscarsucursalpreventaferreteria2'
+                                              
                                         },{xtype: 'splitter'},{
-                                            xtype: 'combo',
-                                            itemId: 'giroId',
-                                            maxHeight: 25,
-                                            fieldLabel: 'Giro',
-                                            name: 'id_giro',
-                                            store: 'Cod_activ',
-                                            queryMode: 'local',
-                                            forceSelection: true,
-                                            displayField: 'nombre',
-                                            valueField: 'id',
-                                            listConfig: {
-                                                minWidth: 500
-                                            },
-                                            width: 520
-                                                
-                                        },{
                                             xtype: 'textfield',
                                             fieldCls: 'required',
+                                            fieldLabel: '<b>GIRO</b>',
                                             maxHeight: 25,
-                                            width: 100,
-                                            name: 'permite',
-                                            value: "NO",
-                                            itemId: 'permiteId',
-                                            fieldLabel: '<b>permite</b>',
-                                            hidden: true
+                                            width: 495,
+                                            itemId: 'giroId',
+                                            readOnly: true,
+                                            name : 'giro'
+                                          
                                         }
                                     ]
                                 },{
                                     xtype: 'fieldcontainer',
-                                    height: 35,
+                                    height: 30,
                                     width: 462,
                                     fieldLabel: '',
                                     layout: {
@@ -243,21 +228,15 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                                             maxHeight: 25,
                                             fieldLabel: '<b>VENDEDOR</b>',
                                             forceSelection : true,
+                                            //editable : false,
+                                            //disabled : true,                                            
                                             name : 'id_vendedor',
                                             valueField : 'id',
                                             displayField : 'nombre',
                                             emptyText : "Seleccione",
-                                            store : 'Vendedores'
-                                        },{xtype: 'splitter'},
-                                        {
-                                            xtype: 'button',
-                                            text: 'Buscar Historia',
-                                            maxHeight: 25,
-                                            width: 80,
-                                            allowBlank: true,
-                                            disabled : true,                                            
-                                            action: 'validarut',
-                                            itemId: 'buscarhist'
+                                            store : 'Vendedores',
+                                            allowBlank: false,
+                                            readOnly: true
                                         },{xtype: 'splitter'},{
                                             xtype: 'combo',
                                             itemId: 'tipocondpagoId',
@@ -277,7 +256,7 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                                             width: 110,
                                             fieldLabel: 'Observaciones',
                                             name: 'observaciones',
-                                            itemId: 'observacionesId',
+                                            itemId: 'observaId',
                                             style: 'font-weight: bold;',
                                             hidden: true
 
@@ -316,7 +295,6 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                                 xtype: 'textfield',
                                 align: 'center',
                                 labelWidth: 55,
-                                width: 435,
                                 itemId: 'nombreproductoId',
                                 fieldLabel: 'Producto',
                                 name: 'nomproducto',                                
@@ -337,7 +315,7 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                                 maxHeight: 25,
                                 width: 120,
                                 allowBlank: true,
-                                action: 'buscarproductos',
+                                action: 'buscarproductos2',
                                 itemId: 'buscarproc'
                             },
                             {xtype: 'splitter'},
@@ -367,10 +345,8 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                                 maxHeight: 25,
                                 width: 120,
                                 allowBlank: true,
-                                action: 'buscarprecios',
-                                itemId: 'buscarprec',
-                                disabled : true,
-                                hidden: true
+                                action: 'buscarprecios2',
+                                itemId: 'buscarprec'
                             },{xtype: 'splitter'},
                             {
                                 xtype: 'textfield',
@@ -402,23 +378,15 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                                 value: 1,
                                 fieldLabel: 'Cantidad',
                                 itemId: 'cantidadId'
-                            },{
-                                xtype: 'numberfield',
-                                width: 120,
-                                labelWidth: 60,
-                                minValue: 0,
-                                value: 1,
-                                fieldLabel: 'Descuento Pro',
-                                itemId: 'totdescuentoId',
-                                hidden: true
                             },
+                            {xtype: 'splitter'},
                             {
                                 xtype: 'button',
                                 text: 'Agregar',
                                 iconCls: 'icon-plus',
                                 width: 80,
                                 allowBlank: true,
-                                action: 'agregarItem'
+                                action: 'agregarItem2'
                             }]
                         }
 
@@ -433,26 +401,25 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                             itemId: 'itemsgridId',
                             title: 'Detalle',
                             labelWidth: 50,
-                            store: 'preventa.Items',
+                            store: 'preventaferreteriaeditar',
                             tbar: [{
                                 iconCls: 'icon-delete',
                                 text: 'Eliminar',
-                                action: 'eliminaritem'
+                                action: 'eliminaritem2'
                             },
                             {
                                 iconCls: 'icon-delete',
                                 text: 'Editar',
-                                action: 'editaritem'
+                                action: 'editaritem2'
                             }
                             ],
-                            height: 250,
+                            height: 210,
                             columns: [
-                                { text: 'No',  dataIndex: 'id', width: 50},
-                                { text: 'Id producto',  dataIndex: 'id_producto', width: 250, hidden : true },
-                                { text: 'codigo',  dataIndex: 'codigo', width: 250, hidden : true },
+                                { text: 'No',  dataIndex: 'secuencia', width: 50, hidden: true},
+                                { text: 'Id Producto',  dataIndex: 'id_producto', width: 250, hidden: true },
                                 { text: 'Producto',  dataIndex: 'nombre', width: 250 },
                                 { text: 'Precio Unitario',  dataIndex: 'precio', align: 'right',flex:1, renderer: function(valor){return Ext.util.Format.number((valor),"0,000")} },
-                                { text: 'Cantidad',  dataIndex: 'cantidad', align: 'right',width: 100},
+                                { text: 'Cantidad',  dataIndex: 'cantidad', align: 'right',width: 100 },
                                 { text: 'Neto',  dataIndex: 'neto', align: 'right',flex:1,renderer: function(valor){return Ext.util.Format.number((valor),"0,000")} },
                                 { text: 'Iva',  dataIndex: 'iva', align: 'right',flex:1,renderer: function(valor){return Ext.util.Format.number((valor),"0,000")} },
                                 { text: 'Total',  dataIndex: 'total', align: 'right',flex:1, renderer: function(valor){return Ext.util.Format.number((valor),"0,000")} }
@@ -460,7 +427,6 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                             },{
                         xtype: 'fieldset',
                         title: 'Total Documento',
-                        height: 80,
                         fieldDefaults: {
                         labelWidth: 120
                         },
@@ -488,6 +454,7 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                             store: 'Tabladescuento',
                             emptyText : "Seleccione",
                             valueField: 'id',
+                            editable: false,
                             labelAlign: 'top',
                             displayField: 'nombre'
                         },{
@@ -496,7 +463,6 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                             width: 200,
                             name : 'descuento',
                             itemId: 'finaldescuentoId',
-                            disabled : true,  
                             readOnly: true,
                             fieldLabel: '<b>descuento</b>',
                             hidden: true
@@ -564,17 +530,17 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
                     items: ['->',{
                             xtype: 'button',
                             text: 'Observaciones',
+                            scale: 'large',
                             iconCls: '',
                             width: 150,
-                            scale: 'large',
                             allowBlank: true,
-                            action: 'agregarobservaciones'
+                            action: 'agregarobservaciones2'
                         },
                         {
                             xtype: 'button',
                             iconCls: 'icon-save',
                             scale: 'large',
-                            action: 'grabarpreventa',
+                            action: 'grabarpreventaferreteria2',
                             text: 'Grabar / Emitir'
                         }
                     ]
@@ -583,7 +549,7 @@ Ext.define('Infosys_web.view.Preventa.Preventa', {
         });
 
         me.callParent(arguments);
-        //me.down('#productoId').getStore().load();
+        //me.down('itemsgridId').getStore().load();
     }
 
 });

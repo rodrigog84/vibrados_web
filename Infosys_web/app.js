@@ -1,11 +1,11 @@
 Ext.util.Format.thousandSeparator = '.';
 //variables globales
 
-var gbl_site = 'http://localhost/vibrados_web/';
+//var gbl_site = 'http://localhost/vibrados_web/';
 
 //var gbl_site = 'http://angus.agricultorestalca.cl/vibrados_web/';
 
-//var gbl_site = 'http://192.168.1.100/vibrados_web/';
+var gbl_site = 'http://192.168.1.100/vibrados_web/';
 var preurl = gbl_site + 'core/index.php/';
 var preurl_img = gbl_site + 'core/archivos/';
 var preurl_js = gbl_site + 'Infosys_web/';
@@ -22,7 +22,7 @@ Ext.application({
                   "Preventa", "Pago_caja","CuentasCorrientes","Cotizacion",
                   "Recaudacion", "Notacredito","Caja", "Guiasdespacho",
                   "Comisiones","Notadebito","Tipodocumentocompras", "Precios",
-                  "Facturaglosa", 'Cambios'],
+                  "Facturaglosa", 'Cambios', 'preventaferreteria'],
 	   
     views: [
         'Infosys_web.view.WLogin',
