@@ -966,6 +966,11 @@ class AdminServicesExcel extends CI_Controller {
             $fecha4 = $anio ."-". $mes ."-". $dia;
             $tipo = 2;
             $otros = 0;
+            $nulas = 0;
+            $vigentes = 0;
+            $totalafecto = 0;
+            $totaliva = 0;
+            $totalboleta = 0;
             $data = array();
                                    
             $this->load->database();
@@ -1006,16 +1011,48 @@ class AdminServicesExcel extends CI_Controller {
                 $total = $v['totalfactura'];
                 $neto = round(($total / 1.19), 0);
                 $iva = ($total - $neto);
+                $totalafecto = $totalafecto + $neto;
+                $totaliva = $totaliva + $iva;
+                $totalboleta = $totalboleta + $total;
+                $vigentes = $vigentes + 1;
+                if ($v['estado']== "NO"){
+                  $totalafecto = $totalafecto - $neto;
+                  $neto = "DOCUMENTO NULO";
+                  $totaliva = $totaliva - $iva;
+                  $totalboleta = $totalboleta - $total;
+                  $iva = 0;
+                  $total= 0;
+                  $nulas = $nulas + 1;
+                  $vigentes = $vigentes - 1;
+                };
                 echo "<tr>";
                    echo "<td>".$v['num_factura']."</td>";
                    echo "<td>".$v['fecha_factura']."</td>";
                    echo "<td>".$neto."</td>";
                    echo "<td>".$iva."</td>";
                    echo "<td>".$otros."</td>";
-                   echo "<td>".$v['totalfactura']."</td>";
+                   echo "<td>".$total."</td>";
                 echo "</tr>";
-            }
+              }
+               echo "<tr>";
+                echo "<td>VIGENTES</td>";
+                echo "<td>NULAS</td>";
+                echo "<td>TOTAL AFECTO</td>";
+                echo "<td>IMPUESTO IVA</td>";
+                echo "<td>OTROS IMP.</td>";
+                echo "<td>TOTAL BOLETAS</td>";
+                echo "<tr>";
+                echo "<tr>";
+                   echo "<td>".$vigentes."</td>";
+                   echo "<td>".$nulas."</td>";
+                   echo "<td>".$totalafecto."</td>";
+                   echo "<td>".$totaliva."</td>";
+                   echo "<td>".$otros."</td>";
+                   echo "<td>".$totalboleta."</td>";
+                echo "</tr>";
+
             echo '</table>';
+
         }
 
         public function exportarExcellibroFacturas()
