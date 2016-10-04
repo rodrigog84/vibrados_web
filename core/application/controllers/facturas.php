@@ -797,11 +797,13 @@ class Facturas extends CI_Controller {
 		$ruta = $tipo == 'cliente' ? 'dte_cliente' : 'dte';
 		$this->load->model('facturaelectronica');
 		$dte = $this->facturaelectronica->datos_dte($idfactura);
-
 		if(empty($dte)){
-		//if($dte->path_dte == ''){
-
 			$dte = $this->facturaelectronica->crea_dte($idfactura);
+		}else{
+
+		 	if($dte->{$ruta} == ''){
+				$dte = $this->facturaelectronica->crea_dte($idfactura,$tipo);
+			}
 		}
 
 
