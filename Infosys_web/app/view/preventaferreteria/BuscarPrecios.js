@@ -1,9 +1,9 @@
 Ext.define('Infosys_web.view.preventaferreteria.BuscarPrecios' ,{
     extend: 'Ext.window.Window',
-    alias : 'widget.buscarprecios',
+    alias : 'widget.buscarpreciosferreteria',
     
     requires: ['Ext.toolbar.Paging'],
-    title : 'Busqueda Precios',
+    title : 'Busqueda Precios Ferreteria',
     layout: 'fit',
     autoShow: true,
     width: 450,

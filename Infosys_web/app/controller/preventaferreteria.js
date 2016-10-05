@@ -3,7 +3,8 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     //asociamos vistas, models y stores al controller
 
-    stores: ['preventaferreteria',
+    stores: ['Preventa',
+            'preventaferreteria',
             'preventaferreteria.Items',
             'preventaferreteria.Items2',
             'preventaferreteria.Editar',
@@ -82,8 +83,8 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
         ref: 'observacionespreventaferreteria2',
         selector: 'observacionespreventaferreteria2'
     },{
-        ref: 'buscarprecios',
-        selector: 'buscarprecios'
+        ref: 'buscarpreciosferreteria',
+        selector: 'buscarpreciosferreteria'
     },{
         ref: 'autorizacion',
         selector: 'autorizacion'
@@ -170,7 +171,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
             'buscarproductospreventaferreteria button[action=seleccionarproductos]': {
                 click: this.seleccionarproductos
             },
-            'buscarprecios button[action=seleccionarprecios]': {
+            'buscarpreciosferreteria button[action=seleccionarprecios]': {
                 click: this.seleccionarprecios
             },
             'buscarprecios2 button[action=seleccionarprecios2]': {
@@ -317,7 +318,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
         var view = this.getEliminarpreventaferreteria()
         var idcliente = view.down('#idclienteID').getValue()
-        var st = this.getpreventaferreteriaStore();
+        var st = this.getPreventaferreteriaStore();
         Ext.Ajax.request({
             url: preurl + 'preventaferreteria/elimina2',
             params: {
@@ -359,7 +360,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     eliminarpreventaferreteria: function(){
 
-        var view = this.getpreventaferreteriaprincipal()
+        var view = this.getPreventaferreteriaprincipal()
        
         if (view.getSelectionModel().hasSelection()) {
             var row = view.getSelectionModel().getSelection()[0];
@@ -485,8 +486,8 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     buscarpreventaferreteria: function(){
         
-        var view = this.getpreventaferreteriaprincipal();
-        var st = this.getpreventaferreteriaStore()
+        var view = this.getPreventaferreteriaprincipal();
+        var st = this.getPreventaferreteriaStore()
         var tipo = view.down('#tipoDocumentoId').getValue();
         var opcion = view.down('#tipoSeleccionId').getValue()
         var nombre = view.down('#nombreId').getValue()
@@ -498,7 +499,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     validarutedita: function(){
 
-        var view = this.getpreventaferreteriaeditar();
+        var view = this.getPreventaferreteriaeditar();
         var rut = view.down('#rutId').getValue();
         var idvendedor = view.down('#tipoVendedorId').getValue();
         var numero = rut.length;
@@ -594,7 +595,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     grabarGiro: function(){
 
-        var busca = this.getpreventaferreteriaingresar();
+        var busca = this.getPreventaferreteriaingresar();
         var id = busca.down('#id_cliente').getValue();
         var idgiro = busca.down('#giroId').getValue();
        
@@ -657,7 +658,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     autorizaprecios2: function(){
 
-       var busca = this.getpreventaferreteriaingresar()
+       var busca = this.getPreventaferreteriaingresar()
        var autor = this.getAutorizacion2()
        var usua = autor.down('#enter1Id').getValue();
        var id = busca.down('#tipoVendedorId').getValue();
@@ -708,7 +709,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     autorizavendedor: function(){
 
-        var busca = this.getpreventaferreteriaingresar()
+        var busca = this.getPreventaferreteriaingresar()
         var id = busca.down('#tipoVendedorId').getValue();
        
         Ext.Ajax.request({
@@ -743,7 +744,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
     ingresaobs2: function(){
 
         var view = this.getObservacionespreventaferreteria2();
-        var viewIngresar = this.getpreventaferreteriaeditar();                
+        var viewIngresar = this.getPreventaferreteriaeditar();                
         var rut = view.down('#rutmId').getValue();
         var nombre = view.down('#nombreId').getValue();
         var camion = view.down('#camionId').getValue();
@@ -794,7 +795,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     agregarobserva2: function(){
 
-         var viewIngresa = this.getpreventaferreteriaeditar();
+         var viewIngresa = this.getPreventaferreteriaeditar();
          var observa = viewIngresa.down('#observaId').getValue();
          console.log(observa);
          if(observa){
@@ -837,7 +838,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
     ingresaobs: function(){
 
         var view = this.getObservacionespreventaferreteria();
-        var viewIngresar = this.getpreventaferreteriaingresar();                
+        var viewIngresar = this.getPreventaferreteriaingresar();                
         var rut = view.down('#rutmId').getValue();
         var nombre = view.down('#nombreId').getValue();
         var camion = view.down('#camionId').getValue();
@@ -888,7 +889,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     agregarobserva: function(){
 
-        var viewIngresa = this.getpreventaferreteriaingresar();
+        var viewIngresa = this.getPreventaferreteriaingresar();
         var observa = viewIngresa.down('#observaId').getValue();
         var numpreventaferreteria = viewIngresa.down('#ticketId').getValue();
         if (!observa){
@@ -945,7 +946,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
    
     buscacodigo : function() {
 
-        var viewIngresa = this.getpreventaferreteriaingresar();
+        var viewIngresa = this.getPreventaferreteriaingresar();
         var codigo = viewIngresa.down('#codigoId').getValue();
         var cero = " ";
         var cero1= 0;
@@ -1017,7 +1018,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
     seleccionarsucursalpreventaferreteria: function(){
 
         var view = this.getBuscarsucursalespreventaferreteria();
-        var viewIngresa = this.getpreventaferreteriaingresar();
+        var viewIngresa = this.getPreventaferreteriaingresar();
         var grid  = view.down('grid');
         if (grid.getSelectionModel().hasSelection()) {
             var row = grid.getSelectionModel().getSelection()[0];
@@ -1034,7 +1035,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
     seleccionarsucursalpreventaferreteria2: function(){
 
         var view = this.getBuscarsucursalespreventaferreteria2();
-        var viewIngresa = this.getpreventaferreteriaeditar();
+        var viewIngresa = this.getPreventaferreteriaeditar();
         var grid  = view.down('grid');
         if (grid.getSelectionModel().hasSelection()) {
             var row = grid.getSelectionModel().getSelection()[0];
@@ -1050,7 +1051,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     buscarsucursalpreventaferreteria: function(){
 
-       var busca = this.getpreventaferreteriaingresar()
+       var busca = this.getPreventaferreteriaingresar()
        var nombre = busca.down('#id_cliente').getValue();
        if (nombre){
           var edit = Ext.create('Infosys_web.view.preventaferreteria.BuscarSucursales').show();
@@ -1066,7 +1067,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     buscarsucursalpreventaferreteria2: function(){
 
-       var busca = this.getpreventaferreteriaeditar()
+       var busca = this.getPreventaferreteriaeditar()
        var nombre = busca.down('#id_cliente').getValue();
        if (nombre){
          var edit = Ext.create('Infosys_web.view.preventaferreteria.BuscarSucursales2').show();
@@ -1083,7 +1084,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     grabarpreventaferreteria2: function(){
 
-        var viewIngresa = this.getpreventaferreteriaeditar();
+        var viewIngresa = this.getPreventaferreteriaeditar();
         var numeroticket = viewIngresa.down('#ticketId').getValue();
         var idticket = viewIngresa.down('#idId').getValue();
         var idtipo = viewIngresa.down('#tipoDocumento2Id').getValue();
@@ -1101,8 +1102,8 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
         var record = stCombo.findRecord('id', producto.getValue()).data;
         var vendedor = record.id;
         var fechapreventaferreteria = viewIngresa.down('#fechaventaId').getValue();
-        var stItem = this.getpreventaferreteriaeditarStore();
-        var stpreventaferreteria = this.getpreventaferreteriaStore();
+        var stItem = this.getPreventaferreteriaeditarStore();
+        var stpreventaferreteria = this.getPreventaferreteriaStore();
         var observa = viewIngresa.down('#observaId').getValue();
      
         if(!finalafectoId){
@@ -1145,7 +1146,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
                  var idpreventaferreteria= resp.idpreventaferreteria;
                  viewIngresa.close();
                  stpreventaferreteria.load();
-                 window.open(preurl + 'preventaferreteria/exportPDF/?idpreventaferreteria='+id);
+                 window.open(preurl + 'preventa/exportPDF/?idpreventa='+id);
                
             }
            
@@ -1155,7 +1156,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     selectItem2: function() {
 
-        var view = this.getpreventaferreteriaeditar();
+        var view = this.getPreventaferreteriaeditar();
         var producto = view.down('#productoId');
         var stCombo = producto.getStore();
         var record = stCombo.findRecord('id', producto.getValue()).data;
@@ -1168,11 +1169,11 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     agregarItem2: function() {
 
-        var view = this.getpreventaferreteriaeditar();
+        var view = this.getPreventaferreteriaeditar();
         var tipo_documento = view.down('#tipoDocumento2Id').getValue();
         var rut = view.down('#rutId').getValue();
         var direccion = view.down('#direccionId').getValue();
-        var stItem = this.getpreventaferreteriaeditarStore();
+        var stItem = this.getPreventaferreteriaeditarStore();
         var producto = view.down('#productoId').getValue();
         var nombre = view.down('#nombreproductoId').getValue();
         var cantidad = view.down('#cantidadId').getValue();
@@ -1302,12 +1303,12 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
         var stItms = Ext.getStore('preventaferreteriaeditar');
         stItms.removeAll();
        
-        var view = this.getpreventaferreteriaprincipal();       
+        var view = this.getPreventaferreteriaprincipal();       
                    
         if (view.getSelectionModel().hasSelection()) {
             var row = view.getSelectionModel().getSelection()[0];
-            var view = this.getpreventaferreteriaeditar();
-            var stItem = this.getpreventaferreteriaeditarStore();
+            var view = this.getPreventaferreteriaeditar();
+            var stItem = this.getPreventaferreteriaeditarStore();
             var idpreventaferreteria = row.data.id;
             var idvendedor = row.data.id_vendedor;
             stItem.proxy.extraParams = {idpreventaferreteria : idpreventaferreteria};
@@ -1372,7 +1373,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
     },
 
     eliminaritem2: function() {
-        var view = this.getpreventaferreteriaeditar();
+        var view = this.getPreventaferreteriaeditar();
 
         var total = view.down('#finaltotalpostId').getValue();
         var neto = view.down('#finaltotalnetoId').getValue();
@@ -1401,7 +1402,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
 
     eliminaritem: function() {
-        var view = this.getpreventaferreteriaingresar();
+        var view = this.getPreventaferreteriaingresar();
         var grid  = view.down('#itemsgridId');
         if (grid.getSelectionModel().hasSelection()) {
             var row = grid.getSelectionModel().getSelection()[0];
@@ -1416,7 +1417,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     editaritem: function() {
 
-        var view = this.getpreventaferreteriaingresar();
+        var view = this.getPreventaferreteriaingresar();
         var grid  = view.down('#itemsgridId');
         var cero = "";
         if (grid.getSelectionModel().hasSelection()) {
@@ -1456,7 +1457,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
     },
 
     editaritem2: function() {
-        var view = this.getpreventaferreteriaeditar();
+        var view = this.getPreventaferreteriaeditar();
         var total = view.down('#finaltotalpostId').getValue();
         var neto = view.down('#finaltotalnetoId').getValue();
         var afecto = view.down('#finalafectoId').getValue();
@@ -1509,10 +1510,10 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
     },
 
     exportarpreventaferreteria: function(){
-        var view = this.getpreventaferreteriaprincipal();
+        var view = this.getPreventaferreteriaprincipal();
         if (view.getSelectionModel().hasSelection()) {
             var row = view.getSelectionModel().getSelection()[0];
-            window.open(preurl +'preventaferreteria/exportPDF/?idpreventaferreteria=' + row.data.id)
+            window.open(preurl +'preventa/exportPDF/?idpreventa=' + row.data.id)
         }else{
             Ext.Msg.alert('Alerta', 'Selecciona un registro.');
             return;
@@ -1521,7 +1522,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     validaboleta: function(){
 
-        var view =this.getpreventaferreteriaingresar();
+        var view =this.getPreventaferreteriaingresar();
         var rut = view.down('#rutId').getValue();
         
         Ext.Ajax.request({
@@ -1583,7 +1584,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     selectItemdocuemento: function() {
         
-        var view =this.getpreventaferreteriaingresar();
+        var view =this.getPreventaferreteriaingresar();
         var tipo_documento = view.down('#tipoDocumento2Id');
         var bolDisabled = tipo_documento.getValue() == 2 ? true : false; // campos se habilitan sólo en factura
         
@@ -1605,7 +1606,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
         
         var jsonCol = new Array()
         var i = 0;
-        var grid =this.getpreventaferreteriaprincipal()
+        var grid =this.getPreventaferreteriaprincipal()
         Ext.each(grid.columns, function(col, index){
           if(!col.hidden){
               jsonCol[i] = col.dataIndex;
@@ -1613,7 +1614,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
           i++;
         })   
                          
-        window.open(preurl + 'adminServicesExcel/exportarExcelpreventaferreteria?cols='+Ext.JSON.encode(jsonCol));
+        window.open(preurl + 'adminServicesExcel/exportarExcelpreventa?cols='+Ext.JSON.encode(jsonCol));
  
     },
 
@@ -1631,7 +1632,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     recalculardescuentopro: function(){
 
-        var view = this.getpreventaferreteriaingresar();
+        var view = this.getPreventaferreteriaingresar();
         var precio = view.down('#precioId').getValue();
         var cantidad = view.down('#cantidadId').getValue();
         var total = ((precio * cantidad));
@@ -1649,7 +1650,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     recalculardescuentopro2: function(){
 
-        var view = this.getpreventaferreteriaeditar();
+        var view = this.getPreventaferreteriaeditar();
         var precio = view.down('#precioId').getValue();
         var cantidad = view.down('#cantidadId').getValue();
         var total = (precio * cantidad);
@@ -1673,8 +1674,8 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     recalcular: function(){
 
-        var view = this.getpreventaferreteriaeditar();
-        var stItem = this.getpreventaferreteriaeditarStore();
+        var view = this.getPreventaferreteriaeditar();
+        var stItem = this.getPreventaferreteriaeditarStore();
         var grid2 = view.down('#itemsgridId');
         var pretotal = 0;
         var total = 0;
@@ -1705,8 +1706,8 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
     
     recalcularFinal: function(){
 
-        var view = this.getpreventaferreteriaingresar();
-        var stItem = this.getpreventaferreteriaItemsStore();
+        var view = this.getPreventaferreteriaingresar();
+        var stItem = this.getPreventaferreteriaItemsStore();
         var grid2 = view.down('#itemsgridId');
         var pretotal = 0;
         var total = 0;
@@ -1736,7 +1737,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     recalculardescuento: function(){
 
-        var view = this.getpreventaferreteriaingresar();
+        var view = this.getPreventaferreteriaingresar();
         var pretotal = view.down('#finalafectoId').getValue();
         var total = view.down('#finaltotalpostId').getValue();
         var iva = view.down('#finaltotalivaId').getValue();
@@ -1765,7 +1766,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     recalculardescuento2: function(){
 
-        var view = this.getpreventaferreteriaeditar();
+        var view = this.getPreventaferreteriaeditar();
         var pretotal = view.down('#finalafectoId').getValue();
         var total = view.down('#finaltotalpostId').getValue();
         var iva = view.down('#finaltotalivaId').getValue();
@@ -1794,8 +1795,8 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     recalcularFinal2: function(){
 
-        var view = this.getpreventaferreteriaeditar();
-        var stItem = this.getpreventaferreteriaItemsStore();
+        var view = this.getPreventaferreteriaeditar();
+        var stItem = this.getPreventaferreteriaItemsStore();
         var grid2 = view.down('#itemsgridId');
         var pretotal = 0;
         var total = 0;
@@ -1826,11 +1827,11 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     agregarItem: function() {
 
-        var view = this.getpreventaferreteriaingresar();
+        var view = this.getPreventaferreteriaingresar();
         var tipo_documento = view.down('#tipoDocumento2Id').getValue();
         var rut = view.down('#rutId').getValue();
         var direccion = view.down('#direccionId').getValue();
-        var stItem = this.getpreventaferreteriaItemsStore();
+        var stItem = this.getPreventaferreteriaItemsStore();
         var producto = view.down('#productoId').getValue();
         var nombre = view.down('#nombreproductoId').getValue();
         var cantidad = view.down('#cantidadId').getValue();
@@ -1949,7 +1950,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     selectItem: function() {
 
-        var view = this.getpreventaferreteriaingresar();
+        var view = this.getPreventaferreteriaingresar();
         var producto = view.down('#productoId');
         var stCombo = producto.getStore();
         var record = stCombo.findRecord('id', producto.getValue()).data;
@@ -1983,8 +1984,8 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     seleccionarprecios: function(){
 
-        var view = this.getBuscarprecios();
-        var viewIngresa = this.getpreventaferreteriaingresar();
+        var view = this.getBuscarpreciosferreteria();
+        var viewIngresa = this.getPreventaferreteriaingresar();
         var grid  = view.down('grid');
         if (grid.getSelectionModel().hasSelection()) {
             var row = grid.getSelectionModel().getSelection()[0];
@@ -2000,7 +2001,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
     seleccionarprecios2: function(){
 
         var view = this.getBuscarprecios2();
-        var busca = this.getpreventaferreteriaeditar();            
+        var busca = this.getPreventaferreteriaeditar();            
         var grid  = view.down('grid');
         if (grid.getSelectionModel().hasSelection()) {
             var row = grid.getSelectionModel().getSelection()[0];
@@ -2016,7 +2017,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
     seleccionarproductos: function(){
 
         var view = this.getBuscarproductospreventaferreteria();
-        var viewIngresa = this.getpreventaferreteriaingresar();
+        var viewIngresa = this.getPreventaferreteriaingresar();
         var estado = viewIngresa.down('#estadoId').getValue();        
         var cero = 0;
         var cero2 = "";
@@ -2078,7 +2079,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
     seleccionarproductos2: function(){
 
         var view = this.getBuscarproductospreventaferreteria2();
-        var viewIngresa = this.getpreventaferreteriaeditar();
+        var viewIngresa = this.getPreventaferreteriaeditar();
         var estado = viewIngresa.down('#estadoId').getValue();        
         var cero = 0;
         var grid  = view.down('grid');
@@ -2132,7 +2133,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     buscarprecios: function(){
 
-        var busca = this.getpreventaferreteriaingresar()
+        var busca = this.getPreventaferreteriaingresar()
         var id = busca.down('#productoId').getValue();
         var edit =  Ext.create('Infosys_web.view.preventaferreteria.BuscarPrecios').show();
         var st = this.getPreciosdescuentosStore();
@@ -2177,7 +2178,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
     
     buscarprecios2: function(){
 
-       var busca = this.getpreventaferreteriaeditar();
+       var busca = this.getPreventaferreteriaeditar();
        var id = busca.down('#productoId').getValue();
        if (id){
        var edit = Ext.create('Infosys_web.view.preventaferreteria.Autoriza3').show();
@@ -2193,7 +2194,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     autorizaprecios: function(){
 
-       var busca = this.getpreventaferreteriaingresar()
+       var busca = this.getPreventaferreteriaingresar()
        var clave = this.getAutorizacion()
        var usua = clave.down('#enterId').getValue();
        var id = busca.down('#productoId').getValue();
@@ -2223,7 +2224,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     autorizaprecios2: function(){
 
-       var busca = this.getpreventaferreteriaeditar()
+       var busca = this.getPreventaferreteriaeditar()
        var clave = this.getAutorizacion3()
        var usua = clave.down('#enterId').getValue();
        var id = busca.down('#productoId').getValue();
@@ -2269,7 +2270,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     condicionpago: function(){
 
-        var viewIngresa = this.getpreventaferreteriaingresar();
+        var viewIngresa = this.getPreventaferreteriaingresar();
         var idpago = viewIngresa.down('#tipocondpagoId').getValue();
         var bolEnable = false;
         var bolDisabel = true;
@@ -2327,7 +2328,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     condicionpago2: function(){
 
-        var viewIngresa = this.getpreventaferreteriaeditar();
+        var viewIngresa = this.getPreventaferreteriaeditar();
         var idpago = viewIngresa.down('#tipocondpagoId').getValue();
         var bolEnable = false;
         var bolDisabel = true;
@@ -2385,7 +2386,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
     seleccionarcliente: function(){
 
         var view = this.getBuscarclientespreventaferreteria();
-        var viewIngresa = this.getpreventaferreteriaingresar();
+        var viewIngresa = this.getPreventaferreteriaingresar();
         var grid  = view.down('grid');
         if (grid.getSelectionModel().hasSelection()) {
             var row = grid.getSelectionModel().getSelection()[0];
@@ -2462,7 +2463,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
     seleccionarcliente2: function(){
 
         var view = this.getBuscarclientespreventaferreteria2();
-        var viewIngresa = this.getpreventaferreteriaeditar();
+        var viewIngresa = this.getPreventaferreteriaeditar();
         var grid  = view.down('grid');
         if (grid.getSelectionModel().hasSelection()) {
             var row = grid.getSelectionModel().getSelection()[0];
@@ -2538,7 +2539,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
     validarut: function(){
 
-        var view = this.getpreventaferreteriaingresar();
+        var view = this.getPreventaferreteriaingresar();
         var rut = view.down('#rutId').getValue();
         if (rut == ""){
 
@@ -2648,7 +2649,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
     
     grabarpreventaferreteria: function(){
 
-        var viewIngresa = this.getpreventaferreteriaingresar();
+        var viewIngresa = this.getPreventaferreteriaingresar();
         var numeroticket = viewIngresa.down('#ticketId').getValue();
         var idtipo = viewIngresa.down('#tipoDocumento2Id').getValue();
         var idcliente = viewIngresa.down('#id_cliente').getValue();
@@ -2667,8 +2668,8 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
         var finalafectoId = viewIngresa.down('#finaltotalnetoId').getValue();
         var vendedor = record.id;
         var fechapreventaferreteria = viewIngresa.down('#fechaventaId').getValue();
-        var stItem = this.getpreventaferreteriaItemsStore();
-        var stpreventaferreteria = this.getpreventaferreteriaStore();
+        var stItem = this.getPreventaferreteriaItemsStore();
+        var stpreventaferreteria = this.getPreventaStore();
         var observa = viewIngresa.down('#observaId').getValue();
      
         if(!finalafectoId){
@@ -2689,7 +2690,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
         });
 
         Ext.Ajax.request({
-            url: preurl + 'preventaferreteria/save',
+            url: preurl + 'preventa/save',
             params: {
                 idcliente: idcliente,
                 items: Ext.JSON.encode(dataItems),
@@ -2699,7 +2700,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
                 idtipo : idtipo,
                 idpago : idpago,
                 numeroticket : numeroticket,
-                fechapreventaferreteria : fechapreventaferreteria,
+                fechapreventa : fechapreventaferreteria,
                 descuento : viewIngresa.down('#descuentovalorId').getValue(),
                 neto : viewIngresa.down('#finalafectoId').getValue(),
                 iva : viewIngresa.down('#finaltotalivaId').getValue(),
@@ -2708,10 +2709,10 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
             },
              success: function(response){
                  var resp = Ext.JSON.decode(response.responseText);
-                 var idpreventaferreteria= resp.idpreventaferreteria;
+                 var idpreventaferreteria= resp.idpreventa;
                  viewIngresa.close();
                  stpreventaferreteria.load();
-                 window.open(preurl + 'preventaferreteria/exportPDF/?idpreventaferreteria='+idpreventaferreteria);
+                 window.open(preurl + 'preventa/exportPDF/?idpreventa='+idpreventaferreteria);
             }
            
         });
