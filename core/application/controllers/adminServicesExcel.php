@@ -1055,6 +1055,164 @@ class AdminServicesExcel extends CI_Controller {
 
         }
 
+        public function exportarExcellibroBoletasResumen()
+         {
+            header("Content-type: application/vnd.ms-excel"); 
+            header("Content-disposition: attachment; filename=LibroBoletas.xls");
+            
+            $columnas = json_decode($this->input->get('cols'));
+            $fecha = $this->input->get('fecha');
+            list($dia, $mes, $anio) = explode("/",$fecha);
+            $fecha3 = $anio ."-". $mes ."-". $dia;
+            $fecha2 = $this->input->get('fecha2');
+            list($dia, $mes, $anio) = explode("/",$fecha2);
+            $fecha4 = $anio ."-". $mes ."-". $dia;
+            $tipo = 2;
+            $otros = 0;
+            $otrosa = 0;
+            $nulas = 0;
+            $vigentes = 0;
+            $totalafecto = 0;
+            $totaliva = 0;
+            $totalboleta = 0;
+            $totala = 0;
+            $totali = 0;
+            $totalb = 0;
+            $data = array();
+                                   
+            $this->load->database();
+            
+            if($fecha){           
+                          
+                $data = array();
+                $query = $this->db->query('SELECT acc.*, c.nombres as nombre_cliente, c.rut as rut_cliente, v.nombre as nom_vendedor  FROM factura_clientes acc
+                left join clientes c on (acc.id_cliente = c.id)
+                left join vendedores v on (acc.id_vendedor = v.id)
+                WHERE acc.tipo_documento in ( '.$tipo.') and acc.fecha_factura between "'.$fecha3.'"  AND "'.$fecha4.'"
+                order by acc.fecha_factura, acc.tipo_documento, acc.num_factura'                
+                
+                );
+            
+
+              };
+              
+             
+            $users = $query->result_array();
+            
+            echo '<table>';
+            echo "<td></td>";
+            echo "<td>LIBRO DE VENTAS RESUMEN</td>";
+            echo "<td>BOLETAS</td>";
+            echo "<tr>";
+                echo "<td>DIA</td>";
+                echo "<td>DESDE</td>";
+                echo "<td>HASTA</td>";
+                echo "<td>NETO</td>";
+                echo "<td>IVA</td>";
+                echo "<td>OTROS IMP.</td>";
+                echo "<td>TOTAL</td>";
+                echo "<tr>";
+                $dia2=0;
+              
+              foreach($users as $v){
+                $fecha = $v['fecha_factura'];
+                list($anio, $mes, $dia) = explode("-",$fecha);
+                if ($dia2==0){
+                  $desde=$v['num_factura'];
+                  $dia2=$dia;
+                };
+                if ($dia2==$dia){
+                  
+                  $total = $v['totalfactura'];
+                  $neto = round(($total / 1.19), 0);
+                  $iva = ($total - $neto);
+                  $totalafecto = $totalafecto + $neto;
+                  $totaliva = $totaliva + $iva;
+                  $totalboleta = $totalboleta + $total;
+                  $totala = $totala + $neto;
+                  $totali = $totali + $iva;
+                  $totalb = $totalb + $total;
+                  $vigentes = $vigentes + 1;
+                  $hasta=$v['num_factura'];
+                  if ($v['estado']== "NO"){
+                    $totalafecto = $totalafecto - $neto;
+                    $neto = "DOCUMENTO NULO";
+                    $totaliva = $totaliva - $iva;
+                    $totalboleta = $totalboleta - $total;
+                    $totala = $totala - $neto;
+                    $totali = $totali - $iva;
+                    $totalb = $totalb - $total;
+                    $iva = 0;
+                    $total= 0;
+                    $nulas = $nulas + 1;
+                    $vigentes = $vigentes - 1;
+                  };
+                }else{
+                   echo "<tr>";
+                   echo "<td>".$dia2."</td>";
+                   echo "<td>".$desde."</td>";
+                   echo "<td>".$hasta."</td>";
+                   echo "<td>".$totala."</td>";
+                   echo "<td>".$totali."</td>";
+                   echo "<td>".$otrosa."</td>";
+                   echo "<td>".$totalb."</td>";
+                echo "</tr>";
+                  $total = $v['totalfactura'];
+                  $neto = round(($total / 1.19), 0);
+                  $iva = ($total - $neto);
+                  $totalafecto = $totalafecto + $neto;
+                  $totaliva = $totaliva + $iva;
+                  $totalboleta = $totalboleta + $total;
+                  $totala = $neto;
+                  $totali = $iva;
+                  $totalb = $total;
+                  $vigentes = $vigentes + 1;
+                  $dia2=0;
+                  if ($v['estado']== "NO"){
+                    $totalafecto = $totalafecto - $neto;
+                    $neto = "DOCUMENTO NULO";
+                    $totaliva = $totaliva - $iva;
+                    $totalboleta = $totalboleta - $total;
+                    $totala = $totala - $neto;
+                    $totali = $totali - $iva;
+                    $totalb = $totalb - $total;
+                    $iva = 0;
+                    $total= 0;
+                    $nulas = $nulas + 1;
+                    $vigentes = $vigentes - 1;
+                  };
+               };
+              }
+                echo "<tr>";
+                   echo "<td>".$dia."</td>";
+                   echo "<td>".$desde."</td>";
+                   echo "<td>".$hasta."</td>";
+                   echo "<td>".$totala."</td>";
+                   echo "<td>".$totali."</td>";
+                   echo "<td>".$otrosa."</td>";
+                   echo "<td>".$totalb."</td>";
+
+               echo "<tr>";
+                echo "<td>VIGENTES</td>";
+                echo "<td>NULAS</td>";
+                echo "<td>TOTAL AFECTO</td>";
+                echo "<td>IMPUESTO IVA</td>";
+                echo "<td>OTROS IMP.</td>";
+                echo "<td>TOTAL BOLETAS</td>";
+                echo "<tr>";
+                echo "<tr>";
+                   echo "<td>".$vigentes."</td>";
+                   echo "<td>".$nulas."</td>";
+                   echo "<td>".$totalafecto."</td>";
+                   echo "<td>".$totaliva."</td>";
+                   echo "<td>".$otros."</td>";
+                   echo "<td>".$totalboleta."</td>";
+                echo "</tr>";
+
+            echo '</table>';
+
+        }
+
         public function exportarExcellibroFacturas()
          {
             header("Content-type: application/vnd.ms-excel"); 
@@ -1222,7 +1380,232 @@ class AdminServicesExcel extends CI_Controller {
             echo '</table>';
         }
 
+        public function exportarExcellibroFacturasResumen()
+         {
+            header("Content-type: application/vnd.ms-excel"); 
+            header("Content-disposition: attachment; filename=LibroFacturas.xls");
+            
+            $columnas = json_decode($this->input->get('cols'));
+            $fecha = $this->input->get('fecha');
+            list($dia, $mes, $anio) = explode("/",$fecha);
+            $fecha3 = $anio ."-". $mes ."-". $dia;
+            $fecha2 = $this->input->get('fecha2');
+            list($dia, $mes, $anio) = explode("/",$fecha2);
+            $fecha4 = $anio ."-". $mes ."-". $dia;
+            $tipo = 101;
+            $tipo2 = 102;
+            $otros = 0;
+            $otrosa = 0;
+            $nulas = 0;
+            $vigentes = 0;
+            $totalafecto = 0;
+            $totaliva = 0;
+            $totalboleta = 0;
+            $totala = 0;
+            $totali = 0;
+            $totalb = 0;
+            $data = array();
+                                   
+            $this->load->database();
+            
+            if($fecha){            
+                          
+                $data = array();
+                $query = $this->db->query('SELECT acc.*, c.nombres as nombre_cliente, c.rut as rut_cliente, v.nombre as nom_vendedor  FROM factura_clientes acc
+                left join clientes c on (acc.id_cliente = c.id)
+                left join vendedores v on (acc.id_vendedor = v.id)
+                WHERE acc.tipo_documento in ( '.$tipo.') and acc.fecha_factura between "'.$fecha3.'"  AND "'.$fecha4.'"
+                order by acc.fecha_factura, acc.tipo_documento, acc.num_factura' 
+                
+                );           
+
+            };              
+             
+            $users = $query->result_array();
+            
+            echo '<table>';
+            echo "<td></td>";
+            echo "<td>LIBRO DE VENTAS RESUMEN</td>";
+            echo "<td>FACTURAS</td>";
+            echo "<tr>";
+                echo "<td>DIA</td>";
+                echo "<td>DESDE</td>";
+                echo "<td>HASTA</td>";
+                echo "<td>NETO</td>";
+                echo "<td>IVA</td>";
+                echo "<td>OTROS IMP.</td>";
+                echo "<td>TOTAL</td>";
+                echo "<tr>";
+                $dia2=0;              
+              foreach($users as $v){
+                $fecha = $v['fecha_factura'];
+                list($anio, $mes, $dia) = explode("-",$fecha);
+                if ($dia2==0){
+                  $desde=$v['num_factura'];
+                  $dia2=$dia;
+                };
+                if ($dia2==$dia){                  
+                  $total = $v['totalfactura'];
+                  $neto = round(($total / 1.19), 0);
+                  $iva = ($total - $neto);
+                  $totalafecto = $totalafecto + $neto;
+                  $totaliva = $totaliva + $iva;
+                  $totalboleta = $totalboleta + $total;
+                  $totala = $totala + $neto;
+                  $totali = $totali + $iva;
+                  $totalb = $totalb + $total;
+                  $vigentes = $vigentes + 1; 
+                  $hasta=$v['num_factura'];                   
+                  if ($v['estado']== "NO"){
+                    $totalafecto = $totalafecto - $neto;
+                    $neto = "DOCUMENTO NULO";
+                    $totaliva = $totaliva - $iva;
+                    $totalboleta = $totalboleta - $total;
+                    $totala = $totala - $neto;
+                    $totali = $totali - $iva;
+                    $totalb = $totalb - $total;
+                    $iva = 0;
+                    $total= 0;
+                    $nulas = $nulas + 1;
+                    $vigentes = $vigentes - 1;
+                  };
+                }else{
+                   echo "<tr>";
+                   echo "<td>".$dia2."</td>";
+                   echo "<td>".$desde."</td>";
+                   echo "<td>".$hasta."</td>";
+                   echo "<td>".$totala."</td>";
+                   echo "<td>".$totali."</td>";
+                   echo "<td>".$otrosa."</td>";
+                   echo "<td>".$totalb."</td>";
+                echo "</tr>";
+                  $total = $v['totalfactura'];
+                  $neto = round(($total / 1.19), 0);
+                  $iva = ($total - $neto);
+                  $totalafecto = $totalafecto + $neto;
+                  $totaliva = $totaliva + $iva;
+                  $totalboleta = $totalboleta + $total;
+                  $totala = $neto;
+                  $totali = $iva;
+                  $totalb = $total;
+                  $vigentes = $vigentes + 1;
+                  $dia2=0;
+                  if ($v['estado']== "NO"){
+                    $totalafecto = $totalafecto - $neto;
+                    $neto = "DOCUMENTO NULO";
+                    $totaliva = $totaliva - $iva;
+                    $totalboleta = $totalboleta - $total;
+                    $totala = $totala - $neto;
+                    $totali = $totali - $iva;
+                    $totalb = $totalb - $total;
+                    $iva = 0;
+                    $total= 0;
+                    $nulas = $nulas + 1;
+                    $vigentes = $vigentes - 1;
+                  };
+               };
+              }
+                $hasta=$v['num_factura']; 
+                $desde=$v['num_factura'];
+                echo "<tr>";
+                   echo "<td>".$dia."</td>";
+                   echo "<td>".$desde."</td>";
+                   echo "<td>".$hasta."</td>";
+                   echo "<td>".$totala."</td>";
+                   echo "<td>".$totali."</td>";
+                   echo "<td>".$otrosa."</td>";
+                   echo "<td>".$totalb."</td>";
+
+               echo "<tr>";
+                echo "<td>VIGENTES</td>";
+                echo "<td>NULAS</td>";
+                echo "<td>TOTAL AFECTO</td>";
+                echo "<td>IMPUESTO IVA</td>";
+                echo "<td>OTROS IMP.</td>";
+                echo "<td>TOTAL BOLETAS</td>";
+                echo "<tr>";
+                echo "<tr>";
+                   echo "<td>".$vigentes."</td>";
+                   echo "<td>".$nulas."</td>";
+                   echo "<td>".$totalafecto."</td>";
+                   echo "<td>".$totaliva."</td>";
+                   echo "<td>".$otros."</td>";
+                   echo "<td>".$totalboleta."</td>";
+                echo "</tr>";
+            echo '</table>';
+
+        }
+
         public function exportarExcellibroGuias()
+         {
+            header("Content-type: application/vnd.ms-excel"); 
+            header("Content-disposition: attachment; filename=LibroGuias.xls");
+            
+            $columnas = json_decode($this->input->get('cols'));
+            $fecha = $this->input->get('fecha');
+            list($dia, $mes, $anio) = explode("/",$fecha);
+            $fecha3 = $anio ."-". $mes ."-". $dia;
+            $fecha2 = $this->input->get('fecha2');
+            list($dia, $mes, $anio) = explode("/",$fecha2);
+            $fecha4 = $anio ."-". $mes ."-". $dia;
+            $tipo = 3;
+            $data = array();
+                                   
+            $this->load->database();
+            
+            if($fecha){
+            
+                          
+                $data = array();
+                $query = $this->db->query('SELECT acc.*, c.nombres as nombre_cliente, c.rut as rut_cliente, v.nombre as nom_vendedor  FROM factura_clientes acc
+                left join clientes c on (acc.id_cliente = c.id)
+                left join vendedores v on (acc.id_vendedor = v.id)
+                WHERE acc.tipo_documento = '.$tipo.' and acc.fecha_factura between "'.$fecha3.'"  AND "'.$fecha4.'"
+                order by acc.tipo_documento' 
+                
+                );
+            
+
+              };
+              
+             
+            $users = $query->result_array();
+            
+            echo '<table>';
+            echo "<td></td>";
+            echo "<td>LIBRO DE GUIAS</td>";
+            echo "<td>DESPACHO</td>";
+            echo "<tr>";
+                echo "<td>NUMERO</td>";
+                echo "<td>FECHA</td>";
+                echo "<td>VENCIMIENTO</td>";
+                echo "<td>RUT</td>";
+                echo "<td>NOMBRE</td>";
+                echo "<td>AFECTO</td>";
+                echo "<td>DESCUENTO</td>";
+                echo "<td>NETO</td>";
+                echo "<td>IVA</td>";
+                echo "<td>TOTAL</td>";
+                echo "<tr>";
+              
+              foreach($users as $v){
+                echo "<tr>";
+                   echo "<td>".$v['num_factura']."</td>";
+                   echo "<td>".$v['fecha_factura']."</td>";
+                   echo "<td>".$v['fecha_venc']."</td>";
+                   echo "<td>".$v['rut_cliente']."</td>";
+                   echo "<td>".$v['nombre_cliente']."</td>";
+                   echo "<td>".$v['sub_total']."</td>";
+                   echo "<td>".$v['descuento']."</td>";
+                   echo "<td>".$v['neto']."</td>";
+                   echo "<td>".$v['iva']."</td>";
+                   echo "<td>".$v['totalfactura']."</td>";
+                echo "</tr>";
+            }
+            echo '</table>';
+        }
+
+        public function exportarExcellibroGuiasResumen()
          {
             header("Content-type: application/vnd.ms-excel"); 
             header("Content-disposition: attachment; filename=LibroGuias.xls");

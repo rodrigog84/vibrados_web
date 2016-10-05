@@ -912,14 +912,44 @@ Ext.define('Infosys_web.controller.Facturacion', {
 
         };
 
-
         if (fecha > fecha2) {        
                Ext.Msg.alert('Alerta', 'Fechas Incorrectas');
             return;          
 
         };
+       
+        if (opcion == "RESUMEN"){
+             
+             if (tipo == 101){
 
-        console.log(opcion)
+             window.open(preurl + 'adminServicesExcel/exportarExcellibroFacturasResumen?cols='+Ext.JSON.encode(jsonCol)+'&fecha='+fecha+'&fecha2='+fecha2);
+             view.close();
+
+             };
+
+             if (tipo == 2){
+
+             window.open(preurl + 'adminServicesExcel/exportarExcellibroBoletasResumen?cols='+Ext.JSON.encode(jsonCol)+'&fecha='+fecha+'&fecha2='+fecha2);
+             view.close();
+
+             }; 
+             
+             if (tipo == 3){
+
+             window.open(preurl + 'adminServicesExcel/exportarExcelResumen?cols='+Ext.JSON.encode(jsonCol)+'&fecha='+fecha+'&fecha2='+fecha2);
+             view.close();
+
+             };
+             
+             if (tipo == 19){
+
+             window.open(preurl + 'adminServicesExcel/exportarExcellibroFacturas?cols='+Ext.JSON.encode(jsonCol)+'&fecha='+fecha+'&fecha2='+fecha2);
+             view.close();
+
+             };         
+            
+
+        }
 
         if (opcion == "LIBRO VENTAS"){
               console.log(tipo)
@@ -933,7 +963,7 @@ Ext.define('Infosys_web.controller.Facturacion', {
 
              if (tipo == 2){
 
-             window.open(preurl + 'adminServicesExcel/exportarExcellibroBoletas?cols='+Ext.JSON.encode(jsonCol)+'&fecha='+fecha+'&fecha2='+fecha2);
+             window.open(preurl + 'adminServicesExcel/exportarExcellibroBoletasResumen?cols='+Ext.JSON.encode(jsonCol)+'&fecha='+fecha+'&fecha2='+fecha2);
              view.close();
 
              }; 
@@ -953,7 +983,9 @@ Ext.define('Infosys_web.controller.Facturacion', {
              };         
             
 
-        }else{
+        };
+
+        if (opcion == "GENERAL"){
 
              if (tipo == 101){
 

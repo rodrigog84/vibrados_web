@@ -3,7 +3,7 @@ Ext.define('Infosys_web.store.facturas.Selector', {
 	fields: ['id', 'nombre'],
     data : [
         {"id":"GENERAL", "nombre":"GENERAL"},
-        {"id":"LIBRO VENTAS", "nombre":"LIBRO VENTAS"}
-           
+        {"id":"LIBRO VENTAS", "nombre":"LIBRO VENTAS"},
+        {"id":"RESUMEN", "nombre":"RESUMEN"}           
     ]
 });
