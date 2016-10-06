@@ -384,7 +384,7 @@ class Recaudacion extends CI_Controller {
 
 		$recaudacion = array(
 	        'num_comp' => $numcomp,
-	        'fecha' => date('Y-m-d'),
+	        'fecha' => $fechacomp,
 	        'id_cliente' => $idcliente,
 			'num_doc' => $numdocum,
 			'id_caja' => $idcaja,
@@ -407,7 +407,7 @@ class Recaudacion extends CI_Controller {
 		        'valor_cancelado' => $v->valor_cancelado,
 		        'valor_vuelto' => $v->valor_vuelto,
 		        'fecha_transac' => $v->fecha_comp,
-		        'fecha_comp' => date('Y-m-d')
+		        'fecha_comp' => $fechacomp
 			);
 
 			$idforma = ($v->id_forma);
@@ -495,7 +495,7 @@ class Recaudacion extends CI_Controller {
 				        'id_caja' => $idcaja,
 						'num_documento' => $numdocum,
 					    'id_cajero' => $idcajero,
-					    'fecha' => date('Y-m-d')			        
+					    'fecha' => $fechacomp			        
 					);
 				};
 				if ($v->id_forma == 2){
@@ -505,7 +505,7 @@ class Recaudacion extends CI_Controller {
 				        'id_caja' => $idcaja,
 						'num_documento' => $numdocum,
 					    'id_cajero' => $idcajero,
-					    'fecha' => date('Y-m-d')			        
+					    'fecha' => $fechacomp			        
 					);
 				};
 				if ($v->id_forma == 8){
@@ -515,7 +515,7 @@ class Recaudacion extends CI_Controller {
 				        'id_caja' => $idcaja,
 						'num_documento' => $numdocum,
 					    'id_cajero' => $idcajero,
-					    'fecha' => date('Y-m-d')			        
+					    'fecha' => $fechacomp			        
 					);
 				};
 				if ($v->id_forma == 11){
@@ -525,7 +525,7 @@ class Recaudacion extends CI_Controller {
 				        'id_caja' => $idcaja,
 						'num_documento' => $numdocum,
 					    'id_cajero' => $idcajero,
-					    'fecha' => date('Y-m-d')			        
+					    'fecha' => $fechacomp			        
 					);
 				};
 				if ($v->id_forma == 7){
@@ -535,7 +535,7 @@ class Recaudacion extends CI_Controller {
 				        'id_caja' => $idcaja,
 						'num_documento' => $numdocum,
 					    'id_cajero' => $idcajero,
-					    'fecha' => date('Y-m-d')			        
+					    'fecha' => $fechacomp			        
 					);
 				};
 				if ($v->id_forma == 4){
@@ -545,7 +545,7 @@ class Recaudacion extends CI_Controller {
 				        'id_caja' => $idcaja,
 						'num_documento' => $numdocum,
 					    'id_cajero' => $idcajero,
-					    'fecha' => date('Y-m-d')			        
+					    'fecha' => $fechacomp			        
 					);
 				};
 				if ($v->id_forma == 6){
@@ -555,7 +555,7 @@ class Recaudacion extends CI_Controller {
 				        'id_caja' => $idcaja,
 						'num_documento' => $numdocum,
 					    'id_cajero' => $idcajero,
-					    'fecha' => date('Y-m-d')			        
+					    'fecha' => $fechacomp			        
 					);
 				};
 				if ($v->id_forma == 3){
@@ -565,7 +565,7 @@ class Recaudacion extends CI_Controller {
 				        'id_caja' => $idcaja,
 						'num_documento' => $numdocum,
 					    'id_cajero' => $idcajero,
-					    'fecha' => date('Y-m-d')			        
+					    'fecha' => $fechacomp			        
 					);
 				};
 				if ($v->id_forma == 5){
@@ -575,7 +575,7 @@ class Recaudacion extends CI_Controller {
 				        'id_caja' => $idcaja,
 						'num_documento' => $numdocum,
 					    'id_cajero' => $idcajero,
-					    'fecha' => date('Y-m-d')			        
+					    'fecha' => $fechacomp			        
 					);
 				};
 				
