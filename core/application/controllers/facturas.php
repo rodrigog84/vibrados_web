@@ -4344,10 +4344,11 @@ page-break-after: always;
 		      $html .= '
 		      		
       	<tr>
-      		<td width="110px" height="8px">' . $producto->codigo . '</td>
+      		<td width="50px" height="8px">' . $producto->codigo . '</td>
       		<td width="50px" height="8px">' . $v->cantidad . '</td>
-      		<td width="300px" height="8px">' . $producto->nombre . '</td>
-      		<td width="189px" height="8px">' . number_format($v->totalproducto, 0, ',', '.') . '</td>
+      		<td width="250px" height="8px">' . $producto->nombre . '</td>
+      		<td width="100px" height="8px">' . number_format($v->precio, 0, ',', '.') . '</td>
+      		<td width="169px" height="8px">' . number_format($v->totalproducto, 0, ',', '.') . '</td>
       	</tr>
      ';
 		      $i++;

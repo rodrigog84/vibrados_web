@@ -323,8 +323,7 @@ class Facturasvizualiza extends CI_Controller {
 			$tipobol = array(
 			'tipo_boleta' => "4"
 			);
-		);
-
+		
 		$this->db->where('id', $idfactura);	  
 	    $this->db->update('factura_clientes', $tipobol);
 			
