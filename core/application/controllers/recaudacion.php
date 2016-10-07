@@ -332,7 +332,8 @@ class Recaudacion extends CI_Controller {
 	        'totalfactura' => $ftotal,
 	        'fecha_factura' => $fechacomp,
 	        'fecha_venc' => $fechacomp,
-	        'forma' => 1	          
+	        'forma' => 1,
+	        'tipo_boleta' => "2"	          
 		);
 
 		$this->db->insert('factura_clientes', $factura_cliente); 

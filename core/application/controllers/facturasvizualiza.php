@@ -262,7 +262,8 @@ class Facturasvizualiza extends CI_Controller {
 				 'correlativo' => $numfactura
 	    		);
 	    		$this->db->where('id', $tipodocumento);	  
-	    		$this->db->update('correlativos', $data3);       		
+	    		$this->db->update('correlativos', $data3);
+	    		    				
         	}
 
 		}else{
@@ -271,7 +272,9 @@ class Facturasvizualiza extends CI_Controller {
 	    		);
 	    		$this->db->where('id', $tipodocumento);	  
 	    		$this->db->update('correlativos', $data3); 
-		};		
+		};
+		
+		
 	       			
 		$factura_cliente = array(
 			'tipo_documento' => $tipodocumento,
@@ -292,6 +295,40 @@ class Facturasvizualiza extends CI_Controller {
 
 		$this->db->insert('factura_clientes', $factura_cliente); 
 		$idfactura = $this->db->insert_id();
+
+		if ($tipodocumento == 2){
+
+			$tipobol = array(
+			'tipo_boleta' => "1"
+			);
+
+		$this->db->where('id', $idfactura);	  
+	    $this->db->update('factura_clientes', $tipobol);		
+
+		};
+
+		if ($fpago == 7){
+
+			$tipobol = array(
+			'tipo_boleta' => "3"
+			);
+
+		$this->db->where('id', $idfactura);	  
+	    $this->db->update('factura_clientes', $tipobol);		
+
+		};
+		
+		if ($fpago == 4){
+
+			$tipobol = array(
+			'tipo_boleta' => "4"
+			);
+		);
+
+		$this->db->where('id', $idfactura);	  
+	    $this->db->update('factura_clientes', $tipobol);
+			
+		};
 
 		$preventa = array(
 			'id_documento' => $numfactura

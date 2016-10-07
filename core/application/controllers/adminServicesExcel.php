@@ -1085,17 +1085,16 @@ class AdminServicesExcel extends CI_Controller {
             if($fecha){           
                           
                 $data = array();
-                $query = $this->db->query('SELECT acc.*, c.nombres as nombre_cliente, c.rut as rut_cliente, v.nombre as nom_vendedor  FROM factura_clientes acc
+                $query = $this->db->query('SELECT acc.*, c.nombres as nombre_cliente, c.rut as rut_cliente, v.nombre as nom_vendedor FROM factura_clientes acc
                 left join clientes c on (acc.id_cliente = c.id)
                 left join vendedores v on (acc.id_vendedor = v.id)
                 WHERE acc.tipo_documento in ( '.$tipo.') and acc.fecha_factura between "'.$fecha3.'"  AND "'.$fecha4.'"
-                order by acc.fecha_factura, acc.tipo_documento, acc.num_factura'                
+                order by acc.fecha_factura, acc.tipo_documento, acc.tipo_boleta, acc.num_factura '
                 
                 );
             
 
-              };
-              
+              };              
              
             $users = $query->result_array();
             
@@ -1113,16 +1112,20 @@ class AdminServicesExcel extends CI_Controller {
                 echo "<td>TOTAL</td>";
                 echo "<tr>";
                 $dia2=0;
+                $tipo_boleta2=0;
+                $desde=0;
+                $hasta=0;
               
               foreach($users as $v){
                 $fecha = $v['fecha_factura'];
                 list($anio, $mes, $dia) = explode("-",$fecha);
-                if ($dia2==0){
+                $tipo_boleta=$v['tipo_boleta'];
+                if ($tipo_boleta2==0){
                   $desde=$v['num_factura'];
                   $dia2=$dia;
+                  $tipo_boleta2=$v['tipo_boleta'];               
                 };
-                if ($dia2==$dia){
-                  
+                if ($tipo_boleta==$tipo_boleta2){                  
                   $total = $v['totalfactura'];
                   $neto = round(($total / 1.19), 0);
                   $iva = ($total - $neto);
@@ -1168,6 +1171,7 @@ class AdminServicesExcel extends CI_Controller {
                   $totalb = $total;
                   $vigentes = $vigentes + 1;
                   $dia2=0;
+                  $tipo_boleta2="0";
                   if ($v['estado']== "NO"){
                     $totalafecto = $totalafecto - $neto;
                     $neto = "DOCUMENTO NULO";
