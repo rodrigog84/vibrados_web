@@ -163,7 +163,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
                 click: this.buscarproductos
             },
             'preventaferreteriaeditar button[action=buscarprecios2]': {
-                click: this.buscarprecios2
+                click: this.autorizaprecios2
             },
             'preventaferreteriaingresar button[action=buscarprecios]': {
                 click: this.buscarprecios
@@ -174,7 +174,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
             'buscarpreciosferreteria button[action=seleccionarprecios]': {
                 click: this.seleccionarprecios
             },
-            'buscarprecios2 button[action=seleccionarprecios2]': {
+            'buscarprecios2 button[action=seleccionarpreciosferreteria2]': {
                 click: this.seleccionarprecios2
             },
 
@@ -277,9 +277,9 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
             'autorizacion button[action=autoriza]': {
                 click: this.autorizaprecios
             },
-            'autorizacion3 button[action=autoriza3]': {
-                click: this.autorizaprecios2
-            },
+            //'autorizacion3 button[action=autoriza3]': {
+               // click: this.autorizaprecios2
+            //},
             //'preventaferreteriaingresar #tipoVendedorId': {
             //    select: this.autorizavendedor
             //},
@@ -654,57 +654,6 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
         );
         this.validarut();
-    },
-
-    autorizaprecios2: function(){
-
-       var busca = this.getPreventaferreteriaingresar()
-       var autor = this.getAutorizacion2()
-       var usua = autor.down('#enter1Id').getValue();
-       var id = busca.down('#tipoVendedorId').getValue();
-       var vendedor = "";
-       var valida = "";
-       Ext.Ajax.request({
-            url: preurl + 'vendedores/busca',
-            params: {
-                nombre: id
-            },
-            success: function(response){
-                 var resp = Ext.JSON.decode(response.responseText);
-                 if (resp.success == true){
-                     var cliente= resp.cliente;
-                     var estado = resp.estado;
-                     var clave = (cliente);
-
-                    if (clave == usua){
-                        autor.close();
-                        if (estado == 3){
-                        var bolEnable = false;
-                        busca.down('#precioId').setDisabled(bolEnable);
-                        busca.down('#estadoId').setValue(estado);
-                        }else{
-                        var bolEnable = true;
-                        busca.down('#precioId').setDisabled(bolEnable);
-                        busca.down('#estadoId').setValue(estado);                            
-                        }
-                     }else{
-                        Ext.Msg.alert('Alerta', 'Clave No Autorizada');
-                        busca.down('#tipoVendedorId').setValue(vendedor);
-                        busca.down('#estadoId').setValue(vendedor);
-                        autor.close();
-                     }
-                    
-                 }else{
-
-                    Ext.Msg.alert('Alerta', 'Clave no Autorizada');
-                    autor.close();
-                                   
-                }
-                               
-            }
-           
-        });
-              
     },
 
     autorizavendedor: function(){
@@ -2224,31 +2173,15 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
     autorizaprecios2: function(){
 
        var busca = this.getPreventaferreteriaeditar()
-       var clave = this.getAutorizacion3()
-       var usua = clave.down('#enterId').getValue();
        var id = busca.down('#productoId').getValue();
        var nombre = busca.down('#nombreproductoId').getValue();
+       var edit =  Ext.create('Infosys_web.view.preventaferreteria.BuscarPrecios2').show();
+       var st = this.getPreciosdescuentosStore();
+       st.proxy.extraParams = {nombre : id};
+       st.load();
+       edit.down('#nombreId').setValue(nombre);
 
-       if (usua == "12345"){
-           clave.close();    
-           if (id){
-              var edit =  Ext.create('Infosys_web.view.preventaferreteria.BuscarPrecios2').show();
-              var st = this.getPreciosdescuentosStore();
-              st.proxy.extraParams = {nombre : id};
-              st.load();
-              edit.down('#nombreId').setValue(nombre);
-            }else {
-              Ext.Msg.alert('Alerta', 'Debe seleccionar Producto.');
-              return;
-              clave.close();
-           };
            
-        }else{
-            Ext.Msg.alert('Alerta', 'Clave no Autorizada');
-            return;
-            
-        }; 
-        clave.close();       
     },
 
     buscarp: function(){

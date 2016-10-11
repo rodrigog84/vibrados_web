@@ -55,7 +55,7 @@ Ext.define('Infosys_web.view.preventaferreteria.BuscarPrecios2' ,{
         },{
             xtype: 'button',
             margin: 5,
-            action: 'seleccionarprecios2',
+            action: 'seleccionarpreciosferreteria2',
             dock: 'bottom',
             text : 'Seleccionar'
         },
