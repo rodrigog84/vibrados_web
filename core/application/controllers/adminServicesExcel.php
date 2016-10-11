@@ -1231,16 +1231,22 @@ class AdminServicesExcel extends CI_Controller {
             $fecha4 = $anio ."-". $mes ."-". $dia;
             $tipo = 101;
             $tipo2 = 102;
+            $tipo3 = 104;
             $totalnc = 0;
             $totalafnc = 0;
             $totalnetonc = 0;
+            $totalnetond = 0;
             $totaliva = 0;
             $totalfa = 0;
+            $totalnd = 0;
             $totalaffa = 0;
+            $totalafnd = 0;
             $totalnetofa = 0;
             $totalivafa = 0;
+            $totalivand = 0;
             $cantfac = 0;
             $cantnc = 0;
+            $cantnd = 0;
             $otros = 0;
 
             $data = array();
@@ -1253,7 +1259,7 @@ class AdminServicesExcel extends CI_Controller {
                 $query = $this->db->query('SELECT acc.*, c.nombres as nombre_cliente, c.rut as rut_cliente, v.nombre as nom_vendedor  FROM factura_clientes acc
                 left join clientes c on (acc.id_cliente = c.id)
                 left join vendedores v on (acc.id_vendedor = v.id)
-                WHERE acc.tipo_documento in ( '.$tipo.','.$tipo2.') and acc.fecha_factura between "'.$fecha3.'"  AND "'.$fecha4.'"
+                WHERE acc.tipo_documento in ( '.$tipo.','.$tipo2.','.$tipo3.') and acc.fecha_factura between "'.$fecha3.'"  AND "'.$fecha4.'"
                 order by acc.fecha_factura, acc.tipo_documento, acc.num_factura' 
                 
                 );           
@@ -1297,14 +1303,23 @@ class AdminServicesExcel extends CI_Controller {
                   $totalnetonc = $totalnetonc + $neto;
                   $totaliva = $totaliva + $iva;
                   $tip="N/C";
-                 }else{
+                 };
+                 if ($v['tipo_documento']==101){
                   $tip="FACT";
                   $totalfa = $totalfa + $total;
                   $totalaffa = $totalaffa + $afecto;
                   $totalnetofa = $totalnetofa + $neto;
                   $totalivafa = $totalivafa + $iva;
                   $cantfac = $cantfac +1;                   
-                 }
+                 };
+                 if ($v['tipo_documento']==104){
+                  $tip="N/D";
+                  $totalnd = $totalnd + $total;
+                  $totalafnd = $totalafnd + $afecto;
+                  $totalnetond = $totalnetond + $neto;
+                  $totalivand = $totalivand + $iva;
+                  $cantnd = $cantnd +1;                   
+                 };
 
                 echo "<tr>";
                    echo "<td>".$v['num_factura']."</td>";
@@ -1361,6 +1376,19 @@ class AdminServicesExcel extends CI_Controller {
              $totalafecto = $totalaffa + $totalafnc;
              $totalivafin = $totalivafa + $totaliva;
              $totalfinala = $totalfa + $totalnc;
+            echo "<tr>";
+                   echo "<td>NOTAS DEBITO</td>";                
+                   echo "<td>".$cantnd."</td>";
+                   echo "<td>".$otros."</td>";
+                   echo "<td>".$totalafnd."</td>";
+                   echo "<td>".$otros."</td>";
+                   echo "<td>".$totalivand."</td>";
+                   echo "<td>".$otros."</td>";
+                   echo "<td>".$totalnd."</td>";
+            echo "</tr>";
+             $totalafecto = $totalaffa + $totalafnc + $totalafnd;
+             $totalivafin = $totalivafa + $totaliva + $totalivand ;
+             $totalfinala = $totalfa + $totalnc + $totalnd;
              
             echo "<tr>";
                 echo "<td>-------------</td>";
