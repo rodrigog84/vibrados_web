@@ -320,7 +320,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
         var idcliente = view.down('#idclienteID').getValue()
         var st = this.getPreventaferreteriaStore();
         Ext.Ajax.request({
-            url: preurl + 'preventaferreteria/elimina2',
+            url: preurl + 'preventa/elimina2',
             params: {
 
                 idcliente: idcliente
@@ -387,7 +387,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
         };
 
         Ext.Ajax.request({
-            url: preurl + 'preventaferreteria/validaRut?valida='+rut,
+            url: preurl + 'preventa/validaRut?valida='+rut,
             params: {
                 id: 1
             },
@@ -442,7 +442,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
         };
 
         Ext.Ajax.request({
-            url: preurl + 'preventaferreteria/validaRut?valida='+rut,
+            url: preurl + 'preventa/validaRut?valida='+rut,
             params: {
                 id: 1
             },
@@ -772,7 +772,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
         };       
        
         Ext.Ajax.request({
-            url: preurl + 'preventaferreteria/saveobserva',
+            url: preurl + 'preventa/saveobserva',
             params: {
                 rut: rut,
                 nombre: nombre,
@@ -800,7 +800,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
          console.log(observa);
          if(observa){
          Ext.Ajax.request({
-            url: preurl + 'preventaferreteria/getObserva',
+            url: preurl + 'preventa/getObserva',
             params: {
                 idobserva: observa
             },
@@ -866,7 +866,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
         };       
        
         Ext.Ajax.request({
-            url: preurl + 'preventaferreteria/saveobserva',
+            url: preurl + 'preventa/saveobserva',
             params: {
                 rut: rut,
                 nombre: nombre,
@@ -899,7 +899,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
 
         }else{
             Ext.Ajax.request({
-            url: preurl + 'preventaferreteria/getObserva',
+            url: preurl + 'preventa/getObserva',
             params: {
                 idobserva: observa
             },
@@ -909,7 +909,6 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
                 if (resp.success == true){                
                 var observar = (resp.observar);
                 var rut = (observar.rut);
-                console.log(rut);
                 var view = Ext.create('Infosys_web.view.preventaferreteria.Observaciones').show();
                 view.down('#rutmId').setValue(observar.rut);
                 view.down('#rutId').setValue(observar.rutm);
@@ -1123,7 +1122,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
         });
 
         Ext.Ajax.request({
-            url: preurl + 'preventaferreteria/save2',
+            url: preurl + 'preventa/save2',
             params: {
                 idcliente: idcliente,
                 items: Ext.JSON.encode(dataItems),
@@ -1134,7 +1133,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
                 sucursal: sucursal,
                 numeroticket : numeroticket,
                 idticket : idticket,
-                fechapreventaferreteria : fechapreventaferreteria,
+                fechapreventa : fechapreventaferreteria,
                 descuento : viewIngresa.down('#descuentovalorId').getValue(),
                 neto : viewIngresa.down('#finalafectoId').getValue(),
                 iva : viewIngresa.down('#finaltotalivaId').getValue(),
@@ -1143,7 +1142,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
             },
             success: function(response){
                  var resp = Ext.JSON.decode(response.responseText);
-                 var idpreventaferreteria= resp.idpreventaferreteria;
+                 var id = resp.idpreventa;
                  viewIngresa.close();
                  stpreventaferreteria.load();
                  window.open(preurl + 'preventa/exportPDF/?idpreventa='+id);
@@ -1311,11 +1310,11 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
             var stItem = this.getPreventaferreteriaeditarStore();
             var idpreventaferreteria = row.data.id;
             var idvendedor = row.data.id_vendedor;
-            stItem.proxy.extraParams = {idpreventaferreteria : idpreventaferreteria};
+            stItem.proxy.extraParams = {idpreventa : idpreventaferreteria};
             stItem.load();
 
             Ext.Ajax.request({
-            url: preurl +'preventaferreteria/edita/?idpreventaferreteria=' + row.data.id,
+            url: preurl +'preventa/edita/?idpreventa=' + row.data.id,
             params: {
                 id: 1
             },
@@ -2669,7 +2668,7 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
         var vendedor = record.id;
         var fechapreventaferreteria = viewIngresa.down('#fechaventaId').getValue();
         var stItem = this.getPreventaferreteriaItemsStore();
-        var stpreventaferreteria = this.getPreventaStore();
+        var stpreventaferreteria = this.getPreventaferreteriaStore();
         var observa = viewIngresa.down('#observaId').getValue();
      
         if(!finalafectoId){

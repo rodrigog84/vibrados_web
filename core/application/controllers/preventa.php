@@ -276,8 +276,7 @@ class Preventa extends CI_Controller {
 		');
 
 		$row1 = $query->result();
-		$row = $row1[0];	
-
+		$row = $row1[0];
 	   	
 	    	
 	    $items = $this->db->get_where('preventa_detalle', array('id_ticket' => $idpreventa));
