@@ -894,9 +894,6 @@ Ext.define('Infosys_web.controller.Facturacion', {
           
           i++;
         })
-
-
-
         var view =this.getFormularioexportarfacturas()
         var viewnew =this.getFacturasprincipal()
         var fecha = view.down('#fechaId').getSubmitValue();
@@ -963,7 +960,7 @@ Ext.define('Infosys_web.controller.Facturacion', {
 
              if (tipo == 2){
 
-             window.open(preurl + 'adminServicesExcel/exportarExcellibroBoletasResumen?cols='+Ext.JSON.encode(jsonCol)+'&fecha='+fecha+'&fecha2='+fecha2);
+             window.open(preurl + 'adminServicesExcel/exportarExcellibroBoletas?cols='+Ext.JSON.encode(jsonCol)+'&fecha='+fecha+'&fecha2='+fecha2);
              view.close();
 
              }; 
