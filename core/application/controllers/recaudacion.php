@@ -1911,8 +1911,8 @@ class Recaudacion extends CI_Controller {
 	        <td width="60px"  style="text-align:right;border-bottom:1pt solid black;border-top:1pt solid black;font-size:12px" >Cheque a fecha</td>
 	        <td width="60px"  style="text-align:right;border-bottom:1pt solid black;border-top:1pt solid black;font-size:12px" >Credito</td>
 	        <td width="80px"  style="text-align:right;border-bottom:1pt solid black;border-top:1pt solid black;font-size:12px" >Cred 30d</td>
-	        <td width="60px"  style="text-align:right;border-bottom:1pt solid black;border-top:1pt solid black;font-size:12px" >Tarjeta Debito</td>
-	        <td width="60px"  style="text-align:right;border-bottom:1pt solid black;border-top:1pt solid black;font-size:12px" >Tarjeta Credito</td>
+	        <td width="60px"  style="text-align:right;border-bottom:1pt solid black;border-top:1pt solid black;font-size:12px" >Tarjeta Deb/Credito</td>
+	        <td width="60px"  style="text-align:right;border-bottom:1pt solid black;border-top:1pt solid black;font-size:12px" >Tarjeta AbcDin</td>
 	        <td width="60px"  style="text-align:right;border-bottom:1pt solid black;border-top:1pt solid black;font-size:12px" >Transfer.</td>	        	             
 	       </tr>';	
 	       
@@ -1999,7 +1999,7 @@ class Recaudacion extends CI_Controller {
 					$credito30dias = 0;
 					$credito = 0;
 				};
-				if ($v['desc_pago']=="TARJETA DEBITO"){				
+				if ($v['desc_pago']=="TARJETA DEBITO/CREDITO"){				
 					$tarjetadebito = $v['valor_pago'];
 					$chequealdia = 0;
 					$chequeafecha = 0;
@@ -2011,7 +2011,7 @@ class Recaudacion extends CI_Controller {
 					$credito30dias = 0;
 					$credito60dias = 0;
 				};
-				if ($v['desc_pago']=="TARJETA CREDITO"){				
+				if ($v['desc_pago']=="TARJETA ABCDIN"){				
 					$tarjetacredito = $v['valor_pago'];
 					$chequealdia = 0;
 					$chequeafecha = 0;
@@ -2111,7 +2111,7 @@ class Recaudacion extends CI_Controller {
 					$credito60dias = 0;
 				};
 				
-				if ($v['desc_pago']=="TARJETA DEBITO"){				
+				if ($v['desc_pago']=="TARJETA DEBITO/CREDITO"){				
 					$tarjetadebito = $v['valor_pago'];
 					$chequealdia = 0;
 					$chequeafecha = 0;
@@ -2123,7 +2123,7 @@ class Recaudacion extends CI_Controller {
 					$credito30dias = 0;
 					$credito60dias = 0;
 				};
-				if ($v['desc_pago']=="TARJETA CREDITO"){				
+				if ($v['desc_pago']=="TARJETA ABCDIN"){				
 					$tarjetacredito = $v['valor_pago'];
 					$chequealdia = 0;
 					$chequeafecha = 0;
@@ -2219,7 +2219,7 @@ class Recaudacion extends CI_Controller {
 					$credito60dias = 0;
 				};
 				
-				if ($v['desc_pago']=="TARJETA DEBITO"){				
+				if ($v['desc_pago']=="TARJETA DEBITO/CREDITO"){				
 					$tarjetadebito = $v['valor_pago'];
 					$chequealdia = 0;
 					$chequeafecha = 0;
@@ -2231,8 +2231,7 @@ class Recaudacion extends CI_Controller {
 					$credito30dias = 0;
 					$credito60dias = 0;
 				};
-				if ($v['desc_pago']=="TARJETA CREDITO"){				
-					$tarjetacredito = $v['valor_pago'];
+				if ($v['desc_pago']=="TARJETA ABCDIN"];
 					$chequealdia = 0;
 					$chequeafecha = 0;
 					$boleta = 0;
@@ -2325,7 +2324,7 @@ class Recaudacion extends CI_Controller {
 					$credito60dias = 0;
 				};
 				
-				if ($v['desc_pago']=="TARJETA DEBITO"){				
+				if ($v['desc_pago']=="TARJETA DEBITO/CREDITO"){				
 					$tarjetadebito = $v['valor_pago'];
 					$chequealdia = 0;
 					$chequeafecha = 0;
@@ -2337,7 +2336,7 @@ class Recaudacion extends CI_Controller {
 					$credito30dias = 0;
 					$credito60dias = 0;
 				};
-				if ($v['desc_pago']=="TARJETA CREDITO"){				
+				if ($v['desc_pago']=="TARJETA ABCDIN"){				
 					$tarjetacredito = $v['valor_pago'];
 					$chequealdia = 0;
 					$chequeafecha = 0;
@@ -2441,13 +2440,13 @@ class Recaudacion extends CI_Controller {
 			    };
 				};
 				if ($tarjetacredito>0){
-				$doc4 = "TARJETA CREDITO";
+				$doc4 = "TARJETA ABCDIN";
 				if ($v['estado']!="NUL"){
 				$cancelado4 +=$tarjetacredito;
 				};
 				};
 				if ($tarjetadebito>0){
-				$doc5 = "TARJETA DEBITO";
+				$doc5 = "TARJETA DEBITO/CREDITO";
 				if ($v['estado']!="NUL"){
 				$cancelado5 +=$tarjetadebito;
 			    };
@@ -2708,8 +2707,8 @@ class Recaudacion extends CI_Controller {
 	        <td width="60px"  style="text-align:right;border-bottom:1pt solid black;border-top:1pt solid black;font-size:12px" >Cheque a fecha</td>
 	        <td width="60px"  style="text-align:right;border-bottom:1pt solid black;border-top:1pt solid black;font-size:12px" >Credito</td>
 	        <td width="80px"  style="text-align:right;border-bottom:1pt solid black;border-top:1pt solid black;font-size:12px" >Cred 30d</td>
-	        <td width="60px"  style="text-align:right;border-bottom:1pt solid black;border-top:1pt solid black;font-size:12px" >Tarjeta Debito</td>
-	        <td width="60px"  style="text-align:right;border-bottom:1pt solid black;border-top:1pt solid black;font-size:12px" >Tarjeta Credito</td>
+	        <td width="60px"  style="text-align:right;border-bottom:1pt solid black;border-top:1pt solid black;font-size:12px" >Tarjeta Deb/Cred</td>
+	        <td width="60px"  style="text-align:right;border-bottom:1pt solid black;border-top:1pt solid black;font-size:12px" >Tarjeta AbcDin</td>
 	        <td width="60px"  style="text-align:right;border-bottom:1pt solid black;border-top:1pt solid black;font-size:12px" >Transfer.</td>	        	             
 	       </tr>';	
 	       
@@ -2824,13 +2823,13 @@ class Recaudacion extends CI_Controller {
 			    };
 				};
 				if ($tarjetacredito>0){
-				$doc4 = "TARJETA CREDITO";
+				$doc4 = "TARJETA ABCDIN";
 				if ($v['estado']!="NUL"){
 				$cancelado4 +=$tarjetacredito;
 				};
 				};
 				if ($tarjetadebito>0){
-				$doc5 = "TARJETA DEBITO";
+				$doc5 = "TARJETA DEBITO/CREDITO";
 				if ($v['estado']!="NUL"){
 				$cancelado5 +=$tarjetadebito;
 			    };
