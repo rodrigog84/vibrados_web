@@ -66,8 +66,6 @@ class Recaudacion extends CI_Controller {
 
         echo json_encode($resp);
 
-
-
 	}
 
 	public function actualizar(){
@@ -2231,7 +2229,7 @@ class Recaudacion extends CI_Controller {
 					$credito30dias = 0;
 					$credito60dias = 0;
 				};
-				if ($v['desc_pago']=="TARJETA ABCDIN"];
+				if ($v['desc_pago']=="TARJETA ABCDIN"){;
 					$chequealdia = 0;
 					$chequeafecha = 0;
 					$boleta = 0;
