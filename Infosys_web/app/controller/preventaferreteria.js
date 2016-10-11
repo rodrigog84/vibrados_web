@@ -706,11 +706,6 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
         
         var permite = "SI"
 
-        if (valida == "NO"){
-             Ext.Msg.alert('Alerta', 'Debe Validar Rut');
-                 return;
-        };        
-        
         if (!rut){
              Ext.Msg.alert('Alerta', 'Debe Ingresar Rut');
                  return;
@@ -800,11 +795,6 @@ Ext.define('Infosys_web.controller.preventaferreteria', {
         
         var permite = "SI"
 
-        if (valida == "NO"){
-             Ext.Msg.alert('Alerta', 'Debe Validar Rut');
-                 return;
-        };        
-        
         if (!rut){
              Ext.Msg.alert('Alerta', 'Debe Ingresar Rut');
                  return;
