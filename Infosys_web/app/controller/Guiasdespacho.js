@@ -255,9 +255,9 @@ Ext.define('Infosys_web.controller.Guiasdespacho', {
         var record = stCombo.findRecord('id', descuento.getValue()).data;
         var dcto = (record.porcentaje);
        
-        pretotalfinal = ((total * dcto)  / 100);
+        pretotalfinal = (Math.round(total * dcto)  / 100);
         total = ((total) - (pretotalfinal));
-        afecto = ((total / 1.19));
+        afecto = (Math.round(total / 1.19));
         iva = (total - afecto);
 
         view.down('#finaltotalId').setValue(Ext.util.Format.number(total, '0,000'));
@@ -411,8 +411,7 @@ Ext.define('Infosys_web.controller.Guiasdespacho', {
         var totalfactura = viewIngresa.down('#totalId').getValue();
         var netofactura = viewIngresa.down('#netofacId').getValue();
         var ivafactura = viewIngresa.down('#ivafacId').getValue();
-        var descuento = viewIngresa.down('#descuentoId').getValue();       
-        
+        var descuento = viewIngresa.down('#descuentoId').getValue();
         
         stItem1.each(function(r){
 
@@ -420,13 +419,11 @@ Ext.define('Infosys_web.controller.Guiasdespacho', {
             nomproducto = r.data.nombre,
             precio = r.data.p_venta,
             cantidad = r.data.stock,
-            neto = ((cantidad * precio)),
             tot = ((cantidad * precio)),
-            neto = ((neto / 1.19)),
+            neto = (Math.round(neto / 1.19)),
             iva = (tot - neto ),
             total = ((neto + iva )),
-            neto = (total - iva),
-            
+                        
             stItem.add(new Infosys_web.model.Productos.Item({
                 id: producto,
                 idproducto: producto,
@@ -536,14 +533,14 @@ Ext.define('Infosys_web.controller.Guiasdespacho', {
         var cantidadori = view.down('#cantidadOriginalId').getValue();
         var idfactura = view.down('#factId').getValue();
         var precio = ((view.down('#precioId').getValue()));
-        var precioun = ((view.down('#precioId').getValue())/ 1.19);
+        var precioun = (Math.round(view.down('#precioId').getValue())/ 1.19);
         var totalfactura = view.down('#totalId').getValue();
         var netofactura = view.down('#netofacId').getValue();
         var ivafactura = view.down('#ivafacId').getValue();
         var descuento = view.down('#descuentoId').getValue();       
         var neto = ((cantidad * precio));
         var tot = ((cantidad * precio));
-        var neto = (parseInt(neto / 1.19));
+        var neto = (Math.round(neto / 1.19));
         var exists = 0;
         var iva = (tot - neto );
         var totaliva = ((neto + iva ));
@@ -724,6 +721,9 @@ Ext.define('Infosys_web.controller.Guiasdespacho', {
             viewIngresa.down('#productoId').setValue(row.data.id_producto);
             var idproducto = (row.data.id_producto);
             var nomproducto = (row.data.nombre);
+            var p_venta = (row.data.p_venta);
+            var cantidad = (row.data.stock);
+            var codigo = (row.data.codigo);
 
             Ext.Ajax.request({
                     url: preurl + 'notacredito/validaproducto',
@@ -737,12 +737,12 @@ Ext.define('Infosys_web.controller.Guiasdespacho', {
                    if(resp.cliente){
                       var cliente = resp.cliente;
                       var canti = cliente.cantidad;
-                      viewIngresa.down('#cantidadOriginalId').setValue(canti);
+                      viewIngresa.down('#cantidadOriginalId').setValue(cantidad);
                       viewIngresa.down('#productoId').setValue(idproducto);
                       viewIngresa.down('#nomproductoId').setValue(nomproducto);
-                      viewIngresa.down('#codigoId').setValue(row.data.codigo);
-                      viewIngresa.down('#precioId').setValue(row.data.p_venta);
-                      viewIngresa.down('#cantidadId').setValue(canti);
+                      viewIngresa.down('#codigoId').setValue(codigo);
+                      viewIngresa.down('#precioId').setValue(p_venta);
+                      viewIngresa.down('#cantidadId').setValue(cantidad);
                       view.close();
                     }
 
@@ -1507,7 +1507,7 @@ Ext.define('Infosys_web.controller.Guiasdespacho', {
         if (grid.getSelectionModel().hasSelection()) {
             var row = grid.getSelectionModel().getSelection()[0];
             var nuetotal = (parseInt(nuetotal) - parseInt(row.data.total));
-            var neto = (parseInt((row.data.total)/1.19));
+            var neto = (Math.round((row.data.total)/1.19));
             var nueneto = nueneto - neto;
             var nueiva = nuetotal - nueneto;
             view.down('#finaltotalId').setValue(Ext.util.Format.number(nuetotal, '0,000'));
