@@ -34,11 +34,13 @@ Ext.define('Infosys_web.view.ordencompra.Principal_recepcion' ,{
     },{
         header: "Emitida",
         flex: 1,
-        dataIndex: 'emitida'
+        dataIndex: 'emitida',
+        hidden: true
     },{
         header: "Semi Cumplida",
         flex: 1,
-        dataIndex: 'semicumplida'
+        dataIndex: 'semicumplida',
+        hidden: true
     },{
         header: "Cumplida",
         flex: 1,

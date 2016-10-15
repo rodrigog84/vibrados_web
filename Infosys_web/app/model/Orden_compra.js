@@ -1,4 +1,3 @@
-
 Ext.define('Infosys_web.model.Orden_compra', {
     extend: 'Ext.data.Model',
     fields: [
@@ -6,6 +5,8 @@ Ext.define('Infosys_web.model.Orden_compra', {
         {name: 'num_orden'},
         {name: 'num_recepcion'},
         {name: 'nombre'},
+        {name: 'tip_documento'},
+        {name: 'num_doc'},
         {name: 'id_vendedor'},
         {name: 'nom_vendedor'},        
         {name: 'stock', decimalPrecision:3},

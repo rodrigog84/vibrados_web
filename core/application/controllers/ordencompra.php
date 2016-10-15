@@ -363,7 +363,6 @@ class Ordencompra extends CI_Controller {
 		$totalr = 0;
 		$netor = 0;
 		$ivar = 0;
-
 		
 		$tipodocumento="4";
 
@@ -372,6 +371,9 @@ class Ordencompra extends CI_Controller {
 		    'id_orden' => $id,
             'id_proveedor' => $idproveedor,
 	        'fecha_recepcion' => $fecha,
+	        'fecha_recepcion' => $fecha,
+	        'num_doc' => $numdoc,
+	        'tip_documento' => $tipdoc,
 		);
 
 		$this->db->insert('recepcion_compra', $recepcion_compra); 
@@ -492,7 +494,6 @@ class Ordencompra extends CI_Controller {
 	    		$total = ($neto * 1.19);
 	    		$iva = ($total - $neto);
 
-
 	    		$data4 = array(
 		        'cant_final' => $v->stock,
 		        'valor_prom' => $v->valor,
@@ -520,6 +521,7 @@ class Ordencompra extends CI_Controller {
 
 				$totalfinal = ($totalfinal + $total);
 				$netofinal = ($netofinal + $neto);
+				$afectofinal = ($netofinal + $neto);
 				$ivafinal = ($ivafinal + $iva);
 
 				$recepcion_compra2 = array(
@@ -954,7 +956,7 @@ class Ordencompra extends CI_Controller {
 		if($opcion == "Rut"){
 
 			$query = $this->db->query('SELECT 
-			ctz.fecha_recepcion, ctz.id, ctz.afecto, ctz.neto, ctz.iva, ctz.neto, ctz.descuento, ctz.total, ctz.num_recepcion, orcom.telefono_contacto as telefono_contacto, orcom.mail_contacto as mail_contacto, orcom.nombre_contacto as nombre_contacto, cli.nombres as empresa , cli.rut as rut, cli.direccion as direccion_empresa, cli.fono as fono_empresa, cae.nombre as giro_empresa, c.nombre as ciudad_empresa, pa.nombre as conpago, orcom.num_orden as num_orden, orcom.fecha as fecha, ven.nombre as nom_vendedor FROM recepcion_compra ctz
+			ctz.fecha_recepcion, ctz.id, ctz.afecto, ctz.neto, ctz.iva, ctz.neto, ctz.descuento, ctz.total, ctz.num_recepcion, orcom.telefono_contacto as telefono_contacto, orcom.mail_contacto as mail_contacto, orcom.nombre_contacto as nombre_contacto, cli.nombres as empresa , cli.rut as rut, cli.direccion as direccion_empresa, cli.fono as fono_empresa, cae.nombre as giro_empresa, c.nombre as ciudad_empresa, pa.nombre as conpago, orcom.num_orden as num_orden, orcom.fecha as fecha, ven.nombre as nom_vendedor, ctz.num_doc, ctz.tip_documento FROM recepcion_compra ctz
 			LEFT JOIN orden_compra orcom on (ctz.id_orden = orcom.id)
 			LEFT JOIN vendedores ven on (orcom.id_vendedor = ven.id)
 			LEFT JOIN clientes cli on (ctz.id_proveedor = cli.id)
@@ -970,7 +972,7 @@ class Ordencompra extends CI_Controller {
 		}else if($opcion == "Numero"){
 
 			$query = $this->db->query('SELECT 
-			ctz.fecha_recepcion, ctz.id, ctz.afecto, ctz.neto, ctz.iva, ctz.neto, ctz.descuento, ctz.total, ctz.num_recepcion, orcom.telefono_contacto as telefono_contacto, orcom.mail_contacto as mail_contacto, orcom.nombre_contacto as nombre_contacto, cli.nombres as empresa , cli.rut as rut, cli.direccion as direccion_empresa, cli.fono as fono_empresa, cae.nombre as giro_empresa, c.nombre as ciudad_empresa, pa.nombre as conpago, orcom.num_orden as num_orden, orcom.fecha as fecha, ven.nombre as nom_vendedor FROM recepcion_compra ctz
+			ctz.fecha_recepcion, ctz.id, ctz.afecto, ctz.neto, ctz.iva, ctz.neto, ctz.descuento, ctz.total, ctz.num_recepcion, orcom.telefono_contacto as telefono_contacto, orcom.mail_contacto as mail_contacto, orcom.nombre_contacto as nombre_contacto, cli.nombres as empresa , cli.rut as rut, cli.direccion as direccion_empresa, cli.fono as fono_empresa, cae.nombre as giro_empresa, c.nombre as ciudad_empresa, pa.nombre as conpago, orcom.num_orden as num_orden, orcom.fecha as fecha, ven.nombre as nom_vendedor, ctz.num_doc, ctz.tip_documento FROM recepcion_compra ctz
 			LEFT JOIN orden_compra orcom on (ctz.id_orden = orcom.id)
 			LEFT JOIN vendedores ven on (orcom.id_vendedor = ven.id)
 			LEFT JOIN clientes cli on (ctz.id_proveedor = cli.id)
@@ -993,7 +995,7 @@ class Ordencompra extends CI_Controller {
 	        }
 
 			$query = $this->db->query('SELECT 
-			ctz.fecha_recepcion, ctz.id, ctz.afecto, ctz.neto, ctz.iva, ctz.neto, ctz.descuento, ctz.total, ctz.num_recepcion, orcom.telefono_contacto as telefono_contacto, orcom.mail_contacto as mail_contacto, orcom.nombre_contacto as nombre_contacto, cli.nombres as empresa , cli.rut as rut, cli.direccion as direccion_empresa, cli.fono as fono_empresa, cae.nombre as giro_empresa, c.nombre as ciudad_empresa, pa.nombre as conpago, orcom.num_orden as num_orden, orcom.fecha as fecha, ven.nombre as nom_vendedor FROM recepcion_compra ctz
+			ctz.fecha_recepcion, ctz.id, ctz.afecto, ctz.neto, ctz.iva, ctz.neto, ctz.descuento, ctz.total, ctz.num_recepcion, orcom.telefono_contacto as telefono_contacto, orcom.mail_contacto as mail_contacto, orcom.nombre_contacto as nombre_contacto, cli.nombres as empresa , cli.rut as rut, cli.direccion as direccion_empresa, cli.fono as fono_empresa, cae.nombre as giro_empresa, c.nombre as ciudad_empresa, pa.nombre as conpago, orcom.num_orden as num_orden, orcom.fecha as fecha, ven.nombre as nom_vendedor, ctz.num_doc, ctz.tip_documento FROM recepcion_compra ctz
 			LEFT JOIN orden_compra orcom on (ctz.id_orden = orcom.id)
 			LEFT JOIN vendedores ven on (orcom.id_vendedor = ven.id)
 			LEFT JOIN clientes cli on (ctz.id_proveedor = cli.id)
@@ -1006,8 +1008,8 @@ class Ordencompra extends CI_Controller {
 
 		}else if($opcion == "Todos"){
 
-			$query = $this->db->query('SELECT 
-			ctz.fecha_recepcion, ctz.id, ctz.afecto, ctz.neto, ctz.iva, ctz.neto, ctz.descuento, ctz.total, ctz.num_recepcion, orcom.telefono_contacto as telefono_contacto, orcom.mail_contacto as mail_contacto, orcom.nombre_contacto as nombre_contacto, cli.nombres as empresa , cli.rut as rut, cli.direccion as direccion_empresa, cli.fono as fono_empresa, cae.nombre as giro_empresa, c.nombre as ciudad_empresa, pa.nombre as conpago, orcom.num_orden as num_orden, orcom.fecha as fecha, ven.nombre as nom_vendedor FROM recepcion_compra ctz
+			$$query = $this->db->query('SELECT 
+			ctz.fecha_recepcion, ctz.id, ctz.afecto, ctz.neto, ctz.iva, ctz.neto, ctz.descuento, ctz.total, ctz.num_recepcion, orcom.telefono_contacto as telefono_contacto, orcom.mail_contacto as mail_contacto, orcom.nombre_contacto as nombre_contacto, cli.nombres as empresa , cli.rut as rut, cli.direccion as direccion_empresa, cli.fono as fono_empresa, cae.nombre as giro_empresa, c.nombre as ciudad_empresa, pa.nombre as conpago, orcom.num_orden as num_orden, orcom.fecha as fecha, ven.nombre as nom_vendedor, ctz.num_doc, ctz.tip_documento FROM recepcion_compra ctz
 			LEFT JOIN orden_compra orcom on (ctz.id_orden = orcom.id)
 			LEFT JOIN vendedores ven on (orcom.id_vendedor = ven.id)
 			LEFT JOIN clientes cli on (ctz.id_proveedor = cli.id)
@@ -1020,7 +1022,7 @@ class Ordencompra extends CI_Controller {
 		}else{
 
 			$query = $this->db->query('SELECT 
-			ctz.fecha_recepcion, ctz.id, ctz.afecto, ctz.neto, ctz.iva, ctz.neto, ctz.descuento, ctz.total, ctz.num_recepcion, orcom.telefono_contacto as telefono_contacto, orcom.mail_contacto as mail_contacto, orcom.nombre_contacto as nombre_contacto, cli.nombres as empresa , cli.rut as rut, cli.direccion as direccion_empresa, cli.fono as fono_empresa, cae.nombre as giro_empresa, c.nombre as ciudad_empresa, pa.nombre as conpago, orcom.num_orden as num_orden, orcom.fecha as fecha, ven.nombre as nom_vendedor FROM recepcion_compra ctz
+			ctz.fecha_recepcion, ctz.id, ctz.afecto, ctz.neto, ctz.iva, ctz.neto, ctz.descuento, ctz.total, ctz.num_recepcion, orcom.telefono_contacto as telefono_contacto, orcom.mail_contacto as mail_contacto, orcom.nombre_contacto as nombre_contacto, cli.nombres as empresa , cli.rut as rut, cli.direccion as direccion_empresa, cli.fono as fono_empresa, cae.nombre as giro_empresa, c.nombre as ciudad_empresa, pa.nombre as conpago, orcom.num_orden as num_orden, orcom.fecha as fecha, ven.nombre as nom_vendedor, ctz.num_doc, ctz.tip_documento FROM recepcion_compra ctz
 			LEFT JOIN orden_compra orcom on (ctz.id_orden = orcom.id)
 			LEFT JOIN vendedores ven on (orcom.id_vendedor = ven.id)
 			LEFT JOIN clientes cli on (ctz.id_proveedor = cli.id)

@@ -32,6 +32,27 @@ Ext.define('Infosys_web.view.recepciones.Principal' ,{
         width: 350,
         dataIndex: 'empresa'
     },{
+        header: "Tip/Doc",
+        flex: 1,
+        dataIndex: 'tip_documento',
+        renderer: function(value){
+            if (value == 1) {
+                return 'FACTURA';
+             }
+            if (value == 2) {
+             //return '<img src="http://localhost:999/rutaimg.jpg" />'
+               return 'GUIA DESPACHO';   
+            }
+            if (value == 3) {
+             //return '<img src="http://localhost:999/rutaimg.jpg" />'
+               return 'BOLETA';   
+            }
+        }
+    },{
+        header: "N-Doc",
+        flex: 1,
+        dataIndex: 'num_doc'
+    },{
         header: "Rut",
         flex: 1,
         dataIndex: 'rut'
