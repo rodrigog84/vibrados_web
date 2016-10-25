@@ -10,6 +10,7 @@ Ext.define('Infosys_web.model.Producto', {
         {name: 'p_ult_compra'},
         {name: 'p_may_compra'},
         {name: 'p_venta'},
+        {name: 'p_ferreteria'},
         {name: 'p_neto'},
         {name: 'p_costo'},
         {name: 'nom_uni_medida'},

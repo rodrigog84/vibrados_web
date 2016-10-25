@@ -41,6 +41,13 @@ Ext.define('Infosys_web.view.productos.Principal' ,{
         renderer: function(valor){return Ext.util.Format.number(parseInt(valor),"0,00.00")}
 
     },{
+        header: "Precio Ferreteria",
+        flex: 1,
+        dataIndex: 'p_ferreteria',
+        align: 'right',
+        renderer: function(valor){return Ext.util.Format.number(parseInt(valor),"0,00.00")}
+
+    },{
         header: "Stock",
         flex: 1,
         dataIndex: 'stock',

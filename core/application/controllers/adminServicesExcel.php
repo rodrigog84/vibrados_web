@@ -12,14 +12,15 @@ class AdminServicesExcel extends CI_Controller {
             
             $this->load->database();
 
-             $query = $this->db->query('SELECT acc.*, c.nombre as nom_ubi_prod, ca.nombre  as nom_uni_medida, m.nombre as nom_marca, fa.nombre as nom_familia, bo.nombre as nom_bodega, ag.nombre as nom_agrupacion, sb.nombre as nom_subfamilia FROM productos acc
-              left join mae_ubica c on (acc.id_ubi_prod = c.id)
-              left join marcas m on (acc.id_marca = m.id)
-              left join mae_medida ca on (acc.id_uni_medida = ca.id)
-              left join familias fa on (acc.id_familia = fa.id)
-              left join agrupacion ag on (acc.id_agrupacion = ag.id)
-              left join subfamilias sb on (acc.id_subfamilia = sb.id)
-              left join bodegas bo on (acc.id_bodega = bo.id)' );
+               $query = $this->db->query('SELECT acc.*, c.nombre as nom_ubi_prod, ca.nombre as nom_uni_medida, m.nombre as nom_marca, fa.nombre as nom_familia, bo.nombre as nom_bodega, ag.nombre as nom_agrupacion, sb.nombre as nom_subfamilia, l.valor as p_ferreteria FROM productos acc
+                left join mae_ubica c on (acc.id_ubi_prod = c.id)
+                left join marcas m on (acc.id_marca = m.id)
+                left join listaprecios l on (acc.id = l.id)
+                left join mae_medida ca on (acc.id_uni_medida = ca.id)
+                left join familias fa on (acc.id_familia = fa.id)
+                left join agrupacion ag on (acc.id_agrupacion = ag.id)
+                left join subfamilias sb on (acc.id_subfamilia = sb.id)
+                left join bodegas bo on (acc.id_bodega = bo.id)' );
 
             $users = $query->result_array();
             
@@ -31,6 +32,7 @@ class AdminServicesExcel extends CI_Controller {
             echo "<td>CODIGO</td>";
             echo "<td>NOMBRE</td>";
             echo "<td>PRECIO VENTA</td>";
+            echo "<td>PRECIO FERRETERIA</td>";
             echo "<td>STOCK</td>";
             echo "<tr>";
               
@@ -40,6 +42,7 @@ class AdminServicesExcel extends CI_Controller {
                echo "<td>".$v['codigo']."</td>";
                echo "<td>".$v['nombre']."</td>";
                echo "<td>".$v['p_venta']."</td>";
+               echo "<td>".$v['p_ferreteria']."</td>";
                echo "<td>".$v['stock']."</td>";
                  
             }
@@ -485,14 +488,15 @@ class AdminServicesExcel extends CI_Controller {
             
             $this->load->database();
 
-             $query = $this->db->query('SELECT acc.*, c.nombre as nom_ubi_prod, ca.nombre  as nom_uni_medida, m.nombre as nom_marca, fa.nombre as nom_familia, bo.nombre as nom_bodega, ag.nombre as nom_agrupacion, sb.nombre as nom_subfamilia FROM productos acc
-              left join mae_ubica c on (acc.id_ubi_prod = c.id)
-              left join marcas m on (acc.id_marca = m.id)
-              left join mae_medida ca on (acc.id_uni_medida = ca.id)
-              left join familias fa on (acc.id_familia = fa.id)
-              left join agrupacion ag on (acc.id_agrupacion = ag.id)
-              left join subfamilias sb on (acc.id_subfamilia = sb.id)
-              left join bodegas bo on (acc.id_bodega = bo.id)' );
+             $query = $this->db->query('SELECT acc.*, c.nombre as nom_ubi_prod, ca.nombre as nom_uni_medida, m.nombre as nom_marca, fa.nombre as nom_familia, bo.nombre as nom_bodega, ag.nombre as nom_agrupacion, sb.nombre as nom_subfamilia, l.valor as p_ferreteria FROM productos acc
+                left join mae_ubica c on (acc.id_ubi_prod = c.id)
+                left join marcas m on (acc.id_marca = m.id)
+                left join listaprecios l on (acc.id = l.id)
+                left join mae_medida ca on (acc.id_uni_medida = ca.id)
+                left join familias fa on (acc.id_familia = fa.id)
+                left join agrupacion ag on (acc.id_agrupacion = ag.id)
+                left join subfamilias sb on (acc.id_subfamilia = sb.id)
+                left join bodegas bo on (acc.id_bodega = bo.id)' );
 
             $users = $query->result_array();
             
@@ -526,6 +530,9 @@ class AdminServicesExcel extends CI_Controller {
                 endif;
                 if (in_array("p_venta", $columnas)) :
                     echo "<td>PRECIO VENTA</td>";
+                endif;
+                if (in_array("p_ferreteria", $columnas)) :
+                    echo "<td>PRECIO FERRETERIA</td>";
                 endif;
                 if (in_array("p_costo", $columnas)) :
                     echo "<td>PRECIO COSTO</td>";
@@ -577,6 +584,9 @@ class AdminServicesExcel extends CI_Controller {
                   endif;
                   if (in_array("p_venta", $columnas)) :
                       echo "<td>".$v['p_venta']."</td>";
+                  endif;
+                  if (in_array("p_ferreteria", $columnas)) :
+                      echo "<td>".$v['p_ferreteria']."</td>";
                   endif;
                   if (in_array("p_costo", $columnas)) :
                       echo "<td>".$v['p_costo']."</td>";
