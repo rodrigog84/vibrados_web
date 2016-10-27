@@ -874,6 +874,8 @@ class Facturaelectronica extends CI_Model
 			$tipo_caf = 34;
 		}else if($tipodocumento == 105){
 			$tipo_caf = 52;
+		}else if($tipodocumento == 102){
+			$tipo_caf = 61;
 		}		
 
 		header('Content-type: text/plain; charset=ISO-8859-1');
