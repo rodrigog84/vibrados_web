@@ -1562,6 +1562,7 @@ class Ordencompra extends CI_Controller {
         list($anio, $mes, $diaº) = explode("-",$fecharec); 
 		$direccion = $row->direccion_empresa;
 		$nombre_contacto = $row->nombre_contacto;
+		$nombre_vendedor = $row->nom_vendedor;
         $fono_contacto = $row->telefono_contacto;
 		
 		$html = '
@@ -1635,8 +1636,11 @@ class Ordencompra extends CI_Controller {
 		    			<td width="395px">' .$nombre_contacto.'</td>
 		    			<td width="197px">Forma Pago:</td>
 		    			<td width="197px">&nbsp;</td>
-
-
+		    		</tr>
+		    		<tr>
+		    			<td width="197px">Vendedor:</td>
+		    			<td width="395px">' .$nombre_vendedor.'</td>
+		    			<td width="197px">&nbsp;</td>
 		    		</tr>		    				    				    				    		
 		    	</table>
 			</td>
@@ -1645,8 +1649,9 @@ class Ordencompra extends CI_Controller {
 		    <td colspan="3" >
 		    	<table width="987px" cellspacing="0" cellpadding="0" >
 		      <tr>
-		        <td width="148px"  style="border-bottom:1pt solid black;border-top:1pt solid black;text-align:right;" >Cantidad</td>
+		        <td width="148px"  style="border-bottom:1pt solid black;border-top:1pt solid black;text-align:center;" >Codigo</td>
 		        <td width="395px"  style="border-bottom:1pt solid black;border-top:1pt solid black;text-align:center;" >Descripci&oacute;n</td>
+		        <td width="148px"  style="border-bottom:1pt solid black;border-top:1pt solid black;text-align:right;" >Cantidad</td>		        
 		        <td width="148px"  style="border-bottom:1pt solid black;border-top:1pt solid black;text-align:right;" >Precio/Unidad</td>
 		        <td width="148px"  style="border-bottom:1pt solid black;border-top:1pt solid black;text-align:right;" >Neto</td>
 		        <td width="148px"  style="border-bottom:1pt solid black;border-top:1pt solid black;text-align:right;" >Total</td>
@@ -1663,8 +1668,10 @@ class Ordencompra extends CI_Controller {
 
 	
 			$html .= '<tr>
+
+			<td style="text-align:left">'.$producto->codigo.'</td>					
+			<td style="text-align:left">'.$producto->nombre.'</td>
 			<td style="text-align:right">'.number_format($v->cantidad,3,',','.').'&nbsp;&nbsp;</td>			
-			<td style="text-align:left">'.$producto->nombre.'</td>			
 			<td align="right">$ '.number_format($v->precio, 3, ',', '.').'</td>
 			<td align="right">$ '.number_format($v->neto - ($v->descuento/$v->cantidad), 0, ',', '.').'</td>
 
@@ -2125,6 +2132,7 @@ class Ordencompra extends CI_Controller {
         list($dia, $mes, $anio) = explode("-",$fecharec); 
 		$direccion = $row->direccion_empresa;
 		$nombre_contacto = $row->nombre_contacto;
+		$nombre_vendedor = $row->nom_vendedor;
         $fono_contacto = $row->telefono_contacto;
         $neto=0;
         $iva=0;
@@ -2201,8 +2209,11 @@ class Ordencompra extends CI_Controller {
 		    			<td width="395px">' .$nombre_contacto.'</td>
 		    			<td width="197px">Forma Pago:</td>
 		    			<td width="197px">&nbsp;</td>
-
-
+		    		</tr>
+		    		<tr>
+		    			<td width="197px">Vendedor:</td>
+		    			<td width="395px">' .$nombre_vendedor.'</td>
+		    			<td width="197px">&nbsp;</td>
 		    		</tr>		    				    				    				    		
 		    	</table>
 			</td>
@@ -2211,8 +2222,9 @@ class Ordencompra extends CI_Controller {
 		    <td colspan="3" >
 		    	<table width="987px" cellspacing="0" cellpadding="0" >
 		      <tr>
-		        <td width="148px"  style="border-bottom:1pt solid black;border-top:1pt solid black;text-align:right;" >Cantidad</td>
+		        <td width="148px"  style="border-bottom:1pt solid black;border-top:1pt solid black;text-align:center;" >Codigo</td>
 		        <td width="395px"  style="border-bottom:1pt solid black;border-top:1pt solid black;text-align:center;" >Descripci&oacute;n</td>
+		        <td width="148px"  style="border-bottom:1pt solid black;border-top:1pt solid black;text-align:right;" >Cantidad</td>		        
 		        <td width="148px"  style="border-bottom:1pt solid black;border-top:1pt solid black;text-align:right;" >Precio/Unidad</td>
 		        <td width="148px"  style="border-bottom:1pt solid black;border-top:1pt solid black;text-align:right;" >Neto</td>
 		        <td width="148px"  style="border-bottom:1pt solid black;border-top:1pt solid black;text-align:right;" >Total</td>
@@ -2236,8 +2248,10 @@ class Ordencompra extends CI_Controller {
 
 
 			$html .= '<tr>
-			<td style="text-align:right">'.number_format($v->cantidad,3,',','.').'&nbsp;&nbsp;</td>			
-			<td style="text-align:left">'.$producto->nombre.'</td>			
+
+			<td style="text-align:left">'.$producto->codigo.'</td>						
+			<td style="text-align:left">'.$producto->nombre.'</td>
+			<td style="text-align:right">'.number_format($v->cantidad,3,',','.').'&nbsp;&nbsp;</td>		
 			<td align="right">$ '.number_format($v->precio, 3, ',', '.').'</td>
 			<td align="right">$ '.number_format($v->neto - ($v->descuento/$v->cantidad), 0, '.', ',').'</td>
 
