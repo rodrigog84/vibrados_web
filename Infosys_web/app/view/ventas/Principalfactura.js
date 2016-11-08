@@ -258,6 +258,11 @@ Ext.define('Infosys_web.view.ventas.Principalfactura' ,{
                 iconCls : 'icon-delete',
                 text: 'Anula',
                 action:'anulacion'
+            },{                
+                xtype: 'button',
+                iconCls : 'icon-word',
+                text: 'EXPORTAR TXT',
+                action:'exporttxt'
             },'->',{
                 xtype: 'combo',
                 align: 'center',
