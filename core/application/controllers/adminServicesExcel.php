@@ -56,6 +56,8 @@ class AdminServicesExcel extends CI_Controller {
         echo ";";
         echo "CODIGO";
         echo ";";
+        echo "NOMBRE PRODUCTO";
+        echo ";";
         echo "PRECIO";
         echo ";";
         echo "CANTIDAD";
@@ -96,7 +98,8 @@ class AdminServicesExcel extends CI_Controller {
             $id = $v->id;
 
             
-            $query2 = $this->db->query('SELECT acc.*, c.codigo as codigo
+            $query2 = $this->db->query('SELECT acc.*, c.codigo as codigo,
+            c.nombre as nom_producto
             FROM detalle_factura_cliente acc
             left join productos c on (acc.id_producto = c.id)
             WHERE acc.id_factura = "'.$id.'"');                     
@@ -139,6 +142,8 @@ class AdminServicesExcel extends CI_Controller {
             echo $total;   
             echo ";";
             echo $z->codigo;
+            echo ";";
+            echo $z->nom_producto;
             echo ";";
             echo $z->precio;
             echo ";";
