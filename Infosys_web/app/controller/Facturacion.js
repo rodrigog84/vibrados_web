@@ -249,6 +249,11 @@ Ext.define('Infosys_web.controller.Facturacion', {
             }, 
 
 
+            'librocompraventa': {
+                verEstadoDte: this.verEstadoDte
+            }, 
+
+
             'dteproveeprincipal': {
                 verxmlprovee: this.verxmlprovee
             },  
@@ -510,7 +515,9 @@ Ext.define('Infosys_web.controller.Facturacion', {
         }else if(t == 5){
              url = preurl + 'facturas/ver_dte/'+r.data.id+'/cliente',
              window.open(url,'_blank');   
-         }   
+         }else if(t == 6){
+            Ext.create('Infosys_web.view.facturaelectronica.verEstadoEnvioLibro', {idlibro: r.data.id});                          
+        }  
     },
 
 

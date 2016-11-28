@@ -104,15 +104,16 @@ class Facturaelectronica extends CI_Model
 
 	 }
 
-	 public function log_libros($start = null,$limit = null){
+	 public function log_libros($start = null,$limit = null,$estado = null){
 
 	 	$countAll = $this->db->count_all_results('log_libros');
-		$data = $this->db->select('id, mes, anno, tipo_libro, archivo, date_format(created_at,"%d/%m/%Y") as fecha_creacion',false)
+		$data = $this->db->select('id, mes, anno, tipo_libro, archivo, date_format(fecha_solicita,"%d/%m/%Y %H:%i:%s") as fecha_solicita, date_format(fecha_procesa,"%d/%m/%Y %H:%i:%s") as fecha_creacion, estado',false)
 		  ->from('log_libros')
 		  ->order_by('anno','desc')
 		  ->order_by('mes','desc');
 
 		$data = is_null($start) || is_null($limit) ? $data : $data->limit($limit,$start);
+		$data = is_null($estado) ? $data : $data->where('estado',$estado);		
 		$query = $this->db->get();
 		return array('total' => $countAll, 'data' => $query->result());
 
@@ -128,11 +129,12 @@ class Facturaelectronica extends CI_Model
 
 
 	public function datos_dte_periodo($mes,$anno){
-		$this->db->select('f.folio, f.path_dte, f.archivo_dte, f.dte, f.pdf, f.pdf_cedible, f.trackid, c.tipo_caf, tc.nombre as tipo_doc ')
+		$this->db->select("f.folio, f.path_dte, f.archivo_dte, f.dte, f.pdf, f.pdf_cedible, f.trackid, c.tipo_caf, tc.nombre as tipo_doc, fc.fecha_factura, concat(left(cl.rut,length(cl.rut)-1),'-',right(cl.rut,1)) as rut, cl.nombres, fc.neto, fc.iva, fc.totalfactura ",false)
 		  ->from('folios_caf f')
 		  ->join('caf c','f.idcaf = c.id')
 		  ->join('tipo_caf tc','c.tipo_caf = tc.id')
 		  ->join('factura_clientes fc','f.idfactura = fc.id','left')
+		  ->join('clientes cl','fc.id_cliente = cl.id','left')
 		  //->where('left(fc.fecha_factura,7)',$anno."-".$mes);
 		  ->where('left(f.updated_at,7)',$anno."-".$mes) //AUN TENEMOS FACTURAS QUE NO SE EMITEN POR EL SISTEMA
 		  ->where('f.estado','O');
@@ -168,14 +170,33 @@ class Facturaelectronica extends CI_Model
 						'mes' => $mes,
 						'anno' => $anno,
 						'tipo_libro' => $tipo,
+						'trackid' => 0,
+						'fecha_solicita' => date("Y-m-d H:i:s"),
 						'archivo' => $archivo
 						);
 
 		$this->db->insert('log_libros',$array_insert); 
-		return true;
+		return $this->db->insert_id();
 	}
 
 
+	public function genera_libro($id_libro,$tipo,$archivo,$xml_libro){
+		$array_update = array(
+					'estado' => 'G',
+					'fecha_procesa' => date("Y-m-d H:i:s"),
+					'archivo' => $archivo,
+					'xml_libro' => $xml_libro
+					);
+
+	    $this->db->where('id', $id_libro);
+		$this->db->update('log_libros',$array_update); 
+
+
+
+
+		//$this->db->insert('log_libros',$array_insert); 
+		return true;
+	}
 
 	public function get_empresa_factura($id_factura){
 
@@ -248,12 +269,19 @@ class Facturaelectronica extends CI_Model
 
 
 	public function get_libro_by_id($idlibro){
-		$this->db->select('id, mes, anno, tipo_libro, archivo, created_at ')
+		$this->db->select('id, mes, anno, tipo_libro, archivo, date_format(fecha_solicita,"%d/%m/%Y %H:%i:%s") as fecha_solicita, date_format(fecha_procesa,"%d/%m/%Y %H:%i:%s") as fecha_creacion, estado, trackid, xml_libro, created_at',false)
 		  ->from('log_libros')
 		  ->where('id',$idlibro);
 		$query = $this->db->get();
 		return $query->row();
-	}	
+	}
+
+
+	 public function put_trackid_libro($idlibro,$trackid){
+		  $this->db->where('id',$idlibro);
+		  $this->db->update('log_libros',array('trackid' => $trackid));
+		return 1;
+	 }		
 
 	public function datos_dte_by_trackid($trackid){
 		$this->db->select('f.id, f.folio, f.path_dte, f.archivo_dte, f.dte, f.pdf, f.pdf_cedible, f.trackid, c.tipo_caf, tc.nombre as tipo_doc, cae.nombre as giro, cp.nombre as cond_pago, v.nombre as vendedor    ')
