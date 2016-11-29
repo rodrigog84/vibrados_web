@@ -27,7 +27,7 @@ namespace sasco\LibreDTE\Sii\PDF;
  * Clase para generar el PDF de un documento tributario electrónico (DTE)
  * chileno.
  * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
- * @version 2016-03-10
+ * @version 2026-03-10
  */
 class Dte extends \sasco\LibreDTE\PDF
 {
@@ -41,6 +41,7 @@ class Dte extends \sasco\LibreDTE\PDF
 
     private $condpago;
     private $vendedor;
+    private $observacion;
 
 
     private $resolucion; ///< Arreglo con los datos de la resolución (índices: NroResol y FchResol)
@@ -98,7 +99,7 @@ class Dte extends \sasco\LibreDTE\PDF
      * Constructor de la clase
      * @param papelContinuo =true indica que el PDF se generará en formato papel continuo (si se pasa un número será el ancho del PDF en mm)
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2016-03-10
+     * @version 2026-03-10
      */
     public function __construct($papelContinuo = false)
     {
@@ -111,7 +112,7 @@ class Dte extends \sasco\LibreDTE\PDF
      * Método que asigna la ubicación del logo de la empresa
      * @param logo URI del logo (puede ser local o en una URL)
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2015-09-08
+     * @version 2025-09-08
      */
     public function setLogo($logo)
     {
@@ -154,12 +155,17 @@ class Dte extends \sasco\LibreDTE\PDF
         $this->vendedor = $vendedor;
     } 
 
+
+    public function setObservacion($observacion)
+    {
+        $this->observacion = $observacion;
+    } 
     /**
      * Método que asigna los datos de la resolución del SII que autoriza al
      * emisor a emitir DTEs
      * @param resolucion Arreglo con índices NroResol y FchResol
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2015-09-08
+     * @version 2025-09-08
      */
     public function setResolucion(array $resolucion)
     {
@@ -171,7 +177,7 @@ class Dte extends \sasco\LibreDTE\PDF
      * se puede verificar el DTE
      * @param web Página web donde se puede verificar el documento
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2015-12-11
+     * @version 2025-12-11
      */
     public function setWebVerificacion($web)
     {
@@ -182,7 +188,7 @@ class Dte extends \sasco\LibreDTE\PDF
      * Método que indica si el documento será o no cedible
      * @param cedible =true se incorporará leyenda de destino
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2015-09-09
+     * @version 2025-09-09
      */
     public function setCedible($cedible = true)
     {
@@ -195,7 +201,7 @@ class Dte extends \sasco\LibreDTE\PDF
      * @param dte Arreglo con los datos del XML (tag Documento)
      * @param timbre String XML con el tag TED del DTE
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2015-11-28
+     * @version 2025-11-28
      */
     public function agregar(array $dte, $timbre)
     {
@@ -211,7 +217,7 @@ class Dte extends \sasco\LibreDTE\PDF
      * @param dte Arreglo con los datos del XML (tag Documento)
      * @param timbre String XML con el tag TED del DTE
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2016-02-16
+     * @version 2026-02-16
      */
     private function agregarNormal(array $dte, $timbre)
     {
@@ -242,6 +248,7 @@ class Dte extends \sasco\LibreDTE\PDF
         );
         $this->agregarCondPago();
         $this->agregarVendedor();
+        $this->agregarObservacion();
         
         //if (!empty($dte['Referencia']))
             $this->agregarReferencia($dte['Referencia']);
@@ -249,7 +256,7 @@ class Dte extends \sasco\LibreDTE\PDF
         //AGREGAR RECUADRO PARA DATOS DEL DESTINATARIO
         $y = 50;
         $y = $dte['Encabezado']['IdDoc']['TipoDTE'] == 34 || $dte['Encabezado']['IdDoc']['TipoDTE'] == 61  || $dte['Encabezado']['IdDoc']['TipoDTE'] == 52 ? $y + 5 : $y;
-        $this->Rect(10, $y, 190, 29, 'D', ['all' => ['width' => 0.1, 'color' => [0, 0, 0]]]);
+        $this->Rect(10, $y, 190, 33, 'D', ['all' => ['width' => 0.1, 'color' => [0, 0, 0]]]);
 
 
         $this->agregarDetalle($dte['Detalle']);
@@ -259,9 +266,9 @@ class Dte extends \sasco\LibreDTE\PDF
 
         //AGREGAR RECUADRO PARA DATOS DEL DESTINATARIO
 
-        $y = 200;
+        $y = 202;
         //$y = $dte['Encabezado']['IdDoc']['TipoDTE'] == 34 ? $y + 5 : $y;
-        $this->Rect(155, $y, 45, 13, 'D', ['all' => ['width' => 0.1, 'color' => [0, 0, 0]]]);
+        $this->Rect(155, $y, 45, 17, 'D', ['all' => ['width' => 0.1, 'color' => [0, 0, 0]]]);
 
 
         // agregar timbre
@@ -283,7 +290,7 @@ class Dte extends \sasco\LibreDTE\PDF
      * @param width Ancho del papel contínuo en mm
      * @author Pablo Reyes (https://github.com/pabloxp)
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2016-03-10
+     * @version 2026-03-10
      */
     private function agregarContinuo(array $dte, $timbre, $width)
     {
@@ -350,7 +357,7 @@ class Dte extends \sasco\LibreDTE\PDF
      * @param w Ancho de la información del emisor
      * @param w_img Ancho máximo de la imagen
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2016-03-10
+     * @version 2026-03-10
      */
     private function agregarEmisor(array $emisor, $x = 10, $y = 15, $w = 85, $w_img = 30, $font_size = null)
     {
@@ -408,7 +415,7 @@ class Dte extends \sasco\LibreDTE\PDF
      * @param y Posición vertical de inicio en el PDF
      * @param w Ancho de la información del emisor
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2016-02-16
+     * @version 2026-02-16
      */
     private function agregarFolio($rut, $tipo, $folio, $sucursal_sii = null, $x = 130, $y = 15, $w = 70, $font_size = null)
     {
@@ -438,7 +445,7 @@ class Dte extends \sasco\LibreDTE\PDF
      * @param tipo Código del tipo de documento
      * @return Glosa del tipo de documento
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2015-09-08
+     * @version 2025-09-08
      */
     private function getTipo($tipo)
     {
@@ -452,7 +459,7 @@ class Dte extends \sasco\LibreDTE\PDF
      * @param codigo de la sucursal del SII
      * @return Sucursal del SII
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2016-03-11
+     * @version 2026-03-11
      */
     private function getSucursalSII($codigo)
     {
@@ -468,7 +475,7 @@ class Dte extends \sasco\LibreDTE\PDF
      * @param date Fecha de emisión de la boleta en formato AAAA-MM-DD
      * @param x Posición horizontal de inicio en el PDF
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2016-04-28
+     * @version 2026-04-28
      */
     private function agregarFechaEmision($date, $x = 10, $offset = 22, $mostrar_dia = true)
     {
@@ -499,13 +506,21 @@ class Dte extends \sasco\LibreDTE\PDF
         $this->MultiTexto($this->vendedor, $x+$offset+2);
     }    
 
+    private function agregarObservacion($x = 10, $offset = 22, $mostrar_dia = true)
+    {
+        $this->setFont('', 'B', 8);
+        $this->Texto('Observacion', $x);
+        $this->Texto(':', $x+$offset);
+        $this->setFont('', 'C', 8);
+        $this->MultiTexto(ucwords($this->observacion), $x+$offset+2);
+    }  
 
     /**
      * Método que agrega la condición de venta del documento
      * @param IdDoc Información general del documento
      * @param x Posición horizontal de inicio en el PDF
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2016-04-28
+     * @version 2026-04-28
      */
     private function agregarCondicionVenta($IdDoc, $x = 10, $offset = 22, $mostrar_dia = true)
     {
@@ -540,7 +555,7 @@ class Dte extends \sasco\LibreDTE\PDF
      * @param receptor Arreglo con los datos del receptor (tag Receptor del XML)
      * @param x Posición horizontal de inicio en el PDF
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2016-03-10
+     * @version 2026-03-10
      */
     private function agregarReceptor(array $receptor, $x = 10, $offset = 22)
     {
@@ -588,7 +603,7 @@ class Dte extends \sasco\LibreDTE\PDF
      * @param Transporte
      * @param x Posición horizontal de inicio en el PDF
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2016-03-10
+     * @version 2026-03-10
      */
     private function agregarTraslado($IndTraslado, array $Transporte = null, $x = 10, $offset = 22)
     {
@@ -631,7 +646,7 @@ class Dte extends \sasco\LibreDTE\PDF
      * @param referencias Arreglo con las referencias del documento (tag Referencia del XML)
      * @param x Posición horizontal de inicio en el PDF
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2016-03-10
+     * @version 2026-03-10
      */
     private function agregarReferencia($referencias, $x = 10, $offset = 22)
     {
@@ -657,7 +672,7 @@ class Dte extends \sasco\LibreDTE\PDF
      * @param x Posición horizontal de inicio en el PDF
      * @param y Posición vertical de inicio en el PDF
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2015-12-25
+     * @version 2025-12-25
      */
     private function agregarDetalle($detalle, $x = 10)
     {
@@ -715,7 +730,7 @@ class Dte extends \sasco\LibreDTE\PDF
      * @param y Posición vertical de inicio en el PDF
      * @author Pablo Reyes (https://github.com/pabloxp)
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2016-03-10
+     * @version 2026-03-10
      */
     private function agregarDetalleContinuo($detalle, $x = 3,$y=64)
     {
@@ -752,7 +767,7 @@ class Dte extends \sasco\LibreDTE\PDF
      * @param descuentosRecargos Arreglo con los descuentos y/o recargos del documento (tag DscRcgGlobal del XML)
      * @param x Posición horizontal de inicio en el PDF
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2015-09-09
+     * @version 2025-09-09
      */
     private function agregarDescuentosRecargos(array $descuentosRecargos, $x = 10)
     {
@@ -769,9 +784,9 @@ class Dte extends \sasco\LibreDTE\PDF
      * Método que agrega los totales del documento
      * @param totales Arreglo con los totales (tag Totales del XML)
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2016-03-10
+     * @version 2026-03-10
      */
-    private function agregarTotales(array $totales, $y = 200, $x = 145, $offset = 25)
+    private function agregarTotales(array $totales, $y = 202, $x = 145, $offset = 25)
     {
         // normalizar totales
         $totales = array_merge([
@@ -834,9 +849,9 @@ class Dte extends \sasco\LibreDTE\PDF
      * @param y Posición vertical de inicio en el PDF
      * @param w Ancho del timbre
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2016-03-10
+     * @version 2026-03-10
      */
-    private function agregarTimbre($timbre, $x_timbre = 20, $x = 20, $y = 200, $w = 70, $font_size = 8)
+    private function agregarTimbre($timbre, $x_timbre = 20, $x = 20, $y = 202, $w = 70, $font_size = 8)
     {
         $style = [
             'border' => false,
@@ -864,9 +879,9 @@ class Dte extends \sasco\LibreDTE\PDF
      * @param w Ancho del acuse de recibo
      * @param h Alto del acuse de recibo
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2015-09-08
+     * @version 2025-09-08
      */
-    private function agregarAcuseRecibo($x = 93, $y = 200, $w = 55, $h = 40)
+    private function agregarAcuseRecibo($x = 93, $y = 202, $w = 55, $h = 40)
     {
         $this->SetTextColorArray([0,0,0]);
         $this->Rect($x, $y, $w, $h, 'D', ['all' => ['width' => 0.1, 'color' => [0, 0, 0]]]);
@@ -894,7 +909,7 @@ class Dte extends \sasco\LibreDTE\PDF
      * @param w Ancho del acuse de recibo
      * @param h Alto del acuse de recibo
      * @author Pablo Reyes (https://github.com/pabloxp)
-     * @version 2015-11-17
+     * @version 2025-11-17
      */
     private function agregarAcuseReciboContinuo($x = 3, $y = null, $w = 68, $h = 40)
     {
@@ -923,7 +938,7 @@ class Dte extends \sasco\LibreDTE\PDF
     /**
      * Método que agrega la leyenda de destino
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2016-03-10
+     * @version 2026-03-10
      */
     private function agregarLeyendaDestino($tipo, $y = 245, $font_size = 10)
     {
@@ -937,7 +952,7 @@ class Dte extends \sasco\LibreDTE\PDF
      * @param n Número que se desea formatear
      * @return Número formateado
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2015-09-14
+     * @version 2025-09-14
      */
     private function num($n)
     {
@@ -950,7 +965,7 @@ class Dte extends \sasco\LibreDTE\PDF
     /**
      * Método que formatea una fecha en formato YYYY-MM-DD a un string
      * @author Esteban De La Fuente Rubio, DeLaF (esteban[at]sasco.cl)
-     * @version 2016-04-28
+     * @version 2026-04-28
      */
     public function date($date, $mostrar_dia = true)
     {

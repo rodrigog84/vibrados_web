@@ -178,7 +178,7 @@ class Notacredito extends CI_Controller {
 	        'fecha_factura' => $fechafactura,
 	        'id_factura' => $numfactura_asoc,
 	        'fecha_venc' => $fechavenc,
-	        'observacion' => $observacion,
+	        'observacion' => addslashes($observacion),
 	        'forma' => 1,
 	          
 		);
@@ -580,7 +580,7 @@ class Notacredito extends CI_Controller {
 	        'fecha_factura' => $fechafactura,
 	        'id_factura' => $numfactura,
 	        'fecha_venc' => $fechavenc,
-	        'observacion' => $observacion
+	        'observacion' => addslashes($observacion)
 	          
 		);
 		$this->db->insert('factura_clientes', $factura_cliente); 
