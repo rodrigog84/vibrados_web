@@ -231,6 +231,7 @@ Ext.define('Infosys_web.controller.Notacredito', {
         var totalfactura= valorneto + valoriva;
         var tiponc = viewIngresa.down('#tipoNotaCredito').getValue();        
         var fechavenc = viewIngresa.down('#fechavencId').getValue();
+        var observacion = viewIngresa.down('#observacion').getValue();
         var stItem = this.getNotacreditoItemsStore();
         var stnotacredito = this.getNotacreditoStore();
         var glosa= "";
@@ -270,7 +271,8 @@ Ext.define('Infosys_web.controller.Notacredito', {
                 netofactura: viewIngresa.down('#finaltotalnetoId').getValue(),
                 ivafactura: viewIngresa.down('#finaltotalivaId').getValue(),
                 afectofactura: viewIngresa.down('#finalafectoId').getValue(),
-                totalfacturas: totalfactura
+                totalfacturas: totalfactura,
+                observacion : observacion
             },
              success: function(response){
                 var resp = Ext.JSON.decode(response.responseText);
@@ -1349,6 +1351,7 @@ Ext.define('Infosys_web.controller.Notacredito', {
         var netofactura = viewIngresa.down('#finaltotalnetoId').getValue();
         var ivafactura =  viewIngresa.down('#finaltotalivaId').getValue();
         var afectofactura = viewIngresa.down('#finalafectoId').getValue();
+        var observacion = viewIngresa.down('#observacion').getValue();
         var totalfactura = ( netofactura + ivafactura );       
 
 
@@ -1393,7 +1396,8 @@ Ext.define('Infosys_web.controller.Notacredito', {
                 ivafactura: viewIngresa.down('#finaltotalivaId').getValue(),
                 afectofactura: viewIngresa.down('#finalafectoId').getValue(),
                 totalfacturas: totalfactura,
-                tipo_nota_credito : tipo_nota_credito
+                tipo_nota_credito : tipo_nota_credito,
+                observacion : observacion
             },
              success: function(response){
                 var resp = Ext.JSON.decode(response.responseText);

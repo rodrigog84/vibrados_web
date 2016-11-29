@@ -35,6 +35,7 @@ class Notacredito extends CI_Controller {
 		$tiponc = $this->input->post('tiponc');
 
 		$tiponc = $this->input->post('tiponc');
+		$observacion = $this->input->post('observacion');
 		//$tipodocumento = 11;
 
 		if ($tiponc==3){
@@ -177,6 +178,7 @@ class Notacredito extends CI_Controller {
 	        'fecha_factura' => $fechafactura,
 	        'id_factura' => $numfactura_asoc,
 	        'fecha_venc' => $fechavenc,
+	        'observacion' => $observacion,
 	        'forma' => 1,
 	          
 		);
@@ -439,6 +441,7 @@ class Notacredito extends CI_Controller {
 		
 		$resp = array();
 
+
 		$numfactura_asoc = $this->input->post('numfactura_asoc'); //ID OBTENIDO PARA REBAJAR EN CUENTA CORRIENTE
 
 		$idcliente = $this->input->post('idcliente');
@@ -447,7 +450,7 @@ class Notacredito extends CI_Controller {
 		$idfactura = $this->input->post('idfactura');
 		$fechafactura = $this->input->post('fechafactura');
 		$fechavenc = $this->input->post('fechavenc');
-		$vendedor = $this->input->post('vendedor');
+		$vendedor = $this->input->post('idvendedor');
 		$datacliente = json_decode($this->input->post('datacliente'));
 		$items = json_decode($this->input->post('items'));
 		$neto = $this->input->post('netofactura');
@@ -456,6 +459,7 @@ class Notacredito extends CI_Controller {
 		$ftotal = $this->input->post('totalfacturas');
 		$tipodocumento = $this->input->post('tipodocumento');
 		$id_cond_venta = $this->input->post('idcondventa');
+		$observacion = $this->input->post('observacion');
 		$idpago = 11;
 		$corr = 6;
 		$idcondventa = 1;
@@ -575,7 +579,8 @@ class Notacredito extends CI_Controller {
 	        'totalfactura' => $ftotal,
 	        'fecha_factura' => $fechafactura,
 	        'id_factura' => $numfactura,
-	        'fecha_venc' => $fechavenc
+	        'fecha_venc' => $fechavenc,
+	        'observacion' => $observacion
 	          
 		);
 		$this->db->insert('factura_clientes', $factura_cliente); 

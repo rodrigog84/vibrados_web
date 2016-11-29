@@ -19,7 +19,7 @@ Ext.define('Infosys_web.view.notacredito.Notacredito', {
     ],
 
     autoShow: true,
-    height: 640,
+    height: 680,
     width: 1200,
     layout: 'fit',
     title: 'Notas de Credito',
@@ -322,7 +322,7 @@ Ext.define('Infosys_web.view.notacredito.Notacredito', {
                                             //disabled : true, 
                                         }
                                     ]
-                                    },,{
+                                    },{
                                     xtype: 'fieldcontainer',
                                     height: 30,
                                     width: 462,
@@ -346,15 +346,15 @@ Ext.define('Infosys_web.view.notacredito.Notacredito', {
                                             xtype: 'textfield',
                                             fieldCls: 'required',
                                             itemId: 'numfactId',
-                                            labelWidth: 70,
+                                            //labelWidth: 70,
                                             name : 'num_fact',
                                             maxHeight: 25,
-                                            width: 210,
+                                            width: 170,
                                             fieldLabel: '<b>FACTURA</b>'
                                         },{
                                             xtype: 'displayfield',
                                             flex: 1,
-                                            maxWidth: 25
+                                            maxWidth: 10
                                             
                                         },{
                                             xtype: 'textfield',
@@ -363,7 +363,7 @@ Ext.define('Infosys_web.view.notacredito.Notacredito', {
                                             name : 'tot_fact',
                                             maxHeight: 25,
                                             labelWidth: 50,
-                                            width: 210,
+                                            width: 170,
                                             //readOnly: true,
                                             labelAlign: 'rigth',
                                             //disabled : true,                                            
@@ -380,11 +380,11 @@ Ext.define('Infosys_web.view.notacredito.Notacredito', {
                                             //,disabled : true  
                                         },{xtype: 'splitter'},{
                                             xtype: 'combobox',
-                                            width: 400,
+                                            width: 300,
                                             store : tipoNotaCredito,
-                                            fieldLabel: 'TIPO NOTA DE CR&Eacute;DITO',
+                                            fieldLabel: 'TIPO DOCTO.',
                                             labelStyle: ' font-weight:bold',
-                                            labelWidth: 200,
+                                            labelWidth: 90,
                                             emptyText : 'Seleccionar',
                                             editable: false,
                                             itemId : 'tipoNotaCredito' ,
@@ -472,7 +472,19 @@ Ext.define('Infosys_web.view.notacredito.Notacredito', {
 
                                                     }
                                                 }                                            
-                                        }
+                                        },
+                                        {
+                                            xtype: 'textfield',
+                                            itemId: 'observacion',
+                                            name : 'observacion',
+                                            maxHeight: 25,
+                                            labelWidth: 60,
+                                            width: 430,
+                                            //readOnly: true,
+                                            labelAlign: 'rigth',
+                                            //disabled : true,                                            
+                                            fieldLabel: '<b>OBSERV.</b>',
+                                        }                                        
                                     ]
                                     },{
                     xtype: 'fieldset',

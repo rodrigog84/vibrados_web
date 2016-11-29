@@ -333,12 +333,12 @@ Ext.define('Infosys_web.view.notacredito.Notacreditoglosa', {
                                             labelWidth: 70,
                                             name : 'num_fact',
                                             maxHeight: 25,
-                                            width: 210,
+                                            width: 170,
                                             fieldLabel: '<b>FACTURA</b>'
                                         },{
                                             xtype: 'displayfield',
                                             flex: 1,
-                                            maxWidth: 25
+                                            maxWidth: 10
                                             
                                         },{
                                             xtype: 'textfield',
@@ -347,7 +347,7 @@ Ext.define('Infosys_web.view.notacredito.Notacreditoglosa', {
                                             name : 'tot_fact',
                                             maxHeight: 25,
                                             labelWidth: 50,
-                                            width: 210,
+                                            width: 170,
                                             //readOnly: true,
                                             labelAlign: 'rigth',
                                             //disabled : true,                                            
@@ -364,11 +364,11 @@ Ext.define('Infosys_web.view.notacredito.Notacreditoglosa', {
                                             //,disabled : true  
                                         },{xtype: 'splitter'},{
                                             xtype: 'combobox',
-                                            width: 400,
+                                            width: 300,
                                             store : tipoNotaCredito,
-                                            fieldLabel: 'TIPO NOTA DE CR&Eacute;DITO',
+                                            fieldLabel: 'TIPO DOCTO.',
                                             labelStyle: ' font-weight:bold',
-                                            labelWidth: 200,
+                                            labelWidth: 90,
                                             maxHeight: 25,
                                             emptyText : 'Seleccionar',
                                             editable: false,
@@ -379,7 +379,19 @@ Ext.define('Infosys_web.view.notacredito.Notacreditoglosa', {
                                             valueField : 'value',
                                             //disabled : true,
                                             
-                                            }
+                                            },
+                                        {
+                                            xtype: 'textfield',
+                                            itemId: 'observacion',
+                                            name : 'observacion',
+                                            maxHeight: 25,
+                                            labelWidth: 60,
+                                            width: 430,
+                                            //readOnly: true,
+                                            labelAlign: 'rigth',
+                                            //disabled : true,                                            
+                                            fieldLabel: '<b>OBSERV.</b>',
+                                        } 
                                     ]
                                     },{
                     xtype: 'fieldset',
