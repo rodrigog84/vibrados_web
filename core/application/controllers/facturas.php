@@ -349,6 +349,8 @@ class Facturas extends CI_Controller {
 	public function genera_libro(){
 		// respuesta en texto plano
 		header('Content-type: text/plain; charset=ISO-8859-1');
+
+		$tipocarga = $this->input->post('tipocarga');
 		$tipo_libro = $this->input->post('tipo_libro') == 'compras' ? 'COMPRA' : 'VENTA';
 		$mes = $this->input->post('mes');
 		$anno = $this->input->post('anno');
@@ -367,23 +369,63 @@ class Facturas extends CI_Controller {
 			exit;
 		}
 
+		if($tipocarga == 'sis'){
+				if($tipo_libro == 'VENTA'){
+					$lista_facturas = $this->facturaelectronica->datos_dte_periodo($mes,$anno);
+				}else{ // COMPRAS
+					$lista_facturas = $this->facturaelectronica->datos_dte_proveedores_periodo($mes,$anno);
+				}
 
-		if($tipo_libro == 'VENTA'){
-			$lista_facturas = $this->facturaelectronica->datos_dte_periodo($mes,$anno);
-		}else{ // COMPRAS
-			$lista_facturas = $this->facturaelectronica->datos_dte_proveedores_periodo($mes,$anno);
+				//NO TIENE MOVIMIENTOS
+				if(count($lista_facturas) == 0){
+
+					$result['success'] = true;
+					$result['valido'] = false;
+					$result['message'] = "No existen movimientos";
+					echo json_encode($result);
+					exit;
+				}
+
+
+
+				$lineas_archivo = array();
+
+				
+				$array_titulos = array('TpoDoc','NroDoc','TasaImp','FchDoc','CdgSIISucur','RUTDoc','RznSoc','MntExe','MntNeto','MntIVA','CodImp','TasaImp','MntImp','MntTotal');
+
+
+				$fp = fopen('./facturacion_electronica/tmp/libro.csv', 'w');
+				fputcsv($fp, $array_titulos,";");
+
+
+				// generar cada DTE y agregar su resumen al detalle del libro
+				foreach ($lista_facturas as $factura) {
+					$lineas_archivo = array(
+											$factura->tipo_caf,
+											$factura->folio,
+											$factura->tipo_caf == 34 ? 0 : 19,
+											$factura->fecha_factura,
+											'',
+											$factura->rut,
+											substr($factura->nombres,0,100),
+											$factura->tipo_caf == 34 ? $factura->neto : '',
+											$factura->tipo_caf == 34 ? '' : $factura->neto,
+											$factura->tipo_caf == 34 ? '' : $factura->iva,
+											'',
+											'',
+											'',
+											$factura->totalfactura
+										);
+					fputcsv($fp, $lineas_archivo,";");
+
+				}
+				fclose($fp);
+
+		}else if($tipocarga == 'csv'){
+
+
+			
 		}
-
-		//NO TIENE MOVIMIENTOS
-		if(count($lista_facturas) == 0){
-
-			$result['success'] = true;
-			$result['valido'] = false;
-			$result['message'] = "No existen movimientos";
-			echo json_encode($result);
-			exit;
-		}
-
 		//$datos_dte = $this->datos_dte($idfactura);
 		$config = $this->facturaelectronica->genera_config();
 		include $this->facturaelectronica->ruta_libredte();		
@@ -412,39 +454,6 @@ class Facturas extends CI_Controller {
 		    //'FolioNotificacion' => 102006,
 		];
 
-
-		$lineas_archivo = array();
-
-		
-		$array_titulos = array('TpoDoc','NroDoc','TasaImp','FchDoc','CdgSIISucur','RUTDoc','RznSoc','MntExe','MntNeto','MntIVA','CodImp','TasaImp','MntImp','MntTotal');
-
-
-		$fp = fopen('./facturacion_electronica/tmp/libro.csv', 'w');
-		fputcsv($fp, $array_titulos,";");
-
-
-		// generar cada DTE y agregar su resumen al detalle del libro
-		foreach ($lista_facturas as $factura) {
-			$lineas_archivo = array(
-									$factura->tipo_caf,
-									$factura->folio,
-									$factura->tipo_caf == 34 ? 0 : 19,
-									$factura->fecha_factura,
-									'',
-									$factura->rut,
-									substr($factura->nombres,0,100),
-									$factura->tipo_caf == 34 ? $factura->neto : '',
-									$factura->tipo_caf == 34 ? '' : $factura->neto,
-									$factura->tipo_caf == 34 ? '' : $factura->iva,
-									'',
-									'',
-									'',
-									$factura->totalfactura
-								);
-			fputcsv($fp, $lineas_archivo,";");
-
-		}
-		fclose($fp);
 
 		$LibroCompraVenta->agregarVentasCSV('./facturacion_electronica/tmp/libro.csv');
 

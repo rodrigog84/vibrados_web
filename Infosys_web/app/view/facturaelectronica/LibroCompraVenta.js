@@ -38,6 +38,13 @@ Ext.define('Infosys_web.view.facturaelectronica.LibroCompraVenta' ,{
             ]
         });
 
+         var tipocarga = Ext.create('Ext.data.Store', {
+            fields: ['value', 'nombre'],
+            data : [
+                {"value":'sis', "nombre":"Datos Sistema"},
+                {"value":'csv', "nombre":"Datos Csv"}
+            ]
+        });
 
          var annos = Ext.create('Ext.data.Store', {
             fields: ['anno'],
@@ -73,7 +80,43 @@ Ext.define('Infosys_web.view.facturaelectronica.LibroCompraVenta' ,{
                 border: false,
                 frame: true,
                 style: 'background-color: #fff;',
-                items: [
+                items: [{
+                            xtype: 'combobox',
+                            width: 500,
+                            store : tipocarga,
+                            fieldLabel: 'Tipo Carga',
+                            labelStyle: ' font-weight:bold',
+                            labelWidth: 200,
+                            emptyText : 'Seleccionar',
+                            editable: false,
+                            itemId : 'tipocarga' ,
+                            name : 'tipocarga' ,
+                            forceSelection: true, 
+                            allowBlank : false,
+                            displayField : 'nombre',
+                            valueField : 'value',
+                            value : 'sis',
+
+                           listeners: {
+                               select:{
+                                   fn:function(combo, value) {
+                                      var val_sel = value[0].data.value;
+                                      if(val_sel == 'csv'){
+                                        me.down('#form-file').setDisabled(false);
+                                        me.down('#form-file').validateBlank(true);
+                                        
+                                      }else{
+                                        me.down('#form-file').setValue('');
+                                        me.down('#form-file').setDisabled(true);
+                                        me.down('#form-file').validateBlank(true);
+                                      }
+                                      
+                                   }
+                               },
+                               scope: me
+                           }                   
+
+                    },
                 {
                             xtype: 'combobox',
                             width: 500,
@@ -122,6 +165,27 @@ Ext.define('Infosys_web.view.facturaelectronica.LibroCompraVenta' ,{
                             allowBlank : false,
                             displayField : 'anno',
                             valueField : 'anno'                            
+
+                    },{
+                            xtype: 'filefield',
+                            id: 'form-file',
+                            width: 500,
+                            emptyText: 'csv .csv',
+                            fieldLabel: 'Archivo csv',
+                            labelStyle: ' font-weight:bold',
+                            labelWidth: 200,
+                            name: 'csv',
+                            allowBlank : true,
+                            buttonText: 'Examinar',
+                            disabled : true,
+                            forceSelection: true, 
+                            listeners:{
+                                afterrender:function(cmp){
+                                  cmp.fileInputEl.set({
+                                    accept:'.csv' // or w/e type
+                                  });
+                                }
+                            }                            
 
                     },{
                         xtype: 'toolbar',
