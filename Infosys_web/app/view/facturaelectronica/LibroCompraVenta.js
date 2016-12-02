@@ -1,7 +1,6 @@
 Ext.define('Infosys_web.view.facturaelectronica.LibroCompraVenta' ,{
     extend: 'Ext.form.Panel',
     alias : 'widget.librocompraventa',
-    
     requires: ['Ext.form.Panel','Ext.toolbar.Paging'],
     title : 'Libros de Compra/Venta',
     autoHeight: false,
@@ -103,12 +102,12 @@ Ext.define('Infosys_web.view.facturaelectronica.LibroCompraVenta' ,{
                                       var val_sel = value[0].data.value;
                                       if(val_sel == 'csv'){
                                         me.down('#form-file').setDisabled(false);
-                                        me.down('#form-file').validateBlank(true);
+                                        //me.down('#form-file').validateBlank(true);
                                         
                                       }else{
                                         me.down('#form-file').setValue('');
                                         me.down('#form-file').setDisabled(true);
-                                        me.down('#form-file').validateBlank(true);
+                                       // me.down('#form-file').validateBlank(true);
                                       }
                                       
                                    }

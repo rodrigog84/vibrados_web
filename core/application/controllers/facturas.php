@@ -350,6 +350,11 @@ class Facturas extends CI_Controller {
 		// respuesta en texto plano
 		header('Content-type: text/plain; charset=ISO-8859-1');
 
+
+		if(!file_exists('./facturacion_electronica/tmp/')){
+			mkdir('./facturacion_electronica/tmp/',0777,true);
+		}	
+
 		$tipocarga = $this->input->post('tipocarga');
 		$tipo_libro = $this->input->post('tipo_libro') == 'compras' ? 'COMPRA' : 'VENTA';
 		$mes = $this->input->post('mes');
@@ -358,6 +363,8 @@ class Facturas extends CI_Controller {
 		$this->load->model('facturaelectronica');
 
 		$existe = $this->facturaelectronica->valida_existe_libro($mes,$anno,$tipo_libro);
+
+
 
 		// LIBRO YA FUE EMITIDO
 		if($existe){
@@ -369,11 +376,20 @@ class Facturas extends CI_Controller {
 			exit;
 		}
 
+
+		$nombre_archivo_csv = "LIBRO_".$tipo_libro."_".$anno.$mes.".csv";
+
 		if($tipocarga == 'sis'){
 				if($tipo_libro == 'VENTA'){
 					$lista_facturas = $this->facturaelectronica->datos_dte_periodo($mes,$anno);
 				}else{ // COMPRAS
-					$lista_facturas = $this->facturaelectronica->datos_dte_proveedores_periodo($mes,$anno);
+
+					$result['success'] = true;
+					$result['valido'] = false;
+					$result['message'] = "Esta opción no está habilitada aún.  Libro de compras debe generarse mediante carga de csv";
+					echo json_encode($result);
+					exit;					
+					//$lista_facturas = $this->facturaelectronica->datos_dte_proveedores_periodo($mes,$anno);
 				}
 
 				//NO TIENE MOVIMIENTOS
@@ -394,7 +410,7 @@ class Facturas extends CI_Controller {
 				$array_titulos = array('TpoDoc','NroDoc','TasaImp','FchDoc','CdgSIISucur','RUTDoc','RznSoc','MntExe','MntNeto','MntIVA','CodImp','TasaImp','MntImp','MntTotal');
 
 
-				$fp = fopen('./facturacion_electronica/tmp/libro.csv', 'w');
+				$fp = fopen('./facturacion_electronica/tmp/' . $nombre_archivo_csv, 'w');
 				fputcsv($fp, $array_titulos,";");
 
 
@@ -423,8 +439,65 @@ class Facturas extends CI_Controller {
 
 		}else if($tipocarga == 'csv'){
 
+		        $config['upload_path'] = "./facturacion_electronica/tmp/"	;
+		        $config['file_name'] = $nombre_archivo_csv;
+		        $config['allowed_types'] = "*";
+		        $config['max_size'] = "10240";
+		        $config['overwrite'] = TRUE;
 
-			
+		        //$config['max_width'] = "2000";
+		        //$config['max_height'] = "2000";
+		        $this->load->library('upload', $config);
+		       // $this->upload->do_upload("certificado");
+
+		        $error = false;
+		        $carga = false;
+		        if (!$this->upload->do_upload("csv")) {
+					$result['success'] = true;
+					$result['valido'] = false;
+					$result['message'] = "Error en subir archivo.  Intente nuevamente";
+					echo json_encode($result);
+					exit;
+
+
+		        }else{
+
+		        	$data_file_upload = $this->upload->data();
+		        	if(substr($data_file_upload['client_name'],-3) != 'csv'){
+						$result['success'] = true;
+						$result['valido'] = false;
+						$result['message'] = "Error en subir archivo.  Archivo no es csv";
+						echo json_encode($result);
+						exit;
+
+		        	}
+
+		        	$gestor = fopen("./facturacion_electronica/tmp/" . $nombre_archivo_csv, "r");
+		        	$num_fila = 0;
+
+		        	$columnas_esperadas = $tipo_libro == 'VENTA' ? 14 : 30;
+
+				    while (($datos = fgetcsv($gestor, 1000, ";")) !== FALSE) {
+
+				    	if($num_fila == 2){ // se asume que si vamos para la tercera fila, entonces tiene info
+				    		break;
+				    	}
+
+				        $num_columnas = count($datos);
+				        if($num_columnas <> $columnas_esperadas){
+
+							$result['success'] = true;
+							$result['valido'] = false;
+							$result['message'] = "Error en archivo.  Número de columnas incorrectas";
+							echo json_encode($result);
+							exit;
+				        }
+
+				        $num_fila++;
+				    }
+
+		        }
+
 		}
 		//$datos_dte = $this->datos_dte($idfactura);
 		$config = $this->facturaelectronica->genera_config();
@@ -455,7 +528,7 @@ class Facturas extends CI_Controller {
 		];
 
 
-		$LibroCompraVenta->agregarVentasCSV('./facturacion_electronica/tmp/libro.csv');
+		$LibroCompraVenta->agregarVentasCSV('./facturacion_electronica/tmp/' . $nombre_archivo_csv);
 
 		// enviar libro de compras y mostrar resultado del envío: track id o bien =false si hubo error
 		$LibroCompraVenta->setCaratula($caratula);
@@ -468,10 +541,8 @@ class Facturas extends CI_Controller {
 		    $track_id = $EnvioDTE->enviar();
 	    }		
 
-	    unlink('./facturacion_electronica/tmp/libro.csv');  
-		if(!file_exists('./facturacion_electronica/tmp/')){
-			mkdir('./facturacion_electronica/tmp/',0777,true);
-		}		
+	    //unlink('./facturacion_electronica/tmp/libro.csv');  
+	
 		
 		$nombre_archivo = "LIBRO_".$tipo_libro."_".$anno.$mes.".xml";
 		$f_nombre_archivo = fopen('./facturacion_electronica/libros/'.$nombre_archivo,'w');
